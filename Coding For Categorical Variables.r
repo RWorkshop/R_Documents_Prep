@@ -1,0 +1,286 @@
+
+Coding For Categorical Variables in Regression Models
+
+In R there are at least three different functions that can be used to obtain contrast variables for use in regression or ANOVA. For those shown below, the default contrast coding is “treatment” coding, which is another name for “dummy” coding. This is the coding most familiar to statisticians. “Dummy” or “treatment” coding basically consists of creating dichotomous variables where each level of the categorical variable is contrasted to a specified reference level. In the case of the variable race which has four levels, a typical dummy coding scheme would involve specifying a reference level, let’s pick level 1 (which is the default), and then creating three dichotomous variables, where each variable would contrast each of the other levels with level 1. So, we would have a variable which would contrast level 2 with level 1, another variable that would contrast level 3 with level 1 and a third variable that would contrast level 4 with level 1. There are actually four different contrasts coding that have built in functions in R, but we will focus our attention on the treatment (or dummy) coding since it is the most popular choice for data analysts. For more information about different contrasts coding systems and how to implement them in R, please refer to R Library: Coding systems for categorical variables.
+
+For the examples on this page we will be using the hsb2 data set. Let’s first read in the data set and create the factor variable race.f based on the variable race. We will then use the is.factor function to determine if the variable we create is indeed a factor variable, and then we will use the lm function to perform a regression, and get a summary of the regression using the summary function.
+
+hsb2 <- read.csv("https://stats.idre.ucla.edu/stat/data/hsb2.csv")
+1. The factor function
+
+# creating the factor variable
+hsb2$race.f <- factor(hsb2$race)
+is.factor(hsb2$race.f)
+## [1] TRUE
+hsb2$race.f[1:15]
+##  [1] 4 4 4 4 4 4 3 1 4 3 4 4 4 4 3
+## Levels: 1 2 3 4
+summary(lm(write ~ race.f, data = hsb2))
+## 
+## Call:
+## lm(formula = write ~ race.f, data = hsb2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -23.055  -5.458   0.972   7.000  18.800 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)    46.46       1.84   25.22  < 2e-16 ***
+## race.f2        11.54       3.29    3.51  0.00055 ***
+## race.f3         1.74       2.73    0.64  0.52461    
+## race.f4         7.60       1.99    3.82  0.00018 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 9.03 on 196 degrees of freedom
+## Multiple R-squared:  0.107,	Adjusted R-squared:  0.0934 
+## F-statistic: 7.83 on 3 and 196 DF,  p-value: 5.78e-05
+You can also use the factor function within the lm function, saving the step of creating the factor variable first.
+
+summary(lm(write ~ factor(race), data = hsb2))
+## 
+## Call:
+## lm(formula = write ~ factor(race), data = hsb2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -23.055  -5.458   0.972   7.000  18.800 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)      46.46       1.84   25.22  < 2e-16 ***
+## factor(race)2    11.54       3.29    3.51  0.00055 ***
+## factor(race)3     1.74       2.73    0.64  0.52461    
+## factor(race)4     7.60       1.99    3.82  0.00018 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 9.03 on 196 degrees of freedom
+## Multiple R-squared:  0.107,	Adjusted R-squared:  0.0934 
+## F-statistic: 7.83 on 3 and 196 DF,  p-value: 5.78e-05
+
+
+
+2. Using the C function
+
+The C function (this must be a upper-case "C") allows you to create several different kinds of contrasts, including treatment, Helmert, sum and poly. Treatment is another name for dummy coding. Sum stands for contrasts that sum to zero, such as the type used in ANOVA models. Poly is short for polynomial. Three arguments are used with this function. The first one names the factor to be used, the second indicated the type of contrast to be used (e.g., treatment, Helmert, etc.), and the third indicates the number of contrasts to be set. The default is one less than the number of levels of the factor variable. We will start out by using the treatment contrast. We will accept the default setting for the number of levels, so that argument can be omitted.
+
+hsb2 <- within(hsb2, {
+    race.ct <- C(race.f, treatment)
+    print(attributes(race.ct))
+})
+## $levels
+## [1] "1" "2" "3" "4"
+## 
+## $class
+## [1] "factor"
+## 
+## $contrasts
+## [1] "contr.treatment"
+summary(lm(write ~ race.ct, data = hsb2))
+## 
+## Call:
+## lm(formula = write ~ race.ct, data = hsb2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -23.055  -5.458   0.972   7.000  18.800 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)    46.46       1.84   25.22  < 2e-16 ***
+## race.ct2       11.54       3.29    3.51  0.00055 ***
+## race.ct3        1.74       2.73    0.64  0.52461    
+## race.ct4        7.60       1.99    3.82  0.00018 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 9.03 on 196 degrees of freedom
+## Multiple R-squared:  0.107,	Adjusted R-squared:  0.0934 
+## F-statistic: 7.83 on 3 and 196 DF,  p-value: 5.78e-05
+Now we will try an example using the Helmert coding system which compares each subsequent level to the mean of the previous levels. For example, the third level will be compared with the mean of the first two levels, and the fourth level will be compared to the mean of the first three levels. Also note that, like most functions in R, C is case-sensitive:  the arguments for the type of contrast must be in all lower case letters (i.e., typing Helmert will give you a strange error message that does not indicate that the problem is that you need to use a lower-case h (helmert)).  We will make two objects using this type of coding:  for the first one we will accept the default number of contrasts to be created, and in the second one we will specify that three contrasts are to be made (because the variable race has four levels). As you will see, the difference is found in the output of the attributes function, not in the results of the lm.
+
+hsb2 <- within(hsb2, {
+    race.ch <- C(race.f, helmert)
+    print(attributes(race.ch))
+})
+## $levels
+## [1] "1" "2" "3" "4"
+## 
+## $class
+## [1] "factor"
+## 
+## $contrasts
+## [1] "contr.helmert"
+summary(lm(write ~ race.ch, data = hsb2))
+## 
+## Call:
+## lm(formula = write ~ race.ch, data = hsb2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -23.055  -5.458   0.972   7.000  18.800 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)   51.678      0.982   52.62  < 2e-16 ***
+## race.ch1       5.771      1.643    3.51  0.00055 ***
+## race.ch2      -1.343      0.867   -1.55  0.12317    
+## race.ch3       0.792      0.372    2.13  0.03444 *  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 9.03 on 196 degrees of freedom
+## Multiple R-squared:  0.107,	Adjusted R-squared:  0.0934 
+## F-statistic: 7.83 on 3 and 196 DF,  p-value: 5.78e-05
+hsb2 <- within(hsb2, {
+    race.ch1 <- C(race.f, helmert, 3)
+    print(attributes(race.ch1))
+})
+## $levels
+## [1] "1" "2" "3" "4"
+## 
+## $class
+## [1] "factor"
+## 
+## $contrasts
+##   [,1] [,2] [,3]
+## 1   -1   -1   -1
+## 2    1   -1   -1
+## 3    0    2   -1
+## 4    0    0    3
+summary(lm(write ~ race.ch1, data = hsb2))
+## 
+## Call:
+## lm(formula = write ~ race.ch1, data = hsb2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -23.055  -5.458   0.972   7.000  18.800 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)   51.678      0.982   52.62  < 2e-16 ***
+## race.ch11      5.771      1.643    3.51  0.00055 ***
+## race.ch12     -1.343      0.867   -1.55  0.12317    
+## race.ch13      0.792      0.372    2.13  0.03444 *  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 9.03 on 196 degrees of freedom
+## Multiple R-squared:  0.107,	Adjusted R-squared:  0.0934 
+## F-statistic: 7.83 on 3 and 196 DF,  p-value: 5.78e-05
+3. Using the contr. function
+
+The contr. function is a little different from the preceding functions, in that it is really two functions. In most cases, you will have function on both sides of <- . On the left side you will usually have the contrasts() function, and on the right contr.treatment(), contr.helmert(), or whatever contrast you want to use. We suggest that you first look at the help file for this function, as the arguments are different for each type of contrast (i.e., treatment, Helmert, sum and poly). For the treatment contrast, the arguments are n, base and contrasts. There is no default for the n argument, so this number must be specified. The default for the base argument is 1, meaning that the first level is used as the reference level. The default for the contrasts argument is TRUE.
+
+One advantage to using the two function method is that it allows you to change the default reference level if you like. We will not show that here, but it can be done using the options() function (see the help file for contrasts for an example of how to do this).
+
+First, we will use the contrasts() function by itself simply to show what it is doing. Please note that while the example works for treatment coding, it does not work for other types of coding.
+
+(a <- contrasts(hsb2$race.f))
+##   2 3 4
+## 1 0 0 0
+## 2 1 0 0
+## 3 0 1 0
+## 4 0 0 1
+
+
+Now let's use the contrasts() function with the contr.treatment() function. The results from the linear model (the lm() function) should match those that we have obtained previously.  Note that the number given in the parentheses is the number of levels of the factor variable race.
+
+contrasts(hsb2$race.f) <- contr.treatment(4)
+summary(lm(write ~ race.f, data = hsb2))
+## 
+## Call:
+## lm(formula = write ~ race.f, data = hsb2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -23.055  -5.458   0.972   7.000  18.800 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)    46.46       1.84   25.22  < 2e-16 ***
+## race.f2        11.54       3.29    3.51  0.00055 ***
+## race.f3         1.74       2.73    0.64  0.52461    
+## race.f4         7.60       1.99    3.82  0.00018 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 9.03 on 196 degrees of freedom
+## Multiple R-squared:  0.107,	Adjusted R-squared:  0.0934 
+## F-statistic: 7.83 on 3 and 196 DF,  p-value: 5.78e-05
+Now let's try changing the reference level to the second level of race.f.
+
+contrasts(hsb2$race.f) <- contr.treatment(4, base = 2)
+summary(lm(write ~ race.f, data = hsb2))
+## 
+## Call:
+## lm(formula = write ~ race.f, data = hsb2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -23.055  -5.458   0.972   7.000  18.800 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)    58.00       2.72   21.31  < 2e-16 ***
+## race.f1       -11.54       3.29   -3.51  0.00055 ***
+## race.f3        -9.80       3.39   -2.89  0.00425 ** 
+## race.f4        -3.94       2.82   -1.40  0.16380    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 9.03 on 196 degrees of freedom
+## Multiple R-squared:  0.107,	Adjusted R-squared:  0.0934 
+## F-statistic: 7.83 on 3 and 196 DF,  p-value: 5.78e-05
+Another way of doing the same thing would be to specify which levels of the factor variable race.f are to be included in the model.
+
+summary(lm(write ~ I(race.f == 1) + I(race.f == 3) + I(race.f == 4), data = hsb2))
+## 
+## Call:
+## lm(formula = write ~ I(race.f == 1) + I(race.f == 3) + I(race.f == 
+##     4), data = hsb2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -23.055  -5.458   0.972   7.000  18.800 
+## 
+## Coefficients:
+##                    Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)           58.00       2.72   21.31  < 2e-16 ***
+## I(race.f == 1)TRUE   -11.54       3.29   -3.51  0.00055 ***
+## I(race.f == 3)TRUE    -9.80       3.39   -2.89  0.00425 ** 
+## I(race.f == 4)TRUE    -3.94       2.82   -1.40  0.16380    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 9.03 on 196 degrees of freedom
+## Multiple R-squared:  0.107,	Adjusted R-squared:  0.0934 
+## F-statistic: 7.83 on 3 and 196 DF,  p-value: 5.78e-05
+Now let's try using the Helmert coding.
+
+contrasts(hsb2$race.f) <- contr.helmert(4)
+summary(lm(write ~ race.f, data = hsb2))
+## 
+## Call:
+## lm(formula = write ~ race.f, data = hsb2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -23.055  -5.458   0.972   7.000  18.800 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)   51.678      0.982   52.62  < 2e-16 ***
+## race.f1        5.771      1.643    3.51  0.00055 ***
+## race.f2       -1.343      0.867   -1.55  0.12317    
+## race.f3        0.792      0.372    2.13  0.03444 *  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 9.03 on 196 degrees of freedom
+## Multiple R-squared:  0.107,	Adjusted R-squared:  0.0934 
+## F-statistic: 7.83 on 3 and 196 DF,  p-value: 5.78e-05
+
