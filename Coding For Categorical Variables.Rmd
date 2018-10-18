@@ -1,11 +1,8 @@
 
 
-```R
-Coding For Categorical Variables in Regression Models
-```
 
+##Coding For Categorical Variables in Regression Models
 
-```R
 In R there are at least three different functions that can be used to obtain contrast variables for use in regression or ANOVA. For those shown below, the default contrast coding is “treatment” coding, which is another name for “dummy” coding. This is the coding most familiar to statisticians. “Dummy” or “treatment” coding basically consists of creating dichotomous variables where each level of the categorical variable is contrasted to a specified reference level. In the case of the variable race which has four levels, a typical dummy coding scheme would involve specifying a reference level, let’s pick level 1 (which is the default), and then creating three dichotomous variables, where each variable would contrast each of the other levels with level 1. So, we would have a variable which would contrast level 2 with level 1, another variable that would contrast level 3 with level 1 and a third variable that would contrast level 4 with level 1. There are actually four different contrasts coding that have built in functions in R, but we will focus our attention on the treatment (or dummy) coding since it is the most popular choice for data analysts. For more information about different contrasts coding systems and how to implement them in R, please refer to R Library: Coding systems for categorical variables.
 
 For the examples on this page we will be using the hsb2 data set. Let’s first read in the data set and create the factor variable race.f based on the variable race. We will then use the is.factor function to determine if the variable we create is indeed a factor variable, and then we will use the lm function to perform a regression, and get a summary of the regression using the summary function.
