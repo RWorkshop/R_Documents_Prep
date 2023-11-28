@@ -1,12 +1,1 @@
 
-Overview
-========================
-
-* *Binary logistic regression*, also called a logit model, is used to model ***dichotomous outcome*** variables. In the logit model the log odds of the outcome is modeled as a linear combination of the predictor variables.
-* *Multinomial logistic regression* is used to model nominal outcome variables (categorical variables). Again the log odds of the outcomes are modeled as a linear combination of the predictor variables.
-* *Ordinal logistic regression* is used to model nominal outcome variables, where a hierarchy within categories exists.
-
-### Count Variables
-* Poisson regression is used to model count variables.
-* Negative binomial regression is for modeling count variables, usually for over-dispersed count outcome variables.
-
