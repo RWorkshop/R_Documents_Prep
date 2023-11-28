@@ -1,22 +1,6 @@
 
 
 
-%---------------------------------------------------------------------------Probability Distributions ----%
-
-chapter{Probability Distributions}
-<p>
-### {Generating a set of random numbers}
-
-begin{myindentpar}{1cm}
- <code>
-rnorm(10)
-</code>
-end{myindentpar}
-
-
-
-
-
 
 
 
@@ -37,10 +21,10 @@ zero.
 
 
 %----------------------------------------------------%
-\begin{itemize}
+
 *  The standard $\chi^{2}$ test  in chisq.test works with data in matrix form, like fisher.test does.
 *  For a 2 by 2 table, the test is exactly equivalent to prop.test.
-\end{itemize}
+
 
 
 \large \begin{verbatim}

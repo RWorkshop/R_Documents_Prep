@@ -1,6 +1,6 @@
 
 
-\section{Basic R editing – Script Editor and \texttt{edit()}}
+## Basic R editing – Script Editor and \texttt{edit()}}
 R has an inbuilt script editor. We will use it for this class, but there are plenty of top quality “Integrated Development Environments “ out there. (Read up about RStudio for  example.)
 
 To start a new script, or open an existing script simply go to “File” on the menu bar and click the appropriate options.
@@ -9,49 +9,16 @@ To pass the code for compiling – press the “run line or selection” option 
 Another way to edit code is to use the \texttt{edit()} function – which operates directly from the command line.  
 To edit the code defining an object X, simply type edit(X).
 %------------------------------------------------------%
-\section{Changing GUI options}
+## Changing GUI options}
 We can change the GUI options using the “GUI preferences” option on the Edit menu. (Important when teaching R)
 A demonstration will be done in class. 
 
-%---------------------------------------------------------------------------------------------%
-\subsection*{Dimensions of a data set}
-We have remarked that some data sets are very large. This is perhaps a good place to consider summary information about data objects.
-For a simple vector – a useful command to determine the length (remark: sample size) is the function \texttt{length()}.
-\begin{framed}
-\begin{verbatim}
-> Y=5:9
-> length(Y)
-[1] 5
-\end{verbatim}
-\end{framed}
-%---------------------------------------------------------------------------------------------%
-For more complex data sets (and data frames, which we will see later) – we have several tools for assessing the size of data.
-\begin{framed}
-\begin{verbatim}
-> dim(iris)  # dimensions of data set
-[1] 150   5
-> nrow(iris) # number of rows
-[1] 150
-> ncol(iris) # number of columns
-[1] 5
-\end{verbatim}
-\end{framed}
-%---------------------------------------------------------------------------------------------%
-We can also determine the row names and column names using the functions \texttt{rownames()} and \texttt{colnames()}.
-If there are no specific row or column names – the command will just return the indices.
 
-\begin{framed}
-\begin{verbatim}
-> colnames(iris)
-[1] "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species"
-
-\end{verbatim}
-\end{framed}
 The command \texttt{summary()} is one of the most useful commands in R. It is a generic function used to produce result summaries of the results of various functions. The function invokes particular methods which depend on the class of the first argument. 
 In other words – <tt>R</tt> picks out the most suitable type of summary for that data.
 {
 	\small
-\begin{framed}
+
 \begin{verbatim}
 > summary(iris)
   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width          Species  
@@ -63,7 +30,7 @@ In other words – <tt>R</tt> picks out the most suitable type of summary for th
  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500                  
 >
 \end{verbatim}
-\end{framed}
+
 }
 
 %---------------------------------------------------------------------------------------------%
@@ -71,14 +38,14 @@ In other words – <tt>R</tt> picks out the most suitable type of summary for th
 Working directories
 You can change your working directly by using the appropriate options on the File menu.
 To determine the current working directory – you can use the \texttt{getwd()} command:	
-\begin{framed}
+
 \begin{verbatim}
 > getwd()
 [1] "C:/Users/Kevin/Documents"
 \end{verbatim}
-\end{framed}
+
 To change the working directory – we would use the \texttt{setwd()} command.
-\begin{framed}
+
 \begin{verbatim}
 > getwd()
 [1] "C:/Users/Kevin"
@@ -88,7 +55,7 @@ To change the working directory – we would use the \texttt{setwd()} command.
 > getwd()
 [1] "C:/Users/Kevin/Documents"
 \end{verbatim}
-\end{framed}
+
 
 %---------------------------------------------------------------------------------------------%
 \subsection*{Coming unstuck}

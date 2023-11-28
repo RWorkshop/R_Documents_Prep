@@ -1,0 +1,31 @@
+
+ 
+boxplot.stats(count ~ spray, data = InsectSprays, col = "lightgray")
+# *add* notches (somewhat funny here):
+boxplot(count ~ spray, data = InsectSprays,        notch = TRUE, add = TRUE, col = "blue")
+
+
+
+ 
+Task 1 : Bland Altman Plot
+Computation of case-wise differences and averages.
+ 
+Standard deviation of differences
+ 
+abline()
+ 
+
+Basic statistics in R
+
+Summary statistics of a data set can be obtained from summary, or by using individual commands
+like mean, sd, mad, and IQR. Standard hypothesis tests are also available, e.g., t.test
+yields the standard tests for means of one or two normal samples. 
+ 
+Probability distributions in R.
+
+Standard probability distributions have short names in R as given by Table 2.1. Several
+probability functions are available. Their names consists of two parts: the first part is the
+name of the function (see Table 2.2), while the second part is the name as in Table 2.1.
+E.g., a sample of size 10 from an exponential distribution with mean 3 is generated in R by
+rexp(10,1/3) (R uses the failure intensity instead of the mean as parameter).
+

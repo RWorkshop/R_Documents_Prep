@@ -1,0 +1,24 @@
+Inference Procedures
+ 
+Test
+Name in R
+Package
+Shapiro-Wilks
+shapiro.test
+stats
+Kolmogorov (1-sample)
+ks.test
+stats
+Smirnov (2-sample)
+ks.test
+stats
+Anderson-Darling
+ad.test
+nortest
+Cramér-von Mises
+cvm.test
+nortest
+Lilliefors
+lillie.test
+nortest
+

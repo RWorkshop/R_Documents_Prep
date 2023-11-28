@@ -1,0 +1,69 @@
+
+%=====================================================================================================================%
+\begin{frame}
+
+For example, to load the fda package:
+
+> library(fda)
+
+One important thing to note is that if you terminate your session and start a new session with the saved workspace, you must load  the packages again
+
+
+
+install.packages("evir")
+ 
+To get out of R, just type: q(). 
+
+\end{frame}
+
+\begin{frame}
+
+Section 10: Simulation
+Simulation Study : Random Walks
+Simulation Study: Distribution of pairwise maxima and minima
+Simulation Study : Gamblers Ruins
+Simulation Study: Probability of Gambler Ruin
+
+\end{frame}
+%=====================================================================================================================%
+\begin{frame}
+
+Section 1: Basic R commands and Functions
+Installing R on your computer
+R can be easily downloaded from the Comprehenive R Archive Network (CRAN) website.
+\end{frame}
+%=====================================================================================================================%
+\begin{frame}
+
+Editing your Data
+
+x=c(0 ,5)     	      # create a vector x
+data.entry(x)  	   # edit the values using spreadsheet interface.
+x  	                     # print to screen
+x=edit(x)	          # the 'edit' function to call the script editor
+x  	                     # print to screen
+
+\end{frame}
+
+%=====================================================================================================================%
+\begin{frame}
+Manipulating Characters
+> nchar("oscar")
+[1] 5
+
+Objects
+During an R session, objects are created and stored by name. The command "ls()" displays all currently-stored objects (workspace). Objects can be removed using the "rm()" function.
+
+\end{frame}
+%=====================================================================================================================%
+\begin{frame}
+
+ls()
+rm(x, a, temp, wt.males)
+rm(list=ls())								#removes all of the objects in the workspace.
+
+
+At the end of each R session, you are prompted to save your workspace. If you click Yes, all objects are written to the ".RData" file. 
+When R is re-started, it reloads the workspace from this file and the command history stored in ".Rhistory" is also reloaded.
+
+%==================================================================================================================%

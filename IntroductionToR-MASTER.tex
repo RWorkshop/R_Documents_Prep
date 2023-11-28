@@ -139,7 +139,7 @@ poverty=c(9.1 ,17.4 ,20 ,15.4 ,18.2 ,9.9 ,8.5 ,10.2 ,17.8 ,13.5 ,8 ,10.3 ,13.1 ,
 
 
 
-\newpage
+<p>
 %------------------------------------------%
 
 
@@ -153,14 +153,14 @@ When running R from the computer lab, your M drive will be the working directory
 You can save your work at any time. Select Save Workspace from the File menu. You will usually save the workspace in the working directory. When you quit R you will be prompted to save your workspace. 
 
 
-\section{The ``summary()`` command}
+## The ``summary()`` command}
 ``summary()`` is a generic but very useful, function to summarize many types of ``R} objects, including datasets. When used on a dataset, summary returns distributional summaries of variables in the dataset.
 
 
 
 
 
-\section{A Brief Introduction to fitting Linear Models (Lists)}
+## A Brief Introduction to fitting Linear Models (Lists)}
 
 A very commonly used statistical procedure is \textbf{simple linear regression}
 
@@ -168,7 +168,7 @@ A very commonly used statistical procedure is \textbf{simple linear regression}
 * ``summary()``
 
 
-\begin{framed}
+
 \begin{verbatim}
 Y <- c( )
 X <- c( )
@@ -177,42 +177,42 @@ plot(X,Y)
 cor(X,Y)
 lm(Y~X)
 \end{verbatim}
-\end{framed}
+
 %------------------------%
-\begin{framed}
+
 \begin{verbatim}
 FitA =lm(Y~X)
 summary(FitA)
 \end{verbatim}
-\end{framed}
+
 %--------------------------------%
 Let's look at this summary output in more detail, to see how it is structured. Importantly this object is structured as a list of named components.
-\begin{framed}
+
 \begin{verbatim}
 names(summary(FitA))
 class(summary(FitA))
 mode(summary(FitA))
 str(summary(FitA))
 \end{verbatim}
-\end{framed}
+
 
 %-------------------------------%
 The summary of ``FitA} is a data object in it's own right. We will save it under the name ``Sum.FitA} (N.B. The dot in the name has no particular meaning).
-\begin{framed}
+
 \begin{verbatim}
 Sum.FitA=summary(FitA)
 Sum.FitA[1]
 Sum.FitA$pvalue
 \end{verbatim}
-\end{framed}
+
 %------------------------------%
 Suppose we wish require the $p-$value for the slope estimate only.
-\begin{framed}
+
 \begin{verbatim}
 class(Sum.FitA$pvalue)
 mode(Sum.FitA$pvalue)
 dim(Sum.FitA$pvalue)
 \end{verbatim}
-\end{framed}
+
 %-------------------------------------------------%
 

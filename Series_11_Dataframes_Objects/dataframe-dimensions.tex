@@ -1,0 +1,72 @@
+%---------------------------------------------------------------------------------------------%
+\subsection*{Dimensions of a data set}
+We have remarked that some data sets are very large. This is perhaps a good place to consider summary information about data objects.
+For a simple vector – a useful command to determine the length (remark: sample size) is the function \texttt{length()}.
+
+\begin{verbatim}
+> Y=5:9
+> length(Y)
+[1] 5
+\end{verbatim}
+
+%---------------------------------------------------------------------------------------------%
+For more complex data sets (and data frames, which we will see later) – we have several tools for assessing the size of data.
+
+\begin{verbatim}
+> dim(iris)  # dimensions of data set
+[1] 150   5
+> nrow(iris) # number of rows
+[1] 150
+> ncol(iris) # number of columns
+[1] 5
+\end{verbatim}
+
+%---------------------------------------------------------------------------------------------%
+We can also determine the row names and column names using the functions \texttt{rownames()} and \texttt{colnames()}.
+If there are no specific row or column names – the command will just return the indices.
+
+
+\begin{verbatim}
+> colnames(iris)
+[1] "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species"
+
+\end{verbatim}
+
+
+%---------------------------------------------------------------------------------------------%
+<p>
+####        * {Dimensions of a data set}
+We have remarked that some data sets are very large. This is perhaps a good place to consider summary information about data objects.
+For a simple vector – a useful command to determine the length (remark: sample size) is the function texttt{length()}.
+<pre>
+<code>
+> Y=5:9
+> length(Y)
+[1] 5
+</code>
+</pre>
+<p>
+%---------------------------------------------------------------------------------------------%
+For more complex data sets (and data frames, which we will see later) – we have several tools for assessing the size of data.
+<pre>
+<code>
+> dim(iris)  # dimensions of data set
+[1] 150   5
+> nrow(iris) # number of rows
+[1] 150
+> ncol(iris) # number of columns
+[1] 5
+</code>
+</pre>
+<p>
+%---------------------------------------------------------------------------------------------%
+We can also determine the row names and column names using the functions texttt{rownames()} and texttt{colnames()}.
+If there are no specific row or column names – the command will just return the indices.
+
+<pre>
+<code>
+> colnames(iris)
+[1] "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species"
+
+</code>
+</pre>

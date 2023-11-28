@@ -1,0 +1,16 @@
+
+
+
+%---------------------------------------------------------------------------Probability Distributions ----%
+
+chapter{Probability Distributions}
+<p>
+### {Generating a set of random numbers}
+
+begin{myindentpar}{1cm}
+ <code>
+rnorm(10)
+</code>
+end{myindentpar}
+
+

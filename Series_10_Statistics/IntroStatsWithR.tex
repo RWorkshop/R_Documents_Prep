@@ -2,7 +2,7 @@
 ### Outliers}
 Another reason that the data may not be normally distributed is the presence of an outlier. We shall look at formal tests for outliers (such as the Grubb's test) next week. Recall that boxplots can be used to detect potential outliers.
 
-\section{Single Sample Inference Procedures}
+## Single Sample Inference Procedures}
 
 While analyzing a (single) sample of data values, we will often want to answer several questions:
 
@@ -18,8 +18,8 @@ We refer to the methods used to answer these questions as ***inference procedure
 
 
 %---------------------------------------------------- %
-\newpage
-\section{Bivariate data}
+<p>
+## Bivariate data}
 ### What is Bivariate data?}
 
 A dataset with two variables contains what is called bivariate data. For example, the heights and weights of people (i.e. for the purposes of determining the extent to which taller people weigh more)
@@ -62,7 +62,7 @@ FIT1$coefficients
 class(FIT1)
 ```
 
-\newpage
+<p>
 ### Confidence Interval for Regression Estimate}
 To compute the confidence intervals for both estimates, we use the \texttt\textbf{{confint()*** command, specifying the name of the fitted model.
 
@@ -93,7 +93,7 @@ Equivalently $R^2$ provides a measure of how well future outcomes are likely to 
 summary(fit1)$r.squared
 ```
 
-\newpage
+<p>
 
 
 The estimates (i.e regression coefficients) may be determined directly using the 
@@ -122,34 +122,3 @@ The law of parsimony, the simplest model that adequately explains the outcomes i
 
 
 
-
-
-### Model Selection}
-There are many important methodologies for determining which combination of predictor variables bests describes a response variable. You will meet this in future modules.
-We will use two simple ones for this module only.
-
-* Adjusted R–squared value
-* The Akaike Information Criterion (AIC)
-
-
-
-The adjusted R-square value is found on the summary output for a fitted model. It is called ***adjusted*** because it takes into account the number of predictor variables being used. The law of parsimony states the simplest model that adequately explains the outcomes is the best. The candidate model with the higher adjusted R squared is considered preferable.
-
-The AIC is a model selection metric often used in statistics.It is computed using the R command
-***AIC()***.The candidate model with the smallest AIC value is considered preferable.
-
-
-```{r}
-fitA = lm(Sepal.Length ~ Sepal.Width + Petal.Width)
-fitB = lm(Sepal.Length ~ Sepal.Width + Petal.Length)
-
-summary(fitA)$adj.r.squared
-summary(fitB)$adj.r.squared
-
-AIC(fitA)
-AIC(fitB)
-```
-
-
-%----------------------------------------------------%
-\end{document} 
