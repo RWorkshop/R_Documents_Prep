@@ -1,0 +1,155 @@
+
+### Outliers}
+Another reason that the data may not be normally distributed is the presence of an outlier. We shall look at formal tests for outliers (such as the Grubb's test) next week. Recall that boxplots can be used to detect potential outliers.
+
+\section{Single Sample Inference Procedures}
+
+While analyzing a (single) sample of data values, we will often want to answer several questions:
+
+* What is the mean value?  (i.e. of 100 roles of a die)
+* Is the mean value significantly different from some pre-supposed value?
+(i.e. Hypothesis testing ; is the observed mean reasonably close to our expected value)
+* What is the level of uncertainty associated with our estimate of the mean value? (i.e. Confidence interval for the estimates)
+
+We refer to the methods used to answer these questions as ***inference procedures***.
+
+
+
+
+
+%---------------------------------------------------- %
+\newpage
+\section{Bivariate data}
+### What is Bivariate data?}
+
+A dataset with two variables contains what is called bivariate data. For example, the heights and weights of people (i.e. for the purposes of determining the extent to which taller people weigh more)
+
+Common bivariate statistical analyses include
+
+* Correlation
+* Simple Linear Regression
+
+
+### Scatter Plot} A scatter plot of two variables shows the values of one variable on the Y axis and the values of the other variable on the X axis. Scatter plots are well suited for revealing the relationship between two variables.
+
+Scatterplots can be implemented in \texttt{R} using the command ***plot()***
+
+Exercise: Let us construct scatter-plots for the Immer and Iris data sets.
+
+
+```{r}
+plot(immer$Y1,immer$Y2)
+
+plot(iris[,1],iris[,3])
+```
+
+More complex scatterplots, with better visual aesthetics, can be constructed. We will look at this more later on in the semester.
+
+
+
+
+We can give a name to the model (e.g. $FIT1$), and view all of the results of the calculation, including the regression coefficients, hypothesis test results and information on the residuals (i.e. the differences between the estimated ‘y’ values and the observed ‘y’ values).
+
+In common with all data structures we can use the \textbf{\texttt{names()*** function and ‘$\$$’ to access components.
+
+
+```{r}
+FIT1 = lm(Y~X)
+summary(FIT1)
+names(FIT1)
+names(summary(FIT1))
+FIT1$coefficients
+class(FIT1)
+```
+
+\newpage
+### Confidence Interval for Regression Estimate}
+To compute the confidence intervals for both estimates, we use the \texttt\textbf{{confint()*** command, specifying the name of the fitted model.
+
+```{r}
+C=c(0,2,4,6,8,10,12)
+F=c(2.1,5.0,9.0,12.6,17.3,21.0,24.7)
+Fit1=lm(F~C)
+coef(Fit1)
+# (Intercept)        Conc
+     1.517857    1.930357
+
+confint(Fit1)
+#               2.5 %   97.5 %
+# (Intercept) 0.75970 2.276014
+# Conc        1.82522 2.035495
+```
+
+
+### The Coefficient of Determination}
+The coefficient of determination $R^2$ is the proportion of variability in a data set that is accounted for by the linear model.
+
+Equivalently $R^2$ provides a measure of how well future outcomes are likely to be predicted by the model.
+
+(For simple linear regression, it canbe computed by squaring the correlation coefficient.)
+
+
+```{r}
+summary(fit1)$r.squared
+```
+
+\newpage
+
+
+The estimates (i.e regression coefficients) may be determined directly using the 
+coef() command.
+
+.
+A fundamental assumption of linear models is that the
+Residuals are normally distributed with mean zero. Investigate this using the RESID command.
+
+The Anderson Darling test is the conventional inference test for assessing whether a data set is normally distibuted. It requires liading the normtest pagkage into the R environment. A nother inference procedure fir testing normality is the Shapiro Wilk test. (We will use this one fir this module, but use Anderson Darling in future).
+
+shapiro.test(x)
+
+The null hypothesis is that the data set is normally distribted. We reject this null hypothesis if the pvalue is too small.
+
+The summary function provides a comprehensive overview of all inference estimates for a model fit, including pvalues for all predictor variables.
+
+The summary output is constructed as a list, and as such, components can be aaccessed using the dollar sign.(Find the names of the component using the names command)
+
+coef(fit1)
+
+returns the intercept and slope estmates for the model.
+
+The adjusted coefficient of determination is computed to account for the presence of more than one predictor variable.
+The law of parsimony, the simplest model that adequately explains the outcomes is the best.
+
+
+
+
+
+### Model Selection}
+There are many important methodologies for determining which combination of predictor variables bests describes a response variable. You will meet this in future modules.
+We will use two simple ones for this module only.
+
+* Adjusted R–squared value
+* The Akaike Information Criterion (AIC)
+
+
+
+The adjusted R-square value is found on the summary output for a fitted model. It is called ***adjusted*** because it takes into account the number of predictor variables being used. The law of parsimony states the simplest model that adequately explains the outcomes is the best. The candidate model with the higher adjusted R squared is considered preferable.
+
+The AIC is a model selection metric often used in statistics.It is computed using the R command
+***AIC()***.The candidate model with the smallest AIC value is considered preferable.
+
+
+```{r}
+fitA = lm(Sepal.Length ~ Sepal.Width + Petal.Width)
+fitB = lm(Sepal.Length ~ Sepal.Width + Petal.Length)
+
+summary(fitA)$adj.r.squared
+summary(fitB)$adj.r.squared
+
+AIC(fitA)
+AIC(fitB)
+```
+
+
+%----------------------------------------------------%
+\end{document} 
