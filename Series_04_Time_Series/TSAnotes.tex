@@ -4,16 +4,16 @@
 \usepackage{amsmath}
 \begin{document}
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \huge
 \[ \mbox{ Time Series Analysis
 and Business
 Forecasting} \]
 
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \textbf{PART A: THE CLASSICAL TIME SERIES MODEL}
 \begin{itemize}
@@ -26,9 +26,9 @@ graph, with the time periods represented on the horizontal axis and time series 
 represented on the vertical axis.
 \end{itemize}
 %% LINE GRAPH
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \textbf{EXAMPLE 1.}
 \begin{itemize}
@@ -38,9 +38,9 @@ that was incorporated in 1990.
 declining sales that culminated in the trough in 1997, which was then followed by increasing levels of sales during the
 final three years of the reported time series values.
 \end{itemize}
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \begin{itemize}
 \item Time series analysis is the procedure by which the time-related factors that influence the values observed in
@@ -48,9 +48,9 @@ the time series are identified and segregated.
 \item Once identified, they can be used to aid in the interpretation of
 historical time series values and to forecast future time series values. 
 \end{itemize}
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 The classical approach to time series
 analysis identifies four such influences, or, components:
@@ -62,9 +62,9 @@ several years.
 recur annually. Such variations typically are identified on the basis of monthly or quarterly data.
 \item[(4)] Irregular variations (I): The erratic variations from trend that cannot be ascribed to the cyclical or seasonal
 influences.
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 The model underlying classical time series analysis is based on the assumption that for any designated
 period in the time series the value of the variable is determined by the four components defined above, and,
@@ -74,9 +74,9 @@ series value,
 The model represented by (16.1) is used as the basis for separating the influences of the various components
 that affect time series values, as described in the following sections of this chapter.
 
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \textbf{Part B: TREND ANALYSIS}
 \begin{itemize}
@@ -86,9 +86,9 @@ analysis generally is performed using annual data.
 that cyclical movements, involving several years duration are not taken to be indicative of the overall trend of
 the time series values.
 \end{itemize}
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \begin{itemize}
 \item The method of least squares is the most frequent basis used for identifying the trend
@@ -100,9 +100,9 @@ rather, a series of historical values.
 a distribution of values) and the values associated with adjoining time periods are likely to be dependent, rather
 than independent. 
 \end{itemize}
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 Nevertheless, the least-squares method is a convenient basis for determining the trend
 component of a time series. When the long-term increase or decrease appears to follow a linear trend, the
@@ -112,9 +112,9 @@ As explained in Section 14.3, the b0 in (16.2) represents the point of intersect
 axis, whereas the b1 represents the slope of the trend line. Where X is the year and Y is the observed time series
 value, the formulas for determining the values of b0 and b1 for the linear trend equation are
 %% EQUATION
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 See Problem 16.1 for the determination of a linear trend equation.
 In the case of nonlinear trend, a type of trend curve often found to be useful is the exponential trend curve.
@@ -126,9 +126,9 @@ YT ¼ b0 bX
 1 (16:5)
 where b0 ¼ value of YT in Year 0
 b1 ¼ rate of growth (e.g., 1:10 ¼ 10% rate of growth)
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \begin{itemize}
 \item Taking the logarithm of both sides of (16.5) results in a linear logarithmic trend equation,
@@ -139,9 +139,9 @@ applied to the logs of the values when the time series follows an exponential cu
 for YT can then be reconverted to the original measurement units by taking the antilog of the values. We do not
 demonstrate such analysis in this book.
 \end{itemize}
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \begin{itemize}
 \item Many time series for the sales of a particular product can be observed to include three stages: an
@@ -154,9 +154,9 @@ be reached relatively quickly.
 \item One particular trend curve that includes the three stages just described is the
 S-shaped Gompertz curve, as portrayed in Fig. 16-2(b). 
 \end{itemize}
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \textbf{Gompertz Trend}\\
 An equation that can be used to fit the Gompertz trend
@@ -168,17 +168,17 @@ follows:
 log YT ¼ log b0 þ ( log b1)bX
 2 (16:8)
 
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 Finally, the values to form the trend curve are calculated by taking the antilog of the values calculated
 by Formula (16.8). The details of such calculations are included in specialized books on time series
 analysis.
 
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \textbf{PART C : ANALYSIS OF CYCLICAL VARIATIONS}
 Annual time series values represent the effects of only the trend and cyclical components, because the
@@ -192,9 +192,9 @@ YT
 T   C
 T
 ¼ C (16:9)
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \begin{itemize}
 \item The ratio in (16.9) is multiplied by 100 so that the mean cyclical relative will be 100.0. A cyclical relative
@@ -204,9 +204,9 @@ according to year is often prepared.
 item The peaks and troughs associated with the cyclical component of the time
 series can be made more apparent by the construction of such a chart. See Problem 16.3.
 \end{itemize}
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \textbf{PART D  MEASUREMENT OF SEASONAL VARIATIONS}
 \begin{itemize}
@@ -217,9 +217,9 @@ numbers (or four quarterly index numbers) is 100.
 \item The identification of positive and negative seasonal
 influences is important for production and inventory planning.
 \end{itemize}
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 EXAMPLE 2. 
 \begin{itemize}
@@ -232,9 +232,9 @@ method.
 \item By this method, the ratio of each monthly value to the moving average centered at that month is first
 determined. 
 \end{itemize}
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 Because a moving average based on monthly (or quarterly) data for an entire year would average
 out the seasonal and irregular fluctuations, but not the longer-term trend and cyclical influences, the ratio of a
@@ -246,9 +246,9 @@ T   C   S   I
 T   C
 ¼ S   I (16:10)
 
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \begin{itemize}
 \item The second step in the ratio-to-moving-average method is to average out the irregular component.
@@ -261,9 +261,9 @@ is called a modified mean, because of the elimination of the two extreme values.
 correction factor so that the sum of the 12 monthly ratios is 1,200 (or 400 for four quarterly ratios). See
 Problem 16.4.
 \end{itemize}
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \textbf{PART E: APPLYING SEASONAL ADJUSTMENTS}
 \begin{itemize}
@@ -275,9 +275,9 @@ deseasonalized data.
 \item Seasonal adjustments are particularly relevant if we wish to compare data for different
 months to determine if an increase (or decrease) relative to seasonal expectations has taken place.
 \end{itemize}
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \textbf{EXAMPLE 3. }
 \begin{itemize}
@@ -287,10 +287,10 @@ decrease if the seasonal index number for May is 20 percent above the index numb
 occurs but is not as large as expected based on historical data, then relative to these expectations a relative decline in demand
 has occurred.
 \end{itemize}
-\end{frame}
+
 
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \begin{itemize}
 \item The observed monthly (or quarterly) time series values are adjusted for seasonal influence by dividing each
@@ -306,9 +306,9 @@ Although the resulting values after the application of (16.11) are in the same m
 original data, they do not represent actual data. Rather, they are relative values and are meaningful for
 comparative purposes only. See Problem 16.5.
 
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \textbf{PART F: FORECASTING BASED ON TREND AND SEASONAL FACTORS}
 \begin{itemize}
@@ -321,9 +321,9 @@ historical time series values alone, but certain economic indicators (see Sectio
 cyclical turning points.
 \end{itemize}
 
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \begin{itemize}
 \item For short-term forecasting, one possible approach is to deseasonalize the most-recent observed value and
@@ -336,10 +336,10 @@ it for the seasonal component.
 \item When the equation for the trend line is based on annual values, one must first
 ``step down" the equation so that is expressed in terms of months (or quarters). 
 \end{itemize}
-\end{frame}
+
 \end{document}
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}A trend equation based on annual
 data is modified to obtain projected monthly values as follows:
 YT ¼
@@ -370,9 +370,9 @@ b1
 16
 X (16:13)
 
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \begin{itemize}
 \item The basis for the above modifications is not obvious if one overlooks the fact that trend values are not
@@ -386,9 +386,9 @@ first month of the base year, or January 15, the intercept b0/12 in the modified
 times the modified slope. A similar adjustment is made for quarterly data. 
 \end{itemize}
 
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 Thus, a trend equation which is
 modified to obtain projected monthly values and with X ¼ 0 placed at January 15 of the base year is
@@ -401,9 +401,9 @@ b1
 b1
 144
 X (16:14)
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 Similarly, a trend equation that is modified to obtain projected quarterly values and with X ¼ 0 placed at the
 middle of the first quarter of the base year is
@@ -421,9 +421,9 @@ values have been determined, each value can be multiplied by the appropriate sea
 100 to preserve the decimal location in the values) to establish a beginning point for short-term forecasting.
 See Problem 16.7.
 
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \textbf{PART G CYCLICAL FORECASTING AND BUSINESS INDICATORS}
 \begin{itemize}
@@ -434,9 +434,9 @@ considered only a beginning point in economic forecasting.
 effect of the cyclical component during the forecast period, while the second is the importance of identifying the
 specific causative factors that have influenced the time series variables.
 \end{itemize}
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \begin{itemize}
 \item For short-term forecasting, the effect of the cyclical component is often assumed to be the same as included
@@ -446,9 +446,9 @@ the identification of the cyclical turning points for the national economy is im
 \item Of course, the cyclical
 variations associated with a particular product may or may not coincide with the general business cycle.
 \end{itemize}
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \textbf{EXAMPLE 4.}
 \begin{itemize} 
@@ -457,9 +457,9 @@ national economy.
 \item On the other hand, sales of automobile repair parts have often been countercyclic with respect to the
 general business cycle.
 \end{itemize}
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \textbf{Leading Indicators}
 \begin{itemize}
@@ -471,9 +471,9 @@ change in general economic activity.
 worked in manufacturing, value of new orders for consumer goods and materials, and a common stock price
 index.
 \end{itemize}
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \textbf{ Coincident Indicators}\\
 \begin{itemize}
@@ -482,9 +482,9 @@ coinciding with the general business cycle.
 \item Coincident indicators include such measures as the employment rate
 and the index of industrial production. 
 \end{itemize}
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \textbf{Lagging Indicators}\\
 \begin{itemize}
@@ -493,19 +493,19 @@ which the peaks and troughs usually lag behind those of the general business cyc
 \item Lagging indicators include
 such measures as manufacturing and trade inventories and the average prime rate charged by banks.
 \end{itemize}
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 In addition to considering the effect of cyclical fluctuations and forecasting such fluctuations, specific
 causative variables that have influenced the time series values historically should also be studied. Regression
 and correlation analysis (see Chapters 14 and 15) are particularly applicable for such studies as the relationship
 between pricing strategy and sales volume. Beyond the historical analyses, the possible implications of new
 products and of changes in the marketing environment are also areas of required attention.
-\end{frame}
+
 \end{document}
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 16.8 FORECASTING BASED ON MOVING AVERAGES
 A moving average is the average of the most recent n data values in a time series. This procedure can be
@@ -517,9 +517,9 @@ n
 As each new data value becomes available in a time series, the newest observation replaces the oldest
 observation in the set of n values as the basis for determining the new average, and this is why it is called a
 moving average.
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \begin{itemize}
 \item The moving average can be used to forecast the data value for the next (forthcoming) period in the time
@@ -529,9 +529,9 @@ no trend, cyclical or seasonal influence on the data, which of course is an unli
 \item The procedure
 serves simply to average out the irregular component in the recent time series data. See Problem 16.8.
 \end{itemize}
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \textbf{PART H  EXPONENTIAL SMOOTHING AS A FORECASTING METHOD}
 Exponential smoothing is a method of forecasting that is also based on using a moving average, but it is a
@@ -539,9 +539,9 @@ weighted moving average rather than one in which the preceding data values are e
 the weights is exponential because the greatest weight is given to the data value for the period immediately
 %CHAP. 16] TIME SERIES ANALYSIS AND BUSINESS FORECASTING 301
 preceding the forecast period and the weights decrease exponentially for the data values of earlier periods.
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 
 There are, in fact, several types of exponential smoothing models, as described in specialized books in business
@@ -557,9 +557,9 @@ a ¼ smoothing constant (0 # a # 1)
 Yt ¼ actual value for the most recent period
 Yt1 ¼ actual value for the period preceding the most recent period
 Ytk ¼ actual value for k periods preceding the most recent period
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 
 Although the above formula serves to present the rationale of exponential smoothing, its use is quite
@@ -573,17 +573,17 @@ where ^YYtþ1 ¼ forecast for the next period
 Yt ¼ forecast for the most recent period
 a ¼ smoothing constant (0 # a # 1)
 Yt ¼ actual value for the most recent period
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 Because the most recent time series value must be available to determine a forecast for the following
 period, simple exponential smoothing can be used only to forecast the value for the next period in the time
 series, not for several periods into the future. The closer the value of the smoothing constant is set to 1.0, the
 more heavily is the forecast weighted by the most recent results. See Problem 16.9
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 \textbf{PAART J OTHER FORECASTING METHODS THAT INCORPORATE SMOOTHING}
 \begin{itemize}
@@ -598,48 +598,48 @@ into the future. These methods are briefly described below.
 \item Full explanations and descriptions of these methods
 are included in specialized textbooks on forecasting.
 \end{itemize}
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 
 Linear exponential smoothing utilizes a linear trend equation based on the time series data. However,
 unlike the simple trend equation presented in Section 16.2, the values in the series are exponentially weighted
 based on the use of a smoothing constant. As in simple exponential smoothing, the constant can vary from
 0 to 1.0.
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 Holt’s exponential smoothing utilizes a linear trend equation based on using two smoothing constants: one
 to estimate the current level of the time series values and the other to estimate the slope.
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 Winter’s exponential smoothing incorporates seasonal influences in the forecast. Three smoothing
 constants are used: one to estimate the current level of the time series values, the second to estimate the slope of
 the trend line, and the third to estimate the seasonal factor to be used as a multiplier.
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 Autoregressive integrated moving average (ARIMA) models are a category of forecasting methods in which
 previously observed values in the time series are used as independent variables in regression models. The most
 widely used method in this category was developed by Box and Jenkins, and is generally called the Box-Jenkins
 method. These methods make explicit use of the existence of autocorrelation in the time series, which is the
 correlation between a variable, lagged one or more periods, with itself. As described in Section 15.8, the
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 Durbin-Watson test serves to detect the existence of autocorrelated residuals (serial correlation) in time series
 values. A value of the test statistic close to 2.0 supports the null hypothesis that no autocorrelation exists in the
 time series. A value below 1.4 generally is indicative of strong positive serial correlation, while a value greater
 than 2.6 indicates the existence of strong negative serial correlation.
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 
 16.11 USING COMPUTER SOFTWARE
@@ -649,9 +649,9 @@ Problems 16.10 through 16.13 illustrate the use of Execustat for determining a l
 seasonal analysis, using the method of moving averages for the purpose of forecasting, and using simple
 exponential smoothing for the purpose of forecasting.
 Solved Problems
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 
 TREND ANALYSIS
@@ -698,9 +698,9 @@ indicates that during the 11-year existence of the company there has been an ave
 million dollars ($190,000) annually.
 (b) Figure 16-3 repeats the line graph in Fig. 16-1, but with the trend line entered in the graph. The peak and
 trough in the time series that were briefly discussed in Example 1 are now more clearly visible.
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 ANALYSIS OF CYCLICAL VARIATIONS
 16.2 Determine the cyclical component for each of the time series values reported in Table 16.1, utilizing the
@@ -730,16 +730,16 @@ $millions (Y) X Y X 2
 Total 55 $12.9 85.2 385
 Fig. 16-3
 % 304 TIME SERIES ANALYSIS AND BUSINESS FORECASTING [CHAP. 16
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 16.3 Construct a cycle chart for the sales data reported in Table 16.1, based on the cyclical relatives
 determined in Table 16.2.
 The cycle chart is presented in Fig. 16-4, and includes the peak and trough observed previously in Fig. 16-3.
-\end{frame}
+
 %===================================================%
-\begin{frame}
+<p>
 \frametitle{Time Series Analysis}
 MEASUREMENT OF SEASONAL VARIATIONS
 16.4 Table 16.3 presents quarterly sales data for the graphics software company for which annual
