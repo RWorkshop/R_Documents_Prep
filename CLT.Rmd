@@ -1,0 +1,40 @@
+
+ 
+Central Limit Theorem
+Hypothesis testing and con dence interval construction are based on the Central Limit Theorem.
+CLT - see Introductory Data Analysis notes by Dr. Ailish Hannigan.
+Can check the CLT using a small simulation example.
+We will take 10000 samples of size 5 from data with a uniform distribution and record the means.
+When we plot a histogram of the means, should have a normal distribution.
+ 
+means <- numeric(10000)
+for(i in 1:10000){
+means[i] <- mean(runif(5))
+}
+hist(means)
+ 
+
+Recall the Dice experiment in week 8.
+ 
+N=100                                         #number of loops
+Avgs=numeric(N)                       #array “Avgs” store the sample means
+for( i in 1:N)
+              {              Dice=floor(runif(50,min=1,max=7));              Avgs[i]=mean(Dice);
+              }
+Avgs                                         #print Avgs dataset to screen
+ 
+The Central limit theorem states that.
+
+The “Dice” distribution is a discrete uniform distribution. However
+
+mean(Avgs)                                #compute the mean. Is it roughly what we are expecting?
+qqnorm(Avgs)                                #draws a QQ plot that is used to check for normality.
+qqline(Avgs)                                #adds trend line to QQplot.
+shapiro.test(Avgs)                       #Shapiro Wilk test. Normality is assumed if p-value > 0.05.
+                                     
+
+
+
+
+
+
