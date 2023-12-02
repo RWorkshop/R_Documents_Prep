@@ -1,0 +1,236 @@
+%-------------------------------------------------%
+
+\textbf{Single Sample Proportion Test (a)}
+\begin{itemize}
+*  In this procedure, we determine whether or not we are are justified in assuming that the population proportion takes a certain value.
+*  For example, suppose we believed that the population proportion of students with iphones or androids was $80\%$.
+*  We would write the null and alternative accordingly.
+\[H_0 : \pi = 80\% \]
+\[H_1 : \pi \neq 80\% \]
+*  The  appropriate \texttt{R} command is \texttt{prop.test(x,n,p)}
+*  $x$ is the number of successes, $n$ is the sample size and $p$ is the population proportion assumed under the null hypothesis.
+*  Suppose we survey 65 students, with 50 replying that they had an iphone or android.
+\end{itemize}
+
+
+%-------------------------------------------------%
+
+
+\textbf{Single Sample Proportion Test (b)}
+\begin{verbatim}
+> prop.test(50,65,0.80)
+
+1-sample proportions test
+
+data:  50 out of 65, null probability 0.8
+X-squared = 0.2163, df = 1, p-value = 0.6418
+
+alternative hypothesis: true p is not equal to 0.8
+95 percent confidence interval:
+0.6452269 0.8610191
+
+sample estimates:
+p
+0.7692308
+\end{verbatim}
+
+
+%==========================================================%
+
+
+
+\textbf{Single Sample Proportion Test (c)}
+
+\begin{itemize}
+*  The p-value is above the threshold. Therefore we fail to reject the null hypothesis that the population proportion ($\pi$) is $80\%$.
+
+*  The observed proportion is a very straightforward calculation:
+
+\[ \hat{p} = \frac{50}{65} = 0.76923= 76.92\%\]
+*  Nonetheless, you would be required to show how it was calculated.
+\end{itemize}
+
+
+
+
+\textbf{Shapiro-Wilk Test}
+\begin{framed}
+
+\textbf{H$_{0}$}: The sample is drawn from a normally distributed population.\\ \smallskip
+\textbf{H$_{1}$}: The sample is drawn from a population that is NOT normally distributed
+
+\end{framed}
+
+\begin{itemize}
+*  Compare the p-value to some pre-defined thrreshold.
+*  We will use a significance level of $\alpha=0.05$.
+*  This test is a one-tailed test. We compare the p-value from the Shapiro Wilk Test to 0.05.
+*  In the case of two-tailed tests, we would compare the p-value to 0.025, i.e. ($\alpha/2$).
+\end{itemize}
+
+%-----------------------------------------------------------------------%
+
+\textbf{Shapiro-Wilk Test}
+
+\begin{itemize}
+*  If the p-value is less than the threshold, we reject the null hypothesis.\\
+\textit{(We have enough evidence to say that the population is not normally distributed.)}
+
+\smallskip
+*  If the p-value is greater than the threshold, we fail to reject the null hypothesis. \\ \textit{(We dont have enough evidence to say that the population is not normally distributed.)}
+\smallskip
+
+*  Type I and Type II Errors apply to this test, just like any other test.
+
+\end{itemize}
+
+
+
+%-----------------------------------------------------------------------%
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.79\linewidth]{images/Y1}
+
+\end{figure}
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.79\linewidth]{images/Y2}
+
+\end{figure}
+
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.79\linewidth]{images/Y3}
+
+\end{figure}
+
+
+
+%---------%
+
+\textbf{Using \texttt{R} for Inference Procedures}
+\begin{itemize}
+*  [1] Paired t-test
+*  [2] Single Sample Tests for Proportions
+*  [3] Two Sample Test for Proportions
+*  [4] Test for the equality of variances for two samples
+*  [5] Shapiro-Wilk Test for Normality
+*  [6] Graphical procedures for assessing normality
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+\
+\subsection{Grubbs Test for Determining an Outlier}
+
+The Grubbs test is used to determine if there are any outliers in a data set.\\ \bigskip
+There is no agreed formal definition for an outlier. The definition of outlier used for this procedure is a value that unusually distance from the rest of the values.\\  (For the sake of clarity , we shall call this type of outlier a \textbf{Grubbs Outlier}).\\ Consider the following data set: is the lowest value 4.01 an outlier?
+
+\begin{verbatim}
+6.98 8.49 7.97 6.64
+8.80 8.48 5.94 6.94
+6.89 7.47 7.32 4.01
+\end{verbatim}
+
+Under the null hypothesis, there are no outliers present in the data set. 
+We reject this hypothesis if the p-value is sufficiently small.\\
+(Remark: This is a one-tailed test).
+
+
+%-------------------------------------------------%
+
+\subsection{Grubbs Test for Determining an Outlier}
+\begin{framed}
+\begin{verbatim}
+> grubbs.test(x, two.sided=T)
+Grubbs test for one outlier
+data: x
+G = 2.4093, U = 0.4243, p-value = 0.05069
+alternative hypothesis: lowest value 4.01 is an outlier
+\end{verbatim}
+\end{framed}
+We dont not have enough evidence to class 4.01 as an outlier.
+We conclude that while small by comparison to the other values, the lowest value 4.01 is not an outlier.
+
+
+
+
+
+%-------------------------------------------------%
+
+\subsection{Test of Equality for Two Sample Proportions (a)}
+The null hypothesis is that two populations have the same proportions for a particular characteristic.
+\[H_0 : \pi_1 = \pi_2 \]
+\[H_1 : \pi_1 \neq \pi_2 \]
+\begin{itemize}
+*  The command is \texttt{prop.test(c(x1,x2),c(n1,n2))}
+*  $x1$ and $x2$ are the number of successes from both samples.
+*  $n2$ and $n2$ are the sample sizes for both groups.
+*  The difference in population proportions assumed under the null hypothesis is zero.
+*  (It is possible to specify a different null value, but we will not consider this in this module.)
+\end{itemize}
+
+
+%-------------------------------------------------%
+
+\subsection{Test of Equality for Two Sample Proportions (b)}
+\begin{itemize}
+*  Consider a study where the proportion of Irish students who owned mobile devices, such as iphones and androids was compared to the corresponding proportion of French student.
+*  As before, $65$ Irish students were interviewed, with $50$ replying that they owned mobile devices.
+*  $90$ french students were interview, with 60 responding that they owned mobile devices.
+*  The test of equality of proportions is implemented on the next slide.
+\end{itemize}
+
+
+%-------------------------------------------------%
+
+
+
+\subsection{Test of Equality for Two Sample Proportions (c)}
+Based on the p-value, we fail to reject the null hypothesis. There is not enough evidence to assume a difference in proportions. Also the expected difference assumed under the null hypothesis, i.e. 0, is contained in the confidence interval.
+\begin{verbatim}
+> prop.test(c(50,60),c(65,90))
+
+2-sample test for equality of proportions
+
+data:  c(50, 60) out of c(65, 90)
+X-squared = 1.4613, df = 1, p-value = 0.2267
+alternative hypothesis: two.sided
+95 percent confidence interval:
+-0.05202058  0.25714878
+sample estimates:
+prop 1    prop 2
+0.7692308 0.6666667
+\end{verbatim}
+
+
+\subsection{Test of Equality for Two Sample Proportions (d)}
+\begin{itemize}
+*  You would be required to compute the differences in observed proportions.
+*  Additionally you will given the \texttt{R} code for one sample procedures. This may or may not be relevant for answering the question.
+\end{itemize}
+\begin{verbatim}
+> prop.test(60,90,0.80)
+...
+...
+X-squared = 9.184, df = 1, p-value = 0.002441
+alternative hypothesis: true p is not equal to 0.8
+95 percent confidence interval:
+0.5585219 0.7604058
+sample estimates:
+p
+0.6666667
+\end{verbatim}

@@ -1,41 +1,41 @@
 
-\begin{frame}
-\frametitle{Using \texttt{R} for Inference Procedures}
-\begin{itemize}
-\item[1] Review of the Paired t-test.
-\item[2] Paired t-test using \texttt{R}
-%\item[3] Two Sample Test for Proportions
-\item[3] Test for the equality of variances for two samples
-\item[4] Shapiro-Wilk Test for Normality
-\item[5] Graphical procedures for assessing normality
-\item[6] Grubb's Procedure for Determinin an Outlier
-\end{itemize}
-\end{frame}
-%---------%
-\begin{frame}
-\frametitle{p-values using \texttt{R}}
-\begin{itemize}
-\item In every inference procedure performed using \texttt{R}, a p-value is presented to the screen for the user to interpret.
 
-\item If the p-value is larger than a specified threshold $\alpha/k$ then the appropriate conclusion is a
+\frametitle{Using \texttt{R} for Inference Procedures}
+}
+* [1] Review of the Paired t-test.
+* [2] Paired t-test using \texttt{R}
+%* [3] Two Sample Test for Proportions
+* [3] Test for the equality of variances for two samples
+* [4] Shapiro-Wilk Test for Normality
+* [5] Graphical procedures for assessing normality
+* [6] Grubb's Procedure for Determinin an Outlier
+
+
+%---------%
+
+\frametitle{p-values using \texttt{R}}
+}
+*  In every inference procedure performed using \texttt{R}, a p-value is presented to the screen for the user to interpret.
+
+*  If the p-value is larger than a specified threshold $\alpha/k$ then the appropriate conclusion is a
 failure to reject the null hypothesis.
 
-\item Conversely, if the p-value is less than threshold, the appropriate conclusion is to reject the null hypothesis.
+*  Conversely, if the p-value is less than threshold, the appropriate conclusion is to reject the null hypothesis.
 
-\item In this module, we will use a significance level$\alpha=0.05$ and almost always the procedures will be two tailed ($k=2$). Therefore the threshold $\alpha/k$ will be $0.025$.
-\end{itemize}
-\end{frame}
+*  In this module, we will use a significance level$\alpha=0.05$ and almost always the procedures will be two tailed ($k=2$). Therefore the threshold $\alpha/k$ will be $0.025$.
+
+
 
 %---------%
-\begin{frame}
+
 \frametitle{Using Confidence Limits}
-\begin{itemize}
-\item Alternatively, we can use the confidence interval to make a decision on whether or not we should reject or fail to reject the null hypothesis.
-\item If the null value is within the range of the confidence limits, we fail to reject the null hypothesis.
-\item If the null value is outside the range of the confidence limits, we reject the null hypothesis.
-\item Occasionally a conclusion based on this approach may differ from a conclusion based on the p-value. In such a case, remark upon this discrepancy.
-\end{itemize}
-\end{frame}
+}
+*  Alternatively, we can use the confidence interval to make a decision on whether or not we should reject or fail to reject the null hypothesis.
+*  If the null value is within the range of the confidence limits, we fail to reject the null hypothesis.
+*  If the null value is outside the range of the confidence limits, we reject the null hypothesis.
+*  Occasionally a conclusion based on this approach may differ from a conclusion based on the p-value. In such a case, remark upon this discrepancy.
+
+
 
 
 %-------------------------------------------------%

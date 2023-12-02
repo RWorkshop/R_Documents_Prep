@@ -4,11 +4,11 @@
 \subsection{Formal tests for Normality}
 
 \begin{itemize}
-\item ad.test for outliers Anderson Darling test
-\item shapiro Wilk test for normality
-\item ks.test for distributions (Kolmogorov Smirnov test)
-\item grubbs test for outliers
-\item chi square test
+*  ad.test for outliers Anderson Darling test
+*  shapiro Wilk test for normality
+*  ks.test for distributions (Kolmogorov Smirnov test)
+*  grubbs test for outliers
+*  chi square test
 \end{itemize}
 
 useful for categorical data. Consider a two by two contingency table.
@@ -96,17 +96,17 @@ The slope is the rate at which response variable changes as the predictor cbanfe
 \subsection{Correlation }
 
 \begin{itemize}
-\item Correlation describes the strength of a relationship between two numeric variables.
-\item The strength of the relation is represented in a numeric value known at the correlation coefficient. This coefficient can take a value between -1 and1. Additionally there are no units.
+*  Correlation describes the strength of a relationship between two numeric variables.
+*  The strength of the relation is represented in a numeric value known at the correlation coefficient. This coefficient can take a value between -1 and1. Additionally there are no units.
 
-\item A value close to 1 indicates strong linear relation. A value close to Zero indicates no linear relationship at all.importantly it is assumed that the relationship is linear. Some variables will have a non linear relationship.
+*  A value close to 1 indicates strong linear relation. A value close to Zero indicates no linear relationship at all.importantly it is assumed that the relationship is linear. Some variables will have a non linear relationship.
 
-\item The relevant R command is cor(). There is also a more complex command called cor.test. This command additionally provides a hypothesis test for the estimate.
+*  The relevant R command is cor(). There is also a more complex command called cor.test. This command additionally provides a hypothesis test for the estimate.
 \begin{itemize}
-\item[Ho:] The correlation coefficient for the population of values is zero. No linear relationship.
-\item[Ha:] The coefficient is not zero. Linear relationship exists.
+* [Ho:] The correlation coefficient for the population of values is zero. No linear relationship.
+* [Ha:] The coefficient is not zero. Linear relationship exists.
 \end{itemize}
-\item A confidence interval for the coefficient is provided for in the R output. If the interval includes 0 then we fail to reject the null hypothesis.
+*  A confidence interval for the coefficient is provided for in the R output. If the interval includes 0 then we fail to reject the null hypothesis.
 \end{itemize}
 \subsection{Anscombe Quartet}
 Anscombe quartet is a famous data set used to demonstrate why a full set of statistical analyses should be used in conjunction, rather than rely on one analysis. This data set comprises four set of data.
@@ -157,26 +157,4 @@ Spearman correlation
 
 
 
-
-explanatory variables
-
-predictor variables
-
-slope intercept regression  equation
-
-plitting both variables against each other
-
-histograms 
-
-
-underlying assumptions normal distribution of residual terms
-
-%======================================================================================%
-influence
-
-outliers
-
- non linear regression
-
- polynomial regression
 

@@ -1,0 +1,24 @@
+*  The Akaike Information Criterion (AIC)
+\end{itemize}
+
+
+The adjusted R-square value is found on the summary output for a fitted model. It is called \textbf{\emph{adjusted}} because it takes into account the number of predictor variables being used. The law of parsimony states the simplest model that adequately explains the outcomes is the best. The candidate model with the higher adjusted R squared is considered preferable.
+
+The AIC is a model selection metric often used in statistics.It is computed using the R command
+\texttt{\textbf{AIC()}}.The candidate model with the smallest AIC value is considered preferable.
+
+\begin{framed}
+\begin{verbatim}
+fitA = lm(Sepal.Length ~ Sepal.Width + Petal.Width)
+fitB = lm(Sepal.Length ~ Sepal.Width + Petal.Length)
+
+summary(fitA)$adj.r.squared
+summary(fitB)$adj.r.squared
+
+AIC(fitA)
+AIC(fitB)
+\end{verbatim}
+\end{framed}
+
+%----------------------------------------------------%
+\end{document}

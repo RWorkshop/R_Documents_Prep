@@ -1,32 +1,7 @@
-
-
-\frametitle{p-values using \texttt{R}}
-}
-*  In every inference procedure performed using \texttt{R}, a p-value is presented to the screen for the user to interpret.
-
-*  If the p-value is larger than a specified threshold $\alpha/k$ then the appropriate conclusion is a
-failure to reject the null hypothesis.
-
-*  Conversely, if the p-value is less than threshold, the appropriate conclusion is to reject the null hypothesis.
-
-*  In this module, we will use a significance level$\alpha=0.05$ and almost always the procedures will be two tailed ($k=2$). Therefore the threshold $\alpha/k$ will be $0.025$.
-
-
-
-%---------%
-
-\frametitle{Using Confidence Limits}
-}
-*  Alternatively, we can use the confidence interval to make a decision on whether or not we should reject or fail to reject the null hypothesis.
-*  If the null value is within the range of the confidence limits, we fail to reject the null hypothesis.
-*  If the null value is outside the range of the confidence limits, we reject the null hypothesis.
-*  Occasionally a conclusion based on this approach may differ from a conclusion based on the p-value. In such a case, remark upon this discrepancy.
-
-
 %------------------------------------------%
 
 
-\frametitle{The paired t-test (a)}
+\frametitle{The Paired $t$-Test (a)}
 
 }
 *  Previously we have seen the paired t-test. It is used to determine whether or
@@ -42,7 +17,7 @@ the case-wise differences are zero.
 
 %------------------------------------------%
 
-\frametitle{The Paired t-test (b)}
+\frametitle{The Paired $t$-Test (b)}
 }
 *  The calculation is dependent on the case-wise differences.
 *  Here the case-wise differences between paired measurements (e.g. ``before" and ``after").
@@ -53,7 +28,7 @@ the case-wise differences are zero.
 
 %------------------------------------------%
 
-\frametitle{The paired t-test (c)}
+\frametitle{The Paired $t$-Test (c)}
 }
 *  Observed Mean of Case-wise differences $\bar{d}$ = 8.21,
 *  Expected Mean of Case-wise differences under $H_0$ : $\mu_d = 0$,
@@ -65,7 +40,7 @@ the case-wise differences are zero.
 
 %------------------------------------------%
 
-\frametitle{The paired t-test (e)}
+\frametitle{The Paired $t$-Test (d)}
 
 }
 *  Procedure is two-tailed, and you can assume a significance level of 5\%.
@@ -77,7 +52,7 @@ the case-wise differences are zero.
 
 %------------------------------------------%
 
-\frametitle{The paired t-test (f)}
+\frametitle{The Paired $t$-Test (e)}
 Alternative Approach : using p-values.
 }
 *  The p-values are determined from computer code. (We will use a software called \texttt{R}. Other types of software inlcude \texttt{SAS} and \texttt{SPSS}.)
@@ -89,7 +64,7 @@ Alternative Approach : using p-values.
 
 %------------------------------------------%
 
-\frametitle{The paired t-test (g)}
+\frametitle{The Paired $t$-Test (f)}
 Implementing the paired t-test using \texttt{R} for the example previously discussed.
 \begin{verbatim}
 > t.test(Before,After,paired=TRUE)
@@ -110,7 +85,7 @@ mean of the differences
 
 %-------------------------------------------------%
 
-\frametitle{The paired t-test (h)}
+\frametitle{The Paired $t$-Test (g)}
 }
 *  The p-value ($0.001868$) is less than the threshold is less than the threshold $0.0250$.
 *  We reject the null hypothesis (mean of case-wise differences being zero, i.e. expect no difference between ``before" and ``after").
@@ -120,7 +95,7 @@ mean of the differences
 
 %-------------------------------------------------%
 
-\frametitle{The paired t-test (i)}
+\frametitle{The Paired $t$-Test (h)}
 }
 *  We could also consider the confidence interval. We are $95\%$ confident that the expected value of the case-wise difference is at least 3.65.
 *  Here the null value (i.e. 0) is not within the range of the confidence limits.
@@ -135,43 +110,3 @@ mean of the differences
 ...
 \end{verbatim}
 
-
-
-
-
-%----------------------------------------------------------%
-
-\frametitle{Grubbs Test for Determining an Outlier}
-
-The Grubbs test is used to determine if there are any outliers in a data set.\\ \bigskip
-There is no agreed formal definition for an outlier. The definition of outlier used for this procedure is a value that unusually distance from the rest of the values ( For the sake of clarity , we shall call this type of outlier a \textbf{Grubbs Outlier}). Consider the following data set: is the lowest value 4.01 an outlier?
-\begin{verbatim}
-6.98 8.49 7.97 6.64
-8.80 8.48 5.94 6.94
-6.89 7.47 7.32 4.01
-\end{verbatim}
-
-Under the null hypothesis, there are no outliers present in the data set. 
-We reject this hypothesis if the p-value is sufficiently small.
-
-
-%-------------------------------------------------%
-
-\frametitle{Grubbs Test for Determining an Outlier}
-\begin{verbatim}
-> grubbs.test(x, two.sided=T)
-Grubbs test for one outlier
-data: x
-G = 2.4093, U = 0.4243, p-value = 0.05069
-alternative hypothesis: lowest value 4.01 is an outlier
-\end{verbatim}
-We conclude that while small by comparison to the other values, the lowest value 4.01 is not an outlier.
-
-
-\end{document}
-
-
-Kolmogorov Smirnov Tests
-Non-parametric procedures
-Compute the test statistic
-Same distribution

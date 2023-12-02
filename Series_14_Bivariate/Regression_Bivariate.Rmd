@@ -1,0 +1,39 @@
+
+<p>
+### Confidence Interval for Regression Estimate}
+To compute the confidence intervals for both estimates, we use the \texttt\textbf{{confint()*** command, specifying the name of the fitted model.
+
+```{r}
+C=c(0,2,4,6,8,10,12)
+F=c(2.1,5.0,9.0,12.6,17.3,21.0,24.7)
+Fit1=lm(F~C)
+coef(Fit1)
+# (Intercept)        Conc
+     1.517857    1.930357
+
+confint(Fit1)
+#               2.5 %   97.5 %
+# (Intercept) 0.75970 2.276014
+# Conc        1.82522 2.035495
+```
+
+
+### The Coefficient of Determination}
+The coefficient of determination $R^2$ is the proportion of variability in a data set that is accounted for by the linear model.
+
+Equivalently $R^2$ provides a measure of how well future outcomes are likely to be predicted by the model.
+
+(For simple linear regression, it canbe computed by squaring the correlation coefficient.)
+
+
+```{r}
+summary(fit1)$r.squared
+```
+
+<p>
+
+
+The estimates (i.e regression coefficients) may be determined directly using the 
+coef() command.
+
+.
