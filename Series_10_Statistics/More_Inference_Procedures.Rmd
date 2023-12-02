@@ -3,13 +3,14 @@
 \section{Part 2 More inference procedures}
 \subsection{Formal tests for Normality}
 
-\begin{itemize}
+
 *  ad.test for outliers Anderson Darling test
 *  shapiro Wilk test for normality
 *  ks.test for distributions (Kolmogorov Smirnov test)
 *  grubbs test for outliers
 *  chi square test
-\end{itemize}
+
+
 
 useful for categorical data. Consider a two by two contingency table.
 
