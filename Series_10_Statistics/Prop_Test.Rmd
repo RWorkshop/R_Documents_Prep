@@ -1,0 +1,120 @@
+<p>
+
+\textbf{Single Sample Proportion Test (a)}
+
+*  In this procedure, we determine whether or not we are are justified in assuming that the population proportion takes a certain value.
+*  For example, suppose we believed that the population proportion of students with iphones or androids was $80\%$.
+*  We would write the null and alternative accordingly.
+\[H_0 : \pi = 80\% \]
+\[H_1 : \pi \neq 80\% \]
+*  The  appropriate \texttt{R} command is \texttt{prop.test(x,n,p)}
+*  $x$ is the number of successes, $n$ is the sample size and $p$ is the population proportion assumed under the null hypothesis.
+*  Suppose we survey 65 students, with 50 replying that they had an iphone or android.
+
+----------------------------
+<pre><code>
+> prop.test(50,65,0.80)
+
+1-sample proportions test
+
+data:  50 out of 65, null probability 0.8
+X-squared = 0.2163, df = 1, p-value = 0.6418
+
+alternative hypothesis: true p is not equal to 0.8
+95 percent confidence interval:
+0.6452269 0.8610191
+
+sample estimates:
+p
+0.7692308
+</code></pre>
+
+---------------------------------------------------------------
+
+*  The p-value is above the threshold. Therefore we fail to reject the null hypothesis that the population proportion ($\pi$) is $80\%$.
+
+*  The observed proportion is a very straightforward calculation:
+
+\[ \hat{p} = \frac{50}{65} = 0.76923= 76.92\%\]
+*  Nonetheless, you would be required to show how it was calculated.
+
+
+
+
+\textbf{Shapiro-Wilk Test}
+\begin{framed}
+
+\textbf{H$_{0}$}: The sample is drawn from a normally distributed population.\\ \smallskip
+\textbf{H$_{1}$}: The sample is drawn from a population that is NOT normally distributed
+
+\end{framed}
+
+
+*  Compare the p-value to some pre-defined thrreshold.
+*  We will use a significance level of $\alpha=0.05$.
+*  This test is a one-tailed test. We compare the p-value from the Shapiro Wilk Test to 0.05.
+*  In the case of two-tailed tests, we would compare the p-value to 0.025, i.e. ($\alpha/2$).
+
+%-----------------------------------------------------------------------%
+
+\textbf{Shapiro-Wilk Test}
+
+
+*  If the p-value is less than the threshold, we reject the null hypothesis.\\
+\textit{(We have enough evidence to say that the population is not normally distributed.)}
+
+\smallskip
+*  If the p-value is greater than the threshold, we fail to reject the null hypothesis. \\ \textit{(We dont have enough evidence to say that the population is not normally distributed.)}
+\smallskip
+
+*  Type I and Type II Errors apply to this test, just like any other test.
+
+
+
+
+%-----------------------------------------------------------------------%
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.79\linewidth]{images/Y1}
+
+\end{figure}
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.79\linewidth]{images/Y2}
+
+\end{figure}
+
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.79\linewidth]{images/Y3}
+
+\end{figure}
+
+
+
+%---------%
+
+\textbf{Using \texttt{R} for Inference Procedures}
+
+*  [1] Paired t-test
+*  [2] Single Sample Tests for Proportions
+*  [3] Two Sample Test for Proportions
+*  [4] Test for the equality of variances for two samples
+*  [5] Shapiro-Wilk Test for Normality
+*  [6] Graphical procedures for assessing normality
+
+
+
+
+
+
+
+
+
+
