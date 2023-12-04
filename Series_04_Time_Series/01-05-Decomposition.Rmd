@@ -42,3 +42,15 @@ If the random variation is modelleed by a multiplicative factor, and the variabl
 could be used
  $$  log(x_t) = m_t \times s_t +z_t  $$
 This form tends to introduce a bias on the predictions, so care must be taken.
+
+
+-----------------
+
+#Section 1.5.5 Decomposition in R
+
+plot(decompose(Elec.ts))
+Elec.decom <- decompose(Elec.ts , type=”mult”)
+plot(Elec.decom)
+Trend <- Elec.decom$trend
+Seasonal <- Elec.decom$seasonal
+ts.plot(cbind(Trend, Trend * Seasonal),lty=1:2)
