@@ -1,6 +1,5 @@
 
-
-### Model Selection}
+### Model Selection
 There are many important methodologies for determining which combination of predictor variables bests describes a response variable. You will meet this in future modules.
 We will use two simple ones for this module only.
 
@@ -11,7 +10,7 @@ We will use two simple ones for this module only.
 
 The adjusted R-square value is found on the summary output for a fitted model. It is called ***adjusted*** because it takes into account the number of predictor variables being used. The law of parsimony states the simplest model that adequately explains the outcomes is the best. The candidate model with the higher adjusted R squared is considered preferable.
 
-The AIC is a model selection metric often used in statistics.It is computed using the R command
+The AIC is a model selection metric often used in statistics. It is computed using the R command
 ***AIC()***.The candidate model with the smallest AIC value is considered preferable.
 
 
