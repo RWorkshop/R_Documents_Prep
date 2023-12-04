@@ -1,0 +1,86 @@
+
+%=====================================================%
+\subsection{Simple Linear Regression}
+
+
+The intercept is the estimated value of the response variable when the predictor variable is set to zero. In many cases it would make sense that there would be a non zero value in this instance.
+
+The slope is the rate at which response variable changes as the predictor cbanfes. A negative slope insicates a negative linear relationship.
+
+%=====================================================%
+\subsection{Fitting a Model}
+
+ To fit an ordinary linear model with fertility change as the response and setting and effort as predictors, try
+
+\begin{framed}
+<pre><code>
+ > lmfit = lm( change ~ setting + effort )
+</code></pre>
+
+
+ Note first that lm is a function, and we assign the result to an object that we choose to call lmfit (for linear model fit). This stores the results of the fit for later examination
+
+
+\subsection{Correlation }
+
+
+*  Correlation describes the strength of a relationship between two numeric variables.
+*  The strength of the relation is represented in a numeric value known at the correlation coefficient. This coefficient can take a value between -1 and1. Additionally there are no units.
+
+*  A value close to 1 indicates strong linear relation. A value close to Zero indicates no linear relationship at all.importantly it is assumed that the relationship is linear. Some variables will have a non linear relationship.
+
+*  The relevant R command is cor(). There is also a more complex command called cor.test. This command additionally provides a hypothesis test for the estimate.
+
+* [Ho:] The correlation coefficient for the population of values is zero. No linear relationship.
+* [Ha:] The coefficient is not zero. Linear relationship exists.
+*  A confidence interval for the coefficient is provided for in the R output. If the interval includes 0 then we fail to reject the null hypothesis.
+\subsection{Anscombe Quartet}
+Anscombe quartet is a famous data set used to demonstrate why a full set of statistical analyses should be used in conjunction, rather than rely on one analysis. This data set comprises four set of data.
+%====================================================================================%
+
+Correlation and Significance tests
+
+Getting a correlation coefficient is generally only half the story; you will want to know if the relationship is significant. The cor() function in R can be extended to provide the significance testing required. The function is cor.test()
+
+
+To run a correlation test we type:
+\begin{framed}
+\begin{veratim}
+> cor.test(var1, var2, method = "method")
+</code></pre>
+
+
+The default method is "pearson" so you may omit this if that is what you want. If you type "kendall" or "spearman" then you will get the appropriate significance test.
+
+As usual with R it is a good idea to assign a variable name to your result in case you want to perfom additional operations.
+
+Simple Linear Regression
+
+Correlation Test
+
+correlation
+
+pearsons rho
+
+
+
+ multiple linear regression
+
+
+linear regression whete there is more than one predictor variable.
+
+very simple to implement in R.
+
+
+coefficient of determination. 
+
+for sime lunear regression this is equivalent to the correlation squared
+
+
+also rank correlation coefficient.
+
+Spearman correlation
+
+
+
+

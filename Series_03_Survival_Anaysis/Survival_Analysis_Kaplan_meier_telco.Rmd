@@ -1,0 +1,314 @@
+
+# Estimations of the Survival Functions
+
+## The Kaplan-Meier Estimator
+
+Kaplan-Meier is the standard method for estimating the survival function of a
+given dataset. Formally, it is defined as follows
+
+$$
+\hat{S}(t) = \prod_{t_i \leq t} (1 - \hat{q}_i) = \prod_{t_i \leq t} \left(1 - \frac{d_i}{n_i}\right)
+$$
+
+where $n_i$ is the number of subjects at risk at time $t$, and $d_i$ is the
+number of individuals who fail at that time.
+
+### Using Kaplan-Meier
+
+In R, we construct KM estimators using the `survfit()` function.
+
+Before we move on to our datasets, we start with a small set of data.
+
+```{r km_estimator_intro, echo=TRUE}
+tt   <- c(7, 6, 6, 5, 2, 4)
+cens <- c(0, 1, 0, 0, 1, 1)
+grp  <- c(0, 0, 0, 1, 1, 1)
+
+Surv(tt, cens)
+
+sample_tbl <- tibble(tt = tt, cens = cens, grp = grp)
+
+example_km <- survfit(Surv(tt, cens) ~ 1, data = sample_tbl, conf.type = 'log-log')
+
+plot(example_km)
+```
+
+Basic plotting routines are worth trying, but the `survminer` package has
+specialised plots that use `ggplot2` to create them.
+
+```{r km_estimator_survminer, echo=TRUE}
+ggsurvplot(example_km)
+```
+
+Printing out the 'fitted' object gives us some basic statistics:
+
+```{r km_estimator_print, echo=TRUE}
+example_km %>% print()
+```
+
+We get more details from the `summary()` function:
+
+```{r km_estimator_summary, echo=TRUE}
+example_km %>% summary()
+```
+
+#### Exercises
+
+  1. Construct the KM estimator for the telco churn data
+  1. What is the median survival time for this data?
+  1. What is the mean survival time?
+  1. Repeat the above for the other two datasets.
+
+
+### Follow-up Time
+
+A useful measure may be how long the observation period lasts, something that
+can be subtly difficult to measure.
+
+One method is to switch the censoring labels - that is, we consider the
+original event as a censoring of the observation in the study.
+
+```{r measure_followup_time, echo=TRUE}
+sample_tbl <- sample_tbl %>%
+    mutate(follow = 1 - cens)
+
+follow_km <- survfit(Surv(tt, follow) ~ 1, data = sample_tbl, conf.type = 'log-log')
+
+ggsurvplot(follow_km)
+
+follow_km %>% summary()
+```
+
+
+## Smoothed Hazard Functions
+
+An empirical estimate of the hazard function is given by
+
+$$
+\mu(i) = \frac{d_i}{n_i}
+$$
+
+This is a very noisy estimate as it is sensitive to sample noise.
+
+### The Hazard Estimator
+
+To obtain more smooth functions we use kernel density estimator techniques.
+
+```{r show_muhaz_plots, echo=TRUE}
+sample_muhaz <- muhaz(sample_tbl$tt, sample_tbl$cens, max.time = 7)
+
+plot(sample_muhaz)
+```
+
+`broom` has tidying methods for `muhaz()` and this allows us to create plots
+with `ggplot2`
+
+```{r show_muhaz_tidy, echo=TRUE}
+muhaz_tidy_tbl <- sample_muhaz %>% tidy()
+
+muhaz_tidy_tbl %>% glimpse()
+```
+
+We have estimates of the hazard function now and so can plot it.
+
+```{r show_muhaz_tidy_plot, echo=TRUE}
+ggplot(muhaz_tidy_tbl) +
+    geom_line(aes(x = time, y = estimate)) +
+    expand_limits(x = 0, y = 0) +
+    xlab("Time") +
+    ylab("Estimated Hazard")
+```
+
+
+#### Exercises
+
+  1. Construct the smoothed estimator for the telco churn data
+  1. What time has the highest hazard rate?
+  1. What time has the lowest hazard rate?
+  1. Repeat the above for the other two datasets.
+
+
+### Boundary Corrections
+
+By default, `muhaz()` corrects for the boundary on both sides, but we may not
+wish this. To get estimates without this correction, we add it as an argument
+to the function call.
+
+
+```{r show_muhaz_nocorr, echo=TRUE}
+sample_nocorr_muhaz <- muhaz(sample_tbl$tt, sample_tbl$cens, max.time = 7
+                            ,b.cor = 'none')
+
+plot(sample_nocorr_muhaz)
+
+
+sample_nocorr_muhaz_tidy_tbl <- sample_nocorr_muhaz %>% tidy()
+
+ggplot(sample_nocorr_muhaz_tidy_tbl) +
+    geom_line(aes(x = time, y = estimate)) +
+    expand_limits(x = 0, y = 0) +
+    xlab("Time") +
+    ylab("Estimated Hazard")
+```
+
+To help ensure these smoothed estimates are capturing the correct aspects of
+the data, we also have the equivalent `pehaz()` functions - giving histogram
+estimates of the hazards, much how histogram and kernel estimates are discrete
+and continuous analogies of one another.
+
+#### Exercises
+
+  1. Construct the non-corrected smoothed estimator for the telco churn data
+  1. Repeat the above for the other two datasets.
+
+
+## Comparing KM and Smoothed Estimates
+
+Now that we have both methods of checking the empirical estimates, it is good
+to compare them.
+
+Before we do this, we note that Kaplan-Meier estimates the survival function
+but `muhaz()` gives us estimates of the hazard function.
+
+Thus we need to do some conversions and the easiest way to do this is to
+numerically integrate the hazard functions to calculate the survival function
+and then compare to the KM estimate.
+
+```{r integrate_muhaz, echo=TRUE}
+muhaz_surv_tbl <- muhaz_tidy_tbl %>%
+    mutate(dt  = c(0, diff(time))
+          ,S_t = exp(-cumsum(estimate * dt))
+    )
+
+ggsurvplot(example_km)$plot +
+    geom_line(aes(x = time, y = S_t), data = muhaz_surv_tbl)
+```
+
+
+### No Boundary Correction
+
+We also want to compare the results without the boundary correction.
+
+```{r compare_nocorr_estimates, echo=TRUE}
+muhaz_nocorr_surv_tbl <- sample_nocorr_muhaz_tidy_tbl %>%
+    mutate(dt  = c(0, diff(time))
+          ,S_t = exp(-cumsum(estimate * dt))
+    )
+
+ggsurvplot(example_km)$plot +
+    geom_line(aes(x = time, y = S_t), colour = 'blue', data = muhaz_surv_tbl) +
+    geom_line(aes(x = time, y = S_t), data = muhaz_nocorr_surv_tbl)
+    
+
+```
+
+We see that removing the boundary corrections can cause big discrepancies
+between the smoothed and discrete estimates (at least in this case)
+
+
+## Estimating Survival Curves for the Telco Churn Data
+
+We now are going to build various Kaplan-Meier estimates for all the data,
+as well as splits on the data along `vmailplan` - whether or not the account
+had a voice mail, and `intlplan` - whether or not the account had an
+international calls plan.
+
+```{r create_km_fits, echo=TRUE}
+telco_all_km   <- survfit(Surv(accountdur, churned) ~ 1,         data = telco_churn_tbl)
+telco_vmail_km <- survfit(Surv(accountdur, churned) ~ vmailplan, data = telco_churn_tbl)
+telco_intl_km  <- survfit(Surv(accountdur, churned) ~ intlplan,  data = telco_churn_tbl)
+```
+
+
+### Plotting the Curves
+
+Having created the KM estimates, we first plot the curves to check for
+differences.
+
+```{r plot_km_curves, echo=TRUE}
+telco_all_km   %>% ggsurvplot(censor = FALSE)
+telco_vmail_km %>% ggsurvplot(censor = FALSE)
+telco_intl_km  %>% ggsurvplot(censor = FALSE)
+```
+
+The estimators comes with upper and lower confidence bounds, and it may be
+useful to include these estimates when determining the differences. We will
+look at a more formal way of discriminating between curves in a while.
+
+```{r plot_km_curves_bounds, echo=TRUE}
+telco_all_km   %>% ggsurvplot(censor = FALSE, conf.int = TRUE)
+telco_vmail_km %>% ggsurvplot(censor = FALSE, conf.int = TRUE)
+telco_intl_km  %>% ggsurvplot(censor = FALSE, conf.int = TRUE)
+```
+
+
+### Combining KM Estimators
+
+This is useful, but it would be better to combine all these together. To do
+this, we need the tables of the estimator data, and stack them together.
+
+Fortunately, the *broom* package is compatible with basic survival analysis
+routines, so this provides us with some utilities to help with this.
+
+If we need to access the KM data directly, we can use `tidy()` to get a look:
+
+```{r introspect_km_fits, echo=TRUE}
+telco_all_km_data   <- telco_all_km   %>% tidy()
+telco_all_km_data   %>% glimpse()
+
+telco_vmail_km_data <- telco_vmail_km %>% tidy()
+telco_vmail_km_data %>% glimpse()
+
+telco_intl_km_data  <- telco_intl_km  %>% tidy()
+telco_intl_km_data  %>% glimpse()
+```
+
+We stack the data and create a line plot of each of the survival curves.
+
+```{r plot_stacked_km_plots, echo=TRUE}
+stacked_km_tbl <- list(telco_all_km_data %>% mutate(strata = 'ALL')
+                      ,telco_vmail_km_data
+                      ,telco_intl_km_data
+                       ) %>%
+    bind_rows()
+
+
+ggplot(stacked_km_tbl) +
+    geom_line(aes(x = time, y = estimate,  colour = strata)) +
+    geom_line(aes(x = time, y = conf.high, colour = strata), linetype = 'dashed') +
+    geom_line(aes(x = time, y = conf.low,  colour = strata), linetype = 'dashed')
+```
+
+This chart is not as useful as it could be - it is too 'busy'. We need to
+simplify.
+
+Instead of including everything, we will look at the international plan curves
+along with the estimator calculated from the full dataset.
+
+```{r plot_stacked_km_all_intl_plots, echo=TRUE}
+ggplot(stacked_km_tbl %>% filter(grepl('ALL|intl', strata))) +
+    geom_line(aes(x = time, y = estimate,  colour = strata)) +
+    geom_line(aes(x = time, y = conf.high, colour = strata), linetype = 'dashed') +
+    geom_line(aes(x = time, y = conf.low,  colour = strata), linetype = 'dashed')
+```
+
+From this, it looks like people without international plans are similar to
+the population as a whole, but those with plans have a much worse churn
+effect. This type of information will be useful later.
+
+We can do a similar thing for the voice-mail plans.
+
+```{r plot_stacked_km_all_vmail_plots, echo=TRUE}
+ggplot(stacked_km_tbl %>% filter(grepl('ALL|vmail', strata))) +
+    geom_line(aes(x = time, y = estimate,  colour = strata)) +
+    geom_line(aes(x = time, y = conf.high, colour = strata), linetype = 'dashed') +
+    geom_line(aes(x = time, y = conf.low,  colour = strata), linetype = 'dashed')
+```
+
+This split is more mixed, but it appears that those with a voicemail plan have
+a better churn experience than the population, but those without are similar
+to the population as a whole.
+
+
+
+

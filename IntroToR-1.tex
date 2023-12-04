@@ -1,27 +1,4 @@
 
- 
- 
- %==============================================================================================%
- 
- % % SLIDE 1 - COVER SLIDE
- \begin{figure}
- \centering
- \includegraphics[width=0.7\linewidth]{images/Rversion}        
- \end{figure}
-   
- %==============================================================================================%
- 
- 
- \frametitle{1.2 Command Line Interface}
- 
-*  When you start \texttt{R}, the command line interface window will appear on screen. This is one
- of many windows in the \texttt{R} environment, others including graphical output windows, or script
- editors. 
-*  \texttt{R} code can be entered into the command line directly. 
-*  Alternatively code can be saved
- to a script, which can be run inside a session using the \texttt{source()} function.
-
- 
 
  
  \textbf{1.3.1 Reserved Words - Bad names for Objects}
@@ -56,7 +33,7 @@
  For the sake of readability, it is good practice to comment code. The \# character at the
  beginning of a line signifies a comment, which is not executed. Lines of hashtags can be used
  to identify the beginning and end of code segments
- \begin{framed}
+ 
  \begin{semiverbatim}
  # This is a comment
  #####################
@@ -214,24 +191,7 @@
  6:11 3rd Qu.:5.000 3rd Qu.:0.8325
  3:11 Max. :8.000 Max. :2.7200
  
- %==============================================================================================%
- 
- 1.12 Working directories
- You can change your working directly by using the appropriate options on the File menu. To
- determine the current working directory, you can use the getwd() command. To change the
- working directory , we would use the setwd() command. This is quite important as objects
- will be imported and exported to and from the specified directory.
- 
- %==============================================================================================%
- 
- > getwd()
- [1] "C:/Users/Kevin"
- >
- > setwd("C:/Users/Kevin/Documents")
- >
- > getwd()
- [1] "C:/Users/Kevin/Documents"
- 
+
  %==============================================================================================%
  
  \frametitle{1.13 Coming Unstuck}
@@ -263,7 +223,7 @@
  \frametitle{1.16 Listing all items in a workspace}
  To list all items in an R environment, we use the \texttt{ls()} function. This provides a list of all data
  objects accessible. Another useful command is \texttt{objects()}.
- \begin{framed}
+ 
  \begin{semiverbatim}
  > ls()
  [1] "a" "A" "authors" "b" "books"
@@ -364,10 +324,10 @@
  
  \frametitle{2.6 History}
  
-*  The command \texttt{history()} is used to obtain the last 25 commands used by \texttt{R}.
+*  The command \texttt{history()} is used to obtain the last 25 commands used by <tt>R</tt>.
 *  25 is the default number, you can specify another number.
 
- \begin{framed}
+ 
  \begin{semiverbatim}
  history(100)
  \end{semiverbatim}
@@ -400,7 +360,7 @@
  %==============================================================================================%
  
  \frametitle{System Time}
- \begin{framed}
+ 
  \begin{semiverbatim}
  > X1=Sys.time()
  > #Wait a few seconds
@@ -438,7 +398,7 @@
  
  \frametitle{2.11 Files in the Working Directory}
  It is possibel to call an R script from the working directory, using the \texttt{source()} function.
- \begin{framed}
+ 
  \begin{semiverbatim}
  source("myfunctions.r")
  source("mydata.r")
@@ -451,7 +411,7 @@
  
  %==============================================================================================%
  
- \begin{framed}
+ 
  \begin{semiverbatim}
  > sink("IrisSum.txt")
  > summary(iris)
@@ -478,7 +438,7 @@
  
  %==============================================================================================%
  
- \begin{framed}
+ 
  \begin{semiverbatim}
  > class(Nile)
  [1] "ts"
@@ -519,7 +479,7 @@
  \frametitle{Packages}
  
  
-*  A Package in \texttt{R} is a file containing a collection of objects which have some common purpose.
+*  A Package in <tt>R</tt> is a file containing a collection of objects which have some common purpose.
 *  Packages enhance the capabilties and scope for research in a certain field. 
 *  For example, the
  package MASS contains objects associated with the Venables and Ripleys ``\textit{Modern Applied
@@ -558,7 +518,7 @@
  \bigskip
 *  Dr Brendan Haplin (UL): lme4 ,TraMineR, Gelman's arm, MASS, foreign. 
  \bigskip
-*  Shiny - Web Applications with \texttt{R}
+*  Shiny - Web Applications with <tt>R</tt>
 
  
  %=================================================================== %
@@ -593,7 +553,7 @@
 *  For example, to load the
  \textbf{\textit{ggplot2}} package:
 
- \begin{framed}
+ 
  \begin{semiverbatim}
  install.packages(ggplot2)
  library(ggplot2)
@@ -615,7 +575,7 @@
  
  %==============================================================================================%
  
- \begin{framed}
+ 
  \begin{semiverbatim}
  install.packages("ggplot2")
  install.packages("qcc")
@@ -640,7 +600,7 @@
  
  \frametitle{5.1 The \texttt{c()} command}
  To create a simple data set, known as a vector, we use the c() command to create the vector.
- \begin{framed}
+ 
  \begin{semiverbatim}
  > Y=c(1,2,4,8,16 ) #create a data vector with specified elements
  > Y
@@ -653,7 +613,7 @@
  %==============================================================================================%
  
  \frametitle{Vectors}
- \begin{framed}
+ 
  \begin{semiverbatim}
  ### Vector of Numeric Values
  Numvec = c(10,13,15,19,25);
@@ -669,7 +629,7 @@
  
  \frametitle{Vectors}
  Vectors can be bound together either by row or by column.
- \begin{framed}
+ 
  \begin{semiverbatim}
  > X=1:3; Y=4:6
  > cbind(X,Y)
@@ -691,7 +651,7 @@
  
 * The \texttt{scan()} function is a useful method of inputting data quickly. 
 *  You can use to quickly copy
- and paste values into the \texttt{R} environment. It is best used in the manner as described in the
+ and paste values into the <tt>R</tt> environment. It is best used in the manner as described in the
  following example. 
 *  Create a variable ”X” and use the \texttt{scan()} function to populate it with
  values. 
@@ -736,7 +696,7 @@
  R provides a spreadsheet interface for editing the values of existing data sets. We use the
  command \texttt{data.entry()}, and name of the data object as the argument. (Also try out the
  fix() command)
- \begin{framed}
+ 
  \begin{semiverbatim}
  > data.entry(X) # Edit the data set and exit interface
  > X

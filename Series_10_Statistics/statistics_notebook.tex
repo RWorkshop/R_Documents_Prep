@@ -28,7 +28,7 @@ Suppose the mean weight of King Penguins found in an Antarctic colony last year 
 The null hypothesis is that μ = 15.4. We begin with computing the test statistic.
 
 \begin{framed}
-\begin{verbatim}
+<pre><code>
 > xbar = 14.6            # sample mean 
 
 > mu0 = 15.4             # hypothesized value 
@@ -42,12 +42,12 @@ The null hypothesis is that μ = 15.4. We begin with computing the test statisti
 > z                      # test statistic 
 
 [1] −1.8931
-\end{verbatim}
-\end{framed}
+</code></pre>
+
 We then compute the critical values at .05 significance level.
 
 \begin{framed}
-\begin{verbatim}
+<pre><code>
 > alpha = .05 
 
 > z.half.alpha = qnorm(1−alpha/2) 
@@ -55,8 +55,8 @@ We then compute the critical values at .05 significance level.
 > c(−z.half.alpha, z.half.alpha) 
 
 [1] −1.9600  1.9600
-\end{verbatim}
-\end{framed}
+</code></pre>
+
 Answer
 
 The test statistic -1.8931 lies between the critical values -1.9600 and 1.9600. Hence, at .05 significance level, we do not reject the null hypothesis that the mean penguin weight does not differ from last year.
@@ -71,7 +71,7 @@ Example
 In the built-in data set named immer, the barley yield in years 1931 and 1932 of the same field are recorded. The yield data are presented in the data frame columns Y1 and Y2.
 
 \begin{framed}
-\begin{verbatim}
+<pre><code>
 > library(MASS)         # load the MASS package 
 
 > head(immer) 
@@ -84,8 +84,8 @@ In the built-in data set named immer, the barley yield in years 1931 and 1932 of
 
    .....
 
-\end{verbatim}
-\end{framed}
+</code></pre>
+
 Problem
 
 Assuming that the data in immer follows the normal distribution, find the 95% confidence interval estimate of the difference between the mean barley yields between years 1931 and 1932.
@@ -161,7 +161,7 @@ Attach your data set so that the individual variables are read into memory.
 To perform a t-test you type:
 
 \begin{framed}
-\begin{verbatim}
+<pre><code>
 > t.test(var1, var2)
 
 Welch Two Sample t-test
@@ -182,13 +182,13 @@ mean of x mean of y
 
 8.733333 4.133333
 
-\end{verbatim}
-\end{framed}
+</code></pre>
+
 
 This version of the test does not assume that the variance of the two samples is equal and performs a Welch two sample t-test. The "classic" version of the t-test can be run as follows:
 
 \begin{framed}
-\begin{verbatim}
+<pre><code>
 > t.test(var1, var2, var.equal=T)
 
 Two Sample t-test
@@ -209,15 +209,15 @@ mean of x mean of y
 
 8.733333 4.133333
 
-\end{verbatim}
-\end{framed}
+</code></pre>
+
 %=====================================================%
 
 
 A paired t-test is simple to run; just add \texttt{paired= TRUE} to the basic command. Now the variances of the two samples are considered equal and the basic version is performed. To run a t-test on paired data you add a new term:
 
 \begin{framed}
-\begin{verbatim}
+<pre><code>
 > t.test(var1, var2, paired=T)
 
 Paired t-test
@@ -238,5 +238,5 @@ mean of the differences
 
 4.6
 
-\end{verbatim}
-\end{framed}
+</code></pre>
+

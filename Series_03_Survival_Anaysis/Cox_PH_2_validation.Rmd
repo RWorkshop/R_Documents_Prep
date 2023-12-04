@@ -1,0 +1,242 @@
+
+
+## Validating the Proportional Hazards Model
+
+We have skipped much of the statistical theory up to this point, but we now
+need to look at using some of it.
+
+A common statistical approach for assessing regression models is through
+analysis of the residuals, typically defined as some form of difference
+between the predicted and observed values.
+
+For survival analysis, our approach is more involved in terms of how we
+define the residuals of a model, but the basic concept is the same.
+
+### Fitting the Null Model
+
+We first work from a null CoxPH model that we fit - the 'null' model:
+
+```{r fit_null_model, echo=TRUE}
+telco_model00_coxph <- coxph(Surv(accountdur, churned) ~ 1
+                            ,data = telco_churn_tbl
+                             )
+
+telco_model00_coxph %>% summary()
+```
+
+
+### Martingale Residuals
+
+We define our basic residual $m_i$ as follows:
+
+$$
+m_i = \delta_i - \hat{H}_0(t_i) \exp(x_i \hat{\beta})
+$$
+
+The residual is the difference between the observed value of the whether the
+event occurred and its expected value under the Cox model.
+
+```{r calculate_null_model_martingale_residuals, echo=TRUE}
+telco_model00_resid_m <- telco_model00_coxph %>% residuals(type = 'martingale')
+
+telco_model00_resid_m %>% summary()
+```
+
+We have zero-mean, but there is skew in the data as the values are bounded
+above at 1, but unbounded below. The easiest way to check the shape is look at
+a histogram of the values.
+
+```{r plot_null_model_martingale_residuals, echo=TRUE}
+ggplot() +
+    geom_histogram(aes(x = telco_model00_resid_m), bins = 50) +
+    xlab('Residual Value') +
+    ylab('Count') +
+    ggtitle('Histogram of Null-Model Martingale Residuals')
+
+ggplot() +
+    geom_histogram(aes(x = telco_model00_resid_m^2), bins = 50) +
+    xlab('Squared Residual Value') +
+    ylab('Count') +
+    ggtitle('Histogram of Null-Model Squared Martingale Residuals')
+```
+
+
+### Deviance Residuals
+
+Martingale residuals cannot be used in sums of squares methods to assess
+goodness-of-fit - instead we define another quantity when the model is correct
+is symmetrically distributed with an expectation of zero. These 'deviance'
+residuals, $d_i$ are defined as follows:
+
+$$
+d_i = \text{sign}(m_i) {-2 [m_i + \delta_i \log (\delta_i - m_i)]}^{1/2}
+$$
+
+```{r calculate_null_model_deviance_residuals, echo=TRUE}
+telco_model00_resid_d <- telco_model00_coxph %>% residuals(type = 'deviance')
+
+telco_model00_resid_d %>% summary()
+```
+
+The mean is small, but non-zero. We inspect the distribution of values to see
+what it looks like.
+
+
+```{r plot_null_model_deviance_residuals, echo=TRUE}
+ggplot() +
+    geom_histogram(aes(x = telco_model00_resid_d), bins = 50) +
+    xlab('Residual Value') +
+    ylab('Count') +
+    ggtitle('Histogram of Null-Model Deviance Residuals')
+
+ggplot() +
+    geom_histogram(aes(x = telco_model00_resid_d^2), bins = 50) +
+    xlab('Squared Residual Value') +
+    ylab('Count') +
+    ggtitle('Histogram of Null-Model Squared Deviance Residuals')
+```
+
+Neither look distributed as we would like, suggesting this model is not good,
+but we will return to this topic later.
+
+
+### Residual Plots
+
+Much like for linear models, these residuals are useful to help decide which
+variables may have predictive power in our survival model. We do this by
+plotting the values of the residual against the variable values.
+
+To do this, we first add the residuals to the original dataset so that we can
+construct some of the residual plots.
+
+```{r create_residual_plots_null_model, echo=TRUE}
+telco_null_assess_tbl <- telco_churn_tbl %>%
+    mutate(resid_m = telco_model00_resid_m
+          ,resid_d = telco_model00_resid_d
+           )
+```
+
+Now that we have put the table together we can construct some two-way plots
+of the variable against the martingale residual:
+
+
+```{r construct_variable_residual_boxplots, echo=TRUE}
+ggplot(telco_null_assess_tbl) +
+    geom_boxplot(aes(x = vmailplan, y = resid_m)) +
+    xlab('vmailplan') +
+    ylab('Martingale Residual') +
+    ggtitle('Residual Plot of Martingal Residual against vmailplan')
+
+ggplot(telco_null_assess_tbl) +
+    geom_boxplot(aes(x = intlplan, y = resid_m)) +
+    xlab('intlplan') +
+    ylab('Martingale Residual') +
+    ggtitle('Residual Plot of Martingal Residual against intlplan')
+
+ggplot(telco_null_assess_tbl) +
+    geom_boxplot(aes(x = areacode, y = resid_m)) +
+    xlab('areacode') +
+    ylab('Martingale Residual') +
+    ggtitle('Residual Plot of Martingal Residual against areacode')
+
+
+ggplot(telco_null_assess_tbl) +
+    geom_boxplot(aes(x = custservicecalls, y = resid_m, group = custservicecalls)) +
+    xlab('custservicecalls') +
+    ylab('Martingale Residual') +
+    ggtitle('Residual Plot of Martingal Residual against custservicecalls')
+```
+
+`custservicecalls` is a numeric variable, but it does not take many values so
+we can create boxplots rather than a more typical scatterplot.
+
+For continuous variables, we look at those scatterplots:
+
+```{r construct_variable_residual_scatterplots, echo=TRUE}
+ggplot(telco_null_assess_tbl) +
+    geom_point(aes(x = vmailmessage, y = resid_m), size = 1, alpha = 0.1) +
+    xlab('vmailmessage') +
+    ylab('Martingale Residual') +
+    ggtitle('Residual Plot of Martingal Residual against vmailmessage')
+
+ggplot(telco_null_assess_tbl) +
+    geom_point(aes(x = daymins, y = resid_m), size = 1, alpha = 0.1) +
+    xlab('daymins') +
+    ylab('Martingale Residual') +
+    ggtitle('Residual Plot of Martingal Residual against daymins')
+
+ggplot(telco_null_assess_tbl) +
+    geom_point(aes(x = nightmins, y = resid_m), size = 1, alpha = 0.1) +
+    xlab('nightmins') +
+    ylab('Martingale Residual') +
+    ggtitle('Residual Plot of Martingal Residual against nightmins')
+
+ggplot(telco_null_assess_tbl) +
+    geom_point(aes(x = intlmins, y = resid_m), size = 1, alpha = 0.1) +
+    xlab('intlmins') +
+    ylab('Martingale Residual') +
+    ggtitle('Residual Plot of Martingal Residual against intlmins')
+
+```
+
+No strong patterns stand out here, but that does not necessarily rule them
+out of candidate models. We will not know the predictive power till we try
+them in a model.
+
+
+## Assessing the Proportional Hazards Assumption
+
+The proportional hazards assumption is key in the construction of the partial
+likelihood, as it allows the cancellation of the baseline hazard in the
+calculations.
+
+This assumption of proportional hazards is likely to be violated in practice,
+so the question is how big the effect those violations have on our model.
+Formal statistical tests are thus of limited value, but can be a useful
+indicator of issues with any models built.
+
+
+### Residual Plots
+
+Tests for the proportional hazards assumption reduce to checking if the
+parameters from the model are constant over time. This task is made easier
+by the construction of 'Schoenfeld' residuals, which we will not discuss
+here, but are easily calculated in R by using the `cox.zph()` function.
+
+```{r testing_model01_ph_assumptions, echo=TRUE}
+telco_model01_coxzph <- telco_model01_coxph %>% cox.zph(transform = 'km')
+
+telco_model01_coxzph %>% print()
+telco_model01_coxzph %>% ggcoxzph()
+```
+
+The plot and $p$-value suggest the assumptions are not horrible here.
+
+We now move on to the second model we built.
+
+```{r testing_model02_ph_assumptions, echo=TRUE}
+telco_model02_coxzph <- telco_model02_coxph %>% cox.zph(transform = 'km')
+
+telco_model02_coxzph %>% print()
+telco_model02_coxzph %>% ggcoxzph()
+```
+
+The assumption also seems sound here.
+
+
+We now try the combined model, `model03`:
+
+```{r testing_model03_ph_assumptions, echo=TRUE}
+telco_model03_coxzph <- telco_model03_coxph %>% cox.zph(transform = 'km')
+
+telco_model03_coxzph %>% print()
+telco_model03_coxzph %>% ggcoxzph()
+```
+
+
+
+# R Environment
+
+```{r show_session_info, echo=TRUE, message=TRUE}
+sessioninfo::session_info()
+```

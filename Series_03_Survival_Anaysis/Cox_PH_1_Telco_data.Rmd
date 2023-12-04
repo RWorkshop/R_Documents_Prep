@@ -1,0 +1,184 @@
+
+# The Cox Proportional Hazards Model
+
+Up to this point we have focused on empirical and non-parametric approaches
+to estimating survival and hazard functions.
+
+While useful, these approaches do not work when we want to consider multiple
+variables simultaneously. We could try to construct different KM estimates
+according to the splits, but splitting along multiple directions rapidly
+diminishes the amount of data in each split.
+
+Instead, we start to build regression models to estimate the hazard and
+survival functions.
+
+## Proportional Hazards
+
+The core assumption for the proportional hazards model is that we model the
+hazard function and construct the survival curve from that.
+
+We assume we have a reference hazard function of time, $h_0(t)$, known as the
+*baseline hazard*. All hazard functions are proportional to this baseline:
+
+$$
+h(t) = \psi \, h_0(t)
+$$
+
+Implicit in the above statement is that the time-effects of the hazard are
+built into the hazard function $h_0(t)$ - there is no time-varying effect
+in the coefficients in the Cox PH model.
+
+The hazards can be greater or less than this baseline - $\psi > 1$ means the
+hazard is greater than the baseline and the survival curve will be below the
+baseline curve; $\psi < 1$ means it is less.
+
+We model this constant factor $\psi$ as a linear model - we have covariates
+$x_i$ as inputs to the model, and each covariate has a corresponding
+coefficient $\beta_i$.
+
+$$
+\psi = \exp(\beta \, x) = \exp(\beta_1 x_1 + ... + \beta_n x_x)
+$$
+
+Thus, stated fully, our Cox PH model can be expressed as follows:
+
+$$
+h(t | X) = h_0(t) \exp(\beta \, X)
+$$
+
+As our data is censored we need to modify our standard maximum likelihood
+approaches to estimating the parameters of a model - instead we need to use
+'partial likelihoods' that takes into account the censoring.
+
+We will not go into the details, but this method reduces to optimising a
+function over the parameter space. This has the side benefit that once we have
+these parameter values, we can use this to calculate the baseline hazard also.
+
+With this in mind, we now turn our attention to actually fitting the models.
+
+
+## Our First Cox-PH Model
+
+For our first Cox-PH model, we build a model using the voicemail parameter.
+
+```{r telco_model01_coxph, echo=TRUE}
+telco_model01_coxph <- coxph(Surv(accountdur, churned) ~ vmailplan
+                            ,data = telco_churn_tbl
+                             )
+
+telco_model01_coxph %>% summary()
+```
+
+Now that we have built our first survival regression model, how do we assess
+how good the model is?
+
+
+## Model Assessment
+
+Model assessment in survival analysis is less straightforward as the models
+produce a distribution rather than a number. We can discuss more robust
+assessments later, but for now it is worth introducing a number of
+quantitative measures of model quality.
+
+### R-Squared
+
+The standard measure of model fit is $R^2$, the proportion of variance
+explained by the model. This does not quite work for survival models, but we
+can use a modified $R^2$ statistic, defined for Cox-PH models as follows:
+
+$$
+R^2 = 1 - \left( \frac{l(0)}{l(\hat{\beta})} \right)^{\frac{2}{n}}
+$$
+
+where $l(\beta)$ is the log-likelihood function.
+
+
+### Concordance Index
+
+The concordance index, or $c$-index, or $c$-statistic is the proportion of
+pairwise comparisons correctly identified by the model. To ensure a fair
+comparison at least one of the rows must not be censored.
+
+We compare comparison times and check that our model correctly predicted the
+order of times between the compared datapoints - a correct value adds 1 to
+the total, an incorrect one adds 0. We then divide the total by the number
+of comparisons made to get our statistic.
+
+Thus, a concordance index of 0.5 is equivalent to a random guess and so is our
+baseline value. A good survival model will have a $c$-index between 0.6 and
+0.7 - anything higher is unlikely due to the censored nature of our data.
+
+
+### Assessing Our First Model
+
+So how good is our model?
+
+```{r telco_model01_coxph_assessment, echo=TRUE}
+telco_model01_coxph %>% summary()
+
+telco_model01_coxph %>%
+    glance() %>%
+    select(n, nevent, r.squared, concordance, std.error.concordance)
+
+telco_model01_coxph %>% tidy()
+```
+
+This simple model with one binary variable gives us a $c$-index of 0.565. The
+$R^2$ is essentially zero (0.011), and we will check how both values correlate
+as we iterate upon the model-building.
+
+
+## Adding International Plans
+
+For our second model we add international calls, adding it as a single variable
+before we see what adding both does..
+
+```{r telco_model02_coxph, echo=TRUE}
+telco_model02_coxph <- coxph(Surv(accountdur, churned) ~ intlplan
+                            ,data = telco_churn_tbl
+                             )
+
+telco_model02_coxph %>% summary()
+```
+
+Model02 has a $c$-index of 0.591, so the international plan has more
+predictive power. Note that $R^2$ is increasing with $c$-index, so this
+relationship is worth investigating later.
+
+```{r telco_model02_coxph_assessment, echo=TRUE}
+telco_model02_coxph %>%
+    glance() %>%
+    select(n, nevent, r.squared, concordance, std.error.concordance)
+
+telco_model02_coxph %>% tidy()
+```
+
+Having checked the variables separately, we now combine them into a single
+model containing both variables. We expect combining both variables to improve
+our model, but if both are highly correlated this may not be the case.
+
+```{r telco_model03_coxph, echo=TRUE}
+telco_model03_coxph <- coxph(Surv(accountdur, churned) ~ vmailplan + intlplan
+                            ,data = telco_churn_tbl
+                             )
+
+telco_model03_coxph %>% summary()
+```
+
+The combined model, Model03, has a $c$-index of 0.643 and an $R^2$ of 0.05.
+
+
+```{r telco_model03_coxph_assessment, echo=TRUE}
+telco_model03_coxph %>%
+    glance() %>%
+    select(n, nevent, r.squared, concordance, std.error.concordance)
+
+telco_model03_coxph %>% tidy()
+```
+
+This model appears to be better, and there are many more variables we can
+try to improve the model.
+
+Before we spend time and effort iterating further on this model, we now
+spend some time checking the proportional hazards assumption. As we might
+expect, we have tools to help with this.

@@ -6,22 +6,20 @@ This procedure is used to assess whether the population mean $\mu$  has a specif
        
        * [Ho] : $\mu = 0$
        * [Ha] : $\mu \neq 0$
-       \end{itemize}
-
+       
 There are two hypothesis test for the mean of a single sample.
 
 
  *  [1)] The sample is of a normally-distributed variable for which the population standard deviation ($\sigma$) is known.
  *  [2)] The sample is of a normally-distributed variable where $\sigma$ is estimated by the sample standard deviation (s).
-\end{itemize}
 In practice, the population parameter values is rarely known. For this reason, we will consider the second case only in this course.
 
 \subsection{The \texttt{t.test()} Function}
 The \texttt{t.test( )}function produces a variety of  outputs for procedures, hence answering such questions. Let us look at the function first to see what sort of output it gives us.
 Recall our simulated data from last week, rolling a die 100 times.
 
-\begin{framed}
-\begin{verbatim}
+
+<pre><code>
 ## Initialize variables
 die = 1:6
 N=100
@@ -29,10 +27,10 @@ N=100
 ## Calculations
 x=sample(die,N, replace=TRUE)
 t.test(x)
-\end{verbatim}
-\end{framed}
+</code></pre>
+
 The \texttt{R} output should look something like this:
-\begin{verbatim}
+<pre><code>
         One Sample t-test
 data:  x
 t = 19.8867, df = 99, p-value < 2.2e-16
@@ -41,7 +39,7 @@ alternative hypothesis: true mean is not equal to 0
  3.087767 3.772233
 sample estimates:
 mean of x :     3.43
-\end{verbatim}
+</code></pre>
 
 Working backwards, the t procedure gives us the mean of the data set, and a $95\%$ confidence interval for that mean.  (Please refer to previous modules)
 
@@ -56,13 +54,13 @@ We can change the confidence level (and by extension,  the significance level)  
 
 In this instance, we will change it to 0.99 ( i.e. $99\%$ confidence). However for the rest of the module, we will use the $95\%$ confidence level. (Remark: Be mindful that I might ask this in the exam.).
 
-\begin{framed}
-\begin{verbatim}
-t.test(x,mu=3.5,conf.level=0.99)
-\end{verbatim}
-\end{framed}
 
-\begin{verbatim}
+<pre><code>
+t.test(x,mu=3.5,conf.level=0.99)
+</code></pre>
+
+
+<pre><code>
         One Sample t-test
 data:  x
 t = -0.4059, df = 99, p-value = 0.6857
@@ -72,7 +70,7 @@ alternative hypothesis: true mean is not equal to 3.5
 sample estimates:
 mean of x
      3.43
-\end{verbatim}
+</code></pre>
 The mean value remains constant. We have specified a $99\%$ confidence level, so necessarily a $99\%$ confidence interval is returned. Compare it to the previous output.
 
 The important difference is what is specified as the alternative hypothesis: \textbf{\texttt{true mean is not equal to 3.5}}. Necessarily the null hypothesis is that true mean is equal to 3.5 (i.e. a fair dice). This is meaningful in the contest of the dice-roll experiment.

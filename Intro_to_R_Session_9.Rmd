@@ -29,48 +29,47 @@ Numbers or characters.
 To create a vector, use the assignment operator and the concatenate function.
 For numeric vectors, the values are simply numbers.
 
-\begin{verbatim}
+<pre><code>
 ># week8.r
 >NumVec<-c(10.4,5.6,3.1,6.4)
-\end{verbatim}
+</core></pre>
 
 Alternatively we can use the \texttt{assign()} command
 
 For character vectors, the values are simply characters, specified with
 quotation marks.A logical vectors is a vector whose elements are TRUE, FALSE or NA
 
-\begin{verbatim}
+<pre><code>
 >CharVec<-c(``blue", ``green", ``yellow")
 >LogVec<-c(TRUE, FALSE)
-\end{verbatim}
+</core></pre>
 
 ---------------------------------------
 
 Another method of creating vectors is to use the following
-\begin{verbatim}
+<pre><code>
 numeric (length = n)
 character (length = n)
 logical (length = n)
-\end{verbatim}
+</core></pre>
 These commands create empty vectors, of the appropriate kind, of length $n$. You can then use the graphical data entry interface to populate your data sets.
 
 \subsubsection{Accessing specified elements of a vector}
 
 The $n$th element of vector ``Vec" can be accessed by specifying its index when
 calling ``Vec".
-\begin{verbatim}>Vec[n]
-\end{verbatim}
+<pre><code>>Vec[n]
+</core></pre>
 A sequence of  elements of vector ``Vec" can be accessed by specifying its index
 when calling ``Vec".
-\begin{verbatim}>Vec[l:u]
-\end{verbatim}
+<pre><code>>Vec[l:u]
+</core></pre>
 Omitting and deleting the $n$th element of vector ``Vec"
-\begin{verbatim}
+<pre><code>
 >Vec[-n]
 >Vec <- Vec[-n]
-\end{verbatim}
+</core></pre>
 
-%### Reading data}
 
 
 ### inputting data}

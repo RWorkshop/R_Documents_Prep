@@ -111,50 +111,50 @@ A very commonly used statistical procedure is \textbf{simple linear regression}
 
 
 
-\begin{verbatim}
+<pre><code>
 Y <- c( )
 X <- c( )
 
 plot(X,Y)
 cor(X,Y)
 lm(Y~X)
-\end{verbatim}
+</code></pre>
 
 %------------------------%
 
-\begin{verbatim}
+<pre><code>
 FitA =lm(Y~X)
 summary(FitA)
-\end{verbatim}
+</code></pre>
 
 %--------------------------------%
 Let's look at this summary output in more detail, to see how it is structured. Importantly this object is structured as a list of named components.
 
-\begin{verbatim}
+<pre><code>
 names(summary(FitA))
 class(summary(FitA))
 mode(summary(FitA))
 str(summary(FitA))
-\end{verbatim}
+</code></pre>
 
 
 %-------------------------------%
 The summary of ``FitA} is a data object in it's own right. We will save it under the name ``Sum.FitA} (N.B. The dot in the name has no particular meaning).
 
-\begin{verbatim}
+<pre><code>
 Sum.FitA=summary(FitA)
 Sum.FitA[1]
 Sum.FitA$pvalue
-\end{verbatim}
+</code></pre>
 
 %------------------------------%
 Suppose we wish require the $p-$value for the slope estimate only.
 
-\begin{verbatim}
+<pre><code>
 class(Sum.FitA$pvalue)
 mode(Sum.FitA$pvalue)
 dim(Sum.FitA$pvalue)
-\end{verbatim}
+</code></pre>
 
 %-------------------------------------------------%
 

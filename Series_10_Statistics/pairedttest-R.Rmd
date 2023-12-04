@@ -1,7 +1,7 @@
-%------------------------------------------%
 
 
-\frametitle{The Paired $t$-Test (a)}
+
+### The Paired $t$-Test (a)}
 
 }
 *  Previously we have seen the paired t-test. It is used to determine whether or
@@ -15,10 +15,10 @@ the case-wise differences are zero.
 
 
 
-%------------------------------------------%
 
-\frametitle{The Paired $t$-Test (b)}
-}
+
+### The Paired $t$-Test (b)}
+
 *  The calculation is dependent on the case-wise differences.
 *  Here the case-wise differences between paired measurements (e.g. ``before" and ``after").
 *  Under the null hypothesis, the mean of case-wise differences is zero.
@@ -26,9 +26,9 @@ the case-wise differences are zero.
 
 
 
-%------------------------------------------%
 
-\frametitle{The Paired $t$-Test (c)}
+
+### The Paired $t$-Test (c)}
 }
 *  Observed Mean of Case-wise differences $\bar{d}$ = 8.21,
 *  Expected Mean of Case-wise differences under $H_0$ : $\mu_d = 0$,
@@ -38,9 +38,9 @@ the case-wise differences are zero.
 
 \[ TS = \frac{\bar{d} - \mu_d}{\frac{s_d}{\sqrt{n}}} = \frac{8.21 - 0}{\frac{7.90}{\sqrt{14}}} = 3.881 \]
 
-%------------------------------------------%
 
-\frametitle{The Paired $t$-Test (d)}
+
+### The Paired $t$-Test (d)}
 
 }
 *  Procedure is two-tailed, and you can assume a significance level of 5\%.
@@ -50,9 +50,9 @@ the case-wise differences are zero.
 
 
 
-%------------------------------------------%
 
-\frametitle{The Paired $t$-Test (e)}
+
+### The Paired $t$-Test (e)}
 Alternative Approach : using p-values.
 }
 *  The p-values are determined from computer code. (We will use a software called \texttt{R}. Other types of software inlcude \texttt{SAS} and \texttt{SPSS}.)
@@ -62,11 +62,11 @@ Alternative Approach : using p-values.
 *  The threshold for being considered small is less than $\alpha/k$, (usually 0.0250). (This is a very arbitrary choice of threshold, suitable for some subject areas, not for others)
 
 
-%------------------------------------------%
 
-\frametitle{The Paired $t$-Test (f)}
+
+### The Paired $t$-Test (f)}
 Implementing the paired t-test using \texttt{R} for the example previously discussed.
-\begin{verbatim}
+<pre><code>
 > t.test(Before,After,paired=TRUE)
 
         Paired t-test
@@ -80,12 +80,12 @@ sample estimates:
 mean of the differences
                8.214286
 
-\end{verbatim}
+</code></pre>
 
 
-%-------------------------------------------------%
+<p>
 
-\frametitle{The Paired $t$-Test (g)}
+### The Paired $t$-Test (g)}
 }
 *  The p-value ($0.001868$) is less than the threshold is less than the threshold $0.0250$.
 *  We reject the null hypothesis (mean of case-wise differences being zero, i.e. expect no difference between ``before" and ``after").
@@ -93,20 +93,20 @@ mean of the differences
 *  That is to say, we can expected a difference between two paired measurements.
 
 
-%-------------------------------------------------%
+<p>
 
-\frametitle{The Paired $t$-Test (h)}
+### The Paired $t$-Test (h)}
 }
 *  We could also consider the confidence interval. We are $95\%$ confident that the expected value of the case-wise difference is at least 3.65.
 *  Here the null value (i.e. 0) is not within the range of the confidence limits.
 *  Therefore we reject the null hypothesis.
 
-\begin{verbatim}
+<pre><code>
 > t.test(Before,After,paired=TRUE)
 ...
 ...
 95 percent confidence interval:
   3.650075 12.778496
 ...
-\end{verbatim}
+</code></pre>
 

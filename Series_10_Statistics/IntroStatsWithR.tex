@@ -17,50 +17,6 @@ We refer to the methods used to answer these questions as ***inference procedure
 
 
 
-%---------------------------------------------------- %
-<p>
-## Bivariate data}
-### What is Bivariate data?}
-
-A dataset with two variables contains what is called bivariate data. For example, the heights and weights of people (i.e. for the purposes of determining the extent to which taller people weigh more)
-
-Common bivariate statistical analyses include
-
-* Correlation
-* Simple Linear Regression
-
-
-### Scatter Plot} A scatter plot of two variables shows the values of one variable on the Y axis and the values of the other variable on the X axis. Scatter plots are well suited for revealing the relationship between two variables.
-
-Scatterplots can be implemented in \texttt{R} using the command ***plot()***
-
-Exercise: Let us construct scatter-plots for the Immer and Iris data sets.
-
-
-```{r}
-plot(immer$Y1,immer$Y2)
-
-plot(iris[,1],iris[,3])
-```
-
-More complex scatterplots, with better visual aesthetics, can be constructed. We will look at this more later on in the semester.
-
-
-
-
-We can give a name to the model (e.g. $FIT1$), and view all of the results of the calculation, including the regression coefficients, hypothesis test results and information on the residuals (i.e. the differences between the estimated ‘y’ values and the observed ‘y’ values).
-
-In common with all data structures we can use the \textbf{\texttt{names()*** function and ‘$\$$’ to access components.
-
-
-```{r}
-FIT1 = lm(Y~X)
-summary(FIT1)
-names(FIT1)
-names(summary(FIT1))
-FIT1$coefficients
-class(FIT1)
-```
 
 A fundamental assumption of linear models is that the
 Residuals are normally distributed with mean zero. Investigate this using the RESID command.
