@@ -1,0 +1,92 @@
+The Granger causality test is a statistical hypothesis test for determining whether one time series is useful in forecasting another. 
+
+Ordinarily, regressions reflect "mere" correlations, but Clive Granger argued that causality in economics could be reflected by measuring the ability of predicting the future values of a time series using past values of another time series. Since the question of "true causality" is deeply philosophical, econometricians assert that the Granger test finds only "predictive causality".
+ 
+A time series X is said to Granger-cause Y if it can be shown, usually through a series of t-tests and F-tests on lagged values of X (and with lagged values of Y also included), that those X values provide statistically significant information about future values of Y.
+ 
+Granger also stressed that some studies using "Granger causality" testing in areas outside Economics reached "ridiculous" conclusions. "Of course, many ridiculous papers appeared", he said in his Nobel Lecture, December 8, 2003. 
+
+However, it remains a popular method for causality analysis in time series due to its computational simplicity. 
+
+The original definition of Granger causality does not account for latent confounding effects and does not capture instantaneous and non-linear causal relationships, though several extensions have been proposed to address these issues.
+
+
+------------------------------------------------
+
+Granger Causality Test in R
+This test generates an F test statistic along with a p-value.
+
+We can reject the null hypothesis and infer that time series X Granger causes time series Y if the p-value is less than a particular significance level (e.g. =.05).
+
+In R, we may use the grangertest() function from the lmtest package to perform a Granger-Causality test, which has the following syntax:
+
+15 Essential packages in R for Data Science »
+
+grangertest(X, Y, order = 1)
+where:
+
+X: This is the very first time series.
+
+Y: The second set of the time series
+
+order: In the first time series, the number of lags to utilize. The default value is 1.
+
+The step-by-step example below demonstrates how to utilize this function in practice.
+
+Step 1: Load Data
+For this example, we’ll use the EuStockMarkets dataset. This dataset contains values for the DAX, SMI, CAC, and FTSE of values but we are utilizing only DAX and SMI values.
+
+Only for illustration purposes randomly taking DAX and SMI values here.
+
+tsData <- EuStockMarkets[, 1:2]
+view first six rows of dataset
+
+head(tsData)
+       DAX    SMI
+[1,] 1628.75 1678.1
+[2,] 1613.63 1688.5
+[3,] 1606.51 1678.6
+[4,] 1621.04 1684.1
+[5,] 1618.16 1686.6
+[6,] 1610.61 1671.6
+Step 2: Perform the Granger-causality Test
+Next, we’ll use the grangertest() function to run a Granger-Causality test to examine if the values of SMI predict the values of DAX in the future. We’ll conduct the test with three different lags:
+
+tidyverse in r – Complete Tutorial » Unknown Techniques »
+
+perform Granger-Causality test
+
+library(lmtest)
+grangertest(DAX ~ SMI, order = 3, data = tsData)
+Granger causality test
+Model 1: DAX ~ Lags(DAX, 1:3) + Lags(SMI, 1:3)
+Model 2: DAX ~ Lags(DAX, 1:3)
+  Res.Df Df      F    Pr(>F)    
+1   1850                        
+2   1853 -3 8.4968 1.322e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+The F test statistic is denoted by the letter F equal to 8.4968 and the p-value that corresponds to the F test statistic is Pr(>F) 1.322e-05.
+
+We may reject the null hypothesis of the test because the p-value is smaller than 0.05, and infer that knowing the values of SMI is valuable for forecasting the future values of DAX.
+
+### Step 3: Perform the Granger-causality Test in Reverse
+Despite the fact that the null hypothesis of the test was rejected, it’s possible that reverse causation is occurring. That example, it’s probable that changes in the values of DAX are affecting changes in the values of SMI.
+<p>
+
+To rule out this possibility, we must use DAX as the predictor variable and SMI as the responder variable in the Granger-Causality test in reverse:
+
+perform Granger-Causality test in reverse
+
+grangertest(SMI ~ DAX, order = 3, data = tsData)
+Granger causality test
+Model 1: SMI ~ Lags(SMI, 1:3) + Lags(DAX, 1:3)
+Model 2: SMI ~ Lags(SMI, 1:3)
+  Res.Df Df      F  Pr(>F)  
+1   1850                    
+2   1853 -3 2.6576 0.04689 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+The test’s p-value is 0.04689. We reject the null hypothesis because this value is less than 0.05. That is, the values of DAX predict the values of SMI in the future.
+
+As a result, we can conclude that knowing the values of SMI is helpful in projecting the values of DAX in the future.
