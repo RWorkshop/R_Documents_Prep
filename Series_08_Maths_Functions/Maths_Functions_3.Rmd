@@ -1,7 +1,5 @@
-
- 
- \frametitle{1.8 Basic Maths Operations}
- The most commonly used mathematical operators are all supported by R. \\Here are a few
+## Basic Maths Operations
+The most commonly used mathematical operators are all supported by R. \\Here are a few
  examples:
  
  \begin{semiverbatim}
