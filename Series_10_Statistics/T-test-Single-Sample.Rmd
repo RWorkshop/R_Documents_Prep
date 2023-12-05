@@ -1,5 +1,4 @@
-
-\subsection{Hypothesis test for the mean of a single sample }
+## Hypothesis test for the mean of a single sample 
 
 This procedure is used to assess whether the population mean $\mu$  has a specified value, based on the sample mean. The hypotheses are conventionally written in a form similar to below (here the hypothesized population mean is simply zero).
 
@@ -14,7 +13,8 @@ There are two hypothesis test for the mean of a single sample.
  *  [2)] The sample is of a normally-distributed variable where $\sigma$ is estimated by the sample standard deviation (s).
 In practice, the population parameter values is rarely known. For this reason, we will consider the second case only in this course.
 
-\subsection{The \texttt{t.test()} Function}
+
+### The \texttt{t.test()} Function}
 The \texttt{t.test( )}function produces a variety of  outputs for procedures, hence answering such questions. Let us look at the function first to see what sort of output it gives us.
 Recall our simulated data from last week, rolling a die 100 times.
 
