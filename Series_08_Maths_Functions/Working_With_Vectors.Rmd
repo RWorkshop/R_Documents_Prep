@@ -1,0 +1,25 @@
+---
+title: "Basic Statistics Functions"
+subtitle: Statistics with R
+author: DragonflyStats.github.io
+output:
+prettydoc::html_pretty:
+theme: cayman
+highlight: github
+---
+creating a vector
+
+scan()
+
+X=c()
+
+data.entry()
+
+data manipulation
+sort()
+rev()
+rep()
+length()
+order()
+
+ 
