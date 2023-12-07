@@ -1,0 +1,33 @@
+
+
+\section{Vector types}
+``R} operates on named data structures. The simplest such structure is the
+vector, which is a single entity consisting of an ordered collection of
+Numbers or characters.
+
+\begin{itemize}
+*  Numeric vectors
+*  Character vectors
+*  Logical vectors
+*  (also complex number vectors and colour vectors)
+\end{itemize}
+
+To create a vector, use the assignment operator and the concatenate function.
+For numeric vectors, the values are simply numbers.
+
+<code>
+># week8.r
+>NumVec<-c(10.4,5.6,3.1,6.4)
+</code>
+
+Alternatively we can use the ``assign()`` command
+
+For character vectors, the values are simply characters, specified with
+quotation marks.A logical vectors is a vector whose elements are TRUE, FALSE or NA
+
+<code>
+>CharVec<-c(``blue", ``green", ``yellow")
+>LogVec<-c(TRUE, FALSE)
+</code>
+
+

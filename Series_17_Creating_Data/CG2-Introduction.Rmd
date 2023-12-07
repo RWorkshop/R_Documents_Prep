@@ -1,0 +1,3 @@
+
+\subsection*{2.4 Use of the Semi-Colon Operator}
+The semi-colon operator at the end of each line of code is not necessary in general, but using it overcomes errors due to copying and pasting from document soft copies. In other programming languages, such as Octave, using the semicolon in this way has a distinct purpose.

@@ -1,0 +1,88 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+#### Introducton to R : Lists
+
+Lists
+
+
+
+*  are an ordered collection of components;
+* components may be arbitrary R objects (data frames, vectors,lists, etc. );
+*  single bracket notation for sublists;
+* double bracket notation for individual components;
+* construct using the function list().
+
+A simple example of a list is as follows:
+
+begin{framed}
+begin{verbatim}
+
+L1 <- list(name="Fred",wife="Mary",no.children=3,
+child.ages=c(4,7,9))
+
+end{verbatim}
+end{framed}
+
+<p>
+
+Each component of the list is given a name (i.e. name, wife, no.children, child.ages).
+
+We can construct a second list omitting the component names:
+
+begin{framed}
+begin{verbatim}
+
+L2 <- list("Fred", "Mary", 3, c(4,7,9))
+
+
+What is the difference between the two? Three equivalent ways of accessing the first component.
+
+begin{framed}
+begin{verbatim}
+
+L1[["name"]]
+L1$name
+L1[[1]]
+
+<p>
+
+A sublist consisting of the first component only
+> L1[1]
+$name
+[1] "Fred"
+
+
+The names of each component of the list can be accessed using
+
+\begin{framed}
+\begin{verbatim}
+
+names(L1)
+names(L2)
+
+\end{verbatim}
+
+
+We can set the names for the list components after the list has been
+created.
+
+\begin{framed}
+\begin{verbatim}
+
+names(L2) <- c("name.hus", "name.wife", "no.child", "child.age")
+names(L2)
+
+\end{verbatim}
+
+
+--------------------------------------
+
+#### Introducton to R : Lists}
+
+We can also concatenate lists:
+
+```{r}
+L3 <- c(L1, L2)
+
+```

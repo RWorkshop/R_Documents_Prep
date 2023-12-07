@@ -1,0 +1,31 @@
+
+\section{Functions}
+Syntax to define functions
+
+<pre>
+<code>
+myfct <- function(arg1, arg2, ...) { function_body }
+</code>
+</pre>
+The value returned by a function is the value of the function body, which is usually an unassigned final expression, e.g.: return()
+
+Syntax to call functions
+<pre>
+<code>
+myfct(arg1=..., arg2=...)
+</code>
+</pre>
+
+
+\subsection{Time and Date}
+It is useful . The length of time a program takes is interesting.
+
+
+<pre>
+<code>
+date() # returns the current system date and time
+</code>
+</pre>
+
+
+
