@@ -1,12 +1,4 @@
 
-
-R Workshop
-Introduction to R
-Precision
-Data Manipulation
-data manipulation
-Descriptive and Quantile Statistics
- 
 ####Vectors
 
 Vectors are the simplest type of object in R. There are 3 main types of vectors:
@@ -50,9 +42,7 @@ This creates a vector y with 11 entries (two copies of x with a 0 in the middle)
 
 [1] 0.09615385 0.17857143 0.32258065 0.15625000 0.04608295
 
-
-
-  Short vectors are "recycled" to match long ones
+Short vectors are "recycled" to match long ones
 
 > v <- x + y
 
@@ -61,7 +51,6 @@ Warning message:
 In x + y : longer object length is not a multiple of shorter object length
 
 
- 
 Some functions take vectors of values and produce results of the same length:
 sin, cos, tan, asin, acos, atan, log, exp, ......
 
