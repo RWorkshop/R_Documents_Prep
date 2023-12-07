@@ -1,18 +1,17 @@
 ---
-title: "Dublin Data Science Workshop on Survival Analysis"
-author: "Mick Cooney <mickcooney@gmail.com>"
-date: "Monday, 24 September 2018"
+title: "Forecasting with R"
+subtitle: "Time Series Analysis with R"
+author: DragonflyStats.github.io
 output:
-  html_document:
-    fig_caption: yes
-    number_sections: yes
-    theme: cerulean
-    toc: yes
-    toc_depth: 3
-    toc_float:
-      smooth_scroll: FALSE
-  pdf_document: default
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(digits=3)
+```
 
 ```{r knit_opts, include = FALSE}
 knitr::opts_chunk$set(tidy  = FALSE

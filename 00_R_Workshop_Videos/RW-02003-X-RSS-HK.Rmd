@@ -1,19 +1,17 @@
 ---
-title: "Statistics with R"
-subtitle: "Modelling Data with R - Linear Models"
+title: "Forecasting with R"
+subtitle: "Time Series Analysis with R"
+author: DragonflyStats.github.io
 output:
-  xaringan::moon_reader:
-    lib_dir: libs
-    nature:
-      highlightStyle: github
-      countIncrementalSlides: false
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
 ---
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(magrittr)
-library(knitr)
+options(digits=3)
+```
 
 
 #Higher Certificate, Paper II, 2007.  Question 3

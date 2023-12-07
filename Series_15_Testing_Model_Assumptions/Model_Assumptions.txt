@@ -1,4 +1,17 @@
-\newpage
+---
+title: "Forecasting with R"
+subtitle: "Time Series Analysis with R"
+author: DragonflyStats.github.io
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(digits=3)
+```
 \section{Assessing Model Assumptions}
 \subsection{Residuals}  The difference between the predicted value (based on the regression equation) and the actual, observed value. In simple linear regression models, the matter of whether or not residuals are normally distributed often arises.
 

@@ -1,3 +1,18 @@
+---
+title: "Forecasting with R"
+subtitle: "Time Series Analysis with R"
+author: DragonflyStats.github.io
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(digits=3)
+```
+
 
 # The Cox Proportional Hazards Model
 
