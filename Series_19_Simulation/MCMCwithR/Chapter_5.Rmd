@@ -1,0 +1,20 @@
+---
+title: "Chapater_5"
+author: "Kevin O Brien"
+date: "18 December 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+5 Monte Carlo Optimization
+
+5.1 Introduction
+
+5.3.1 A Basic Solution
+5.4.3 The EM Algorithm
+

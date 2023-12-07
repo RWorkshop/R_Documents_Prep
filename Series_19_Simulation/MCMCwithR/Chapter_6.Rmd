@@ -1,0 +1,27 @@
+---
+title: "Chapter 6: Metropolis Hastings"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 6. Metropolis Hastings Algorithms
+
+* The Metropolis-Hastings algorithm is a Markov chain Monte Carlo (MCMC) method for obtaining a sequence of random samples from a probability distribution from which direct sampling is difficult. This sequence can be used to approximate the distribution (e.g. to generate a histogram) or to compute an integral (e.g. an expected value). 
+
+* Metropolis-Hastings and other MCMC algorithms are generally used for sampling from multi-dimensional distributions, especially when the number of dimensions is high. For single-dimensional distributions, there are usually other methods (e.g. adaptive rejection sampling) that can directly return independent samples from the distribution, and these are free from the problem of autocorrelated samples that is inherent in MCMC methods.
+
+
+## 6.2 Markov Chain Theory
+
+
+## 6.3 Basic Metropolis-Hastings Algorithms
+
+ 6.3.1 A generic Markov Chain Monte Carlo algorithm
+ 6.3.2 The independent Metropolis Hastings algorithm
+
+## 6.4 A selection of candidates
+ 6.4.1. Random Walks
+ 6.4.2. Alternative Candidates

@@ -1,0 +1,58 @@
+---
+title: "Gibbs Sampler"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Gibbs Sampling
+====================
+
+In statistics, Gibbs sampling or a Gibbs sampler is a Markov chain Monte Carlo (MCMC) algorithm for obtaining a sequence of observations which are approximately from a specified multivariate probability distribution, when direct sampling is difficult.
+
+#### Fundamental Concept
+The idea in Gibbs sampling is to generate posterior samples by sweeping through each variable (or block of variables) to sample from its conditional. distribution with the remaining variables fixed to their current values.
+
+#### Burn-In and Thinning
+
+Gibbs sampling generates a Markov chain of samples, each of which is correlated with nearby samples. 
+As a result, care must be taken if independent samples are desired. Generally, samples from the beginning of the chain (the burn-in period) may not accurately represent the desired distribution and are usually discarded. It has been shown, however, that using a longer chain instead (e.g. a chain that is n times as long as the initially considered chain using a thinning factor of n) leads to better estimates of the true posterior. 
+
+It can be shown that, after a suitable burn-in period, the remaining of the 1,000 draws are draws from the posterior distributions. These samples are *not* independent. The sequence of draws is a random walk in the posterior space and each step in the space depends on the previous position. Typically a thinning period will also be used (which is not done here). A thinning of 10 would mean that we keep every 10th draw. The idea being that each draw may be dependent on the previous draw, but not as dependent on the 10th previous draw.
+*https://www.r-bloggers.com/bayesian-simple-linear-regression-with-gibbs-sampling-in-r/*
+
+
+Thus, thinning should only be applied when time or computer memory are restricted.
+
+#### Implementation
+
+Gibbs sampling, in its basic incarnation, is a special case of the Metropolis–Hastings algorithm. The point of Gibbs sampling is that given a multivariate distribution it is simpler to sample from a conditional distribution than to marginalize by integrating over a joint distribution. Suppose we want to obtain k {\displaystyle \left.k\right.} \left.k\right. samples of X = ( x 1 , … , x n ) {\displaystyle \mathbf {X} =(x_{1},\dots ,x_{n})} {\mathbf {X}}=(x_{1},\dots ,x_{n}) from a joint distribution p ( x 1 , … , x n ) {\displaystyle p(x_{1},\dots ,x_{n})} {\displaystyle p(x_{1},\dots ,x_{n})}. Denote the i {\displaystyle i} ith sample by X ( i ) = ( x 1 ( i ) , … , x n ( i ) ) {\displaystyle \mathbf {X} ^{(i)}=\left(x_{1}^{(i)},\dots ,x_{n}^{(i)}\right)} {\displaystyle \mathbf {X} ^{(i)}=\left(x_{1}^{(i)},\dots ,x_{n}^{(i)}\right)}. We proceed as follows:
+
+#### Step 1    
+
+We begin with some initial value X ( i ) {\displaystyle \mathbf {X} ^{(i)}} {\displaystyle \mathbf {X} ^{(i)}}.
+
+#### Step 2    
+
+We want the next sample. Call this next sample X ( i + 1 ) {\displaystyle \mathbf {X} ^{(i+1)}} {\displaystyle \mathbf {X} ^{(i+1)}}. Since X ( i + 1 ) = ( x 1 ( i + 1 ) , x 2 ( i + 1 ) , … , x n ( i + 1 ) ) {\displaystyle \mathbf {X} ^{(i+1)}=\left(x_{1}^{(i+1)},x_{2}^{(i+1)},\dots ,x_{n}^{(i+1)}\right)} {\displaystyle \mathbf {X} ^{(i+1)}=\left(x_{1}^{(i+1)},x_{2}^{(i+1)},\dots ,x_{n}^{(i+1)}\right)} is a vector, we sample each component of the vector, x j ( i + 1 ) {\displaystyle x_{j}^{(i+1)}} x_{j}^{{(i+1)}}, from the distribution of that component conditioned on all other components sampled so far. But there is a catch: we condition on X ( i + 1 ) {\displaystyle \mathbf {X} ^{(i+1)}} {\displaystyle \mathbf {X} ^{(i+1)}}'s components up to x j − 1 ( i + 1 ) {\displaystyle x_{j-1}^{(i+1)}} {\displaystyle x_{j-1}^{(i+1)}}, and thereafter condition on X ( i ) {\displaystyle \mathbf {X} ^{(i)}} {\displaystyle \mathbf {X} ^{(i)}}'s components, starting from x j + 1 ( i ) {\displaystyle x_{j+1}^{(i)}} {\displaystyle x_{j+1}^{(i)}} to x n ( i ) {\displaystyle x_{n}^{(i)}} {\displaystyle x_{n}^{(i)}}. To achieve this, we sample the components in order, starting from the first component. More formally, to sample x j ( i + 1 ) {\displaystyle x_{j}^{(i+1)}} x_{j}^{{(i+1)}}, we update it according to the distribution specified by p ( x j ( i + 1 ) | x 1 ( i + 1 ) , … , x j − 1 ( i + 1 ) , x j + 1 ( i ) , … , x n ( i ) ) {\displaystyle p\left(x_{j}^{(i+1)}|x_{1}^{(i+1)},\dots ,x_{j-1}^{(i+1)},x_{j+1}^{(i)},\dots ,x_{n}^{(i)}\right)} {\displaystyle p\left(x_{j}^{(i+1)}|x_{1}^{(i+1)},\dots ,x_{j-1}^{(i+1)},x_{j+1}^{(i)},\dots ,x_{n}^{(i)}\right)}. Note that we use the value that the ( j + 1 ) {\displaystyle (j+1)} {\displaystyle (j+1)}th component had in the i {\displaystyle i} ith sample, not the ( i + 1 ) {\displaystyle (i+1)} (i+1)th sample.
+
+#### Step 3    
+
+Repeat the above step k {\displaystyle k} k times.
+
+If such sampling is performed, these important facts hold:
+
+*    The samples approximate the joint distribution of all variables.
+*    The marginal distribution of any subset of variables can be approximated by simply considering the samples for that subset of variables, ignoring the rest.
+*    The expected value of any variable can be approximated by averaging over all the samples.
+
+When performing the sampling:
+
+*    The initial values of the variables can be determined randomly or by some other algorithm such as expectation-maximization.
+*    It is not actually necessary to determine an initial value for the first variable sampled.
+*    It is common to ignore some number of samples at the beginning (the so-called burn-in period), and then consider only every n {\displaystyle n} nth sample when averaging values to compute an expectation. For example, the first 1,000 samples might be ignored, and then every 100th sample averaged, throwing away all the rest. The reason for this is that (1) the stationary distribution of the Markov chain is the desired joint distribution over the variables, but it may take a while for that stationary distribution to be reached; (2) successive samples are not independent of each other but form a Markov chain with some amount of correlation. Sometimes, algorithms can be used to determine the amount of autocorrelation between samples and the value of n {\displaystyle n} n (the period between samples that are actually used) computed from this, but in practice there is a fair amount of "black magic" involved.
+*    The process of simulated annealing is often used to reduce the "random walk" behavior in the early part of the sampling process (i.e. the tendency to move slowly around the sample space, with a high amount of autocorrelation between samples, rather than moving around quickly, as is desired). Other techniques that may reduce autocorrelation are collapsed Gibbs sampling, blocked Gibbs sampling, and ordered overrelaxation; see below.
+

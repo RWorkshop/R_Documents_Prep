@@ -1,0 +1,95 @@
+---
+title: "Gibbs Sampler"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+### Problem
+
+*https://stats.stackexchange.com/questions/266665/gibbs-sampler-examples-in-r*
+
+Suppose \[Y∼N(mean=\mu ,Var= 1/ \tau ).\]
+
+Based on a sample, obtain the posterior distributions of $\mu$ and $\tau$ using the Gibbs sampler.
+
+### Notation
+
+* $\mu$ = population mean
+* $\tau$ = population precision (1 / variance)
+* $n$ = sample size
+* $\bar{y}$ = sample mean
+* $s^2$ = sample variance
+
+### Gibbs sampler
+
+[Casella, G. & George, E. I. (1992). Explaining the Gibbs Sampler. The American Statistician, 46, 167–174.]
+
+<pre><code>
+At iteration i
+
+(i=1,\ldots ,N
+
+):
+
+    sample \mu (i)
+
+from f(\mu |\tau (i−1),data)
+(see below)
+sample \tau (i)
+from f(\tau |\mu (i),data)
+
+        (see below)
+</code></pre>
+The theory ensures that after a sufficiently large number of iterations, T
+, the set ${(\mu (i),\tau (i)):i=T+1,\ldots ,N}$
+
+can be seen as a random sample from the joint posterior distribution.
+
+### Priors
+
+\[f(\mu ,\tau )=f(\mu )×f(\tau ),\]
+
+with
+
+$ f(\mu )\approx 1$
+
+$ f(\tau )\approx \tau −1$
+
+Conditional posterior for the mean, given the precision
+\[(\mu |\tau ,data)∼N(y¯,1n\tau )\]
+
+Conditional posterior for the precision, given the mean
+\[(\tau |\mu ,data)∼Gam(n2,2(n−1)s^2+n(\mu −y¯)2)\]
+
+#### R implementation
+
+```{r}
+# summary statistics of sample
+n    <- 30
+ybar <- 15
+s2   <- 3
+
+# sample from the joint posterior (mu, tau | data)
+mu     <- rep(NA, 11000)
+tau    <- rep(NA, 11000)
+T      <- 1000    # burnin
+```
+
+```{r}
+tau[1] <- 1  # initialisation
+for(i in 2:11000) {   
+    mu[i]  <- rnorm(n = 1, mean = ybar, sd = sqrt(1 / (n * tau[i - 1])))    
+    tau[i] <- rgamma(n = 1, shape = n / 2, scale = 2 / ((n - 1) * s2 + n * (mu[i] - ybar)^2))
+}
+mu  <- mu[-(1:T)]   # remove burnin
+tau <- tau[-(1:T)] # remove burnin
+```
+
+```{r}
+hist(mu)
+hist(tau)
+```

@@ -1,0 +1,31 @@
+
+
+## Probability density function
+
+The probability density function (pdf) of an exponential distribution is
+
+    \[ {\displaystyle f(x;\lambda )={\begin{cases}\lambda e^{-\lambda x}&x\geq 0,\\0&x<0.\end{cases}}} \]
+
+Here $\lambda > 0$ is the parameter of the distribution, often called the rate parameter. The distribution is supported on the interval $[0, \infty)$. 
+If a random variable X has this distribution, we write $X \sim Exp(\lambda)$.
+
+The exponential distribution exhibits infinite divisibility.
+
+## Cumulative distribution function
+
+The cumulative distribution function is given by
+
+    \[ {\displaystyle F(x;\lambda )={\begin{cases}1-e^{-\lambda x}&x\geq 0,\\0&x<0.\end{cases}}} \]
+
+
+Compute the inverse of $F(x;\lambda ) = 1-e^{-\lambda x}$
+
+$F(x;\lambda ) is some value $u$ \in [0,1]$
+
+u = 1-e^{-\lambda x}
+
+1-u  = e^{-\lambda x}
+
+\log(1-u) = -\lambda x
+
+x = \frac{\log(1-u)}{-\lambda}

@@ -1,0 +1,27 @@
+---
+title: "Chapter 7: Gibbs Sampler"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# 7. Gibbs Sampler
+
+## 7.1 Introduction
+
+## 7.2 Two Stage Gibbs Sampler
+
+## 7.3 Multistage Gibbs Sampler
+
+## 7.4 Missing Data and Latent Variables
+
+## 7.5 Hierarchical Structures
+
+## 7.6 Other Considerations
+
+7.6.1 Reparameterization
+7.6.2 Rao-Blackwellization
+7.6.3 Metropolis within Gibbs and Hybrid Strategies
+7.6.4 Improper Priors

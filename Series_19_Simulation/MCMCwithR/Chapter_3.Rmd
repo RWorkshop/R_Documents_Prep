@@ -1,0 +1,114 @@
+---
+title: "MCMC with R"
+author: "Kevin O Brien"
+date: "18 December 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 3 Monte Carlo Integration
+
+3.1 Introduction
+3.2 Classical Monte Carlo Integration
+3.3 Importance Sampling
+
+## 3.1 Introduction
+
+
+#### Page 63 and 64
+
+
+As a test, we compare the use of ``integrate()`` on the integral
+\[  \int^{\infty}_{0} x^{\lambda-1} exp(-x) dx   \]
+
+with the computation of $\Gamma(\lambda)$ via the ``gamma()`` function.
+
+```{r}
+cac = rcauchy(10)
+nin = function(a){ integrate(lik,-a,a)$val }
+nan = function(a){ area(lik,-a,a)$val }
+x = seq(1,10^3,10^2)
+y = log(apply(as.matrix(x),1,nin))
+z = log(apply(as.matrix(x),1,nan))
+```
+
+
+```{r}
+plot(x,y,type="l", ylim = range(cbind(y,z)), lwd = 2)
+lines(x,z,lty=2,col="sienna",lwd=2)
+```
+
+## 3.3 Importance Sampling
+
+Importance sampling is a general technique for estimating properties of a particular distribution, while only having samples generated from a different distribution than the distribution of interest. It is related to umbrella sampling in computational physics. 
+
+Depending on the application, the term may refer to the process of sampling from this alternative distribution, the process of inference, or both.
+
+# Example 3.5
+
+\[g(y) =  \frac{e^{-y} }{  \int^{\infty}_{4.5} e^{-x}dx}\]
+
+#### Page 71
+
+```{r}
+Nsim = 1000
+y = rexp(Nsim) + 4.5
+weit = dnorm(y) / dexp(y - 4.5)
+plot(cumsum (weit)/1:Nsim,type="l")
+abline(a = pnorm(-4.5),b=0,col="red")
+```
+
+#### Page 72
+
+```{r}
+
+f = function(a,b){
+ exp( 2*(lgamma(a+b)-lgamma(a)-lgamma(b)) + a*log(0.3) + b*log(0.2)) 
+}
+
+aa = 1:150
+bb = 1:100
+
+post = outer(aa,bb,f)
+image(aa,bb,post,xlab=expression(alpha),ylab="")
+contour(aa,bb,post=add=T)
+```
+
+#### Page 73
+
+```{r}
+# T sample
+x = matrix( rt (2 * 10^4,3),ncol=2)
+
+#Scale Matrix
+E = matrix( c(220,190,190,180),ncol=2)
+
+image(aa,bb,post,xlab=expression(alpha),ylab="")
+y = t(t(chol(E) %*% t(x)) + c(50,45))
+points(y,cex =0.6,pch=19)
+
+```
+
+
+#### Page 75
+
+
+```{r}
+ine = apply(y,1, min)
+
+y = y[ine >0, ]
+x = x[ine >0, ]
+
+normx = sqrt(x[,1]^2 + x[,2]^2)
+
+f = function(a) exp(2*(lgamma(a[,1] + a[,2]) - lgamma(a[,1]) - lgamma(a[,2]) + a[,1]*log(0.3) + a[,2]*log(0.2) )    
+
+h = function(a) exp(1*(lgamma(a[,1] + a[,2]) - lgamma(a[,1]) - lgamma(a[,2]) + a[,1]*log(0.5) + a[,2]*log(0.5) )    
+den = dt(normx,3)
+
+mean( f(y) / den) / mean( h(y) / den) 
+
+```

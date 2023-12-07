@@ -1,0 +1,19 @@
+Inverse Transform Sampling
+
+The method
+Schematic of the inverse transform sampling. The inverse function of ${\displaystyle y=F_{X}(x)}$ can be defined by ${\displaystyle F_{X}^{-1}(y)=\mathrm {inf} \{x|F_{X}(x)\geq y\}}$
+
+The problem that the inverse transform sampling method solves is as follows:
+
+    Let ${\displaystyle X}$ be a random variable whose distribution can be described by the cumulative distribution function ${\displaystyle F_{X}}$.
+    We want to generate values of ${\displaystyle X}$ which are distributed according to this distribution.
+
+The inverse transform sampling method works as follows:
+
+    Generate a random number u {\displaystyle u} u from the standard uniform distribution in the interval ${\displaystyle [0,1]}$, e.g. from ${\displaystyle U\sim \mathrm {Unif} [0,1].} {\displaystyle U\sim \mathrm {Unif} [0,1].}
+    Find the inverse of the desired CDF, e.g. F X − 1 ( x ) {\displaystyle F_{X}^{-1}(x)} {\displaystyle F_{X}^{-1}(x)}.
+    Compute X = F X − 1 ( u ) {\displaystyle X=F_{X}^{-1}(u)} {\displaystyle X=F_{X}^{-1}(u)}. The computed random variable X {\displaystyle X} X has distribution ${\displaystyle F_{X}(x)}$.
+
+Expressed differently, given a continuous uniform variable ${\displaystyle U}$ U in ${\displaystyle [0,1]}$ and an invertible cumulative distribution function ${\displaystyle F_{X}}$, the random variable X = F X − 1 ( U ) {\displaystyle X=F_{X}^{-1}(U)} {\displaystyle X=F_{X}^{-1}(U)} has distribution F X {\displaystyle F_{X}} F_{X} (or, X {\displaystyle X} X is distributed F X {\displaystyle F_{X}} F_{X}).
+
+A treatment of such inverse functions as objects satisfying differential equations can be given.[4] Some such differential equations admit explicit power series solutions, despite their non-linearity.[citation needed] 

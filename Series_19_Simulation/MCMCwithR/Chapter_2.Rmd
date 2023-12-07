@@ -1,0 +1,110 @@
+---
+title: "MCMC with R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+2. Random Variable Generation
+
+2.1.1 Uniform Simulation
+
+2.2.1 A Normal Generator
+2.2.2 Discrete Distributions
+2.2.3 Mixture Representation
+2.3. Accept Reject Methods
+
+
+## 2.1 Uniform Simulation
+
+####  Page 41
+
+```{r}
+Nsim = 1000
+x = runif(Nsim)
+x1 = x[-Nsim]
+x2 = x[-1]
+par(mfrow = c(1,3))
+hist(x)
+plot(x1,x2)
+acf(x)
+```
+
+#### Page 45
+
+```{r}
+Nsim = 10000
+U = runif(Nsim)
+X = -log(U)
+Y = rexp(Nsim)
+par(mfrow = c(1,2))
+hist(X, freq = F, breaks = 100, main = "Exp from Uniform")
+hist(Y, freq = F, breaks = 100, main = "Exp from R")
+```
+
+
+#### Page 47
+
+### 2.2.1 A Normal Generator
+
+\[ X_1 = \sqrt{-2 \log(U_1)}  \cos(2 \pi U_2) \]
+\[ X_2 = \sqrt{-2 \log(U_1)}  \sin(2 \pi U_2) \]
+
+Box-Muller Algorithm
+Central Limit Theorem
+
+
+### Discrete Distributions
+
+#### Page 49
+
+```{r}
+Nsim = 10^4
+lambda = 100
+spread = 3*sqrt(lambda)
+spread
+
+```
+
+
+```{r}
+t = round(seq(max(0,lambda-spread),lambda+spread,1))
+t
+
+```
+
+```{r}
+
+length(t)
+```
+
+
+```{r}
+prob = ppois(t, lambda)
+X =rep(0,Nsim)
+```
+
+
+```{r}
+for (i in 1:Nsim){
+  u = runif(1)
+  X[i] = t[i] +  sum(prob<u)
+  
+}
+```
+```{r}
+X <- X[!is.na(X)]
+length(X)
+```
+
+```{r}
+mean(X)
+```
+
+
+```{r}
+var(X)
+```

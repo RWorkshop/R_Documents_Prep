@@ -1,0 +1,56 @@
+https://www.r-bloggers.com/rejection-sampling/
+
+Rejection Sampling
+========================
+
+An interesting sampling method that was covered briefly in my Bayesian statistics course was rejection sampling. Since I have nothing better to do, I thought it would be fun to make an acceptance-rejection algorithm using R. FUN!
+
+The Rejection Sampling method is usually used to simulate data from an unknown distribution. To do this one samples from a distribution that covers the suport of the unknown distribution and use certain criteria for accepting/rejecting the sampled values. One way to do this is as follows (Rice, p 92).
+
+* Step 1: Generate T with density m.
+* Step 2: Generate U, uniform on [0,1] and independent of T. If $ M(T)*U \leq ƒ(T)$, then let X = T (accept T). Otherwise, go to Step 1 (Reject T).
+
+Where M(x) is a function such that M(x) ≥ ƒ(x) on [a,b].
+
+To keep things simple for myself I will be simulating a Beta distribution with parameters 6 and 3 (ƒ). To do this I will sample T’s from a scaled uniform distribution (M), and reject sampled values where M(T)*U ≥ ƒ(T).
+
+In a plot of the beta distribution with parameters 6 and 3 we can see that the ƒ(x) never goes above 3. For this reason I chose to scale the uniform distribution M by multiplying it by 3.
+Here is the R code to implement rejection sampling for 100,000 observations in this example.
+
+```{r}
+sample.x = runif(100000,0,1)
+accept = c()
+for(i in 1:length(sample.x)){
+ U = runif(1, 0, 1)
+ if(dunif(sample.x[i], 0, 1)*3*U <= dbeta(sample.x[i], 6, 3)) {
+
+   accept[i] = 'Yes'
+ }
+ else if(dunif(sample.x[i],0,1)*3*U > dbeta(sample.x[i], 6, 3)) {
+  accept[i] = 'No'
+ }
+}
+T = data.frame(sample.x, accept = factor(accept, levels= c('Yes','No')))
+```
+We can plot the results along with the true distribution with the following code.
+
+```{r}
+hist(T[,1][T$accept=='Yes'], breaks = seq(0,1,0.01), freq = FALSE, main = 'Histogram of X', xlab = 'X')
+lines(x, dbeta(x,6,3))
+```
+
+With 100,000 observations sampled, the data fit very well.
+We can look at the densities of both the accepted and rejected values to get an idea of what’s going on.
+
+```{r}
+library(ggplot2)
+print(qplot(sample.x, data = T, geom = 'density', color = accept))
+```
+
+Looking at a stacked histogram of all the sampled values together we can really see how much wasted data there are in this example.
+
+```{r}
+print(qplot(sample.x, data = T, geom = 'histogram', fill = accept, binwidth=0.01))
+```
+
+In fact, when I ran this example I got 33,114 accepted values and 66,886 rejected values. I probably could have chosen a better value than 3 to scale the uniform distribution, but ideally rejection sampling uses a known distribution that is only slightly different from the unknown distribution we’re trying to estimate.

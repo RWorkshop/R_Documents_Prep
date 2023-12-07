@@ -1,0 +1,173 @@
+---
+title: "Gibbs Sampler"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+#### A simple Gibbs sampler
+Let's look at simulating from a bivariate normal with zero mean and unit variance for the marginals, but a correlation of rho between the two components (if you are a bit rusty on the bivariate normal, you might want to have a quick glance at my page on visualising the bivariate normal). 
+
+Of course, we don't need a Gibbs sampler to simulate this - we could just simulate from the marginal for X, and then from the conditional for Y|X. In R, we could do this as follows:
+
+```{r}
+rbvn<-function (n, rho) 
+{
+        x <- rnorm(n, 0, 1)
+        y <- rnorm(n, rho * x, sqrt(1 - rho^2))
+        cbind(x, y)
+}
+```
+
+```{r}
+rbvn(5,0.9)
+```
+
+This creates a vector of X values, then uses them to construct a vectors of Y values conditional on those X values. These are then bound together into a n by 2 matrix. We can test it with:
+
+```{r}
+bvn<-rbvn(10000,0.98)
+par(mfrow=c(3,2))
+plot(bvn,col=1:10000)
+plot(bvn,type="l")
+plot(ts(bvn[,1]))
+plot(ts(bvn[,2]))
+hist(bvn[,1],40)
+hist(bvn[,2],40)
+par(mfrow=c(1,1))
+```
+This gives a couple of scatter plots of the points, time series plots of the marginals to confirm that we are independently sampling, and then histograms of the two marginals.
+
+However, this practical is supposed to be about Gibbs sampling! We can construct a Gibbs sampler for this problem by successively sampling from the conditional distributions.
+
+#### Implementation in R
+A function for the Gibbs sampler for this problem is given below.
+```{r}
+gibbs<-function (n, rho) 
+{
+        mat <- matrix(ncol = 2, nrow = n)
+        x <- 0
+        y <- 0
+        mat[1, ] <- c(x, y)
+        for (i in 2:n) {
+                x <- rnorm(1, rho * y, sqrt(1 - rho^2))
+                y <- rnorm(1, rho * x, sqrt(1 - rho^2))
+                mat[i, ] <- c(x, y)
+        }
+        mat
+}
+```
+A matrix for the results is created, then the chain is initialised at (0,0). The main loop then successively samples from the full conditionals, storing the results in the matrix. We can test this as follows:
+```{r}
+bvn<-gibbs(10000,0.98)
+par(mfrow=c(3,2))
+plot(bvn,col=1:10000)
+plot(bvn,type="l")
+plot(ts(bvn[,1]))
+plot(ts(bvn[,2]))
+hist(bvn[,1],40)
+hist(bvn[,2],40)
+par(mfrow=c(1,1))
+```
+With a bit of luck, this will give results which look very similar to those obtained earlier, apart from the time series plots of the marginals, which show distinct autocorrelation between successive values.
+
+The full R source code for this example is available here as gibbs.r.
+```{r}
+# bivariate normal
+
+# first the "proper way"
+
+rbvn<-function (n, rho) 
+{
+        x <- rnorm(n, 0, 1)
+        y <- rnorm(n, rho * x, sqrt(1 - rho^2))
+        cbind(x, y)
+}
+
+bvn<-rbvn(10000,0.98)
+par(mfrow=c(3,2))
+plot(bvn,col=1:10000)
+plot(bvn,type="l")
+plot(ts(bvn[,1]))
+plot(ts(bvn[,2]))
+hist(bvn[,1],40)
+hist(bvn[,2],40)
+par(mfrow=c(1,1))
+
+# now with a gibbs sampler...
+
+gibbs<-function (n, rho) 
+{
+        mat <- matrix(ncol = 2, nrow = n)
+        x <- 0
+        y <- 0
+        mat[1, ] <- c(x, y)
+        for (i in 2:n) {
+                x <- rnorm(1, rho * y, sqrt(1 - rho^2))
+                y <- rnorm(1, rho * x, sqrt(1 - rho^2))
+                mat[i, ] <- c(x, y)
+        }
+        mat
+}
+
+bvn<-gibbs(10000,0.98)
+par(mfrow=c(3,2))
+plot(bvn,col=1:10000)
+plot(bvn,type="l")
+plot(ts(bvn[,1]))
+plot(ts(bvn[,2]))
+hist(bvn[,1],40)
+hist(bvn[,2],40)
+par(mfrow=c(1,1))
+
+
+
+
+# end
+
+```
+
+Implementation in C
+Of course, Gibbs samplers are Markov chains, which cannot be neatly vectorised in languages like R. Consequently, the main loop of a Gibbs sampler is best re-coded in a compiled language such as C. Here is a main loop for a Gibbs sampler for this problem.
+<pre><code>
+int main(int argc, char *argv[])
+{
+  long n,i;
+  double x,y,rho,sd;
+  gsl_rng *r = gsl_rng_alloc(gsl_rng_mt19937);
+  n=(long) atoi(argv[1]);
+  rho=(double) atof(argv[2]);
+  sd=sqrt(1-rho*rho);
+  x=0;y=0;
+  printf(" %3.3f %3.3f \n",x,y);
+  for (i=1;i<n;i++)
+    {
+      x=rho*y+gsl_ran_gaussian(r,sd);
+      y=rho*x+gsl_ran_gaussian(r,sd);
+      printf(" %3.3f %3.3f \n",x,y);      
+    } 
+  return(0);
+}
+</code></pre>
+
+The full C code for this example is available here as gibbs.c. The C Code can be tested by re-directing output to a file (bvn.dat), then reading and analysing from R:
+
+<pre><code>
+bvn_matrix(scan("bvn.dat"),ncol=2,byrow=T)
+par(mfrow=c(3,2))
+plot(bvn,col=1:10000)
+plot(bvn,type="l")
+plot(ts(bvn[,1]))
+plot(ts(bvn[,2]))
+hist(bvn[,1],40)
+hist(bvn[,2],40)
+par(mfrow=c(1,1))
+</code></pre>
+
+Of course, the code is much better compiled into a shared library and loaded into R where it can be called directly. An example for this is available as gibbs-link.c.
+
+#### Other implementations
+Those who are interested may also wish to look at corresponding code for LISP-STAT: gibbs.lsp,Python: gibbs.py and Sather: gibbs.sa.
