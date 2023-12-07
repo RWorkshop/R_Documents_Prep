@@ -21,7 +21,7 @@ After we copy and paste the data above in a file named ``MyData.csv" with a text
 
 <b>Exercise:</b> Load the GNW dataset into the \texttt{R} Environment. (We will do more work with it shortly).
           
-          <h4>Data export - \texttt{write.csv()}}</h4>
+<h4>Data export - \texttt{write.csv()}}</h4>
 The basic tool to produce output files is \texttt{write.csv()}.
 <p>
 The only two required arguments to <b><tt>write.csv()</tt></b> are ,firstly, the name of a dataset or matrix (with just a single argument) then the name (in quotations) of the file to be created.
@@ -40,15 +40,11 @@ Note that col.names=TRUE (the default) produces the same sort of headers that ar
 <p>
 The  \texttt{sep=} argument can be used to specify a separator other than a blank space. Using sep=',' (comma separated) or sep=`\textbackslash t' (tab-separated) are two common choices.
 
-
-
 <h4>Data export - <b><tt>sink()</tt></b></h4>
 
-
-          The code first instructs <tt>R</tt> to re-direct output away from the <tt>R</tt> terminal to the file "output.txt" and
+The code first instructs <tt>R</tt> to re-direct output away from the <tt>R</tt> terminal to the file "output.txt" and
 then the relevant output  (below the summary of the GNW data frame) which goes to the sink.
-To close the sink, use
-          <code>sink()</code> with no arguments.
+To close the sink, use <code>sink()</code> with no arguments.
 
 <code>
  sink("GNW.txt")
@@ -69,8 +65,10 @@ sink("GNW.txt",append=TRUE)
 describe(GNW)
 sink()
 </code></pre>
-\subsection{Inputting an \texttt{R} script - the \texttt{source()} command}
-The \texttt{source()}function runs a previously written R script in the current session. If the filename does not include a path ( such as “C:/WorkArea”) the file is taken from the current working directory. This is a particularly useful for loading pre-written data or functions  (from  later on), and other items of code into the current session.
+---------------------------------------------------------------
+
+### Inputting an \texttt{R} script - the <tt>source()</tt> command
+The <tt>source()</tt> function runs a previously written R script in the current session. If the filename does not include a path ( such as “C:/WorkArea”) the file is taken from the current working directory. This is a particularly useful for loading pre-written data or functions  (from  later on), and other items of code into the current session.
 
 <pre><code>
 # input a few scripts
@@ -78,11 +76,16 @@ source("mypackages.R")
 source("myfunctions.R")
 source("mydata.R")
 </code></pre>
-<h3> Using the \texttt{scan()} command</h3>
-The <tt>scan()</tt>  function is a useful method of inputting data quickly. You can use to quickly copy and paste values into the R environment.
-It is best used in the manner as described in the following example.  Create a variable “X” and use the <tt>scan()</tt>  function to populate it with values.
-Type in a value, and then press return.<p>
-Once you have entered all the values, press return again to return to normal operation.
+
+<p>
+-------------------------------------------
+
+<h3> Using the <tt>scan()</tt> command</h3>
+* The <tt>scan()</tt>  function is a useful method of inputting data quickly. You can use to quickly copy and paste values into the R environment.
+* It is best used in the manner as described in the following example.  
+* Create a variable “X” and use the <tt>scan()</tt>  function to populate it with values.
+* Type in a value, and then press return.
+* Once you have entered all the values, press return again to return to normal operation.
 <pre><code>
 > X=scan()
 1: 4
@@ -92,17 +95,6 @@ Once you have entered all the values, press return again to return to normal ope
 5: 
 Read 4 items
 </code></pre>
-For the data that has been scanned,  equivalent code that would be used to define it can be retrieved and recorded using the \texttt{edit()} command. 
+For the data that has been scanned,  equivalent code that would be used to define it can be retrieved and recorded using the <tt>edit()</tt> command. 
 
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
-</html>
