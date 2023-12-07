@@ -1,6 +1,6 @@
 %%- https://cran.r-project.org/web/packages/tabplot/vignettes/tabplot-vignette.html
 
-\section*{Visualization of large datasets with tabplot}
+## Visualization of large datasets with tabplot}
 
 The tableplot is a powerful visualization method to explore and analyse large multivariate datasets. In this vignette, the implementation of tableplots in R is described, and illustrated with the diamonds dataset from the ggplot2 package.
 
@@ -13,9 +13,9 @@ A tableplot applied to the diamonds dataset of the ggplot2 package (where some m
 Tableplots are aimed to visualize multivariate datasets with several variabels (up tot a dozen) and a large number of records, say at least one thousand. Tableplots can also be generated for datasets with less records, but they may be less useful. The maximum number of rows that can be visualized with the tabplot package depends on the R's memory, or, when using the ff package, on the limitations of that package.
 
 
-\end{frame}
-%==============================================================================%
-\begin{frame}
+
+<p>======
+
 Getting started with the tableplot function
 
 The diamonds dataset is very suitable to demonstrate the tabplot package. To illustrate the visualization of missing values, we add several NA's.
@@ -97,9 +97,9 @@ plot of chunk unnamed-chunk-7
 Also quantitative palettes can be used (for instance by setting clarity= "Greens". Missing values are by default depicted in red. This can be changed with the argument colorNA.
 
 
-\end{frame}
-%==============================================================================%
-\begin{frame}
+
+<p>======
+
 High cardinality data
 
 To illustrate how tableplots deal with high cardinality data, we extend the diamonds dataset with a convenient wrapper function num2fac:
@@ -108,9 +108,9 @@ diamonds$carat_class <- num2fac(diamonds$carat, n=20)
 diamonds$price_class <- num2fac(diamonds$price, n=100)
 
 
-\end{frame}
-%==============================================================================%
-\begin{frame}
+
+<p>======
+
 For variables with over change_palette_type_at (by default 20) categories, color palettes are constructed by using interpolated colors. This creates a rainbow effect. If the number of categories is than change_palette_type_at, the assigned palette is recycled in order to obtain the number of categories.
 
 tableplot(diamonds, select=c(carat, price, carat_class, price_class))
@@ -118,9 +118,9 @@ plot of chunk unnamed-chunk-9
 
 If the number of categories exceeds max_level (by default 50), the categories are rebinned into max_level category groups. This is illustrated by the variable price_class.
 
-\end{frame}
-%==============================================================================%
-\begin{frame}
+
+<p>======
+
 
 
 Preprocessing of big data
@@ -149,9 +149,9 @@ system.time({
 ##    0.22    0.04    0.26
 
 
-\end{frame}
-%==============================================================================%
-\begin{frame}
+
+<p>======
+
 
 Although the first step takes a couple of seconds on a moderate desktop computer, the processing time to create a tableplot from the intermediate result, object p, is very short in comparison to the direct approach:
 
@@ -265,9 +265,9 @@ summary(tab)
 plot(tab)
 
 
-\end{frame}
-%==============================================================================%
-\begin{frame}
+
+<p>======
+
 Multiple tableplots
 
 When a dataset contains more variables than can be plotted, multiple tableplots can be generated with the argument nCols. This argument determines the maximum number of columns per tableplot. When the number of selected columns is larger than nCols, multiple tableplots are generated. In each of them, the sorted columns are plotted on the lefthand side.
@@ -275,9 +275,9 @@ When a dataset contains more variables than can be plotted, multiple tableplots 
 When multiple tableplots are created, the (silent) output is a list of tabplot objects. This is also the case when the dataset is filtered by a categorical variable, e.~g. subset = color (Filtering.
 
 
-\end{frame}
-%==============================================================================%
-\begin{frame}
+
+<p>======
+
 Layout options
 
 There are several arguments that determine the layout of the plot: fontsize, legend.lines, max_print_levels, text_NA, title, showTitle, fontsize. title, showNumAxes, and vp. The following code illustrates this.
@@ -288,9 +288,9 @@ plot of chunk unnamed-chunk-16
 The layout arguments named above are passed on from tableplot to plot.tabplot. These arguments will be especially important when saving a tableplot (see Multiple tableplots).
 
 
-\end{frame}
-%==============================================================================%
-\begin{frame}
+
+<p>======
+
 Minor changes
 
 The function tableChange is used to make minor changes to a tabplot-object. Suppose we want the columns in the order of the top figure, and we want to change all color palettes to default starting with the second color.

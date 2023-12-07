@@ -8,16 +8,16 @@ Key Points:
 *  There are two ways of conducting a hypothesis test. One method is to compute the test statistic, and compare to the critical values.
 
 *  The second method is to compute the probability value  (i.e. p-value), and compare it to the significance level. Nearly all computer programs use the p-value approach. In this course we will focus on the p-value approach.
-\end{itemize}
 
-\subsection{Significance Level}
+
+### Significance Level}
 
 In hypothesis testing, the significance level is the criterion used for rejecting the null hypothesis. The significance level is used in hypothesis testing as follows: First, the difference between the results of the experiment and the null hypothesis is determined. Then, assuming the null hypothesis is true, the probability of a difference that large or larger is computed . Finally, this probability is compared to the significance level. If the probability is less than or equal to the significance level, then the null hypothesis is rejected and the outcome is said to be statistically significant.
 
 Traditionally, experimenters have used either the 0.05 level (sometimes called the $5\%$ level) or the 0.01 level ($1\%$ level), although the choice of levels is largely subjective. The lower the significance level, the more the data must diverge from the null hypothesis to be significant.
  Therefore, the 0.01 level is more conservative than the 0.05 level. The Greek letter alpha ($\alpha$) is sometimes used to indicate the significance level
 
-\subsection{The probability value }
+### The probability value }
 
 The probability value (sometimes called the $p-value$) is the probability of obtaining a statistic as different from or more different from the parameter specified in the null hypothesis as the statistic obtained in the experiment.
 
@@ -38,7 +38,7 @@ This means that:
 
 The inference usually made is that the null hypothesis is false.  (Importantly it doesn't prove the null hypothesis to be false)
 
-\subsection{Using p-values to reject the null hypothesis}
+### Using p-values to reject the null hypothesis}
 According to one view of hypothesis testing, the significance level should be specified before any statistical calculations are performed. Then, when the p-value is computed from a significance test, it is compared with the significance level.
 
 The null hypothesis is rejected if p-value is at or below the significance level; it is not rejected if p-value is above the significance level. The degree to which p ends up being above or below the significance level does not matter.The null hypothesis either is or is not rejected at the previously stated significance level.
@@ -69,15 +69,15 @@ If the p-value is greater than 0.1 we would never reject the null hypothesis.
 *  Greater than 0.05 - Fail to reject Ho
 *  Less than 0.01 - Reject Ho
 *  Between 0.01 and 0.05 - advise that it is close to both conclusions.
-\end{itemize}
 
 
-%\subsection{Probability Values}
+
+%### Probability Values}
 %The probability of getting a values as extreme or more as some statistic, such as sum or mean, is known as a p-value. When performing statistical calculations using computer software they are the most commonly used item for making statistical decisions.
 %
 %In this last instance, we would usually fail to reject the null hypothesis.
 
-Many \texttt{R} outputs will give a group of asterisks beside the data to help the user in interpreting the data, depending on how significant the result is.
+Many <tt>R</tt> outputs will give a group of asterisks beside the data to help the user in interpreting the data, depending on how significant the result is.
 
 \begin{verbatim}
 p-value  < 0.0001  	***
@@ -88,17 +88,17 @@ p-value  < 0.1
 
 
 
-\subsection{Sample Size}
+### Sample Size}
 For Student's $t$ distribution, statistical tables such (e.g. Murdoch Barnes and State Examinations Commission tables) only tabulate quantiles with degrees of freedom of less than 30. This restraint has given rise to the convention that a sample of size greater than 30 is a `large sample' and in this case the standard normal distribution should be used.
 
 However there is a disparity between the $Z$ value and the correct $t$ value. For a sample size of 61 (i.e. degrees of freedom =60), the $97.5\%$ t-quantiles of Student's t distribution is 2.003, and not 1.96.
 
 However, statistical software is free from this restraint. The correct distribution will be automatically used. The Student's $t$ distribution will be used in all appropriate cases. As the sample size increases the Student $t$ distribution converges with the standard normal distribution.
 
-\subsection{Commonly Used Inference Procedures}
+### Commonly Used Inference Procedures}
 
 * Hypothesis test for the mean of a single sample
 * Hypothesis test for the mean of two independent samples
 * Hypothesis test for the proportion of a single group
 * Hypothesis test for the proportions of two independent samples
-\end{itemize}
+

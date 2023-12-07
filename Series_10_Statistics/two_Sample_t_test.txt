@@ -1,6 +1,5 @@
-
-\section{Two Sample Inference Procedures}
-\subsection{Hypothesis test for the means of two independent samples}
+Two Sample Inference Procedures}
+### Hypothesis test for the means of two independent samples}
 The procedure associated with testing a hypothesis concerning the difference between two population means is similar to that for testing a hypothesis concerning the value of one population mean.
 
 The procedure differs mainly in that the standard error of the difference between the means is used to determine the test statistic associated with the sample result. For two tailed tests, the null hypothesis states that the population means are the same, with the alternative stating that the population means are not equal.
@@ -9,7 +8,7 @@ The procedure differs mainly in that the standard error of the difference betwee
        * [Ho] : $\mu_1 = \mu_2$
        * [Ha] : $\mu_1 \neq \mu_2$
        
-\subsection{Implementation with \texttt{R}}
+### Implementation with \texttt{R}}
 Firstly, lets construct a second data set. In this scenario, it is not possible to score a 6, hence the dice is crooked.
 (The previous fair dice data set is called $x$. This crooked dice data is labelled $y$)
 
@@ -94,7 +93,7 @@ mean of x mean of y
      3.39      2.98
 </code></pre>
 
-\subsection{Paired t-test}
+### Paired t-test}
 % (Population Mean between paired samples)
 Two data samples aresaid to be paired (or matched) if they come from repeated observations of the same subject. Here, we assume that the data populations follow the normal distribution.
 
@@ -157,7 +156,7 @@ Parametric tests are preferred because, in general, for the same number of obser
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Wilcoxon Mann-Whitney Test}
+### Wilcoxon Mann-Whitney Test}
 The Wilcoxon Mann-Whitney Test is one of the most powerful of the nonparametric tests for comparing two populations. It is used to test the null hypothesis that two populations have identical distribution functions against the alternative hypothesis that the two distribution functions differ only with respect to \textbf{\emph{location}} (i.e. median), if at all.
 
 The Wilcoxon Mann-Whitney test does not require the assumption that the differences between the two samples are normally distributed.
@@ -169,7 +168,7 @@ This test can also be applied when the observations in a sample of data are rank
 %---------------------------------------------------- %
 \newpage
 \section{Bivariate data}
-\subsection{What is Bivariate data?}
+### What is Bivariate data?}
 
 A dataset with two variables contains what is called bivariate data. For example, the heights and weights of people (i.e. for the purposes of determining the extent to which taller people weigh more)
 
@@ -178,7 +177,7 @@ Common bivariate statistical analyses include
 *  Correlation
 *  Simple Linear Regression
 
-\subsection{Scatter Plot} A scatter plot of two variables shows the values of one variable on the Y axis and the values of the other variable on the X axis. Scatter plots are well suited for revealing the relationship between two variables.
+### Scatter Plot} A scatter plot of two variables shows the values of one variable on the Y axis and the values of the other variable on the X axis. Scatter plots are well suited for revealing the relationship between two variables.
 
 Scatterplots can be implemented in \texttt{R} using the command \texttt{\textbf{plot()}}
 

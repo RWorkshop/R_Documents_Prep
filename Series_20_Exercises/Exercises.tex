@@ -1,21 +1,7 @@
 
-\documentclass{article}
-\usepackage{natbib}
-\usepackage{vmargin}
-\usepackage{graphicx}
-\usepackage{epsfig}
-\usepackage{subfigure}
-%\usepackage{amscd}
-\usepackage{amssymb}
-\usepackage{amsbsy}
-\usepackage{amsthm, amsmath}
-%\usepackage[dvips]{graphicx}
-\bibliographystyle{chicago}
-\renewcommand{\baselinestretch}{1.0}
-
 \begin{document}
 
-\section*{Exercise 25: Confidence intervals}
+## Exercise 25: Confidence intervals}
 Seven meas urements of the pH of a buffer solution gave the following results:
 5.12 5.20 5.15 5.17 5.16 5.19 5.15. Calculate (i) the 95\% and (ii) the 99\% confidence limits for the true pH
 utilizing R.
@@ -41,7 +27,7 @@ Thus the 95\% confidence interval for this problem is approximately [5:14; 5:19]
 using the same code only taking $\alpha$ =0.01 will give us [5:13; 5:20].
 
 \newpage
-\section*{Exercise 26: Correlation test}
+## Exercise 26: Correlation test}
 
 Assessment of tuna quality: We compare the Hunter L measure of
 lightness to the averages of consumer panel scores (recoded as
@@ -54,13 +40,13 @@ x <- c(44.4, 45.9, 41.9, 53.3, 44.7, 44.1, 50.7, 45.2, 60.1)
 y <- c( 2.6,  3.1,  2.5,  5.0,  3.6,  4.0,  5.2,  2.8,  3.8)
 \end{verbatim}
 
-\begin{itemize}
 
-\item Test the hypothesis that the correlation coefficient is not zero.
-\item Test the hypothesis that the correlation coefficient is positive.
-\item What is the test statistics in both cases?
-\item What is the p-value in both cases?
-\item Interpret the p-values.
+
+* Test the hypothesis that the correlation coefficient is not zero.
+* Test the hypothesis that the correlation coefficient is positive.
+* What is the test statistics in both cases?
+* What is the p-value in both cases?
+* Interpret the p-values.
 \end{itemize}
 
 
@@ -115,7 +101,7 @@ sample estimates:
 1.841083
 \end{verbatim}
 
-\section*{Exercise 27: Kolmogorov-Smirnov test}
+## Exercise 27: Kolmogorov-Smirnov test}
 
 \begin{verbatim}
 x <- rnorm(50)
@@ -131,7 +117,7 @@ alternative hypothesis: two-sided
 \end{verbatim}
 
 
-\section*{Exercise 28: Shapiro-Wilk test}
+## Exercise 28: Shapiro-Wilk test}
 
 \begin{verbatim}
 > x<-rnorm(100, mean = 5, sd = 3)
@@ -151,12 +137,12 @@ W = 0.9585, p-value = 0.003151
 \newpage
 
 
-\section*{Exercise 29}
+## Exercise 29}
 
 Add up all the numbers for 1 to 50
-\begin{itemize}
-\item  Using the sum() command.
-\item  using a for loop.
+
+*  Using the sum() command.
+*  using a for loop.
 \end{itemize}
 \newpage
 
@@ -172,9 +158,9 @@ Add up all the numbers for 1 to 50
 
 
 
-\begin{itemize}
-\item Exercise 14: question on trigonometric functions omitted.
-\item Exercise 17: inverse cosine function is acos()
+
+* Exercise 14: question on trigonometric functions omitted.
+* Exercise 17: inverse cosine function is acos()
 \begin{verbatim}
 > cos(pi)
 [1] -1
@@ -182,16 +168,16 @@ Add up all the numbers for 1 to 50
 [1] 3.141593
 >
 \end{verbatim}
-\item Exercise 18: use the standard normal distribution to generate random numbers, unless told otherwise.
+* Exercise 18: use the standard normal distribution to generate random numbers, unless told otherwise.
 
 \begin{verbatim}
 > rnorm(4)
 [1] -1.68732684 -0.62743621  0.01831663  0.70524346
 \end{verbatim}
-\item Exercise 18: We have not covered the material for parts 5, 10 and 11 yet.
+* Exercise 18: We have not covered the material for parts 5, 10 and 11 yet.
 \end{itemize}
 
-\section*{Exercise 20}
+## Exercise 20}
 
 Construct a vector of the 0.9, 0.95, 0.975 and 0.99 quantiles of the $t-$ distribution (degrees of freedom = 16).
 For hep with the $t-$ distribution use the command '?qt'.
@@ -212,7 +198,7 @@ What is the 0.975 quantile for the $t-$ distribution when the degrees of freedom
 > qt(0.975, 40)
 [1] 1.336757 1.745884 2.119905 2.583487
 \end{verbatim}
-\section*{Exercise 21}
+## Exercise 21}
 
 \begin{table}[ht]
 \begin{center}
@@ -317,4 +303,4 @@ Alternatively
 +"Compact","Van",rep("Medium",2))
 \end{verbatim}
 
-\end{document}
+<p>
