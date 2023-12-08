@@ -6,11 +6,9 @@
 *  [3.3] Structure of a Data Object 
  
  
- % %============================================================================= %
- %
- %frametitle{Section 4 : Packages}
- %
- %  begin{semiverbatim}
+### Section 4 : Packages}
+
+
  %  4.1 Packages 
  %  4.2 Using and Installing packages 
  %  4.2.1 Version of R 
@@ -18,14 +16,10 @@
  %
  % 
  %
- %end{document}
- 
- 
- %==============================================================================================%
- 
+
 ### {Section 3 Inspecting a Data Set}
- large 
- textbf{Summary of useful commands}
+
+### Summary of useful commands}
  
 *  texttt{dim()} and texttt{length()}
 *  texttt{nrow()} and texttt{ncol()}
@@ -35,9 +29,7 @@
 *  texttt{head()}
 *  texttt{describe()} (from the textbf{psych} package)
  
- 
- %==============================================================================================%
- 
+
  
 ### {3.1 Dimensions of a data set}
  
@@ -56,34 +48,12 @@
  For more complex data sets ( and data frames which we will see later) , we have several
  tools for assessing the size of data.
  
- %==============================================================================================%
- 
- begin{figure}
- centering
- includegraphics[width=1.2linewidth]{images/dimsiris}
- %caption{}
- %label{fig:dimsiris}
- end{figure}
- 
- 
- 
- 
- %==============================================================================================%
- 
+<p>
+
+
 ### {Column (Variable) names and Row names}
  
 *  We can also determine the row names and column names using the functions texttt{rownames()}
  and texttt{colnames()}. 
 *  If there are no specific row or column names, the command will just return
  the indices.
- 
- begin{figure}
- centering
- includegraphics[width=1.0linewidth]{images/colnamesiris}
- %caption{}
- %label{fig:colnamesiris}
- end{figure}
- 
- 
- %==============================================================================================%
- 
