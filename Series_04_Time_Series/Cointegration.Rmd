@@ -1,11 +1,23 @@
-\subsection*{Co-integration}
-%================================================================%
-\begin{itemize}
+---
+title: "Lake Erie"
+subtitle: "Time Series Analysis with R"
+author: DragonflyStats.github.io
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(digits=3)
+```
+
+
+## {Co-integration}
+
 \item Two variables are co-integrated if they individually follow a unit root process, but jointly move together in the 
 long run
 
 \item Individually movements appear random and unpredictable, but the location of one gives relevant information about the other.
 \item If priediction errors of Y regressed on X is stationary, there is evidence of co-integration.
-\end{itemize}
-
-%================================================================%
