@@ -4,7 +4,10 @@ The Calculation Of The Seasonal Variation
 
 Seasonal variations are upwards or downwards swings in the values of data around the trend line, repeated on a regular basis. To calculate the seasonal variation we need to find the difference between the observed data values and the trend values.
 
-Task 3
+
+----------------------------------
+
+### Task 3
 
 Return to your spreadsheet of TASK 2 and take the following steps:
 
