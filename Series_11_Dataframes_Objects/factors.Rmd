@@ -1,5 +1,6 @@
 
-\subsection*{Factors}
+
+## Factors
 A factor is a special type of vector used to represent categorical
 data, e.g. gender, social class, etc.
 \begin{itemize}
@@ -20,18 +21,19 @@ levels are.
 Consider a survey that has data on 200 females and 300 males. If
 the first 200 values are from females and the next 300 values are
 from males, one way of representing this is to create a vector
-\begin{framed}
+
 \begin{verbatim}
 > gender <- c(rep("female", 200), rep("male", 300))
 > #To change this into a factor
 > gender <- factor(gender)
 >
 \end{verbatim}
-\end{framed}The factor gender is stored internally as
-\begin{enumerate}
+
+The factor gender is stored internally as
+
 *  female
 *  male
-\end{enumerate}
+
 
 Each category, i.e. female and male, is called a level of the factor.
 To determine the levels of a factor the function levels() can be
