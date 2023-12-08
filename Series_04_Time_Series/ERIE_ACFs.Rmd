@@ -1,3 +1,19 @@
+---
+title: "Lake Erie"
+subtitle: "Time Series Analysis with R"
+author: DragonflyStats.github.io
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(digits=3)
+```
+
+
 
 # To select the appropriate ARIMA model, which means finding the values of most appropriate values of p and q for an ARIMA(p,d,q) model. 
 #To do this, you usually need to examine the correlogram and partial correlogram of the stationary time series.
