@@ -1,6 +1,4 @@
-Inference with R
-
-
+## Inference with R
 
 \section{Inference Procedures: Exercise 25: Confidence intervals}
 Seven meas urements of the pH of a buffer solution gave the following results:
@@ -24,6 +22,5 @@ utilizing R.
 
 \end{verbatim}
 
-Thus the 95\% confidence interval for this problem is approximately [5:14; 5:19], while
-using the same code only taking $\alpha$ =0.01 will give us [5:13; 5:20].
+Thus the 95\% confidence interval for this problem is approximately [5:14; 5:19], while using the same code only taking $\alpha$ =0.01 will give us [5:13; 5:20].
 
