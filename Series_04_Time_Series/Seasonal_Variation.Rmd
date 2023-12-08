@@ -1,3 +1,19 @@
+---
+title: "Seasonal Variation"
+subtitle: "Time Series Analysis with R"
+author: DragonflyStats.github.io
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(digits=3)
+```
+
+
 http://repository-intralibrary.leedsmet.ac.uk/open_virtual_file_path/i2346n176967t/page_38.htm
 
 The Calculation Of The Seasonal Variation
