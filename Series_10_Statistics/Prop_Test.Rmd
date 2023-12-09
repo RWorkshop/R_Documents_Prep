@@ -1,4 +1,13 @@
-<p>
+---
+title: "USA States Maps"
+subtitle: "Working with Shapefiles"
+author: DragonflyStats.github.io
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+
 
 \textbf{Single Sample Proportion Test (a)}
 
@@ -7,7 +16,7 @@
 *  We would write the null and alternative accordingly.
 \[H_0 : \pi = 80\% \]
 \[H_1 : \pi \neq 80\% \]
-*  The  appropriate \texttt{R} command is \texttt{prop.test(x,n,p)}
+*  The  appropriate <tt>R</tt> command is \texttt{prop.test(x,n,p)}
 *  $x$ is the number of successes, $n$ is the sample size and $p$ is the population proportion assumed under the null hypothesis.
 *  Suppose we survey 65 students, with 50 replying that they had an iphone or android.
 
@@ -44,7 +53,7 @@ p
 \textbf{Shapiro-Wilk Test}
 \begin{framed}
 
-\textbf{H$_{0}$}: The sample is drawn from a normally distributed population.\\ \smallskip
+\textbf{H$_{0}$}: The sample is drawn from a normally distributed population.\\ 
 \textbf{H$_{1}$}: The sample is drawn from a population that is NOT normally distributed
 
 \end{framed}
@@ -63,9 +72,9 @@ p
 *  If the p-value is less than the threshold, we reject the null hypothesis.\\
 \textit{(We have enough evidence to say that the population is not normally distributed.)}
 
-\smallskip
+
 *  If the p-value is greater than the threshold, we fail to reject the null hypothesis. \\ \textit{(We dont have enough evidence to say that the population is not normally distributed.)}
-\smallskip
+
 
 *  Type I and Type II Errors apply to this test, just like any other test.
 
@@ -98,9 +107,9 @@ p
 
 
 
-%---------%
 
-\textbf{Using \texttt{R} for Inference Procedures}
+
+\textbf{Using <tt>R</tt> for Inference Procedures}
 
 *  [1] Paired t-test
 *  [2] Single Sample Tests for Proportions

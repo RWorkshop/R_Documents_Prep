@@ -29,9 +29,9 @@ x=sample(die,N, replace=TRUE)
 t.test(x)
 </code></pre>
 
-The \texttt{R} output should look something like this:
+The <tt>R</tt> output should look something like this:
 <pre><code>
-        One Sample t-test
+One Sample t-test
 data:  x
 t = 19.8867, df = 99, p-value < 2.2e-16
 alternative hypothesis: true mean is not equal to 0
@@ -48,9 +48,9 @@ Is this meaningful in such circumstances? No, it is impossible
 
 Let’s look at the help file to get a clearer idea about how to use this command.
 
-The default setting of the null value is zero (i.e. \textbf{\texttt{mu = 0}}. To assess whether our data set is fair, we must specify \textbf{\texttt{mu = 3.5}}.
+The default setting of the null value is zero (i.e. <tt>mu = 0}}. To assess whether our data set is fair, we must specify <tt>mu = 3.5}}.
 
-We can change the confidence level (and by extension,  the significance level)  by specifying the desired value using the \textbf{\texttt{conf.level = …}}.
+We can change the confidence level (and by extension,  the significance level)  by specifying the desired value using the <tt>conf.level = …}}.
 
 In this instance, we will change it to 0.99 ( i.e. $99\%$ confidence). However for the rest of the module, we will use the $95\%$ confidence level. (Remark: Be mindful that I might ask this in the exam.).
 
@@ -61,7 +61,7 @@ t.test(x,mu=3.5,conf.level=0.99)
 
 
 <pre><code>
-        One Sample t-test
+One Sample t-test
 data:  x
 t = -0.4059, df = 99, p-value = 0.6857
 alternative hypothesis: true mean is not equal to 3.5
@@ -73,7 +73,7 @@ mean of x
 </code></pre>
 The mean value remains constant. We have specified a $99\%$ confidence level, so necessarily a $99\%$ confidence interval is returned. Compare it to the previous output.
 
-The important difference is what is specified as the alternative hypothesis: \textbf{\texttt{true mean is not equal to 3.5}}. Necessarily the null hypothesis is that true mean is equal to 3.5 (i.e. a fair dice). This is meaningful in the contest of the dice-roll experiment.
+The important difference is what is specified as the alternative hypothesis: <tt>true mean is not equal to 3.5}}. Necessarily the null hypothesis is that true mean is equal to 3.5 (i.e. a fair dice). This is meaningful in the contest of the dice-roll experiment.
 
 In this instance the p-value is 0.6857. We fail to reject the null hypothesis that the mean is not 3.5.
 We can use the confidence interval to make an inference. Consider the $95\%$ confidence interval for the mean value (from earlier) : \texttt{(3.087767,3.4372233)}

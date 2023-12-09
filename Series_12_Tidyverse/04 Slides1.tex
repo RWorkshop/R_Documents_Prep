@@ -2,11 +2,11 @@
 [verbatim]
 The dplyr package, plotrix (for the plot at the end), and the FSAdata package (for the data file) must be loaded.
 
-\begin{verbatim}
+<pre><code>}
 library(dplyr)
 library(FSAdata)
 library(plotrix)
-\end{verbatim}
+</code></pre>
 
 
 
@@ -15,10 +15,10 @@ library(plotrix)
 The RuffeSLRH92 data frame is then loaded.
 
 
-\begin{verbatim}
+<pre><code>}
 data(RuffeSLRH92)
 str(RuffeSLRH92)
-\end{verbatim}
+</code></pre>
 
 
 
@@ -27,10 +27,10 @@ str(RuffeSLRH92)
 \frametitle{dplyr: Select (columns) Example}
 Columns can be selected from a data.frame with select(), given the original data.frame as the first argument and the variables to select, or include, as further arguments. The following creates a data.frame without the fish.id, species, day and year variables (they are not very useful in this context and will make the output further below easier to read).
 
-\begin{verbatim}
+<pre><code>}
 RuffeSLRH92 <- select(RuffeSLRH92,-fish.id,-species,-day,-year)
 head(RuffeSLRH92)
-\end{verbatim}
+</code></pre>
 
 
 
@@ -40,11 +40,11 @@ head(RuffeSLRH92)
 The following creates a data.frame of just the length and weight variables.
 
 
-\begin{verbatim}
+<pre><code>}
 ruffeLW <- select(RuffeSLRH92,length,weight)
 head(ruffeLW)
 
-\end{verbatim}
+</code></pre>
 
 
 
@@ -54,12 +54,12 @@ head(ruffeLW)
 * 
 The dplyr package contains a variety of helpers for selecting. 
 * As one example, the following will select all variables that contains the letter “l”.
-\end{itemize}
 
-\begin{verbatim}
+
+<pre><code>}
 ruffeL <- select(RuffeSLRH92,contains("l"))
 str(ruffeL)
-\end{verbatim}
+</code></pre>
 
 
 
@@ -72,11 +72,11 @@ conditioning statement.
 * As with subset(), filter() returns an object that maintains a list of the original levels whether those levels exist in the new data.frame or not.
 *  Use droplevels() to restrict the levels to only those that exist in the data.frame. 
 * The example below finds just the males from the original data.frame.
-\end{itemize}
 
-\begin{verbatim}male <- filter(RuffeSLRH92,sex=="male")
+
+<pre><code>}male <- filter(RuffeSLRH92,sex=="male")
 xtabs(~sex,data=male)
-\end{verbatim}
+</code></pre>
 
 
 
@@ -84,13 +84,13 @@ xtabs(~sex,data=male)
 [fragile]
 
 
-\begin{verbatim}
+<pre><code>}
 male <- droplevels(male)
 xtabs(~sex,data=male)
 ## sex
 ## male 
 ##  201
-\end{verbatim}
+</code></pre>
 
 
 %==
@@ -98,10 +98,10 @@ xtabs(~sex,data=male)
 Multiple conditioning statements can be strung together as additional arguments to filter(). The example below finds males that are also ripe.
 
 
-\begin{verbatim}
+<pre><code>}
 maleripe <- filter(RuffeSLRH92,sex=="male",maturity=="ripe")
 xtabs(~sex+maturity,data=maleripe)
-\end{verbatim}
+</code></pre>
 
 
 

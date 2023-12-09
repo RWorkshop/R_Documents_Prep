@@ -14,49 +14,49 @@ options(digits=3)
 ```
 
 
-\subsection{Test for Equality of Variance (a)}
-\begin{itemize}
+### Test for Equality of Variance (a)}
+
 *  In this procedure, we determine whether or not two populations have the same variance.
 *  The assumption of equal variance of two populations underpins several inference procedures. This assumption is tested by comparing the variance of samples taken from both populations.
 *  We will not get into too much detail about that, but concentrate on how to assess equality of variance.
 *  The null and alternative hypotheses are as follows:
 \[ H_0: \sigma^2_1 = \sigma^2_2 \]
 \[ H_1: \sigma^2_1 \neq \sigma^2_2 \]
-\end{itemize}
 
 
-%----------------------------------------%
 
-\subsection{Test for Equality of Variance (b)}
-\begin{itemize}
-*  When using \texttt{R} it would be convenient to consider the null and alternative in terms of variance ratios.
+-------------------
+
+### Test for Equality of Variance (b)}
+
+*  When using <tt>R</tt> it would be convenient to consider the null and alternative in terms of variance ratios.
 *  Two data sets have equal variance if the variance ratio is 1.
 *  \textbf{Remark} : This is a two-tailed test.
-\end{itemize}
+
 
 \[ H_0: \sigma^2_1 / \sigma^2_2 = 1 \]
 \[ H_1: \sigma^2_1 / \sigma^2_2 \neq 1 \]
 
-%----------------------------------------%
+-------------------
 % - x=c(14,13,16,20,12,18,11,09,13,11)
 % - y=c(15,13,18,20,10,17,23,11,10)
-%----------------------------------------%
+-------------------
 
-\subsection{Test for Equality of Variance(c)}
+### Test for Equality of Variance(c)}
 You would be required to compute the test statistic for this procedure.
 The test statistic is the ratio of the variances for both data sets.
 \[ TS = \frac{s^2_x}{s^2_y} \]
-The standard deviations would be provided in the \texttt{R} code. \begin{itemize}
+The standard deviations would be provided in the <tt>R</tt> code. 
 *  Sample standard deviation for data set $x$ = 3.40
 *  Sample standard deviation for data set $y$ = 4.63
-\end{itemize}
+
 To compute the test statistic.
 \[ TS = \frac{3.40^2}{4.63^2} = \frac{11.56}{21.43} = 0.5394 \]
 
 
-%----------------------------------------%
+-------------------
 
-\subsection{Variance Test (d)}
+### Variance Test (d)}
 \begin{verbatim}
 > var.test(x,y)
 
@@ -74,59 +74,59 @@ ratio of variances
 \end{verbatim}
 
 
-%----------------------------------------%
+-------------------
 
 
-\subsection{Variance Test (e)}
-\begin{itemize}
+### Variance Test (e)}
+
 *  The p-value is 0.3764 (top right), above the threshold level of 0.0250.
 *  We fail to reject the null hypothesis.
 *  There is not enough evidence to say there is a difference in variance between the two populations.
-\smallskip
+
 *  We can assume that there is no significant difference in sample variances. Therefore we can assume that both populations have equal variance.
 *  Additionally the $95\%$ confidence interval (0.1237, 2.2125) contains the null values i.e. 1.
-\end{itemize}
 
 
 
 
-%----------------------------------------%
+
+-------------------
 % - x=c(14,13,16,20,12,18,11,09,13,11)
 % - y=c(15,13,18,20,10,17,23,11,10)
-%----------------------------------------%
+-------------------
 
 
 
-%----------------------------------------%
+-------------------
 
 
 \textbf{Variance Test (e)}
-\begin{itemize}
+
 *  The p-value is 0.3764 (top right), above the threshold level of 0.0250.
 *  We fail to reject the null hypothesis.
 *  We can assume that there is no significant difference in sample variances. Therefore we can assume that both populations have equal variance.
 *  Additionally the $95\%$ confidence interval (0.1237, 2.2125) contains the null values i.e. 1.
-\end{itemize}
 
 
 
-%-------------------------------------------------%
+
+----------------------------
 
 
 
 \textbf{Shapiro-Wilk Test(a)}
 
 
-\begin{itemize}
+
 *  We will often be required to determine whether or not a data set is normally distributed.
 *  Again, this assumption underpins many statistical models.
 *  The null hypothesis is that the data set is normally distributed.
 *  The alternative hypothesis is that the data set is not normally distributed.
-*  One procedure for testing these hypotheses is the Shapiro-Wilk test, implemented in \texttt{R} using the command \texttt{shapiro.test()}.
+*  One procedure for testing these hypotheses is the Shapiro-Wilk test, implemented in <tt>R</tt> using the command \texttt{shapiro.test()}.
 *  (Remark: You will not be required to compute the test statistic for this test.)
-\end{itemize}
 
-%----------------------------------------%
+
+-------------------
 
 \textbf{Shapiro Wilk Test(b)}
 For the data set used previously; $x$ and $y$, we use the Shapiro-Wilk test to determine that both data sets are normally distributed.
@@ -150,16 +150,16 @@ W = 0.9347, p-value = 0.5273
 
 
 
-%-------------------------------------------------%
+----------------------------
 
 \textbf{Graphical Procedures for assessing Normality}
 
-\begin{itemize}
+
 *  The normal probability (Q-Q) plot is a very useful tool for determining whether or not a data set is normally distributed.
-*  Interpretation is simple. If the points follow the trendline (provided by the second line of \texttt{R} code \texttt{qqline}).
+*  Interpretation is simple. If the points follow the trendline (provided by the second line of <tt>R</tt> code \texttt{qqline}).
 *  One should expect minor deviations. Numerous major deviations would lead the analyst to conclude that the data set is not normally distributed.
 *  The Q-Q plot is best used in conjunction with a formal procedure such as the Shapiro-Wilk test.
-\end{itemize}
+
 
 \begin{verbatim}
 >qqnorm(CWdiff)
@@ -168,7 +168,7 @@ W = 0.9347, p-value = 0.5273
 
 
 
-%-------------------------------------------------%
+----------------------------
 
 
 \textbf{Graphical Procedures for Assessing Normality}
@@ -177,15 +177,15 @@ W = 0.9347, p-value = 0.5273
 \includegraphics[scale=0.32]{images/10AQQplot}
 \end{center}
 
-%----------------------------------------------------------%
+-------------------------------------
 
 
 
 
 
-\textbf{The paired t-test with \texttt{R}}
-\vspace{-1cm}
-\begin{itemize}
+\textbf{The paired t-test with <tt>R</tt>}
+
+
 *  Previously we have seen the paired $t-$test. It is used to determine whether or
 not there is a significant difference between paired measurements. *  Equivalently whether or not
 the case-wise differences are zero.
@@ -193,102 +193,102 @@ the case-wise differences are zero.
 *  Under the null hypothesis, the expected value of the case-wise differences is zero (i.e $H_0 : \mu_d = 0$).
 %*  The test statistic is computed as
 %\[ TS = \frac{\bar{d} - \mu_d}{\frac{s_d}{\sqrt{n}}} \]
-\end{itemize}
 
 
 
 
 
 
-%------------------------------------------%
 
-\textbf{The paired t-test with \texttt{R}}
+---------------------
 
-\begin{itemize}
+\textbf{The paired t-test with <tt>R</tt>}
+
+
 *  In the following procedure (next slide), there are two sets of values: the \texttt{Before} values and the \texttt{After} values.
-*  The \texttt{R} command is \texttt{t.test()}, with the additional specification ``\texttt{paired=}".
+*  The <tt>R</tt> command is \texttt{t.test()}, with the additional specification ``\texttt{paired=}".
 *  The alternative hypothesis is specified in the output. ( Another way of expressing it: True mean of case-wise differences is not zero)
 *  Also included in the output is a 95\% confidence interval for the sample mean of case-wise differences.
-\end{itemize}
 
 
 
 
 
-%----------------------------------------%
+
+-------------------
 
 
 \textbf{Test for Equality of Variance}
-\begin{itemize}
+
 *  The $p-$value is 0.3764 (top right), above the threshold level of 0.0250.
 *  We fail to reject the null hypothesis.
 *  We can assume that there is no significant difference in sample variances. Therefore we can assume that both populations have equal variance.
 *  Additionally the $95\%$ confidence interval (0.1237, 2.2125) contains the expected value under the assumption of equal variance i.e. 1.
-\end{itemize}
 
 
 
-%-------------------------------------------------%
+
+----------------------------
 
 
 
 \textbf{Shapiro-Wilk Test for Normality}
 
 
-\begin{itemize}
+
 *  We will often be required to determine whether or not a data set is normally distributed.
 *  Again, this assumption underpins many statistical models.
 *  The null hypothesis is that the data set is normally distributed.
 *  The alternative hypothesis is that the data set is not normally distributed.
-*  One procedure for testing these hypotheses is the Shapiro-Wilk test, implemented in \texttt{R} using the command \texttt{shapiro.test()}.
+*  One procedure for testing these hypotheses is the Shapiro-Wilk test, implemented in <tt>R</tt> using the command \texttt{shapiro.test()}.
 %*  (Remark: You will not be required to compute the test statistic for this test.)
-\end{itemize}
 
 
 
-%----------------------------------------%
+
+-------------------
 
 
 \textbf{Variance Test (e)}
-\begin{itemize}
+
 *  The p-value is 0.3764 (top right), above the threshold level of 0.0250.
 *  We fail to reject the null hypothesis.
 *  We can assume that there is no significant difference in sample variances. Therefore we can assume that both populations have equal variance.
 *  Additionally the $95\%$ confidence interval (0.1237, 2.2125) contains the null values i.e. 1.
-\end{itemize}
 
 
 
-%-------------------------------------------------%
+
+----------------------------
 
 
 
 \textbf{Shapiro-Wilk Test(a)}
 
 
-\begin{itemize}
+
 *  We will often be required to determine whether or not a data set is normally distributed.
 *  Again, this assumption underpins many statistical models.
 *  The null hypothesis is that the data set is normally distributed.
 *  The alternative hypothesis is that the data set is not normally distributed.
-*  One procedure for testing these hypotheses is the Shapiro-Wilk test, implemented in \texttt{R} using the command \texttt{shapiro.test()}.
+*  One procedure for testing these hypotheses is the Shapiro-Wilk test, implemented in <tt>R</tt> using the command \texttt{shapiro.test()}.
 *  (Remark: You will not be required to compute the test statistic for this test.)
-\end{itemize}
 
 
 
 
 
-%-------------------------------------------------%
+
+----------------------------
 
 \textbf{Graphical Procedures for assessing Normality}
 
-\begin{itemize}
+
 *  The normal probability (Q-Q) plot is a very useful tool for determining whether or not a data set is normally distributed.
-*  Interpretation is simple. If the points follow the trendline (provided by the second line of \texttt{R} code \texttt{qqline}).
+*  Interpretation is simple. If the points follow the trendline (provided by the second line of <tt>R</tt> code \texttt{qqline}).
 *  One should expect minor deviations. Numerous major deviations would lead the analyst to conclude that the data set is not normally distributed.
 *  The Q-Q plot is best used in conjunction with a formal procedure such as the Shapiro-Wilk test.
-\end{itemize}
+
 
 \begin{verbatim}
 >qqnorm(CWdiff)
@@ -297,7 +297,7 @@ the case-wise differences are zero.
 
 \end{document}
 
-%-------------------------------------------------%
+----------------------------
 
 
 \textbf{Graphical Procedures for Assessing Normality}

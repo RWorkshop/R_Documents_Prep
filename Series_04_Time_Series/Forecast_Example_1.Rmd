@@ -13,6 +13,10 @@ knitr::opts_chunk$set(echo = TRUE)
 options(digits=3)
 ```
 
+
+
+```{r}
+
 ## Forecasting with R
 Forecasting refers to the process of using statistical procedures to predict future values of a time series based on historical trends. For businesses, being able gauge expected outcomes for a given time period is essential for managing marketing, planning, and finances. For example, an advertising agency may want to utilizes sales forecasts to identify which future months may require increased marketing expenditures. Companies may also use forecasts to identify which sales persons met their expected targets for a fiscal quarter.
 

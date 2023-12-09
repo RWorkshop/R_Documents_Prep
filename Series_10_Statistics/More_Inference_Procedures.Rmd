@@ -1,7 +1,7 @@
 
 
-\section{Part 2 More inference procedures}
-\subsection{Formal tests for Normality}
+## Part 2 More inference procedures}
+### Formal tests for Normality}
 
 
 *  ad.test for outliers Anderson Darling test
@@ -32,7 +32,7 @@ qqplot
 histograms
 
 
-\subsection{Quantile-Quantile Plots}
+### Quantile-Quantile Plots}
 
 Description
 
@@ -42,7 +42,7 @@ qqplot produces a QQ plot of two datasets.
 
 Graphical parameters may be given as arguments to qqnorm, qqplot and qqline.
 
-%-------------------------------------------------------------------------------%
+----------------------------------------------------------
 
 
 Part 3 linear model
@@ -50,7 +50,7 @@ Part 3 linear model
 scatterplots
 
 
-\subsection{Scatter Plot:}
+### Scatter Plot:}
 
  A scatter plot of two variables shows the values of one variable on the Y axis and the values of the other variable on the X axis. Scatter plots are well suited for revealing the relationship between two variables. The scatter plot shown in Figure 4 illustrates data from one of Galileo's classic experiments in which he observed the distance traveled balls traveled after being dropped on a incline as a function of their release height.
 

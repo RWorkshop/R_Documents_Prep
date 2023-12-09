@@ -1,4 +1,4 @@
-### Question 1 (6 marks)
+### Question 1 
 A test of a specific blood factor has been devised so that, for adults in the UK and Ireland, the test score is normally distributed with mean 100 and standard deviation 10.
 A clinical research organization needs to test whether the mean score of sufferers from a particular disease differs from the mean score of the general population on this test.  
 A study has obtained the following test scores for 12 randomly selected patients suffering from the disease. 
@@ -13,7 +13,7 @@ A study has obtained the following test scores for 12 randomly selected patients
 
 ---------------------------------------------------------------------------------------------
 
-### Question 2 (6 marks)
+### Question 2 
 A test of a specific blood factor has been devised so that, for adults in the UK and Ireland, the test score is Normally distributed with mean 100 and standard deviation 10.
 A clinical research organization is carrying out research on the blood factor levels for sufferers of a particular disease.  
 A study has obtained the following test scores for 12 randomly selected patients suffering from the disease in one area of the UK:
@@ -62,7 +62,7 @@ Perform an appropriate hypothesis test for this hypothesis test, using a signifi
 
 --------------------------------------------------------------------------------------------------------------
 
-###  Question 4 (6 marks)
+###  Question 4 
 A test of a specific blood factor has been devised so that, for adults in the UK and Ireland, the test score is normally distributed with mean 100 and standard deviation 10.
 A clinical research organization needs to test whether the mean score of sufferers from a particular disease differs from the mean score of the general population on this test.  
 A study has obtained the following test scores for 14 randomly selected patients suffering from the disease. 
@@ -104,7 +104,7 @@ The clinical research organization wishes to determine if there is a significant
 
 ------------------------------------------------------------------------------------------------------------------------
  
-### Question 6 (6 marks)
+### Question 6 
 ***This question is a continuation of Question 5. You may assume that all the statements and conclusion made in Question 1 apply to Question 2.***
 
 The clinical research organization wishes to determine if there is a significant difference between the two groups of patients. 
@@ -147,16 +147,16 @@ For each of the three possible pairings, state if the assumption of equality of 
 
 ------------------------------------------------------------------------------------------------------------------------
  
-### ANOVA Procedures  - Question 9 (6 marks)
+### ANOVA Procedures  - Question 9 
 Specimens of milk from dairies in three different districts are assayed for their concentrations of the radioactive isotope Strontium-90. The results, in picocuries per litre, are as shown in the table below. 
 
-| District          | Observations                   | Dataset |
+| District  | Observations   | Dataset |
 |-------------------|--------------------------------|---------|
-| A                 | 6.7 6.1 6.8 8.0 7.5            | X111    |
-| B                 | 7.5 10.3 11.6 10.9 6.9 9.2 8.8 | X112    |
-| C                 | 10.3 9.8 12.9 11.9             | X113    |
-| Combined          |                                | X100    |
-| Grouping Variable |                                | X109    |
+| A | 6.7 6.1 6.8 8.0 7.5    | X111    |
+| B | 7.5 10.3 11.6 10.9 6.9 9.2 8.8 | X112    |
+| C | 10.3 9.8 12.9 11.9     | X113    |
+| Combined  || X100    |
+| Grouping Variable || X109    |
 
 
 1.	Write out the ANOVA table. You are not required to add the “Totals” Row. [4 Marks]

@@ -30,8 +30,8 @@ What is the highest ariport?
 What is the most northerly, easterly airport.
 
 
-\begin{framed}
-\begin{verbatim}
+
+<pre><code>}
 > table(airports$dst)
 
    A    N    U 

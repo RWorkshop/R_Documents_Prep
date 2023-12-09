@@ -1,4 +1,15 @@
-Inverse Transform Sampling
+---
+title: "Inverse Transform Sampling"
+subtitle: "Simulation with R"
+author: DragonflyStats.github.io
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+
+## Inverse Transform Sampling
+
 
 The method
 Schematic of the inverse transform sampling. The inverse function of ${\displaystyle y=F_{X}(x)}$ can be defined by ${\displaystyle F_{X}^{-1}(y)=\mathrm {inf} \{x|F_{X}(x)\geq y\}}$

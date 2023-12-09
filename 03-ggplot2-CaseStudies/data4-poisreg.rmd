@@ -13,7 +13,14 @@ knitr::opts_chunk$set(echo = TRUE)
 options(digits=3)
 ```
 
-Poisson Regression - poisreg.csv
+### Poisson Regression - poisreg.csv
+
+```{r}
+
+require(ggplot2)
+
+p <- readr::read_csv("https://raw.githubusercontent.com/RWorkshop/workshopdatasets/master/poisreg.csv")
+```
 
 ```{r}
 p <- within(p, {
@@ -22,6 +29,7 @@ p <- within(p, {
 })
 summary(p)
 ```
+
 ```{r}
 ggplot(p, aes(num_awards, fill = prog)) +
   geom_histogram(binwidth=.5, position="dodge")

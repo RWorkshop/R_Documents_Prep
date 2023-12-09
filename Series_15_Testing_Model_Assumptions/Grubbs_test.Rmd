@@ -1,7 +1,7 @@
 
 ### Grubbs Test for Determining an Outlier}
 
-The Grubbs test is used to determine if there are any outliers in a data set.\\ \bigskip
+The Grubbs test is used to determine if there are any outliers in a data set.\\ 
 There is no agreed formal definition for an outlier. The definition of outlier used for this procedure is a value that unusually distance from the rest of the values ( For the sake of clarity , we shall call this type of outlier a \textbf{Grubbs Outlier}). Consider the following data set: is the lowest value 4.01 an outlier?
 \begin{verbatim}
 6.98 8.49 7.97 6.64
@@ -13,7 +13,7 @@ Under the null hypothesis, there are no outliers present in the data set.
 We reject this hypothesis if the p-value is sufficiently small.
 
 
-%-------------------------------------------------%
+----------------------------
 
 ### Grubbs Test for Determining an Outlier}
 \begin{verbatim}

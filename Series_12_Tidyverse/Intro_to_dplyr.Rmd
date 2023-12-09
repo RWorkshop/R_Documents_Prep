@@ -3,17 +3,17 @@
 % - https://rpubs.com/justmarkham/dplyr-tutorial
 \begin{document}
 
-\tableofcontents
-\begin{framed}
+
+
 This is the draft document for in-session slides.
-\end{framed}
+
 \textbf{Pre-requisites}
 
 *  Downloading and installing R packages
 *  What is a data frame
 *  Principles of Tidy Data
 
-\newpage
+
 
 
 
@@ -28,7 +28,7 @@ This is the draft document for in-session slides.
 
 \subsection{dplyr : abstract by Hadley Wickham}
 
-\begin{framed}
+
 
 
 There are three key ideas that underlie dplyr:
@@ -43,7 +43,7 @@ With dplyr, anything you can do to a local data frame you can also do to a remot
 *  The bottleneck in most data analyses is the time it takes for you to figure out what to do with your data, and dplyr makes this easier by having individual functions that correspond to the most common operations  (group\_by, summarise, mutate, filter, select and arrange). Each function does one only thing, but does it well.
 \end{enumerate}
 Author: Hadley Wickham
-\end{framed}
+
 
 
 \subsection{Working with dplyr} \textbf{dplyr} focussed on tools for working with data frames (hence the d in the name). \textbf{dplyr} has three main goals:
@@ -59,34 +59,34 @@ Author: Hadley Wickham
 \subsection{Installing dplyr}
 You can install the latest released version from CRAN with the code below.
 You can also install and load the data packages used in most examples: 
-\begin{framed}
-\begin{verbatim}
+
+<pre><code>}
 install.packages("dplyr")
 install.packages(c("nycflights13", "Lahman"))
 
 library(dplyr) # for functions
 library(nycflights13) # for data
-\end{verbatim}
-\end{framed}
+</code></pre>
+
 
 ### Tidy Data
 To make the most of dplyr, Hadley Wickham recommends that you familiarise yourself with the \textbf{principles of tidy data}. This will help you get your data into a form that works well with \textbf{dplyr}, \textbf{ggplot2} and \texttt{R}'s many modelling functions.\\
 \bigskip
 
-\begin{framed}
+
 Three Principles from Hadley Wickham's paper
 
 * [1.] Each variable forms a column, 
 * [2.] Each observation forms a row, 
 * [3.] Each table/file stores data about one kind of observation.
 
-\end{framed}
-\textbf{Remark:}  The paper ``\textit{\textbf{Tidy data}}" by Hadley Wickham (RStudio) can be downloaded from 
-\begin{verbatim}
-http://vita.had.co.nz/papers/tidy-data.pdf
-\end{verbatim}
 
-%=================================================================== %
+\textbf{Remark:}  The paper ``\textit{\textbf{Tidy data}}" by Hadley Wickham (RStudio) can be downloaded from 
+<pre><code>}
+http://vita.had.co.nz/papers/tidy-data.pdf
+</code></pre>
+
+============================================================= %
 
 \subsection{Key data structures}
 
@@ -104,7 +104,7 @@ For advanced users, \textbf{dplyr} also supports the following databases: \texti
 
 
 
-%======================================================================================%
+=====================================================================
 
 order\_by 
 
@@ -115,7 +115,7 @@ Description
 This is a useful function to control the order of window functions in R that don’t have a specific
 ordering parameter. When translated to SQL it will modify the order clause of the OVER function.
 
-%======================================================================================%
+=====================================================================
 
 src_mysql
 src_sqllite
@@ -123,7 +123,7 @@ src_postgres
 src_monetdb
 src_bigquery
 
-%====================================================================================== %
+================================================================================ %
 
 idaho2 = select(idaho,
 contains("AX"),
@@ -133,4 +133,4 @@ ends_with("SP"),
 num_range("wgtp",11:16,width=2)
 )
 
-%======================================================================================= %
+================================================================================= %

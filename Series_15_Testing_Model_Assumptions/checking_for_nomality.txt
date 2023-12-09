@@ -3,11 +3,11 @@
 
 \section*{Checking for Normality}
 
-\begin{itemize}
+
 *  A normal distribution is often a reasonable model for the data. Without inspecting the data, however, it is risky to assume a normal distribution. *   There are a number of graphs that can be used to check the deviations of the data from the normal distribution. 
 
 *   A histogram is an example of a graph that can be used to check normality. Here, the histogram should reveal a bell shaped curve. 
-\end{itemize}
+
 
 %\begin{figure}
 %\centering
@@ -19,19 +19,19 @@
 
 
 
-\subsection{The Q-Q Plot}
+### The Q-Q Plot}
 
-\begin{itemize}
+
 *  The most useful tool for assessing normality is a quantile quantile or QQ plot. This is a scatterplot with the quantiles of the scores on the horizontal axis and the expected normal scores on the vertical axis. 
 
 *   The steps in constructing a QQ plot are as follows: First, we sort the data from smallest to largest. A plot of these scores against the expected normal scores should reveal a straight line. *  The expected normal scores are calculated by taking the z-scores  where I is the rank in increasing order.
 
 *   Curvature of the points indicates departures of normality. *   This plot is also useful for detecting outliers. The outliers appear as points that are far away from the overall pattern op points
-\end{itemize}
 
 
 
-\subsection{Graphical Methods}
+
+### Graphical Methods}
 
 The quantile-quantile (QQ) plot is an excellent way to see whether the data deviate from normal (the plot can be set up to see if the data deviate from other distributions as well but here we are only interested in the normal distribution). The process SPSS goes through for creating a QQ plot involves determining what proportion of the 'observed' scores fall below any one score, then the z score that would fit that proportion if the data were normally distributed is calculated, and finally that z score that would cut off that proportion (the 'expected normal value') is translated back into the original metric to see what raw score that would be. 
 
@@ -49,7 +49,7 @@ Same distribution
 
 
 
-\section{F-test of equality of variances}
+## F-test of equality of variances}
 The test statistic is
 
 \begin{equation} F = \frac{S_X^2}{S_Y^2}\end{equation}
@@ -63,54 +63,54 @@ has an F-distribution with $n-1$ and $m-1$ degrees of freedom if the null hypoth
 
 
 \textbf{Test for Equality of Variance (a)}
-\begin{itemize}
+
 *  In this procedure, we determine whether or not two data sets have the same variance.
 *  The assumption of equal variance underpins several inference procedures.
 *  We will not get into too much detail about that, but concentrate on how to assess equality of variance.
 *  The null and alternative hypotheses are as follows:
 \[ H_0: \sigma^2_1 = \sigma^2_2 \]
 \[ H_1: \sigma^2_1 \neq \sigma^2_2 \]
-\end{itemize}
 
 
 
-%----------------------------------------%
+
+-------------------
 
 
 \textbf{Variance Test (e)}
-\begin{itemize}
+
 *  The p-value is 0.3764, above the threshold level of 0.0250.
 *  We fail to reject the null hypothesis.
 *  We can assume that there is no significant difference in sample size.
 *  Additionally the $95\%$ confidence interval (0.1237, 2.2125) contains the null values i.e. 1.
-\end{itemize}
 
 
 
-%-------------------------------------------------%
+
+----------------------------
 
 
 
 \textbf{Shapiro-Wilk Test(a)}
 
 
-\begin{itemize}
+
 *  We will often be required to determine whether or not a data set is normally distributed.
 *  Again, this assumption underpins many statistical models.
 *  The null hypothesis is that the data set is normally distributed.
 *  The alternative hypothesis is that the data set is not normally distributed.
-*  One procedure for testing these hypotheses is the Shapiro-Wilk test, implemented in \texttt{R} using the command \texttt{shapiro.test()}.
+*  One procedure for testing these hypotheses is the Shapiro-Wilk test, implemented in <tt>R</tt> using the command \texttt{shapiro.test()}.
 *  (Remark: You will not be required to compute the test statistic for this test.)
-\end{itemize}
+
 
 \textbf{Graphical Procedures for assessing Normality}
 
-\begin{itemize}
+
 *  The Q-Q plot is a very useful tool for determining whether or not a data set is normally distributed
-*  Interpretation is simple. If the points follow the trendline (provided by the second line of \texttt{R} code \texttt{qqline}).
+*  Interpretation is simple. If the points follow the trendline (provided by the second line of <tt>R</tt> code \texttt{qqline}).
 *  One should expect minor deviations. Numerous major deviations would lead the analyst to conclude that the data set is not normally distributed.
 *  The Q-Q plot is best used in conjunction with a formal procedure such as the Shapiro-Wilk test.
-\end{itemize}
+
 
 \begin{verbatim}
 >qqnorm(CWdiff)
@@ -120,7 +120,7 @@ has an F-distribution with $n-1$ and $m-1$ degrees of freedom if the null hypoth
 \end{document}
 
 
-%-------------------------------------------------%
+----------------------------
 
 
 \textbf{Graphical Procedures for Assessing Normality}
@@ -130,18 +130,18 @@ has an F-distribution with $n-1$ and $m-1$ degrees of freedom if the null hypoth
 \end{center}
 
 
-%---------%
 
-%\frametitle{Using \texttt{R} for Inference Procedures}
-\begin{itemize}
+
+%\frametitle{Using <tt>R</tt> for Inference Procedures}
+
 * [1] Review of the Paired t-test.
-* [2] Paired t-test using \texttt{R}
+* [2] Paired t-test using <tt>R</tt>
 %* [3] Two Sample Test for Proportions
 * [3] Test for the equality of variances for two samples
 * [4] Shapiro-Wilk Test for Normality
 * [5] Graphical procedures for assessing normality
 * [6] Grubb's Procedure for Determinin an Outlier
-\end{itemize}
+
 
 
 

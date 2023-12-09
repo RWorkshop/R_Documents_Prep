@@ -27,7 +27,7 @@ Applications of tests that are based on the normality assumptions are further li
 
 Parametric and nonparametric methods. Hopefully, after this somewhat lengthy introduction, the need is evident for statistical procedures that enable us to process data of "low quality," from small samples, on variables about which nothing is known (concerning their distribution). Specifically, nonparametric methods were developed to be used in cases when the researcher knows nothing about the parameters of the variable of interest in the population (hence the name nonparametric). In more technical terms, nonparametric methods do not rely on the estimation of parameters (such as the mean or the standard deviation) describing the distribution of the variable of interest in the population. Therefore, these methods are also sometimes (and more appropriately) called parameter-free methods or distribution-free methods.
 
-\subsection{Brief Overview of Nonparametric Methods}
+### Brief Overview of Nonparametric Methods}
 
 Basically, there is at least one nonparametric equivalent for each parametric general type of test. In general, these tests fall into the following categories:
 

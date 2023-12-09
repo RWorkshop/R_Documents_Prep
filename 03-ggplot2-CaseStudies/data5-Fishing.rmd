@@ -1,6 +1,6 @@
 ---
 title: "Forecasting with R"
-subtitle: "Time Series Analysis with R"
+subtitle: "Negative Binomial Regression"
 author: DragonflyStats.github.io
 output:
   prettydoc::html_pretty:
@@ -13,8 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 options(digits=3)
 ```
 
-Data Prep 5
-======================
+
 
 Negative Binomial Regression: ***Fishing.csv***.
 

@@ -1,6 +1,6 @@
 ---
-title: "Forecasting with R"
-subtitle: "Time Series Analysis with R"
+title: "Fishing Data Set"
+subtitle: "Zero-inflated Negative Binomial Regression"
 author: DragonflyStats.github.io
 output:
   prettydoc::html_pretty:
@@ -13,15 +13,12 @@ knitr::opts_chunk$set(echo = TRUE)
 options(digits=3)
 ```
 
-Data Preparation 7
-=========================
-
-Zero-inflated Negative Binomial Regression  - Fishing.csv
+### Fishing.csv
 
 ```{r}
 ### Upload Fishing Data Set
 
-Fishing <- read.csv("Fishing",header=T)
+Fishing <- readr::read_csv("https://raw.githubusercontent.com/RWorkshop/workshopdatasets/master/fishing.csv")
 
 ```
 

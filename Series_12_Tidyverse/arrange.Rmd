@@ -1,14 +1,14 @@
 
 \frametitle{\texttt{Arrange} Example}
 The arrange() function can be used to order individuals. The first argument is the data.frame and the following arguments are the variables to sort by. The following sorts, in ascending order, the male data.frame created above by length.
-\begin{framed}
-\begin{verbatim}
+
+<pre><code>}
 malea <- arrange(male,length)
 head(malea)
 tail(malea)
-\end{verbatim}
+</code></pre>
 
-%====================================================================================%
+===================================================================
 The following does the same but in descending order.
 
 
@@ -17,7 +17,7 @@ head(maled)
 
 tail(maled)
 
-%====================================================================================%
+===================================================================
 
 Multiple levels of ordering can be completed by including multiple variables as arguments to arrange(). The following sorts the data by ascending length and then ascending weight.
 

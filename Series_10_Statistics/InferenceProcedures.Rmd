@@ -1,21 +1,21 @@
 
-\subsection{Using Statistical Computing for Inference Procedures}
+### Using Statistical Computing for Inference Procedures}
 \begin{enumerate}
 
-*  Paired t-test using \texttt{R}
+*  Paired t-test using <tt>R</tt>
 %* [3] Two Sample Test for Proportions
 *  Test for the equality of variances for two samples
 *  Shapiro-Wilk Test for Normality
 *  Graphical procedures for assessing normality
 *  The minitab graphical summary
 *  Grubb's Procedure for Determinin an Outlier
-\end{enumerate}
 
-%---------%
 
-\subsection{p-values using Statistical Software}
-\begin{itemize}
-*  In every inference procedure performed using programs such as SPSS or \texttt{R}, a p-value is presented to the screen for the user to interpret.
+
+
+### p-values using Statistical Software}
+
+*  In every inference procedure performed using programs such as SPSS or <tt>R</tt>, a p-value is presented to the screen for the user to interpret.
 
 *  If the p-value is larger than a specified threshold $\alpha/k$ then the appropriate conclusion is a
 failure to reject the null hypothesis.
@@ -23,78 +23,78 @@ failure to reject the null hypothesis.
 *  Conversely, if the p-value is less than threshold, the appropriate conclusion is to reject the null hypothesis.
 
 *  In this module, we will use a significance level$\alpha=0.05$ and almost always the procedures will be two tailed ($k=2$). Therefore the threshold $\alpha/k$ will be $0.025$.
-\end{itemize}
 
-%--------------------------------------------------------------------------------%
+
+-----------------------------------------------------------
 {
-\subsection{R Statistical Computing}
-\begin{itemize} * 
-\texttt{R} is a computing software for statistical analysis *  The package is available for all popular operating systems: Windows , Mac OS and Linux
+### R Statistical Computing}
+ * 
+<tt>R</tt> is a computing software for statistical analysis *  The package is available for all popular operating systems: Windows , Mac OS and Linux
 *  It is free!
 *  Everyone (knowledgeable enough) can contribute to the software by
 writing a package. Packages are available for download through a convenient facility
-*  \texttt{R} is fairly well documented and the documentation is available either
+*  <tt>R</tt> is fairly well documented and the documentation is available either
 from the program help menu or from the web-site.
-*  \texttt{R} is the top choice of statistical software among academic statisticians
+*  <tt>R</tt> is the top choice of statistical software among academic statisticians
 but also very popular in industry.
-*  \texttt{R} is a powerful tool not only for doing statistics but also all kind of
+*  <tt>R</tt> is a powerful tool not only for doing statistics but also all kind of
 scientific programming.
-\end{itemize}
 
-\texttt{R} is a language and environment for statistical computing and graphics.
-\texttt{R} provides a wide variety of statistical and graphical techniques, and is highly extensible. Among its tools
+
+<tt>R</tt> is a language and environment for statistical computing and graphics.
+<tt>R</tt> provides a wide variety of statistical and graphical techniques, and is highly extensible. Among its tools
 one can find implemented
-\begin{itemize}
+
 *  linear and nonlinear modelling,
 *  classical statistical tests,
 *  time-series analysis,
 *  classification,
 *  clustering,
 *  ...and many more.
-\end{itemize}
-One of \texttt{R}'s strengths is the ease with which well-designed publication quality plots can be produced.
+
+One of <tt>R</tt>'s strengths is the ease with which well-designed publication quality plots can be produced.
 including mathematical symbols and formulae where needed.
 
 
-\texttt{R} is an integrated suite of software facilities for data manipulation, calculation and graphical display. It
+<tt>R</tt> is an integrated suite of software facilities for data manipulation, calculation and graphical display. It
 includes
-\begin{itemize}
+
 *  an effective data handling and storage facility,
 *  a suite of operators for calculations on arrays, in particular matrices,
 *  a large, coherent. integrated collection of intermediate tools for data analysis,
 graphical facilities for data analysis and display either on-screen or on hard-copy, and
 *  a well-developed, simple and effective programming language which includes conditionals, loops,
 user-defined recursive functions and input and output facilities.
-\end{itemize}
+
 }
-%--------------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 
 {
-\subsection{R Statistical Computing}
-Downloading and Installing \texttt{R}:
+### R Statistical Computing}
+Downloading and Installing <tt>R</tt>:
 
-\begin{itemize}
-*  \texttt{R} can be downloaded from the CRAN website: http://cran.r-project.org/
+
+*  <tt>R</tt> can be downloaded from the CRAN website: http://cran.r-project.org/
 *  You may choose versions for windows, mac and linux.
 *  As per the instructions on the respective pages, you require the ``base" distribution.
-*  Now you can download the installer for latest version of \texttt{R} , version 2.17.
-*  Select the default settings. Once you finish, the \texttt{R} icon should appear on your desktop.
+*  Now you can download the installer for latest version of <tt>R</tt> , version 2.17.
+*  Select the default settings. Once you finish, the <tt>R</tt> icon should appear on your desktop.
 *  Clicking on this icon will start up the program.
-\end{itemize}
+
 }
 %============================%
 
-\subsection{Using \texttt{R} for Inference Procedures}
-\begin{itemize}
+### Using <tt>R</tt> for Inference Procedures}
+
 *  [1] Review of the Paired t-test.
-*  [2] Paired t-test using \texttt{R}
+*  [2] Paired t-test using <tt>R</tt>
 %*  [3] Two Sample Test for Proportions
 *  [3] Test for the equality of variances for two samples
 *  [4] Shapiro-Wilk Test for Normality
 *  [5] Graphical procedures for assessing normality
 *  [6] Grubb's Procedure for Determinin an Outlier
-\end{itemize}
+
 
 
 
@@ -102,19 +102,19 @@ Downloading and Installing \texttt{R}:
 %============================%
 
 \textbf{Using Confidence Limits}
-\begin{itemize}
+
 *   Alternatively, we can use the confidence interval to make a decision on whether or not we should reject or fail to reject the null hypothesis.
 *   If the null value is within the range of the confidence limits, we fail to reject the null hypothesis.
 *   If the null value is outside the range of the confidence limits, we reject the null hypothesis.
 *   Occasionally a conclusion based on this approach may differ from a conclusion based on the p-value. In such a case, remark upon this discrepancy.
-\end{itemize}
 
 
-%------------------------------------------%
 
-\section{The paired t-test}
+---------------------
 
-\begin{itemize}
+## The paired t-test}
+
+
 *   Previously we have seen the paired t-test. It is used to determine whether or
 not there is a significant difference between paired measurements. Equivalently whether or not
 the case-wise differences are zero.
@@ -122,32 +122,32 @@ the case-wise differences are zero.
 *   Under the null hypothesis, the expected value of the case-wise differences is zero (i.e $H_0 : \mu_d = 0$).
 *   The test statistic is computed as
 \[ TS = \frac{\bar{d} - \mu_d}{\frac{s_d}{\sqrt{n}}} \]
-\end{itemize}
 
 
 
-%------------------------------------------%
+
+---------------------
 
 \textbf{The Paired t-test (b)}
-\begin{itemize}
+
 *   The calculation is dependent on the case-wise differences.
 *   Here the case-wise differences between paired measurements (e.g. ``before" and ``after").
 *   Under the null hypothesis, the mean of case-wise differences is zero.
 *   As a quick example, the mean, standard deviation and sample size are presented in the next slide.
-\end{itemize}
 
 
-%------------------------------------------%
+
+---------------------
 
 \textbf{The paired t-test (c)}
-\begin{itemize}
+
 *   Observed Mean of Case-wise differences $\bar{d}$ = 8.21,
 *   Expected Mean of Case-wise differences under $H_0$ : $\mu_d = 0$,
 *   Standard Deviation of Case-wise differences $S_d$ = 7.90,
 *   Sample Size $n=14$.
-\end{itemize}
+
 \[ TS = \frac{\bar{d} - \mu_d}{\frac{s_d}{\sqrt{n}}} = \frac{8.21 - 0}{\frac{7.90}{\sqrt{14}}} = 3.881 \]
-%------------------------------------------%
+---------------------
 
 \textbf{The paired t-test (c)}
 \begin{verbatim}
@@ -161,26 +161,26 @@ the case-wise differences are zero.
 \end{verbatim}
 
 \[ TS = \frac{8.21 - 0}{\frac{7.90}{\sqrt{14}}} = 3.881 \]
-In an exam situation, the candidate will be expected to compute this value. It will be omitted from \texttt{R} code output.
+In an exam situation, the candidate will be expected to compute this value. It will be omitted from <tt>R</tt> code output.
 
-%------------------------------------------%
+---------------------
 
 \textbf{The paired t-test (e)}
-\begin{itemize}
+
 *   Procedure is two-tailed, and you can assume a significance level of 5\%.
 *   It is also a small sample procedure (n=14, hence df = 13).
 *   The Critical value is determined from statistical tables (2.1603).
 *   Decision Rule: Reject Null Hypothesis ($|TS|>CV$). Significant difference in measurements before and after.
-\end{itemize}
 
-%-------------------------------------------------%
+
+----------------------------
 
 \textbf{The paired t-test (f)}
-\begin{itemize}
+
 *  We consider the confidence interval. We are $95\%$ confident that the expected value of the case-wise difference is at least 3.65.
 *  Here the null value (i.e. 0) is not within the range of the confidence limits.
 *  Therefore we reject the null hypothesis.
-\end{itemize}
+
 \begin{verbatim}
 > t.test(Before,After,paired=TRUE)
 ...
@@ -189,23 +189,23 @@ In an exam situation, the candidate will be expected to compute this value. It w
 3.650075 12.778496
 ...
 \end{verbatim}
-%------------------------------------------%
+---------------------
 
 \textbf{The paired t-test (f)}
 Alternative Approach : using p-values.
-\begin{itemize}
-*   The p-values are determined from computer code. (We will use a software called \texttt{R}. Other types of software inlcude \texttt{SAS} and \texttt{SPSS}.)
+
+*   The p-values are determined from computer code. (We will use a software called <tt>R</tt>. Other types of software inlcude \texttt{SAS} and \texttt{SPSS}.)
 *   The null and alternative are as before.
 *   The computer software automatically generates the appropriate test statistic, and hence the corresponding p-value.
 *   The user then interprets the p-values. If p-value is small, reject the null hypothesis. If the p-value is large, the appropriate conclusion is a failure to reject $H_0$.
 *   The threshold for being considered small is less than $\alpha/k$, (usually 0.0250). (This is a very arbitrary choice of threshold, suitable for some subject areas, not for others)
-\end{itemize}
 
 
-%------------------------------------------%
+
+---------------------
 
 \textbf{The paired t-test (g)}
-Implementing the paired t-test using \texttt{R} for the example previously discussed.
+Implementing the paired t-test using <tt>R</tt> for the example previously discussed.
 \begin{verbatim}
 > t.test(Before,After,paired=TRUE)
 
@@ -222,24 +222,24 @@ mean of the differences
 \end{verbatim}
 
 
-%-------------------------------------------------%
+----------------------------
 
 \textbf{The paired t-test (h)}
-\begin{itemize}
+
 *   The p-value ($0.001868$) is less than the threshold is less than the threshold $0.0250$.
 *   We reject the null hypothesis (mean of case-wise differences being zero, i.e. expect no difference between ``before" and ``after").
 *   We conclude that there is a difference between `before' and `after'.
 *   That is to say, we can expected a difference between two paired measurements.
-\end{itemize}
 
-%-------------------------------------------------%
+
+----------------------------
 
 \textbf{The paired t-test (i)}
-\begin{itemize}
+
 *   We could also consider the confidence interval. We are $95\%$ confident that the expected value of the case-wise difference is at least 3.65.
 *   Here the null value (i.e. 0) is not within the range of the confidence limits.
 *   Therefore we reject the null hypothesis.
-\end{itemize}
+
 \begin{verbatim}
 > t.test(Before,After,paired=TRUE)
 ...
@@ -257,18 +257,18 @@ mean of the differences
 
 Using Statistical Software
 \begin{enumerate}
-*  \texttt{var.test} : Testing Equality of Variances for two samples using \texttt{R}.
-*  The Shapiro-Wilk Test for Normality (Using \texttt{R}).
+*  \texttt{var.test} : Testing Equality of Variances for two samples using <tt>R</tt>.
+*  The Shapiro-Wilk Test for Normality (Using <tt>R</tt>).
 *  Graphical Procedures for Assessing Normality : The QQ plot
 *  The Grubbs' Test for Outliers.
-\end{enumerate}
+
 
 
 % Part 2
-%---------------------------- %
+---------------- %
 
 
 
 
 
-%-------------------------------------------------%
+----------------------------

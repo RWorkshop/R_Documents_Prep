@@ -16,22 +16,22 @@ hist(means)
 
 Recall the Dice experiment in week 8.
  
-N=100                                         #number of loops
-Avgs=numeric(N)                       #array “Avgs” store the sample means
+N=100 #number of loops
+Avgs=numeric(N)       #array “Avgs” store the sample means
 for( i in 1:N)
-              {              Dice=floor(runif(50,min=1,max=7));              Avgs[i]=mean(Dice);
-              }
-Avgs                                         #print Avgs dataset to screen
+      {      Dice=floor(runif(50,min=1,max=7));      Avgs[i]=mean(Dice);
+      }
+Avgs #print Avgs dataset to screen
  
 The Central limit theorem states that.
 
 The “Dice” distribution is a discrete uniform distribution. However
 
-mean(Avgs)                                #compute the mean. Is it roughly what we are expecting?
-qqnorm(Avgs)                                #draws a QQ plot that is used to check for normality.
-qqline(Avgs)                                #adds trend line to QQplot.
-shapiro.test(Avgs)                       #Shapiro Wilk test. Normality is assumed if p-value > 0.05.
-                                     
+mean(Avgs)#compute the mean. Is it roughly what we are expecting?
+qqnorm(Avgs)#draws a QQ plot that is used to check for normality.
+qqline(Avgs)#adds trend line to QQplot.
+shapiro.test(Avgs)       #Shapiro Wilk test. Normality is assumed if p-value > 0.05.
+     
 
 
 
