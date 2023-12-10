@@ -2,9 +2,8 @@
 ### {Section 3 - Inspecting a Data Set }
  
 *  [3.1] Dimensions of a data set 
-*  [3.2] The texttt{summary()} command   
+*  [3.2] The <tt>summary()</tt> command   
 *  [3.3] Structure of a Data Object 
- 
  
 ### Section 4 : Packages}
 
@@ -21,13 +20,13 @@
 
 ### Summary of useful commands}
  
-*  texttt{dim()} and texttt{length()}
-*  texttt{nrow()} and texttt{ncol()}
-*  texttt{names()}
-*  texttt{summary()}
-*  texttt{tail()}
-*  texttt{head()}
-*  texttt{describe()} (from the textbf{psych} package)
+*  <tt>dim()</tt> and <tt>length()</tt>
+*  <tt>nrow()</tt> and <tt>ncol()</tt>
+*  <tt>names()</tt>
+*  <tt>summary()</tt>
+*  <tt>tail()</tt>
+*  <tt>head()</tt>
+*  <tt>describe()</tt> (from the textbf{psych} package)
  
 
  
@@ -37,11 +36,11 @@
 *  This is perhaps a good place to consider
  summary information about data objects. 
 *  For a simple vector, a useful command to determine
- the length (remark: sample size) is the function texttt{length()}.
+ the length (remark: sample size) is the function <tt>length()</tt>.
  
  <pre>
- texttt{Y=4:18}
- texttt{length(Y)}
+ <tt>Y=4:18}
+ <tt>length(Y)}
  
  </pre>
 <p>
@@ -53,7 +52,7 @@
 
 ### {Column (Variable) names and Row names}
  
-*  We can also determine the row names and column names using the functions texttt{rownames()}
- and texttt{colnames()}. 
+*  We can also determine the row names and column names using the functions <tt>rownames()</tt>
+ and <tt>colnames()</tt>. 
 *  If there are no specific row or column names, the command will just return
  the indices.

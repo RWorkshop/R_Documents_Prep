@@ -1,6 +1,6 @@
 
 %=====================================================%
-\subsection{Simple Linear Regression}
+### Simple Linear Regression}
 
 
 The intercept is the estimated value of the response variable when the predictor variable is set to zero. In many cases it would make sense that there would be a non zero value in this instance.
@@ -8,11 +8,11 @@ The intercept is the estimated value of the response variable when the predictor
 The slope is the rate at which response variable changes as the predictor cbanfes. A negative slope insicates a negative linear relationship.
 
 %=====================================================%
-\subsection{Fitting a Model}
+### Fitting a Model}
 
  To fit an ordinary linear model with fertility change as the response and setting and effort as predictors, try
 
-\begin{framed}
+
 <pre><code>
  > lmfit = lm( change ~ setting + effort )
 </code></pre>
@@ -21,7 +21,7 @@ The slope is the rate at which response variable changes as the predictor cbanfe
  Note first that lm is a function, and we assign the result to an object that we choose to call lmfit (for linear model fit). This stores the results of the fit for later examination
 
 
-\subsection{Correlation }
+### Correlation }
 
 
 *  Correlation describes the strength of a relationship between two numeric variables.
@@ -34,7 +34,7 @@ The slope is the rate at which response variable changes as the predictor cbanfe
 * [Ho:] The correlation coefficient for the population of values is zero. No linear relationship.
 * [Ha:] The coefficient is not zero. Linear relationship exists.
 *  A confidence interval for the coefficient is provided for in the R output. If the interval includes 0 then we fail to reject the null hypothesis.
-\subsection{Anscombe Quartet}
+### Anscombe Quartet}
 Anscombe quartet is a famous data set used to demonstrate why a full set of statistical analyses should be used in conjunction, rather than rely on one analysis. This data set comprises four set of data.
 %====================================================================================%
 
@@ -44,7 +44,7 @@ Getting a correlation coefficient is generally only half the story; you will wan
 
 
 To run a correlation test we type:
-\begin{framed}
+
 \begin{veratim}
 > cor.test(var1, var2, method = "method")
 </code></pre>

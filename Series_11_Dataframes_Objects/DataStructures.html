@@ -131,7 +131,7 @@ Furthermore, we can reverse the order with a character string index vector.
 
 pandas introduces two new data structures to Python - Series and DataFrame, both of which are built on top of NumPy (this means it's fast).
 
-\begin{framed}
+
 \begin{verbatim}
 import pandas as pd
 import numpy as np
@@ -143,23 +143,23 @@ pd.set_option('max_columns', 50)
 
 Series is a one-dimensional labeled array capable of holding any data type (integers, strings, floating point numbers, Python objects, etc.). The axis labels are collectively referred to as the index. The basic method to create a Series is to call:
  
-\begin{framed}
+
 \begin{verbatim}
 s = Series(data, index=index)
 
 \end{framed} 
 Here, data can be many different things:
  
-\begin{itemize}
-\item a Python dict
-\item an ndarray
-\item a scalar value (like 5)
-\end{itemize}
+
+* a Python dict
+* an ndarray
+* a scalar value (like 5)
+
 
 %-----------------------------------------%
 A Series is a one-dimensional object similar to an array, list, or column in a table. It will assign a labeled index to each item in the Series. By default, each item will receive an index label from 0 to N, where N is the length of the Series minus one.
 
-\begin{framed}
+
 \begin{verbatim}
 # create a Series with an arbitrary list
 s = pd.Series([7, 'Heisenberg', 3.14, -1789710578, 'Happy Eating!'])
@@ -176,7 +176,7 @@ dtype: object
 
 Alternatively, you can specify an index to use when creating the Series.
 
-\begin{framed}
+
 \begin{verbatim}
 s = pd.Series([7, 'Heisenberg', 3.14, -1789710578, 'Happy Eating!'],
               index=['A', 'Z', 'C', 'Y', 'E'])
@@ -193,7 +193,7 @@ dtype: object
 
 The Series constructor can convert a dictonary as well, using the keys of the dictionary as its index.
 
-\begin{framed}
+
 \begin{verbatim}
 d = {'Chicago': 1000, 'New York': 1300, 'Portland': 900, 'San Francisco': 1100,
      'Austin': 450, 'Boston': None}
@@ -210,14 +210,14 @@ dtype: float64
 
 </code></pre>You can use the index to select specific items from the Series ...
 
-\begin{framed}
+
 \begin{verbatim}
 cities['Chicago']
 Out[5]:
 1000.0
 
 </code></pre>
-\begin{framed}
+
 \begin{verbatim}
 cities[['Chicago', 'Portland', 'San Francisco']]
 Out[6]:
@@ -228,7 +228,7 @@ dtype: float64
 
 </code></pre>Or you can use boolean indexing for selection.
 
-\begin{framed}
+
 \begin{verbatim}
 cities[cities < 1000]
 Out[7]:
@@ -238,7 +238,7 @@ dtype: float64
 
 </code></pre>That last one might be a little strange, so let's make it more clear - \texttt{cities < 1000} returns a Series of \texttt{True/False} values, which we then pass to our Series cities, returning the corresponding \texttt{True} items.
 
-\begin{framed}
+
 \begin{verbatim}
 less_than_1000 = cities < 1000
 print less_than_1000
@@ -260,7 +260,7 @@ dtype: float64
 
 </code></pre>You can also change the values in a Series on the fly.
 
-\begin{framed}
+
 \begin{verbatim}
 # changing based on the index
 print 'Old value:', cities['Chicago']
@@ -270,7 +270,7 @@ Old value: 1000.0
 New value: 1400.0
 
 </code></pre>
-\begin{framed}
+
 \begin{verbatim}
 # changing values using boolean logic
 print cities[cities < 1000]
@@ -289,7 +289,7 @@ dtype: float64
 
 </code></pre>What if you aren't sure whether an item is in the Series? You can check using idiomatic Python.
 
-\begin{framed}
+
 \begin{verbatim}
 print 'Seattle' in cities
 print 'San Francisco' in cities
@@ -298,7 +298,7 @@ True
 
 </code></pre>Mathematical operations can be done using scalars and functions.
 
-\begin{framed}
+
 \begin{verbatim}
 # divide city values by 3
 cities / 3
@@ -311,7 +311,7 @@ Portland         250.000000
 San Francisco    366.666667
 dtype: float64
 
-\begin{framed}
+
 \begin{verbatim}
 # square city values
 np.square(cities)
@@ -326,7 +326,7 @@ dtype: float64
 
 </code></pre>You can add two Series together, which returns a union of the two Series with the addition occurring on the shared index values. Values on either Series that did not have a shared index will produce a NULL/NaN (not a number).
 
-\begin{framed}
+
 \begin{verbatim}
 print cities[['Chicago', 'New York', 'Portland']]
 print'\n'
@@ -357,7 +357,7 @@ Notice that because Austin, Chicago, and Portland were not found in both Series,
 
 NULL checking can be performed with \texttt{isnull} and \texttt{notnull}.
 %----------------------------------------------------------------%
-\begin{framed}
+
 \begin{verbatim}
 # returns a boolean series indicating which values aren't NULL
 cities.notnull()
@@ -411,11 +411,11 @@ dtype: float64
 %in particular, econometric analysis of panel data. However, for the strict purposes of slicing and dicing a 
 %collection of DataFrame objects, you may find the axis names slightly arbitrary:
 % 
-%\begin{itemize}
-%\item items: axis 0, each item corresponds to a DataFrame contained inside
-%\item major\_axis: axis 1, it is the index (rows) of each of the DataFrames
-%\item minor\_axis: axis 2, it is the columns of each of the DataFrames
-%\end{itemize}
+%
+%* items: axis 0, each item corresponds to a DataFrame contained inside
+%* major\_axis: axis 1, it is the index (rows) of each of the DataFrames
+%* minor\_axis: axis 2, it is the columns of each of the DataFrames
+%
 %
 %\newpage
 %

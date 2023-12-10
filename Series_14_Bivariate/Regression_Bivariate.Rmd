@@ -1,7 +1,7 @@
 
 <p>
-### Confidence Interval for Regression Estimate}
-To compute the confidence intervals for both estimates, we use the \texttt\textbf{{confint()*** command, specifying the name of the fitted model.
+### Confidence Interval for Regression Estimate
+To compute the confidence intervals for both estimates, we use the <tt>confint()</tt> command, specifying the name of the fitted model.
 
 ```{r}
 C=c(0,2,4,6,8,10,12)
@@ -18,7 +18,7 @@ confint(Fit1)
 ```
 
 
-### The Coefficient of Determination}
+### The Coefficient of Determination
 The coefficient of determination $R^2$ is the proportion of variability in a data set that is accounted for by the linear model.
 
 Equivalently $R^2$ provides a measure of how well future outcomes are likely to be predicted by the model.

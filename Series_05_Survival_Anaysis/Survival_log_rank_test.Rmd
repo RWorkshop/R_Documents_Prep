@@ -1,6 +1,6 @@
 ---
-title: "Forecasting with R"
-subtitle: "Time Series Analysis with R"
+title: "The Log-Rank Test"
+subtitle: "Survival Analysis with R"
 author: DragonflyStats.github.io
 output:
   prettydoc::html_pretty:
@@ -29,12 +29,12 @@ random chance
 
 From this table of values, we define two values:
 
-\begin{eqnarray*}
+$$\begin{eqnarray*}
 e_{0i} &=& E(d_{0i}) = \frac{n_{0i} d_i}{n_i}                                        \\
 v_{0i} &=& \text{var}(d_{0i}) = \frac{n_{0i} n_{1i} d_i (n_i - d_i)}{n_i^2(n_i - 1)} \\ 
 U_0    &=& \sum_{i=1}^{N} (d_{0i} - e_{0i}) = \sum d_{0i} - \sum e_{0i}              \\
 V_0    &=& \text{var}(U_0) = \sum v_{0i}
-\end{eqnarray*}
+\end{eqnarray*}$$
 
 Having defined these variables as above, we can show that
 

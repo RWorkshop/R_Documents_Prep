@@ -1,6 +1,7 @@
 
-####  Dates and data.frames
-If you want to store your date in a data.frame you will NOT be able to use POSIXlt. The reason for this is that a POSIXlt actually is a list with 9 elements. So if you want to add your dates to a data.frame you will need to convert your dates to POSIXct:
+###  Dates and data.frames
+If you want to store your date in a data.frame you will NOT be able to use POSIXlt. 
+The reason for this is that a POSIXlt actually is a list with 9 elements. So if you want to add your dates to a data.frame you will need to convert your dates to POSIXct:
 
 data$time = as.POSIXct(strptime(data$time_string, "%H:%M:%S"))
 
@@ -35,11 +36,16 @@ seq(as.POSIXct("2009-03-23 00:00:00", tz="GMT"), length=96, by="15 mins")
 [3] "2009-03-23 00:30:00 GMT" "2009-03-23 00:45:00 GMT"
 ```
 #### Formulas
-Formulas in R can be thought of as a "little language" since they obey a different structure and syntax from expressions. Expressions when evaluated produce some result such as a number, vector or list which is then displayed by the print function. Formulas on the other hand are used as a concise and intuitive way of specifying a statistical model. For example, consider a multiple linear regression of y on a numeric variable x1 and its squared value, x1^2 and a categorical variable x2. Note that in R categorical variables are called factors. This regression is specified by:
+Formulas in R can be thought of as a "little language" since they obey a different structure and syntax from expressions. 
+Expressions when evaluated produce some result such as a number, vector or list which is then displayed by the print function. 
+Formulas on the other hand are used as a concise and intuitive way of specifying a statistical model. 
+For example, consider a multiple linear regression of y on a numeric variable x1 and its squared value, x1^2 and a categorical variable x2. 
+Note that in R categorical variables are called factors. This regression is specified by:
 y ~ x1 + I(x1^2) + x2
 and could be fit using the lm function (linear model, regression):
 lm(y ~ x1 + I(x1^2) + x2)
 
-In the formula notation, "~" means the left-hand-side is the independent variable or response and the right-hand-side are the dependent variables. The I(x1^2) means interpret the inside expression as a regular expression in R. Including a factor variable like x2 is very convenient since we don't have to be bothered about specifying all the indicator variables as we would have to do in other statistical software.
+In the formula notation, "~" means the left-hand-side is the independent variable or response and the right-hand-side are the dependent variables. 
+The I(x1^2) means interpret the inside expression as a regular expression in R. Including a factor variable like x2 is very convenient since we don't have to be bothered about specifying all the indicator variables as we would have to do in other statistical software.
 
 [http://cran.r-project.org/doc/manuals/R-intro.html#Formulae-for-statistical-models Defining statistical models; formulae]

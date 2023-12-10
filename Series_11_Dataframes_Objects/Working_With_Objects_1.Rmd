@@ -1,6 +1,6 @@
 ---
 title: "Granger Causality test"
-subtitle: "Time Series Analysis with R"
+subtitle: "Programming with R"
 author: DragonflyStats.github.io
 output:
   prettydoc::html_pretty:
@@ -14,7 +14,7 @@ options(digits=3)
 ```
 
 
-#### Introducton to R}
+#### Introducton to R
 
 "summary" is a generic function used to produce result summaries of the results of various model fitting functions. 
 The function invokes particular methods which depend on the class of the first argument. 
@@ -26,11 +26,8 @@ The function invokes particular methods which depend on the class of the first a
   *   data.entry
   *   c()
 
-\end{itemize}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 Combine Values into a Vector or List
 
@@ -43,7 +40,7 @@ Combine Values into a Vector or List
 
 #### Introducton to R : mode and class}
 
-\begin{description}
+
  * [\texttt{mode()}]  storage mode of a data object( data structure)
 * [\texttt{class()}] class
 \end{description}
@@ -63,7 +60,7 @@ basic R editor
  *   updating script
  *   running script
  *  
-\end{itemize}
+
 
 
 *   Combine Values into a Vector or List

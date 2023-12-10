@@ -1,6 +1,6 @@
 
 %----------------------------------------------------------------%
-\section{Vector Operations}
+## Vector Operations}
 
 *  $R$ operates on named data structures. The simplest such
 structure is the vector, which is a single entity consisting of an
@@ -20,7 +20,7 @@ vectors
 
 
 \subsection{Ordering Vector Operations}
-\begin{framed}
+
 \begin{verbatim}
 sort(x)  # sort x into ascending order
 rev(x)
@@ -28,7 +28,7 @@ rev(sort(x))
 \end{verbatim}
 \end{framed}
 
-\begin{framed}
+
 \begin{verbatim}
 x=c(15, 34, 7, 12, 18, 9, 1, 42, 56, 28, 13, 24, 35)
 

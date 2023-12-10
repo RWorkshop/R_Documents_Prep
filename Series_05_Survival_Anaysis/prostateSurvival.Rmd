@@ -1,0 +1,64 @@
+---
+title: "The Survival Functions"
+subtitle: "Survival Analysis with R"
+author: DragonflyStats.github.io
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(digits=3)
+```
+
+### Example Datasets
+
+This workshop will use a number of different time-to-event datasets, so we
+look at those first.
+
+#### Telco Churn Data
+
+The telco churn data contains some customer usage information on mobile phone
+customers and whether or not they left their subscription accounts.
+
+```{r show_telco_churn_data, echo=TRUE}
+telco_data %>% glimpse()
+
+telco_data %>% head()
+```
+
+
+#### Prostate Survival
+
+The prostate survival data is generated data from a cancer survival study.
+
+```{r show_prostate_data, echo=TRUE}
+prostate_surv_tbl %>% glimpse()
+
+prostate_surv_tbl %>% head()
+```
+
+### Data Setup Script
+library(tidyverse)
+library(asaur)
+
+# Re-using some code from Sec 1 of the workshop to avoid repeating myself
+# in later worksheets.
+
+
+# Setup the Telco churn data
+telco_cols <- cols(
+    areacode = col_character()
+)
+
+telco_churn_tbl <- read_csv('data/telcochurn.csv'
+                           ,col_types = telco_cols
+                            )
+
+# Setup the pharmacoSmoking data
+pharmaco_smoker_tbl <- asaur::pharmacoSmoking %>% as_data_frame()
+
+# Setup the prostate survival data
+prostate_surv_tbl <- asaur::prostateSurvival %>% as_data_frame()

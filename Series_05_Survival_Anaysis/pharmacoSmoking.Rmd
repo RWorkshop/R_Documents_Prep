@@ -1,0 +1,52 @@
+---
+title: "The Survival Functions"
+subtitle: "Survival Analysis with R"
+author: DragonflyStats.github.io
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(digits=3)
+```
+
+
+
+
+#### Smoker Data
+
+The smoker data is a smoking relapse study involving a number of different
+treatments and details on when and if the patient resumed smoking.
+
+```{r show_smoker_data, echo=TRUE}
+pharmaco_smoker_tbl %>% glimpse()
+
+pharmaco_smoker_tbl %>% head()
+```
+
+
+### Data Setup Script
+library(tidyverse)
+library(asaur)
+
+# Re-using some code from Sec 1 of the workshop to avoid repeating myself
+# in later worksheets.
+
+
+# Setup the Telco churn data
+telco_cols <- cols(
+    areacode = col_character()
+)
+
+telco_churn_tbl <- read_csv('data/telcochurn.csv'
+                           ,col_types = telco_cols
+                            )
+
+# Setup the pharmacoSmoking data
+pharmaco_smoker_tbl <- asaur::pharmacoSmoking %>% as_data_frame()
+
+# Setup the prostate survival data
+prostate_surv_tbl <- asaur::prostateSurvival %>% as_data_frame()

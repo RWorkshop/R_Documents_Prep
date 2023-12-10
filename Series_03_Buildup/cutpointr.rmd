@@ -2,7 +2,8 @@ An introduction to cutpointr
 Christian Thiele
 2018-08-31
 cutpointr
-cutpointr is an R package for tidy calculation of “optimal” cutpoints. It supports several methods for calculating cutpoints and includes several metrics that can be maximized or minimized by selecting a cutpoint. Some of these methods are designed to be more robust than the simple empirical optimization of a metric. Additionally, cutpointr can automatically bootstrap the variability of the optimal cutpoints and return out-of-bag estimates of various performance metrics.
+cutpointr is an R package for tidy calculation of “optimal” cutpoints. 
+It supports several methods for calculating cutpoints and includes several metrics that can be maximized or minimized by selecting a cutpoint. Some of these methods are designed to be more robust than the simple empirical optimization of a metric. Additionally, cutpointr can automatically bootstrap the variability of the optimal cutpoints and return out-of-bag estimates of various performance metrics.
 Installation
 You can install cutpointr from CRAN using the menu in RStudio or simply:
 install.packages("cutpointr")

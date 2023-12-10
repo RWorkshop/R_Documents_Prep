@@ -1,4 +1,4 @@
-\section{Exercise} The following are measurements (in mm) of a critical
+###Exercise} The following are measurements (in mm) of a critical
 dimension on a sample of twelve engine crankshafts:
 
 \begin{verbatim}
@@ -35,7 +35,7 @@ mean of x
   223.997
 
 \end{verbatim}
-\section{Exercise 2} 
+###Exercise 2} 
 The height of 12 Americans and 10 Japanese was measured. Test for a difference in the heights of both populations.
 \begin{verbatim}
 Americans
@@ -49,7 +49,7 @@ Japanese
 
 
 
-\section{Exercise 4}
+###Exercise 4}
 A poll on social issues interviewed 1025 people randomly selected from the United States. 450 of people said that they do not get enough time to themselves. A report claims that over 41\% of the population are not satisfied with personal time. Is this the case?
 
 \begin{verbatim}
@@ -87,7 +87,7 @@ sample estimates:
 \end{verbatim}
 
 ?
-\section{Exercise}
+###Exercise}
 
 Generate a histogram for data set 'scores', with an accompanying box-and-whisker plot.
 The colour of the histogram's bar should be yellow. The orientation for the boxplot should be horizontal.
@@ -103,13 +103,13 @@ boxplot(scores ,horizontal=TRUE)
 
 par(mfrow =c(1,1)) 	#reset
 \end{verbatim}
-\section{The R Programming Language}
+###The R Programming Language}
 
 The R Programming Language is a statistical , data analysis , etc
 
 R is a free software environment for statistical computing and graphics.
 
-\section{Writing R scripts}
+###Writing R scripts}
 Editing your R script ``R Editor".
 \begin{itemize}
 \item On the menu of the R console, click on file.
@@ -124,7 +124,7 @@ Editing your R script ``R Editor".
 \item Save the file with the ``\texttt{.R}" extension to your working directory.
 \end{itemize}
 
-\section{Vector types}
+###Vector types}
 \texttt{R} operates on named data structures. The simplest such structure is the
 vector, which is a single entity consisting of an ordered collection of
 Numbers or characters.
@@ -154,7 +154,7 @@ quotation marks.A logical vectors is a vector whose elements are TRUE, FALSE or 
 >LogVec<-c(TRUE, FALSE)
 \end{verbatim}
 
-\section{Graphical data entry interface}
+###Graphical data entry interface}
 
 \texttt{Data.entry()} is a useful  command for inputting or editing data sets. Any
 changes are saved automatically (i.e. dont need to use the assignment
@@ -189,7 +189,7 @@ Omitting and deleting the $n$th element of vector ``Vec"
 >Vec <- Vec[-n]
 \end{verbatim}
 
-\section{Reading data}
+###Reading data}
 
 
 \subsection{inputting data}
@@ -205,7 +205,7 @@ Omitting and deleting the $n$th element of vector ``Vec"
 The capabilities of R are extended through user-submitted packages, which allow specialized statistical techniques, graphical devices, as well as and
 import/export capabilities to many external data formats.
 
-\section{Managing Precision}
+###Managing Precision}
 \begin{itemize}
 \item \texttt{floor()} - 
 \item \texttt{ceiling()} - 
@@ -228,10 +228,10 @@ import/export capabilities to many external data formats.
 \end{verbatim}
 \end{framed}
 
-\section{Basic Operations}
+###Basic Operations}
 \subsection{Complex numbers}
 \subsection{Trigonometric functions}
-\section{Matrices}
+###Matrices}
 
 %\end{document}
 
@@ -293,13 +293,13 @@ length using cbind(), meaning "column bind". Alternatively one can use rbind(), 
 
 \subsection{Data frame}
 A Data frame is
-\newpage
+
 
 %------------------------------------------------------------------------------------------------%
 
 \chapter{Descriptive Statistics}
 
-\section{Basic Statistics}
+###Basic Statistics}
 
 \footnotesize
 \begin{myindentpar}{1cm}
@@ -327,7 +327,7 @@ A Data frame is
 \normalsize
 
 
-\section{Summary Statistics}
+###Summary Statistics}
 The \texttt{R} command \texttt{summary()} returns a summary statistics for a simple dataset.
 The \texttt{R} command \texttt{fivenum()} returns a summary statistics for a simple dataset, but without the mean.
 Also, the quartiles are computed a different way.
@@ -348,7 +348,7 @@ Also, the quartiles are computed a different way.
 
 
 
-\section{Bivariate Data}
+###Bivariate Data}
 \footnotesize \begin{myindentpar}{1cm}
 \begin{verbatim}
 > Y=mtcars$mpg

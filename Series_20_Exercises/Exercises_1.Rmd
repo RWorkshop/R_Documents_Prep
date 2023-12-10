@@ -1,4 +1,4 @@
-\section{Exercise} 
+###Exercise} 
 The following are measurements (in mm) of a critical
 dimension on a sample of twelve engine crankshafts:
 
@@ -129,23 +129,4 @@ sample estimates:
    prop 1    prop 2
 0.1125000 0.1590214
 \end{verbatim}
-
-?
-\section{Exercise}
-
-Generate a histogram for data set 'scores', with an accompanying box-and-whisker plot.
-The colour of the histogram's bar should be yellow. The orientation for the boxplot should be horizontal.
-
-\begin{verbatim}
-scores <-c(23,19,22,22,19,20,25,26,26,19,24,23,17,21,28,26)
-
-par(mfrow=c(2,1)) 	# two rows , one column
-
-hist(scores,main="Distribution of scores",xlab="scores",col="yellow")
-
-boxplot(scores ,horizontal=TRUE)
-
-par(mfrow =c(1,1)) 	#reset
-\end{verbatim}
-
 

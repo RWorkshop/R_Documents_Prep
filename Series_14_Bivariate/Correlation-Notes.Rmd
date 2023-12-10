@@ -5,16 +5,14 @@
 #### {Correlation Coefficient}
 Strength of a linear relationship between $X$ and $Y$
 
-%<pre>
-<code>
+<pre><code>
 M=1000
 CorrData=numeric(M)
 for (i in 1:M)
 {
 CorrData[i] = cor(rnorm(10),rnorm(10))
 }
-</code>
-%</pre>
+</code></pre>
 <p>
 The null hypothesis is that the correlation coefficient is zero. 
 

@@ -1,5 +1,5 @@
 
-%\begin{framed}
+%
 \begin{verbatim}
 M=1000
 CorrData=numeric(M)

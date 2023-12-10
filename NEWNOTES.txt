@@ -1,0 +1,355 @@
+Absorbance= c(0.084, 0.183, 0.326, 0.464, 0.643, 0.707, 0.717, 0.734 ,0.749 ,0.732) ;
+Concentration= c(0.123, 0.288, 0.562, 0.921, 1.420, 1.717, 1.921, 2.137 ,2.321, 2.467) ;
+plot(Concentration,Absorbance,pch=18,col="red",font.axis=2,font.lab=2)
+abline(coef(lm(Absorbance~Concentration)))
+
+Conc.Squared = (Concentration^2)
+Conc.Cubed = (Concentration^3)
+ModelA = lm(Absorbance~Concentration)
+ModelB = lm(Absorbance~Concentration+Conc.Squared)
+ModelC = lm(Absorbance~Concentration+Conc.Squared+Conc.Cubed)
+
+
+
+%=============================================================================%
+
+
+Regression 
+Count Modelling
+Statistical Disclosure Control
+The boot package bootstrapping techniques with R
+
+Rcasts - Stats Inference - Stats Infer 2 - updated
+
+
+Prague Plans Free Tour 10-14 Castle Tour 14:30
+Python Survival Analysis
+Pythin Logistic Regression yhat
+
+%=======================================================%
+Let $G$ be a simple graph. Explain why the sum of the degrees of the vertices of $G$ is twice the number of its edges.
+
+%=======================================================%
+
+r environment, environment r, introduction to r lab, r programming, environment in r
+
+
+
+http://www.scala-lang.org/download/
+
+%==========================================%
+
+%- http://stackoverflow.com/questions/25438899/using-values-in-a-column-to-create-a-ggvis-checkbox
+
+% Image 1
+
+%==========================================%
+
+Numerical and Scientific Computing with Python
+
+\begin{itemize}
+\item Matrices
+\end{itemize}
+
+%============================================================%
+
+Pareto
+Twos Complement
+General Term of Maclaurin Series
+Ratio Test
+
+
+
+MS4024 - PART E Exercise - Assign Data Sets
+ggVis Workshop - April 22nd  - Check London R for details
+MA4702 - End of Semester Exam Paper - Formula
+Limerick cine club
+WIDS - Gaby Valdez 
+MA4702 Tutorials
+MCS
+MS4024
+dplyr
+geraldine idiro
+%============================%
+% 2006 
+$y = x^2 – 6x + 5$
+
+$y = x – 5$
+
+Let both equations equal each other
+
+\[ x^2 – 6x + 5 = x-5 \]
+
+Simplify the expression and solve it.
+\[ x^2 - 7x + 10 = 0 \]
+
+\[ (x - 2)(x -5) = 0 \]
+
+Therefore $x=2$ and $x=5$. So the lower and upper bounds of the definite integral are $a=2$ and $b=5$ respectively.
+
+Necessarily these are the lower and upper bounds of the integral.
+
+\[ \int^5_2  - x^2 + 7x - 10 = 0 \]
+
+%===========================================================%
+Show the code that would
+\begin{itemize}
+
+\item Provide a mean and standard deviation of the Petal Widths for each of the three species of iris.
+
+\item Produce a subset of the data set that only includes the setosa and virginica species.
+
+\item Sort the iris data set in ascending order of Petal Length, then by descending order of Sepal Length.
+
+\item Create an Additional Column that would contain the ratio of Petal Widths to Sepal Widths 
+\end{itemize}
+%==========================================================%
+
+%============================%
+\begin{frame}
+\frametitle{The Data Science Profession}
+\begin{quote}
+MOOC have not  decreased the barrier of entry to machine-learning.
+ 
+Nowadays, you cannot be 'the guy who knows how to run (insert off-the-shelf-algo-here)'. 
+
+In dataland, that's the equivalent to being a code monkey. MOOCs and superb libraries (scikit-learn, R's ecosystem) made 
+sure there is plenty of people who can throw say a random forest to a problem. In the modern world, this is not adding that much value. 
+\end{quote}
+\end{frame}
+%====================================================%
+
+Maclaurin Series
+
+(a) Find the Maclaurin series of f(x) = cos(x)  up to and including the term 
+containing 
+$x^4$
+ Use your answer to estimate the value of cos(1)
+
+(a) Find the Maclaurin series of $f(f) = e^x$ 
+ up to and including the term containing 
+
+
+
+ Use your answer to estimate the value of $e^{0.2}$ and $e^3$
+
+
+%===========================================%
+
+
+For Loop
+
+Even Numbers 2n
+Odd Numbers 2n-1
+cos(n \pi) = -1^{(n)}
+sin(n \pi) = -1^{(n+1)}
+%========================================================================%
+int
+diff
+Dsolve
+quad
+polyder
+poly and roots
+ode23
+ode45
+rref
+
+
+%=================================================================================%
+
+
+% - http://www.nss.gov.au/nss/home.nsf/pages/Confidentiality+-+Managing+the+risk+of+disclosure+in+the+release+of+microdata
+% - Types of disclosure risk in microdata
+
+
+\begin{itemize}
+\item R command and R object - Typewriter Font
+\item R Package name - Italics
+\item Selected Accroymns - Italics
+\end{itemize}
+
+%===================================================================%
+\textit{
+The previous Section (Section 4) is a literary review of residual diagnostics and influence procedures
+for Linear Mixed Effects Models, drawing heavily on Schabenberger and Zewotir.
+
+Section 4 begins with an introduction to key topics in residual diagnostics, such as influence, leverage, outliers
+and Cook's distance. Other concepts such as \textit{DFFITS} and \textit{DFBETA}s will be introduced briefly, mostly to explain why the are not particularly useful for
+the Method Comparison context, and therefore are not elaborated upon.
+
+In brief, Variable Selection is not applicable to Method Comparison Studies, in the 
+commonly used used context. 
+Testing a rather simplisticy specificied model against one with more random effects terms is tractable, but this research question is of secondary importance.
+
+}
+
+\newpage
+%====================================================================%
+
+\subsection{Appendix to Section 4}
+
+As an appendix to section 4, an appraisal of the current state of development (or lack thereof) for current implemenations for LME models, particularly for
+\texttt{nlme} and \texttt{lme4} fitted models.
+
+Crucially, a review of internet resources indicates that almost all of the progress in this regard has been done for \texttt{lme4} fitted models, specifically the \textit{Influence.ME} \texttt{R} package. CITATION.
+Conversely there is very little for \texttt{nlme} models. One would immediately look at the current development workflow for both packages.
+ 
+%======================%
+% Douglas Bates
+
+As an aside, Douglas Bates was arguably the most prominent \texttt{R} developer working in the LME area. 
+However Bates has now prioritised the development of LME models in another computing environment , i.e Julia. 
+% The current version of this is XXXX
+
+%======================%
+% nlme
+
+With regards to \texttt{nlme}, the torch has been passed to Galecki et al (UMich.).  Galecki & Burzykowski published Linear Mixed Effects Models using \texttt{R}. 
+Also, the accompanying \texttt{R} package, nlmeU package is under current development, with a version being released XXXX.
+
+
+%======================%
+% lme4 and influence.ME
+
+
+The \texttt{lme4} package is also under active development, under the leadership of Ben Bolker (UChig.).
+
+
+%=====================%
+% Important Consideration for MCS
+
+The key issue is that \texttt{nlme} allows for the particular specification of Roy's Model, speciifically direct spefiication of the VC matrices for within subject and between subject residuals.
+The \texttt{lme4} package does not allow for this.
+To advance the ideas that eminate from Roys' paper, one is required to use the \texttt{nlme} context. However, to take advantage of the infrastructure already provided for \texttt{lme4} models, one may change the research question away from that of Roy's paper. 
+To this end, an exploration of what textit{influence.ME} can accomplished is merited.
+
+%====================%
+% Diagnostics with nlmeU
+
+\subsection*{Leave-One-Out Diagnostics with \texttt{lmeU}}
+Galecki et al discuss the matter of LME influence diagnostics in their book.
+
+The command \texttt{lmeU} fits a model with a particular subject removed. The identifier of the subject to be removed is passed as the only argument
+
+A plot ofthe per-observation diagnostics individual subject log-likelihood contributions can be rendered.
+
+\subsubsection*{Likelihood Displacement}
+%% Page 503 Galecki
+
+
+\newpage
+%====================================================================%
+
+
+
+%============================================================================%
+
+Measurement System Analysis 
+Book Six Sigma with R : Statistical Engineering for Process Improvement
+
+Cano, Moguerza, Redchuk
+
+
+The Table 5.1 of SixSigma book is noticeable in the data can paralleled with carstensens' formulation
+
+\begin{itemize}
+\item Voltmeter : Method 
+\item Item : battery
+\item Replicate : Run
+\item y : voltage
+\end{itemize}
+
+
+\begin{framed}
+\begin{Verbatim}
+
+\end{verbatim}
+\end{Framed}
+%===========================================================================%
+%===========================================================================%
+
+\subsection{Linear Mixed Effects Models}
+
+Linear Model : Fixed Effects Predictors Only
+
+Linear Mixed Effects Models : Fixed Effects and Random Effects
+
+%-----------------------------------------------------%
+\subsection{Fixed Effects and Random Effects}
+
+
+%-----------------------------------------------------%
+\subsection*{Implementations with \texttt{R}} 
+
+\begin{description}
+\item[nlme]
+
+\item[lme4]
+
+\end{description}
+%=====================================================%
+
+Can you use Bootstrapping for LMEs?
+
+ - http://support.sas.com/resources/papers/proceedings14/1558-2014.pdf
+
+
+https://projecteuclid.org/download/pdf_1/euclid.ss/1032280214
+
+
+
+R in Insurance
+
+%===================================================%
+\begin{frame}
+\frametitle{Predicting a count variable }
+\[ \hat{y}_1 = e^{} \times e^{ \times 1 } \times e^{ \times 0} \times e^{ \times 60} \]
+
+
+\[ \hat{y}_2 = e^{} \times e^{ \times 0} \times e^{ \times 1 } \times e^{ \times 60} \]
+
+
+\[ \hat{y}_3 = e^{} \times e^{ \times 0 } \times e^{ \times 0 } \times e^{ \times 60} \]
+\end{frame}
+%=====================================================%
+
+http://www.unmotivating.com/16-of-the-most-magnificent-trees-in-the-world/
+
+The universe sent us a smiley face from 7.5 billion light-years away :) 
+http://slate.me/1DVX9dM  
+
+Neglect of Probability
+p-values
+Monty Hall Problem
+Gambler's Ruin
+Canadian Car Lottery Winner
+Perugia Murders Amanda Knox
+Public Engagement
+
+
+%===================================================%
+
+hamilton
+coding grace /pydata **
+meetup.com
+FB
+seaborn
+pat dicker**
+Mick Cooney**
+intercom
+UL**
+HibColl
+install ipython
+
+
+lmer
+intercom
+
+Mandatory dependencies
+numpy
+scipy
+matplotlib
+pandas
+Recommended dependencies
+statsmodels
+patsy

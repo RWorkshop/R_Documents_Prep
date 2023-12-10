@@ -1,5 +1,5 @@
 ---
-title: "Forecasting with R"
+title: "Test for Equality of Variance "
 subtitle: "Time Series Analysis with R"
 author: DragonflyStats.github.io
 output:
@@ -95,12 +95,7 @@ ratio of variances
 % - y=c(15,13,18,20,10,17,23,11,10)
 -------------------
 
-
-
--------------------
-
-
-\textbf{Variance Test (e)}
+Variance Test (e)}
 
 *  The p-value is 0.3764 (top right), above the threshold level of 0.0250.
 *  We fail to reject the null hypothesis.
@@ -113,8 +108,7 @@ ratio of variances
 ----------------------------
 
 
-
-\textbf{Shapiro-Wilk Test(a)}
+Shapiro-Wilk Test(a)}
 
 
 

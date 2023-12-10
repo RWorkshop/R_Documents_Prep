@@ -2,10 +2,10 @@ Data Frames: Attributes
 =============
 All objects (except simple values) can have one or more attributes attached to them.
 These commands can be used to determine particular attributes.
-\begin{itemize}
-    \item names() - can find the labels of the individual columns.
-    \item dim() - can find the dimensions of a data object.
-\end{itemize}
+
+    * names() - can find the labels of the individual columns.
+    * dim() - can find the dimensions of a data object.
+
 
 ### Data Frames: Assessing Data}
 An assessment of how the data frame is structured can be made by visual inspection.
@@ -26,31 +26,31 @@ To access the first six rows of a data frame, use the head() command.
 
 
 %------------------------------------------------------------------------------------------------------%
-\begin{slide}{Data Frames: Accessing columns}
-\begin{itemize}
-\item The names of columns can be found by using the names()
+{Data Frames: Accessing columns}
+
+* The names of columns can be found by using the names()
 command.
 \begin{verbatim}
 > names(ChickWeight)
 [1] "weight" "Time"   "Chick"  "Diet"
 \end{verbatim}
 
-\item Individual columns can be accessed using the '\$' operator.
+* Individual columns can be accessed using the '\$' operator.
 \begin{verbatim}
 >ChickWeight$weight
 \end{verbatim}
 
 
-\item The columns can now be studied in the same ways as basic
+* The columns can now be studied in the same ways as basic
 vectors.
 \begin{verbatim}
 > mean(ChickWeight$weight)
 [1] 121.8183
 \end{verbatim}
-\end{itemize}
+
 
 %------------------------------------------------------------------------------------------------------------------------%
-\begin{slide}{Data Frames: Dimensions}
+{Data Frames: Dimensions}
 
 The dimensions of a data frame can be found using the dim()
 command.
@@ -69,8 +69,8 @@ respectively.
 \end{verbatim}
 
 ### {Subsetting data sets}
-\begin{itemize}
-\item Often, we would wish to make a subset of a larger data
+
+* Often, we would wish to make a subset of a larger data
 set.We would use logical and relational operators to do so. We can
 pick all rows which fulfil the criteria.
 
@@ -79,11 +79,11 @@ pick all rows which fulfil the criteria.
 > ChickWeight[ChickWeight$Chick=='1',]
 > ChickWeight[ChickWeight$weight>50,]
 \end{verbatim}
-\item It doesn't make sense to subset by columns. Therefore, the
+* It doesn't make sense to subset by columns. Therefore, the
 following code wouldn't work.
 
 \begin{verbatim}
 > ChickWeight[, ChickWeight$Chick=='1']
 \end{verbatim}
-\end{itemize}
+
 \end{slide}

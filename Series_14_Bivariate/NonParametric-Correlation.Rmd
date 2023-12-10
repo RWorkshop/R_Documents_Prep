@@ -9,5 +9,5 @@ Kendall tau. Kendall tau is equivalent to Spearman R with regard to the underlyi
 % -1 £ 3 * Kendall tau - 2 * Spearman R £ 1
 
 
-\subsection{Gamma} 
+### Gamma} 
 The Gamma statistic (Siegel & Castellan, 1988) is preferable to Spearman R or Kendall tau when the data contain many tied observations. In terms of the underlying assumptions, Gamma is equivalent to Spearman R or Kendall tau; in terms of its interpretation and computation it is more similar to Kendall tau than Spearman R. In short, Gamma is also a probability; specifically, it is computed as the difference between the probability that the rank ordering of the two variables agree minus the probability that they disagree, divided by 1 minus the probability of ties. Thus, Gamma is basically equivalent to Kendall tau, except that ties are explicitly taken into account.

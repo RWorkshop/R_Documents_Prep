@@ -1,6 +1,6 @@
 ---
-title: "Forecasting with R"
-subtitle: "Time Series Analysis with R"
+title: "The Survival Functions"
+subtitle: "Survival Analysis with R"
 author: DragonflyStats.github.io
 output:
   prettydoc::html_pretty:
@@ -30,7 +30,7 @@ number of individuals who fail at that time.
 
 ### Using Kaplan-Meier
 
-In R, we construct KM estimators using the `survfit()` function.
+In R, we construct KM estimators using the <tt>survfit()</tt> function.
 
 Before we move on to our datasets, we start with a small set of data.
 
@@ -48,7 +48,7 @@ example_km <- survfit(Surv(tt, cens) ~ 1, data = sample_tbl, conf.type = 'log-lo
 plot(example_km)
 ```
 
-Basic plotting routines are worth trying, but the `survminer` package has
+Basic plotting routines are worth trying, but the ***{survminer}*** package has
 specialised plots that use `ggplot2` to create them.
 
 ```{r km_estimator_survminer, echo=TRUE}

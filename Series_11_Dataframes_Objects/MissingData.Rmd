@@ -17,9 +17,8 @@ vector.
 </code></pre>
 
 
- %==============================================================================================%
 
- \frametitle{2.10 Missing Data}
+ ### 2.10 Missing Data}
  
  *  In some cases the entire contents of a vector may not be known. For example, missing data
  from a particular data set. *  A place can be reserved for this by assigning it the special value
@@ -27,9 +26,8 @@ vector.
  NA is a logical constant of length 1 which contains a missing value indicator.
  *   NA stands
  for Not Available.
- *  Missing values can adversely affect calculations. Add \texttt{na.rm=T} to commands
+ *  Missing values can adversely affect calculations. Add \<tt>na.rm=T} to commands
  
- 
- \texttt{mean(X,na.rm=T)}
+<tt>mean(X,na.rm=T)}
  
 

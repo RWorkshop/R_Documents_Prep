@@ -1,0 +1,206 @@
+
+#####################################
+# 1.1 Preliminaries
+
+library(dplyr)
+library(magrittr)
+  # %>% (pipe) operator
+  # going to use this sparingly
+  
+library(nycflights13)
+
+#  idaho data set saved to working directory
+
+idaho <- read.csv("idaho.csv")
+#####################################
+# 1.2 magrittr 
+# %>% operator
+# Written by Stefan M Bache (@smbache)
+
+library(magrittr)
+
+ # Make up some Data
+myData <- iris[1:30,1:2]
+
+
+ # head(myData,5)
+myData %>% head(5)
+ 
+ # summary(myData)
+myData %>% summary
+
+ # summary(tail(myData,5)) 
+myData %>% tail(10) %>% summary
+
+ # Much easier to follow
+ 
+#####################################
+# 1.3 Arithmetic on Logical Vectors
+
+X <-c(T,T,F,T,T,F,T,F,T,T,T,T)
+
+length(X)
+
+mean(X)
+
+sum(X)
+
+# What % of iris petal widths greater than 2?
+
+mean(iris$Petal.Width >2)
+
+######################################
+# 2. dplyr - single table verbs
+
+# 2.1 group_by()
+
+iris_byspecies <- group_by(iris, Species)
+
+ # Didn't use $ symbol
+ # try out mode(), class(), etc
+ # Not much to see yet
+
+####################################
+
+# 2.2 summarize()
+
+summarize(iris, mean(Petal.Width), var(Petal.Width) )
+
+summarize(iris, meanPW = mean(Petal.Width), varPW = var(Petal.Width) )
+
+ # object is a data frame
+
+summarize(iris_byspecies, meanPW = mean(Petal.Width), varPW = var(Petal.Width) )
+
+summarize(iris_byspecies,n_distinct(Sepal.Length))
+
+summarize(iris_byspecies,mean(Sepal.Length>5))
+
+####################################
+
+# 2.3 select()
+  
+   # Column Operations 
+   # (as opposed to Row Operations with filter() ) 
+
+select(iris, 1:4)
+ # First 4 columns
+
+select(iris, 1: Sepal.Width)
+ # First to Sepal.Width
+
+select(iris,-Species)
+ # drop Species
+
+select(iris,starts_with("Pe"))
+
+ #  Switch to mtcars data set
+ #  vs and am are two variables in this data set
+ #  Can reorder to have them first 
+
+select(mtcars,vs,am, everything() ) 
+
+###################################
+
+# 2.4 filter()  
+
+   # Row (Case) Operations 
+   # (as opposed to Columns Operations with select() ) 
+   # subsetting operations
+
+setosa <- filter(iris, Species == "setosa")
+
+setosa <- filter(iris, Species == "setosa")
+
+notsetosa <- filter(iris, Species %in% c("virginica","versicolor") )
+
+  # slice() 
+###################################
+
+# 2.5 mutate()
+
+iris2 <- mutate(iris,PW2 = log(Petal.Width))
+    # new column added to dataframe (at end)
+
+head(iris2)
+
+    select(iris, starts_with("Pe"),PW2,everything() )
+
+iris3 <- transmute(iris,
+       PW2 = log(Petal.Width),
+       PL2=sqrt(Petal.Length)) 
+    # Just new columns
+
+iris4 <- mutate(iris,
+       PW2 = log(Petal.Width),
+       PL2=sqrt(Petal.Length),
+       Ratio=PL2/PW2 )
+
+# Remark : PL2, PW2 recently defined, now used in definition of Ratio
+iris5 <- transmute(iris,
+       PW2 = log(Petal.Width),
+       PL2=sqrt(Petal.Length),
+       Ratio=PL2/PW2 )
+
+########################################
+
+# 2.6 arrange()
+
+ # sorting by column or columns
+
+arrange(iris, Sepal.Width)
+arrange(iris, desc(Sepal.Width) )
+
+ # Can sort by multiple columns
+arrange(mtcars,vs,am)
+arrange(mtcars, desc(vs), desc(am) )
+
+
+########################################
+
+# 3 - NYC Flights Example
+
+ # Find three highest airports in each timezone
+ # alt - altitude
+ # tz  - timezone 
+
+ # library(dplyr)
+ # library(nycflights13)
+
+airports %>% group_by(tz) %>% arrange(alt) %>% slice(1:3)
+
+########################################
+
+# 4 - Joins - mutltiple table verbs
+
+# replicates SQL joins
+
+df1 = data.frame( key1 = c("a", "a", "b", "c", "a"),
+ key2 = c("one", "two", "one", "two", "one"),
+ data1 = rpois(5,6),
+ data2 = rpois(5,8), stringsAsFactors = FALSE)
+
+
+
+df2 = data.frame( key1 = c("a", "b", "c", "d", "e"),
+ key3 = c("gemini", "leo", "virgo", "cancer","gemini"),
+ data3 = rpois(5,6),
+ data4 = rpois(5,8), stringsAsFactors = FALSE)
+
+
+
+df3 = data.frame( key = c("a", "b", "c", "d", "e","f"),
+ club = c("rovers", "wildcats", "athletic", "saints","city","warriors"),
+ data5 = rpois(6,8), stringsAsFactors = FALSE)
+
+
+inner_join(df1,df2)
+
+left_join(df1,df2)
+left_join(df2,df1)
+
+inner_join(df1,df3, by = c("key1"="key") )
+
+semi_join(df2,df1)
+
+anti_join(df2,df1)

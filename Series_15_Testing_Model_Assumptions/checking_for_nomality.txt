@@ -1,12 +1,7 @@
-
-
-
-\section*{Checking for Normality}
-
+## Checking for Normality
 
 *  A normal distribution is often a reasonable model for the data. Without inspecting the data, however, it is risky to assume a normal distribution. *   There are a number of graphs that can be used to check the deviations of the data from the normal distribution. 
-
-*   A histogram is an example of a graph that can be used to check normality. Here, the histogram should reveal a bell shaped curve. 
+*  A histogram is an example of a graph that can be used to check normality. Here, the histogram should reveal a bell shaped curve. 
 
 
 %\begin{figure}
@@ -15,30 +10,19 @@
 %\end{figure}
 \[IMAGE\]
 
-
-
-
-
-### The Q-Q Plot}
-
+### The Q-Q Plot
 
 *  The most useful tool for assessing normality is a quantile quantile or QQ plot. This is a scatterplot with the quantiles of the scores on the horizontal axis and the expected normal scores on the vertical axis. 
+*  The steps in constructing a QQ plot are as follows: First, we sort the data from smallest to largest. A plot of these scores against the expected normal scores should reveal a straight line. *  The expected normal scores are calculated by taking the z-scores  where I is the rank in increasing order.
+*  Curvature of the points indicates departures of normality. *   This plot is also useful for detecting outliers. The outliers appear as points that are far away from the overall pattern op points
 
-*   The steps in constructing a QQ plot are as follows: First, we sort the data from smallest to largest. A plot of these scores against the expected normal scores should reveal a straight line. *  The expected normal scores are calculated by taking the z-scores  where I is the rank in increasing order.
-
-*   Curvature of the points indicates departures of normality. *   This plot is also useful for detecting outliers. The outliers appear as points that are far away from the overall pattern op points
-
-
-
-
-### Graphical Methods}
+### Graphical Methods
 
 The quantile-quantile (QQ) plot is an excellent way to see whether the data deviate from normal (the plot can be set up to see if the data deviate from other distributions as well but here we are only interested in the normal distribution). The process SPSS goes through for creating a QQ plot involves determining what proportion of the 'observed' scores fall below any one score, then the z score that would fit that proportion if the data were normally distributed is calculated, and finally that z score that would cut off that proportion (the 'expected normal value') is translated back into the original metric to see what raw score that would be. 
 
 A scatter plot is then created that shows the relationship between the actual 'observed' values and what those values would be 'expected' to be if the data were normally distributed. This is all quite complicated but the 'bottom line' is quite easy, if the data are normally distributed then the circles on the resulting plot (each circle representing a score) will form a straight line. Use the following examples to learn how to interpret QQ plots, be aware that some stat programs switch the axes around from the way it is set up in SPSS.
 
-
-
+-----------------------------------------
 
 Kolmogorov Smirnov Tests
 Non-parametric procedures
@@ -46,10 +30,7 @@ Compute the test statistic
 Same distribution
 
 
-
-
-
-## F-test of equality of variances}
+## F-test of equality of variances
 The test statistic is
 
 \begin{equation} F = \frac{S_X^2}{S_Y^2}\end{equation}
@@ -112,10 +93,10 @@ has an F-distribution with $n-1$ and $m-1$ degrees of freedom if the null hypoth
 *  The Q-Q plot is best used in conjunction with a formal procedure such as the Shapiro-Wilk test.
 
 
-\begin{verbatim}
+<pre><code>
 >qqnorm(CWdiff)
 >qqline(CWdiff)
-\end{verbatim}
+</code></pre>
 
 \end{document}
 

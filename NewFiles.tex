@@ -1,0 +1,240 @@
+
+\documentclass[a4paper,12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{eurosym}
+\usepackage{vmargin}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{subfigure}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{framed}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{chngpage}
+%\usepackage{bigints}
+
+\usepackage{vmargin}
+% left top textwidth textheight headheight
+% headsep footheight footskip
+\setmargins{2.0cm}{2.5cm}{16 cm}{22cm}{0.5cm}{0cm}{1cm}{1cm}
+\renewcommand{\baselinestretch}{1.3}
+
+\setcounter{MaxMatrixCols}{10}
+
+\begin{document}
+	%%-- http://webpages.iust.ac.ir/matashbar/teaching/schaum_probability.pdf
+	%%-- 2.76
+	%%-- Page 77
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+	\large 
+	\noindent A random variable has a ${\displaystyle {\textrm {Laplace}}(\mu ,b)}$ distribution if its probability density function is
+	
+	\[{\displaystyle f(x\mid \mu ,b)={\frac {1}{2b}}\exp \left(-{\frac {|x-\mu |}{b}}\right)\,\!} \;=\; {\frac  {1}{2b}}\left\{{\begin{matrix}\exp \left(-{\frac  {\mu -x}{b}}\right)&{\text{if }}x<\mu \\[8pt]\exp \left(-{\frac  {x-\mu }{b}}\right)&{\text{if }}x\geq \mu \end{matrix}}\right.\]
+	\noindent Here, ${\displaystyle \mu }$  is a location parameter and ${\displaystyle b>0}$ is a scale parameter. 
+	
+	\medskip
+	\noindent If ${\displaystyle \mu =0}$ and ${\displaystyle b=1}$, the positive half-line is exactly an exponential distribution scaled by 1/2.
+	
+	\subsection*{Relationship to the Normal Distribution}
+	The probability density function of the Laplace distribution is also reminiscent of the normal distribution; however, whereas the normal distribution is expressed in terms of the squared difference from the mean ${\displaystyle \mu }$ , the Laplace density is expressed in terms of the absolute difference from the mean. Consequently, the Laplace distribution has fatter tails than the normal distribution.
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage
+	\large 
+	\noindent A random variable $X$ is called a Laplace random variable  if its pdf is given by 
+	
+	\[f_X(x)=k e^{-\lambda \mid x\mid}\]
+	
+	w\noindent here $\lambda >0$, $-\infty \leq x \leq \infty$ and $k$ is a constant. 
+	
+	\begin{enumerate}[(a)]
+		\item  Find the value of $k$. 
+		\item  Find the cdf of $X$. 
+		\item  Find the mean and the variance of $X$. 
+	\end{enumerate}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Solution}
+	
+	\begin{itemize}
+		\item Due to the presence of the absolute volume function, the PDF of the Laplace Distribution is an even function.
+		\item The Laplace Distribution is a symmetric distributions around $x=0$
+		\item Consequently $P(X \leq 0 ) =0.5$ and $P(X\geq 0) = 0.5$
+	\end{itemize}
+	\newpage 
+	\begin{eqnarray*}
+		\int^{\infty}_{-\infty}f(x) dx &=& 1\\
+		& & \\
+		\int^{\infty}_{0}f(x) dx &=& 0.5\\
+		& & \\
+	\end{eqnarray*}
+	
+	\begin{framed}
+		\noindent \textbf{Revision on Integrations}
+		\begin{eqnarray*}
+			\int e^{x} dx = e^{x} + k \\
+			& & \\
+			\int e^{ax} dx = \frac{1}{a}e^{ax} + k \\
+			& & \\
+			\int e^{x/b} dx = be^{x/b} + k \\
+			& & \\
+			\int \frac{1}{c}e^{x/c} dx = e^{x/c} + k \\
+			& & \\
+			\int \frac{1}{c}e^{-x/c} dx = -e^{-x/c} + k \\
+			& & \\
+		\end{eqnarray*}
+	\end{framed}
+	
+	\newpage 
+	\subsection*{Part (a)}
+	\noindent When $x\geq 0$ we can simplify the expression for the PDF
+	\[f_X(x)=k e^{-\lambda \mid x\mid} =k e^{-\lambda  x}\]
+	
+	
+	\begin{eqnarray*}
+		\int^{\infty}_{0}f(x) dx &=& 0.5\\
+		& & \\
+		0.5 &=& \int^{\infty}_{0}f(x) dx\\
+		&=& \int^{\infty}_{0}k e^{ - \lambda  x} dx\\
+		& & \\
+		&=& k \int^{\infty}_{0} \operatorname{exp}( - \lambda  x) dx\\
+		& & \\
+		0.5 &=& \frac{k}{\lambda}
+	\end{eqnarray*}
+	\noindent Therefore ${\displaystyle k = \lambda/2}$
+	\newpage 
+	\subsection*{Part (b)}
+	
+	\begin{framed}
+		\[ F_X(x) = \int^{x}_{-\infty}f(u) du \]
+		Where $f(u)$ is the probability density function expressed in terms of $u$ (i.e. a variable name other than $x$
+	\end{framed}
+	
+	\noindent \textbf{Part 1. Where $X \leq 0$ }
+	(N.B. $\mid x \mid = - x$)
+	\begin{eqnarray*}
+		F_X(x) &=&  \int^{x}_{\infty}f(u) du \\
+		& & \\
+		&=& \int^{0}_{-\infty} \frac{\lambda}{2}e^{ \lambda  u} du\\
+		& & \\
+		&=& \frac{\lambda}{2} \int^{0}_{-\infty} e^{ \lambda  u} du\\
+		& & \\
+		&=& \frac{\lambda}{2} \left[ \frac{e^{\lambda x}}{\lambda} \right]\\
+		& & \\
+		&=& \frac{e^{\lambda x}}{2}\\
+	\end{eqnarray*}
+	\newpage
+	\noindent \textbf{Part 2. Where $X \geq 0$ }\\
+	(N.B. $\mid x \mid =  x$ and $P(X\leq 0) = 1/2$)\\
+	\begin{eqnarray*}
+		F_X(x) &=&  \int^{0}_{-\infty} f(u)\; du + \int^{x}_{0} f(u) \;du\\
+		& & \\
+		&=& \frac{1}{2} + \int^{x}_{0} \frac{\lambda}{2}e^{ - \lambda  u} \;du\\
+		& & \\
+		&=& \frac{1}{2} +\frac{\lambda}{2} \int^{x}_{0} e^{ - \lambda  u} \;du\\
+		& & \\
+		&=& \frac{1}{2} +\frac{\lambda}{2} \left[- \frac{e^{-\lambda x}-1}{\lambda} \right]\\
+		& & \\
+		&=& \frac{1}{2} + \frac{\lambda}{2} \left[\frac{1 - e^{-\lambda x}}{\lambda} \right]\\
+		&=& \frac{1}{2} + \frac{1 - e^{-\lambda x}}{2} \\
+		& & \\
+		&=& 1 -  \frac{e^{-\lambda x}}{2} \\
+	\end{eqnarray*}
+	
+	%\[CDF = 	{\displaystyle {\begin{cases}{\frac {1}{2}}\exp \left({\frac {x-\mu }{b}}\right)&{\text{if }}x\leq \mu \\[8pt]1-{\frac {1}{2}}\exp \left(-{\frac {x-\mu }{b}}\right)&{\text{if }}x\geq \mu \end{cases}}}\]
+	
+	\newpage 
+	
+	\subsection*{Part (c)}
+	
+	\begin{eqnarray*}
+		E(X) &=& \int^{\infty}_{-\infty} x f(x) dx \\
+		& & \\
+		&=& \int^{0}_{-\infty} x f(x) dx + \int^{\infty}_{0} x f(x) dx  \\
+		& & \\
+		&=& \int^{0}_{-\infty} x \left[ \frac{\lambda}{2}e^{  \lambda  x}\right] \;dx + \int^{\infty}_{0} x \left[ \frac{\lambda}{2}e^{ - \lambda  x}\right] dx  \\
+		& & \\
+		&=&  \frac{\lambda}{2} \int^{0}_{ - \infty} x \left[e^{  \lambda  x}\right] \;dx +  \frac{\lambda}{2} \int^{\infty}_{0} x \left[ e^{ - \lambda  x}\right] dx  \\
+		& & \\
+	\end{eqnarray*}
+	\begin{framed}
+		Indefinite Integral
+		\[\int x\left[e^{\lambda x}\right]dx= e^{\lambda x}\left[\frac{x}{\lambda }\right] - e^{\lambda x}\left[\frac{1}{\lambda ^2}\right] + C\]
+		
+		Definite Integrals
+		\[\int _{-\infty \:}^0x\left[e^{\lambda x}\right]dx=-\frac{1}{\lambda ^2}\]
+	\end{framed}
+	
+	\begin{framed}
+		Indefinite Integral
+		\[\int x\left[e^{-\lambda x}\right]dx= \frac{x}{\lambda }\left[ - (\lambda x + 1) e^{-\lambda x} \right]+ C\]
+		
+		Definite Integrals
+		\[\int^{\infty}_{0}x\left[e^{-\lambda x}\right]dx=\frac{1}{\lambda ^2}\]
+	\end{framed}
+	
+	\begin{eqnarray*}
+		E(X) &=& \int^{\infty}_{-\infty} x f(x) dx \\
+		& & \\
+		&=& \int^{0}_{-\infty} x f(x) dx + \int^{\infty}_{0} x f(x) dx  \\
+		& & \\
+		&=& \left( \frac{\lambda}{2} \times -\frac{1}{\lambda ^2} \right) + \left( \frac{\lambda}{2} \times \frac{1}{\lambda ^2}\right)\\
+		& & \\
+		&=& 0 \\
+	\end{eqnarray*}
+	
+	\newpage
+	\noindent \textbf{Variance}\\
+	\begin{eqnarray*}
+		E(X^2) &=& \int^{\infty}_{-\infty} x^2 f(x) dx \\
+		& & \\
+		&=&  \frac{\lambda}{2}\int^{0}_{-\infty} x^2 \left[e^{\lambda x}\right] dx +  \frac{\lambda}{2}\int^{\infty}_{0} x^2 \left[e^{-\lambda x}\right] dx  \\
+	\end{eqnarray*}
+	
+	\begin{framed}
+		Indefinite Integral
+		\[\int x^2\left[e^{-\lambda x}\right]dx=-e^{-\lambda x}\frac{1}{\lambda}x^2+\frac{2}{\lambda^3}\left(-\lambda e^{-\lambda x}x-e^{-\lambda x}\right)+C\]
+		
+		Definite Integrals
+		\[\int _{-\infty \:}^0x^2\left[e^{\lambda x}\right]dx=\frac{2}{\lambda ^3}\]
+	\end{framed}
+	
+	
+	\begin{framed}
+		Indefinite Integral
+		\[ \int \:x^2\left[e^{-\lambda x}\right]dx=-e^{-\lambda x}\frac{1}{\lambda}x^2+\frac{2}{\lambda^3}\left(-\lambda e^{-\lambda x}x-e^{-\lambda x}\right)+C\]
+		
+		\[\int x^2\left[e^{-\lambda x}\right]dx=-e^{-\lambda x}\left( \frac{x^2}{\lambda} \right) + \frac{2}{\lambda^3}\left[ -(\lambda x +1)e^{-\lambda x}\right] + C\]
+		
+		Definite Integrals
+		\[\int^{\infty}_{0}x^2\left[e^{-\lambda x}\right]dx=\frac{2}{\lambda ^3}\]
+	\end{framed}
+	
+	\begin{eqnarray*}
+		E(X^2) &=& \int^{\infty}_{-\infty} x^2 f(x) dx \\
+		& & \\
+		&=& \left( \frac{\lambda}{2} \times \frac{2}{\lambda ^3} \right) + \left( \frac{\lambda}{2} \times \frac{2}{\lambda ^3}\right)\\
+		& & \\
+		&=& \left(  \frac{1}{\lambda ^2} \right) + \left(  \frac{1}{\lambda ^2} \right)\\
+		& & \\
+		&=&  \frac{2}{\lambda ^2} \\
+	\end{eqnarray*}
+	
+	\begin{eqnarray*}
+		\operatorname{Var(X)} &=& E(X^2) - [E(X)]^2\\
+		& & \\
+		&=&  \frac{2}{\lambda ^2} - [0]^{2} \\
+		& & \\
+		&=&  \frac{2}{\lambda ^2}
+	\end{eqnarray*}
+	
+	\newpage
+	BLANK
+	
+	
+\end{document}

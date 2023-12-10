@@ -51,7 +51,7 @@ $name
 
 The names of each component of the list can be accessed using
 
-\begin{framed}
+
 \begin{verbatim}
 
 names(L1)
@@ -63,7 +63,7 @@ names(L2)
 We can set the names for the list components after the list has been
 created.
 
-\begin{framed}
+
 \begin{verbatim}
 
 names(L2) <- c("name.hus", "name.wife", "no.child", "child.age")
