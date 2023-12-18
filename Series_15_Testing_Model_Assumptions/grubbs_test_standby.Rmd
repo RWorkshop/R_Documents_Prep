@@ -1,5 +1,5 @@
 
-### Grubbs Test for Determining an Outlier}
+### Grubbs Test for Determining an Outlier
 
 The Grubbs test is used to determine if there are any outliers in a data set.
 There is no agreed formal definition for an outlier. The definition of outlier used for this procedure is a value that unusually distance from the rest of the values.\\  (For the sake of clarity , we shall call this type of outlier a \textbf{Grubbs Outlier}).\\ Consider the following data set: is the lowest value 4.01 an outlier?
@@ -18,7 +18,7 @@ We reject this hypothesis if the p-value is sufficiently small.
 <p>
 
 ### Grubbs Test for Determining an Outlier
-\begin{framed}
+
 <pre><code>
 > grubbs.test(x, two.sided=T)
 Grubbs test for one outlier
@@ -29,66 +29,3 @@ alternative hypothesis: lowest value 4.01 is an outlier
 
 We dont not have enough evidence to class 4.01 as an outlier.
 We conclude that while small by comparison to the other values, the lowest value 4.01 is not an outlier.
-
-<p>
-
-### Test of Equality for Two Sample Proportions (a)}
-The null hypothesis is that two populations have the same proportions for a particular characteristic.
-\[H_0 : \pi_1 = \pi_2 \]
-\[H_1 : \pi_1 \neq \pi_2 \]
-
-*  The command is \texttt{prop.test(c(x1,x2),c(n1,n2))}
-*  $x1$ and $x2$ are the number of successes from both samples.
-*  $n2$ and $n2$ are the sample sizes for both groups.
-*  The difference in population proportions assumed under the null hypothesis is zero.
-*  (It is possible to specify a different null value, but we will not consider this in this module.)
-
-
-<p>
-
-### Test of Equality for Two Sample Proportions (b)}
-
-*  Consider a study where the proportion of Irish students who owned mobile devices, such as iphones and androids was compared to the corresponding proportion of French student.
-*  As before, $65$ Irish students were interviewed, with $50$ replying that they owned mobile devices.
-*  $90$ french students were interview, with 60 responding that they owned mobile devices.
-*  The test of equality of proportions is implemented on the next slide.
-
-
-<p>
-
-
-
-### Test of Equality for Two Sample Proportions (c)}
-Based on the p-value, we fail to reject the null hypothesis. There is not enough evidence to assume a difference in proportions. Also the expected difference assumed under the null hypothesis, i.e. 0, is contained in the confidence interval.
-<pre><code>
-> prop.test(c(50,60),c(65,90))
-
-2-sample test for equality of proportions
-
-data:  c(50, 60) out of c(65, 90)
-X-squared = 1.4613, df = 1, p-value = 0.2267
-alternative hypothesis: two.sided
-95 percent confidence interval:
--0.05202058  0.25714878
-sample estimates:
-prop 1    prop 2
-0.7692308 0.6666667
-</code></pre>
-
-
-### Test of Equality for Two Sample Proportions (d)}
-
-*  You would be required to compute the differences in observed proportions.
-*  Additionally you will given the <tt>R</tt> code for one sample procedures. This may or may not be relevant for answering the question.
-<pre><code>
-> prop.test(60,90,0.80)
-...
-...
-X-squared = 9.184, df = 1, p-value = 0.002441
-alternative hypothesis: true p is not equal to 0.8
-95 percent confidence interval:
-0.5585219 0.7604058
-sample estimates:
-p
-0.6666667
-</code></pre>

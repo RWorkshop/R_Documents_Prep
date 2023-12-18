@@ -213,7 +213,7 @@ import/export capabilities to many external data formats.
 \item \texttt{as.integer()} -
 \end{itemize}
 
-\begin{framed}
+
 \begin{verbatim}
 > pi
 [1] 3.141593
@@ -237,7 +237,7 @@ import/export capabilities to many external data formats.
 
 
 \subsubsection{exponentials, powers and logarithms}
-\begin{framed}
+
 \begin{verbatim}
 >x^y
 >exp(x)
@@ -249,7 +249,7 @@ import/export capabilities to many external data formats.
 \end{framed}
 
 \subsection{vectors}
-\begin{framed}
+
 \begin{verbatim}
 R handles vector objects quite easily and intuitively.
 

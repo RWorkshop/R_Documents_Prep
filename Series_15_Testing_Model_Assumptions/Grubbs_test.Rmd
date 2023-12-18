@@ -16,7 +16,7 @@ We reject this hypothesis if the p-value is sufficiently small.
 
 ----------------------------
 
-### Grubbs Test for Determining an Outlier}
+### Grubbs Test for Determining an Outlier
 <pre><code>
 > grubbs.test(x, two.sided=T)
 Grubbs test for one outlier

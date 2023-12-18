@@ -1,4 +1,4 @@
-\textbf{Graphical Procedures for assessing Normality}
+### Graphical Procedures for assessing Normality
 
 
 *  The normal probability (Q-Q) plot is a very useful tool for determining whether or not a data set is normally distributed.

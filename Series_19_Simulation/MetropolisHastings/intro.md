@@ -1,4 +1,4 @@
-Introduction
+### Introduction
 
 The Metropolis Hastings algorithm is a beautifully simple algorithm for producing samples from distributions that may otherwise be difficult to sample from.
 
