@@ -1,40 +1,10 @@
-  \documentclass[a4]{beamer}
-\usepackage{amssymb}
-\usepackage{graphicx}
-\usepackage{subfigure}
-\usepackage{newlfont}
-\usepackage{amsmath,amsthm,amsfonts}
-%\usepackage{beamerthemesplit}
-\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps,pgfshade}
-\usepackage{mathptmx} % Font Family
-\usepackage{helvet} % Font Family
-\usepackage{color}
-\mode<presentation> {
-\usetheme{Default} % was Frankfurt
-\useinnertheme{rounded}
-\useoutertheme{infolines}
-\usefonttheme{serif}
-%\usecolortheme{wolverine}
-% \usecolortheme{rose}
-\usefonttheme{structurebold}
-}
-\setbeamercovered{dynamic}
-\title[MA4413]{Statistics for Computing \\ {\normalsize MA4413 Lecture 5A}}
-\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize kevin.obrien@ul.ie}}
-\date{Autumn 2011}
-\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
-\renewcommand{\arraystretch}{1.5}
-%------------------------------------------------------------------------%
-\begin{document}
-\begin{frame}
-\titlepage
-\end{frame}
+
 \begin{frame}[fragile]
 \frametitle{Exponential Distribution}
 \begin{itemize}
-\item The Exponential Distribution
-\item The Normal Distribution
-\item Applied Normal Distribution
+*  The Exponential Distribution
+*  The Normal Distribution
+*  Applied Normal Distribution
 \end{itemize}
 \end{frame}
 
@@ -42,10 +12,10 @@
 \frametitle{Exponential Distribution}
 The Exponential Distribution may be used to answer the following questions:
 \begin{itemize}
-\item How much time will elapse before an earthquake occurs in a given region?
-\item How long do we need to wait before a customer enters our shop?
-\item How long will it take before a call center receives the next phone call?
-\item How long will a piece of machinery work without breaking down?
+*  How much time will elapse before an earthquake occurs in a given region?
+*  How long do we need to wait before a customer enters our shop?
+*  How long will it take before a call center receives the next phone call?
+*  How long will a piece of machinery work without breaking down?
 \end{itemize}
 \end{frame}  
 
@@ -53,8 +23,8 @@ The Exponential Distribution may be used to answer the following questions:
 \frametitle{Exponential Distribution}
 
 \begin{itemize}
-\item All these questions concern the time we need to wait before a given event occurs. If this waiting time is unknown, it is often appropriate to think of it as a random variable having an exponential distribution.
-\item Roughly speaking, the time $X$ we need to wait before an event occurs has an exponential distribution if the probability that the event occurs during a certain time interval is proportional to the length of that time interval.
+*  All these questions concern the time we need to wait before a given event occurs. If this waiting time is unknown, it is often appropriate to think of it as a random variable having an exponential distribution.
+*  Roughly speaking, the time $X$ we need to wait before an event occurs has an exponential distribution if the probability that the event occurs during a certain time interval is proportional to the length of that time interval.
 
 \end{itemize}
 \end{frame}
@@ -105,8 +75,8 @@ V[X] = \frac{1}{\lambda^2}\]
 Assume that the length of a phone call in minutes is an exponential random variable $X$ with parameter
 $\lambda = 1/10$. If someone arrives at a phone booth just before you arrive, find the probability that you
 will have to wait \begin{itemize}
-\item[(a)] less than 5 minutes,  
-\item[(b)] between 5 and 10 minutes.
+* [(a)] less than 5 minutes,  
+* [(b)] between 5 and 10 minutes.
 \end{itemize}
 Use the \texttt{R} code on the following slide to help answer these questions.
 \end{frame}
@@ -134,8 +104,8 @@ Use the \texttt{R} code on the following slide to help answer these questions.
 As it is CDF values that we are interested in, we use the output from the \texttt{pexp()} commands.
 
 \begin{itemize}
-\item[(a)] $P(X \leq 5)$ = 0.39346934 
-\item[(b)] $P(5 \leq X \leq 10)$ \\ = $P( X \leq 10) - P( X \leq 5)$ \\ = 0.63212056- 0.39346934 \\ = 0.2386512 \\= 23.84 $\%$
+* [(a)] $P(X \leq 5)$ = 0.39346934 
+* [(b)] $P(5 \leq X \leq 10)$ \\ = $P( X \leq 10) - P( X \leq 5)$ \\ = 0.63212056- 0.39346934 \\ = 0.2386512 \\= 23.84 $\%$
 \end{itemize}
 
 \end{frame}
@@ -146,11 +116,11 @@ As it is CDF values that we are interested in, we use the output from the \textt
 \begin{frame}[fragile]
 \frametitle{Exponential Distribution}
 \begin{itemize}
-\item The Exponential Rate 
-\item Related to the Poisson mean (m)
-\item If we expect 12 occurrences per hour - what is the rate?
-\item We would expected to wait 5 minutes between occurrences.
-\item 
+*  The Exponential Rate 
+*  Related to the Poisson mean (m)
+*  If we expect 12 occurrences per hour - what is the rate?
+*  We would expected to wait 5 minutes between occurrences.
+*  
 \end{itemize}
 \end{frame}
 %------------------------------------------------------------------------%
@@ -175,24 +145,24 @@ As it is CDF values that we are interested in, we use the output from the \textt
 \begin{frame}
 \frametitle{ Today's Class }
 \begin{itemize}
-\item Continuous Random Variables
-\item The Normal Distribution
-\item Characteristics of the Normal Distribution
-\item The Standard Normal (Z) Distribution
-\item Using Murdoch Barnes Table 3
-\item Standardization Formula
-\item Important Formulae
+*  Continuous Random Variables
+*  The Normal Distribution
+*  Characteristics of the Normal Distribution
+*  The Standard Normal (Z) Distribution
+*  Using Murdoch Barnes Table 3
+*  Standardization Formula
+*  Important Formulae
 \end{itemize}
 \end{frame}
 %------------------------------------------------------------%
 \begin{frame}
 \frametitle{Continuous Random variables}
 \begin{itemize}
-\item Previously we have been studying discrete random variables, such as the Binomial and the Poisson random variables.
-\item Now we turn our attention to continuous random variables.
-\item Recall that a continuous random variable is one which takes an infinite number of possible values, rather than just a countable number of distinct values.
-\item Continuous random variables are usually measurements.
-\item Examples include height, weight, the amount of sugar in an orange, the time required to run a mile.
+*  Previously we have been studying discrete random variables, such as the Binomial and the Poisson random variables.
+*  Now we turn our attention to continuous random variables.
+*  Recall that a continuous random variable is one which takes an infinite number of possible values, rather than just a countable number of distinct values.
+*  Continuous random variables are usually measurements.
+*  Examples include height, weight, the amount of sugar in an orange, the time required to run a mile.
 \end{itemize}
 
 \end{frame}
@@ -201,13 +171,13 @@ As it is CDF values that we are interested in, we use the output from the \textt
 
 \frametitle{Introduction to the Normal Distribution}
 \begin{itemize}
-\item
+* 
 Recall the experiment whereby a die was rolled 100 times, and the sum of the 100 values was recorded.
-\item
+* 
 This experiment was repeated a very large number of times (e.g. 100,000 times ) in a simulation study.
-\item
+* 
 A histogram was drawn to depict the distribution of outcomes of this experiment.
-\item Recall that we agreed that ``bell-shaped" was a good description of the histogram.
+*  Recall that we agreed that ``bell-shaped" was a good description of the histogram.
 
 \end{itemize}
 \end{frame}
@@ -226,13 +196,13 @@ A histogram was drawn to depict the distribution of outcomes of this experiment.
 \frame{
 \frametitle{Normal Distribution}
 \begin{itemize}
-\item The normal distribution is perhaps the most widely used distribution for a random variable.
-\item Normal distributions have the same general shape: the bell curve.
-\item They are symmetric with scores more concentrated in the middle than in the tails.
-%\item Examples of normal distributions are shown below. Notice that they differ in how spread out they are. The area under each curve is the same.
-\item The height of a normal distribution can be defined mathematically in terms of two fundamental parameters: the mean ($\mu$) and the standard deviation ($\sigma$).
-\item A normally distributed random variable X is denoted $ X \sim \mbox{N} (\mu, \sigma^2)$ (note that we use the variance term here)
-    \item The mean and standard deviation are vital for calculating probabilities.
+*  The normal distribution is perhaps the most widely used distribution for a random variable.
+*  Normal distributions have the same general shape: the bell curve.
+*  They are symmetric with scores more concentrated in the middle than in the tails.
+%*  Examples of normal distributions are shown below. Notice that they differ in how spread out they are. The area under each curve is the same.
+*  The height of a normal distribution can be defined mathematically in terms of two fundamental parameters: the mean ($\mu$) and the standard deviation ($\sigma$).
+*  A normally distributed random variable X is denoted $ X \sim \mbox{N} (\mu, \sigma^2)$ (note that we use the variance term here)
+    *  The mean and standard deviation are vital for calculating probabilities.
 \end{itemize}
 }
 %------------------------------------------------------------------------%
@@ -257,20 +227,20 @@ However, we will not use this formula, although we later discuss what a probabil
 \frame{
 \frametitle{ Characteristics of the Normal probability distribution}
 \begin{itemize}
-\item[1] The highest point on the normal curve is at the mean, which is also the median and mode of the distribution.
-\item[2] \alert{[VERY IMPORTANT]}
+* [1] The highest point on the normal curve is at the mean, which is also the median and mode of the distribution.
+* [2] \alert{[VERY IMPORTANT]}
 The normal probability curve is bell-shaped and symmetric, with the shape of the curve to the left of the mean a mirror image of the shape of the curve to the right of the mean.
-\item[3] The standard deviation determines the width of the curve. Larger values of the the standard deviation result in wider flatter curves, showing more dispersion in data.
-\item[4] The total area under the curve for the normal probability distribution is 1.
+* [3] The standard deviation determines the width of the curve. Larger values of the the standard deviation result in wider flatter curves, showing more dispersion in data.
+* [4] The total area under the curve for the normal probability distribution is 1.
 \end{itemize}
 }
 %------------------------------------------------------------------%
 \frame{
 \frametitle{ Characteristics of the Normal probability distribution}
 \begin{itemize}
-\item The interval defined by the mean $ \pm 1 \times $ standard deviation includes approximately $68\%$ of the observations, leaving $16\%$ (approx) in each tail.
-\item The interval defined by the mean $ \pm 1.96 \times $ standard deviation includes approximately $95\%$ of the observations, leaving $2.5\%$ (approx) in each tail.
-\item The interval defined by the mean $ \pm 2.58 \times $ standard deviation includes approximately $99\%$ of the observations, leaving $0.5\%$ (approx) in each tail.
+*  The interval defined by the mean $ \pm 1 \times $ standard deviation includes approximately $68\%$ of the observations, leaving $16\%$ (approx) in each tail.
+*  The interval defined by the mean $ \pm 1.96 \times $ standard deviation includes approximately $95\%$ of the observations, leaving $2.5\%$ (approx) in each tail.
+*  The interval defined by the mean $ \pm 2.58 \times $ standard deviation includes approximately $99\%$ of the observations, leaving $0.5\%$ (approx) in each tail.
 \end{itemize}
 \textbf{Remark:} It is useful to know this numbers, but we will do all calculations from first principles.
 }
@@ -280,10 +250,10 @@ The normal probability curve is bell-shaped and symmetric, with the shape of the
 
 \begin{itemize}
 
-\item The standard normal distribution is a special case of the normal distribution with a mean $\mu= 0$ and a standard deviation $\sigma =1$.
-\item We denote the standard normal random variable as $Z$ rather than $X$.
-\item The distribution is well described in statistical tables (i.e. Murdoch Barnes Table 3)
-\item Rather than computing probabilities from first principles, which is very difficult, probabilities from distributions other than the Z distribution (e.g. X $\sim$($\mu=100, \sigma =15$)) can be computed using the Z distribution, a much easier approach. (We shall demonstrate how shortly.)
+*  The standard normal distribution is a special case of the normal distribution with a mean $\mu= 0$ and a standard deviation $\sigma =1$.
+*  We denote the standard normal random variable as $Z$ rather than $X$.
+*  The distribution is well described in statistical tables (i.e. Murdoch Barnes Table 3)
+*  Rather than computing probabilities from first principles, which is very difficult, probabilities from distributions other than the Z distribution (e.g. X $\sim$($\mu=100, \sigma =15$)) can be computed using the Z distribution, a much easier approach. (We shall demonstrate how shortly.)
 \end{itemize}
 }
 %------------------------------------------------%
@@ -298,8 +268,8 @@ where $x_o$ is a score from the original normal (``X") distribution, $\mu$ is th
 Therefore $z_o$ is the z-score that corresponds to $x_o$.
 
 \begin{itemize}
-\item Terms with subscripts mean particular values, and are not variable names.
-\item The z distribution will only be a normal distribution if the original distribution (X) is normal.
+*  Terms with subscripts mean particular values, and are not variable names.
+*  The z distribution will only be a normal distribution if the original distribution (X) is normal.
 \end{itemize}
 }
 
@@ -308,12 +278,12 @@ Therefore $z_o$ is the z-score that corresponds to $x_o$.
 \frametitle{The Standardized Value}
 \Large
 \begin{itemize}
-\item Suppose that mean $\mu = 80 $ and that standard deviation $\sigma = 8$.
-\item What is the Z-score for $x_o = 100$?
+*  Suppose that mean $\mu = 80 $ and that standard deviation $\sigma = 8$.
+*  What is the Z-score for $x_o = 100$?
 \[
 z_{100} = {x_0 - \mu \over \sigma} = {100 - 80 \over 8} = {20 \over 8} = 2.5
 \]
-\item Therefore $z_{100} = 2.5$
+*  Therefore $z_{100} = 2.5$
 \end{itemize}
 }
 %------------------------------------------------------------------------%
@@ -339,10 +309,10 @@ So, a Z score of 2 means the original score was 2 standard deviations above the 
 \frame{
 \frametitle{The Standard Normal (Z) Distribution Tables}
 \begin{itemize}
-\item Importantly, probabilities relating to the z distribution are comprehensively tabulated in \textbf{\emph{Murdoch Barnes table 3}}.
+*  Importantly, probabilities relating to the z distribution are comprehensively tabulated in \textbf{\emph{Murdoch Barnes table 3}}.
 
-\item Given a value of $k$ (with k usually between 0 and 4), the probability of a standard normal "Z" random variable being greater than (or equal to) k $P(Z \geq k)$ is given in Murdoch Barnes table 3 .
-\item Other statistical tables can be used, but they may tabulate probabilities in a different way.
+*  Given a value of $k$ (with k usually between 0 and 4), the probability of a standard normal "Z" random variable being greater than (or equal to) k $P(Z \geq k)$ is given in Murdoch Barnes table 3 .
+*  Other statistical tables can be used, but they may tabulate probabilities in a different way.
 \end{itemize}
 }
 
@@ -369,9 +339,9 @@ This is fundamental to solving problems involving normal distributions.
 \frame{
 \frametitle{Using Murdoch Barnes tables 3}
 \begin{itemize}
-\item For some value $z_o$, between 0 and 4, the Murdoch Barnes tables set 3 tabulate $P(Z \geq z_o)$
-\item Ideally $z_o$ would be specified to 2 decimal places. If it is not, round to the closest value.
-\item We call the third digit (i.e. the digit in the second decimal place) the ``second precision".
+*  For some value $z_o$, between 0 and 4, the Murdoch Barnes tables set 3 tabulate $P(Z \geq z_o)$
+*  Ideally $z_o$ would be specified to 2 decimal places. If it is not, round to the closest value.
+*  We call the third digit (i.e. the digit in the second decimal place) the ``second precision".
 \end{itemize}
 }
 
@@ -379,10 +349,10 @@ This is fundamental to solving problems involving normal distributions.
 \frame{
 \frametitle{Using Murdoch Barnes tables 3}
 \begin{itemize}
-\item To compute the relevant probability we express $z_o$ as the sum of $z_o$ without the second precision, and the second precision.(For example $1.28 = 1.2 + 0.08$.)
-\item Select the row that corresponds to $z_o$ without the second precision (e.g. 1.2).
-\item Select the column that corresponds to the second precision(e.g. 0.08).
-\item The value that contained on the intersection is $P(Z \geq z_o)$
+*  To compute the relevant probability we express $z_o$ as the sum of $z_o$ without the second precision, and the second precision.(For example $1.28 = 1.2 + 0.08$.)
+*  Select the row that corresponds to $z_o$ without the second precision (e.g. 1.2).
+*  Select the column that corresponds to the second precision(e.g. 0.08).
+*  The value that contained on the intersection is $P(Z \geq z_o)$
 \end{itemize}
 }
 
@@ -414,10 +384,10 @@ This is fundamental to solving problems involving normal distributions.
 \frame{
 \frametitle{Using Murdoch Barnes tables 3}
 \begin{itemize}
-\item Find $ P(Z \geq 0.60)$
-\item Find $ P(Z \geq 1.64)$
-\item Find $ P(Z \geq 1.65)$
-\item Estimate $P( Z \geq 1.645)$
+*  Find $ P(Z \geq 0.60)$
+*  Find $ P(Z \geq 1.64)$
+*  Find $ P(Z \geq 1.65)$
+*  Estimate $P( Z \geq 1.645)$
 \end{itemize}
 }
 
@@ -472,10 +442,10 @@ This is fundamental to solving problems involving normal distributions.
 \frame{
 \frametitle{Using Murdoch Barnes tables 3}
 \begin{itemize}
-\item $ P(Z \geq 1.64) = 0.505$
-\item $ P(Z \geq 1.65) = 0.495$ \bigskip
-\item $ P(Z \geq 1.645)$ is approximately the average value of $ P(Z \geq 1.64)$ and $ P(Z \geq 1.65)$.
-\item $ P(Z \geq 1.645)$ = (0.0495 + 0.0505)/2 = 0.0500. ( i.e. $5\%$ )
+*  $ P(Z \geq 1.64) = 0.505$
+*  $ P(Z \geq 1.65) = 0.495$ \bigskip
+*  $ P(Z \geq 1.645)$ is approximately the average value of $ P(Z \geq 1.64)$ and $ P(Z \geq 1.65)$.
+*  $ P(Z \geq 1.645)$ = (0.0495 + 0.0505)/2 = 0.0500. ( i.e. $5\%$ )
 \end{itemize}
 }
 %------------------------------------------------------------------%
@@ -484,14 +454,14 @@ This is fundamental to solving problems involving normal distributions.
 \large
 \alert{Remarks:} This is for continuous distributions only.
 \begin{itemize}
-\item The probability that a continuous random variable will take an exact value is infinitely small.
+*  The probability that a continuous random variable will take an exact value is infinitely small.
 We will usually treat it as if it was zero.
-\item
+* 
 When we write probabilities for continuous random variables in mathematical notation, we often retain the equality component (i.e. the "...or equal to..").\\
 For example, we would write expressions $P(X \leq 2)$ or $P(X \geq 5)$.
-\item
+* 
 Because the probability of an exact value is almost zero, these two expression are equivalent to $P(X < 2)$
-or $P(X > 5)$. \item The complement of $P(X \geq k)$ can be written as $P(X \leq k)$.
+or $P(X > 5)$. *  The complement of $P(X \geq k)$ can be written as $P(X \leq k)$.
 \end{itemize}
 }
 
@@ -501,7 +471,7 @@ or $P(X > 5)$. \item The complement of $P(X \geq k)$ can be written as $P(X \leq
 \frametitle{Complement and Symmetry Rules}
 
 Any normal distribution problem can be solved with some combination of the following rules.
-\begin{itemize} \item \textbf{Complement rule} \item Common to all continuous random variables
+\begin{itemize} *  \textbf{Complement rule} *  Common to all continuous random variables
 \[P(Z \geq k) = 1 - P(Z \leq k) \]
 Similarly
 \[P(X \geq k) = 1 - P(X \leq k) \]
@@ -514,12 +484,12 @@ Similarly
 \frame{
 \frametitle{Complement and Symmetry Rules}
 \begin{itemize}
-\item \textbf{Symmetry rule}
-\item
+*  \textbf{Symmetry rule}
+* 
 This rule is based on the property of symmetry mentioned previously.
-\item
+* 
 Only the probabilities corresponding to values between 0 and 4 are tabulated in Murdoch Barnes.
-\item
+* 
 If we have a negative value of k, we can use the symmetry rule.
 \end{itemize}
 \[P(Z \leq -k) = P(Z \geq k) \]
@@ -532,9 +502,9 @@ by extension, we can say
 Find $P(Z \geq -1.28)$
 \textbf{Solution}\\
 \begin{itemize}
-\item Using the symmetry rule
+*  Using the symmetry rule
 \[P(Z \geq -1.28) = P(Z \leq 1.28) \]
-\item Using the complement rule
+*  Using the complement rule
 \[P(Z \geq -1.28) = 1 - P(Z \geq 1.28) \]
 \[P(Z \geq -1.28) = 1 - 0.1003 = 0.8997 \]
 \end{itemize}
@@ -545,14 +515,14 @@ Find the probability of a ``z" random variable being between -1.8 and 1.96?
 i.e. Compute $P(-1.8 \leq Z \leq 1.96)$\\
 Solution
 \begin{itemize}
-\item Consider the complement event of being in this interval: a combination of being too low or too high.
-\item
+*  Consider the complement event of being in this interval: a combination of being too low or too high.
+* 
 The probability of being too low for this interval is $P(Z \leq -1.80) = 0.0359$ (check)
-\item
+* 
 The probability of being too high for this interval is $P(Z \geq 1.96) = 0.0250$ (check)
-\item
+* 
 Therefore the probability of being \textbf{outside} the interval is 0.0359 + 0.0250 = 0.0609.
-\item
+* 
 Therefore the probability of being \textbf{inside} the interval is 1- 0.0609 = 0.9391
 $P(-1.8 \leq Z \leq 1.96) = 0.9391$
 \end{itemize}
@@ -568,12 +538,12 @@ The mean time spent waiting by customers before their queries are dealt with at 
 
 The waiting time is normally distributed with a standard deviation of 3 minutes.
 \begin{itemize}
-\item [i)] What percentage of customers will be waiting longer than 15 minutes
+*  [i)] What percentage of customers will be waiting longer than 15 minutes
 
-\item [ii)] $90\%$ of customers will be dealt with in at most 12 minutes. Is this statement true or false?
+*  [ii)] $90\%$ of customers will be dealt with in at most 12 minutes. Is this statement true or false?
 Justify your answer.
 
-\item [iii)] What percentage of customers will wait between 7 and 13 minutes before their query is dealt with?
+*  [iii)] What percentage of customers will wait between 7 and 13 minutes before their query is dealt with?
 \end{itemize}
 \end{frame}
 %---------------------------------------------%
@@ -586,11 +556,11 @@ $P(X \geq 15) =?$ \\
      First , we find the z-value that corresponds to x = 15  (remember $\mu=10$ and $\sigma=3$  )\\
 \[ z_o = { x_o - \mu \over \sigma }  = { 15 - 10 \over 3 } = 1.666 \]
 \begin{itemize}
-\item We will use $z_o =1.67$
-\item Therefore we can say $P(X \geq 15 ) = P(Z \geq 1.67)$
-\item The Murdoch Barnes tables are tabulated to give $P(Z \geq z_o)$ for some value $ z_o$ .
-\item We can evaluate $P(Z \geq 1.67)$  as 0.0475.
-\item Necessarily $P(X \geq 15) = 0.0475$.
+*  We will use $z_o =1.67$
+*  Therefore we can say $P(X \geq 15 ) = P(Z \geq 1.67)$
+*  The Murdoch Barnes tables are tabulated to give $P(Z \geq z_o)$ for some value $ z_o$ .
+*  We can evaluate $P(Z \geq 1.67)$  as 0.0475.
+*  Necessarily $P(X \geq 15) = 0.0475$.
 \end{itemize}
 \end{frame}
 \end{document}
@@ -598,9 +568,9 @@ $P(X \geq 15) =?$ \\
 \begin{frame}
 \frametitle{Solutions}
 \begin{itemize}
-\item "$90\%$ of customers will be dealt with in at most 12 minutes."
-\item To answer this question, we need to know  $P(X\leq 12)$
-\item First , we find the z-value that corresponds to x = 12  (remember $\mu=10$ and $\sigma=3$ )
+*  "$90\%$ of customers will be dealt with in at most 12 minutes."
+*  To answer this question, we need to know  $P(X\leq 12)$
+*  First , we find the z-value that corresponds to x = 12  (remember $\mu=10$ and $\sigma=3$ )
 \end{itemize}
 \[ z_o = { x_o - \mu \over sigma }  = { 12 - 10 \over 2 } = 0.666 \]
 
@@ -610,11 +580,11 @@ $P(X \geq 15) =?$ \\
 \begin{frame}
 \frametitle{Solutions}
 \begin{itemize}
-\item We will use $z_o =0.67$
-\item Therefore we can say $P(X \geq 12 ) = P(Z \geq 0.67)  = 0.2514$
-\item Necessarily  $P(X \leq 12 ) = P(Z \leq 0.67) = 0.7486$
-\item $74.86\%$ of customers will be dealt with in at most 12 minutes.
-\item The statement that $90\%$ will be dealt with in at most 12 minutes is false.
+*  We will use $z_o =0.67$
+*  Therefore we can say $P(X \geq 12 ) = P(Z \geq 0.67)  = 0.2514$
+*  Necessarily  $P(X \leq 12 ) = P(Z \leq 0.67) = 0.7486$
+*  $74.86\%$ of customers will be dealt with in at most 12 minutes.
+*  The statement that $90\%$ will be dealt with in at most 12 minutes is false.
 \end{itemize}
 \end{frame}
 %---------------------------------------------%

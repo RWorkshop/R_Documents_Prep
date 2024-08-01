@@ -1,12 +1,34 @@
-Exponential Distribution {data-navmenu="Continuous Distributions"}
-=====================================
+---
+title: "The Exponential Distribution"
+author: "DragonflyStats"
+date: "Last updated: `r format(Sys.time(), '%B %d, %Y')`"
+output:
+  rmdformats::readthedown:
+    toc_depth: 3
+    use_bookdown: TRUE
+    code_folding: hide
+    fig_caption: TRUE
 
-Column {.tabset}
--------------------------------------------------
+  html_document:
+    fig_caption: yes
+    theme: spacelab #sandstone #spacelab #flatly
+    highlight: pygments
+    number_sections: TRUE
+    toc: TRUE
+    toc_depth: 3
+    toc_float:
+      smooth_scroll: FALSE
+
+  pdf_document: default
+---
 
 
+```{r import_libraries, echo=FALSE, message=FALSE}
+library(conflicted)
+library(tidyverse)
+```
 
-
+## The Exponential Distribution
 
 ### Important Formulas
 
@@ -14,7 +36,7 @@ Column {.tabset}
 <p>
 <h5>Probability density function of the Exponential Distribution</h5>
 
-\noindent The probability density function (pdf) of an exponential distribution is
+The probability density function (pdf) of an exponential distribution is
 \[  {\displaystyle f(x;\lambda )={\begin{cases}\lambda e^{-\lambda x}&x\geq 0,\\0&x<0.\end{cases}}}\]
 
 Here $\lambda  > 0$ is the parameter of the distribution, often called the rate parameter.

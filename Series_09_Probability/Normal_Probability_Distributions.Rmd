@@ -1,26 +1,37 @@
 ---
-title: "Discrete Probability Distributions"
-author: "Kevin O'Brien"
-date: "2024-07-30"
-output: html_document
+title: "Normal Distribution"
+author: "DragonflyStats"
+date: "Last updated: `r format(Sys.time(), '%B %d, %Y')`"
+output:
+  rmdformats::readthedown:
+    toc_depth: 3
+    use_bookdown: TRUE
+    code_folding: hide
+    fig_caption: TRUE
+
+  html_document:
+    fig_caption: yes
+    theme: spacelab #sandstone #spacelab #flatly
+    highlight: pygments
+    number_sections: TRUE
+    toc: TRUE
+    toc_depth: 3
+    toc_float:
+      smooth_scroll: FALSE
+
+  pdf_document: default
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+
+```{r import_libraries, echo=FALSE, message=FALSE}
+library(conflicted)
+library(tidyverse)
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-----------------------------------------------
 
 
 
-%------------------------------------------------------------%
-\begin{frame}
-
-Introduction to the Normal Distribution}
+## Introduction to the Normal Distribution
 <p>
 * 
 Recall the experiment whereby a die was rolled 100 times, and the sum of the 100 values was recorded.
@@ -31,21 +42,19 @@ A histogram was drawn to depict the distribution of outcomes of this experiment.
 *  Recall that we agreed that ``bell-shaped" was a good description of the histogram.
 
 <p>
-\end{frame}
+<p>
 
 
 
-Normal Distribution}
+### Normal Distribution 
 
 \begin{center}
 \includegraphics[scale=0.30]{images/3aDieHist3}
 \end{center}
 
-}
-%----------------------------------------------------------------------%
 
+---------------------------------------------------------
 
-Normal Distribution}
 <p>
 *  The normal distribution is perhaps the most widely used distribution for a random variable.
 *  Normal distributions have the same general shape: the bell curve.
@@ -56,28 +65,28 @@ Normal Distribution}
 *  A normally distributed random variable X is denoted $ X \sim \mbox{N} (\mu, \sigma^2)$ (note that we use the variance term here)
     *  The mean ($\mu$) and standard deviation ($\sigma$) are vital for calculating probabilities.
 <p>
-}
-%------------------------------------------------------------------------%
 
-The Normal Distribution}
+-----------------------------------------------------------
+
+## Curve The Normal Distribution
 The \textbf{\emph{probability density function}} of the normal distribution is given as
 \[ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{ -\frac{(x-\mu)^2}{2\sigma^2} } \]
 
 Integrating this formula would allow us to compute probabilities.
 However, it is not required to use this formula.
-}
-%------------------------------------------------------------------%
 
-Normal Distribution}
-\vspace{-0.25cm}
+-----------------------------------------------------
+
+Normal Distribution
+
 \begin{center}
 \includegraphics[scale=0.450]{images/5ABellCurve}
 \end{center}
 
-}
-%------------------------------------------------------------------%
 
- Characteristics of the Normal probability distribution}
+-----------------------------------------------------
+
+### Characteristics of the Normal probability distribution
 <p>
 * [1] The highest point on the normal curve is at the mean, which is also the median and mode of the distribution. \smallskip
 * [2] \alert{[VERY IMPORTANT]}
@@ -86,7 +95,7 @@ The normal probability curve is bell-shaped and symmetric, with the shape of the
 * [4] As with all density curves, the total area under the curve for the normal probability distribution is 1.
 <p>
 }
-%------------------------------------------------------------------%
+-----------------------------------------------------
 
  Characteristics of the Normal probability distribution}
 \textbf{Remark:} It is useful to know the following statements as rules of thumb, but we will do all relevant calculations from first principles. However, in an exam situation, these rules of thumb may be invoked, and it is required to show your workings.
@@ -98,11 +107,12 @@ The normal probability curve is bell-shaped and symmetric, with the shape of the
 *  The interval defined by the mean $ \pm 2.58 \times $ standard deviation includes approximately $99\%$ of the observations, leaving $0.5\%$ (approx) in each tail.
 <p>
 
-}
-\section{The Standard Normal Distribution}
-%------------------------------------------------------------------------%
 
-The Standard Normal Distribution}
+## The Standard Normal Distribution
+
+-----------------------------------------------------------
+
+### The Standard Normal Distribution
 
 <p>
 
@@ -112,16 +122,17 @@ The Standard Normal Distribution}
 *  The distribution is well described in statistical tables (i.e. Murdoch Barnes Table 3, aka MB3)
 *  Rather than computing probabilities from first principles, which is very difficult, probabilities from distributions other than the Z distribution (e.g. X $\sim$N($\mu=100, \sigma =15$)) can be computed using the Z distribution, a much easier approach. (We shall demonstrate how to do this shortly.)
 <p>
-}
-%------------------------------------------------%
 
-Standardization formula}
+
+-----------------------------------
+
+### Standardization formula
 All normally distributed random variables have corresponding $Z$ values, called \textbf{\emph{Z-scores}}.\\
-\bigskip
+<p>
 For normally distributed random variables, the z-score can be found using the \textbf{\emph{standardization formula}};
 \[z_o = { x_o - \mu \over \sigma}\]
 where $x_o$ is a score from the underlying normal (``X") distribution, $\mu$ is the mean of the original normal distribution, and $\sigma$ is the standard deviation of original normal distribution.\\
-\bigskip
+<p>
 Therefore $z_o$ is the z-score that corresponds to $x_o$.
 
 <p>
@@ -130,10 +141,10 @@ Therefore $z_o$ is the z-score that corresponds to $x_o$.
 <p>
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 The Standardized Value}
-\Large
+
 <p>
 *  Suppose that mean $\mu = 80 $ and that standard deviation $\sigma = 8$.
 *  What is the Z-score for $x_o = 100$?
@@ -142,8 +153,8 @@ z_{100} = {x_0 - \mu \over \sigma} = {100 - 80 \over 8} = {20 \over 8} = 2.5
 \]
 *  Therefore the Z score is : $z_{100} = 2.5$
 <p>
-}
-%------------------------------------------------------------------------%
+
+-----------------------------------------------------------
 
 Z scores}
 A Z-score always reflects the number of standard deviations above or below the mean a particular score is.
@@ -155,14 +166,14 @@ Converting the test scores to z scores, an X value of 68 would yield:
 
 So, a Z score of 2 means the original score was 2 standard deviations above the mean.
 }
-%------------------------------------------------------------------------%
-%\end{document}
+-----------------------------------------------------------
+%
 % The standardization formula
 % used to find Z values
 
 %
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 The Standard Normal (Z) Distribution Tables}
 <p>
@@ -173,7 +184,7 @@ The Standard Normal (Z) Distribution Tables}
 <p>
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 An Important Identity}
 If two values $z_o$ and $x_o$ are related in the following way, for some values $\mu$ and $\sigma$,
@@ -192,7 +203,7 @@ This is fundamental to solving problems involving normal distributions.
 
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 \section{Using the Murdoch Barnes Tables 3}
 
 Using Murdoch Barnes Tables 3}
@@ -203,7 +214,7 @@ Using Murdoch Barnes Tables 3}
 <p>
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 Using Murdoch Barnes Tables 3}
 <p>
@@ -214,7 +225,7 @@ Using Murdoch Barnes Tables 3}
 <p>
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 \begin{table}[ht]
 Find $ P(Z \geq 1.28)$}
@@ -238,7 +249,7 @@ Find $ P(Z \geq 1.28)$}
 \end{table}
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 Using Murdoch Barnes tables 3}
 <p>
@@ -249,7 +260,7 @@ Using Murdoch Barnes tables 3}
 <p>
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 \begin{table}[ht]
 Find $ P(Z \geq 0.60)$}
@@ -273,7 +284,7 @@ Find $ P(Z \geq 0.60)$}
 \end{table}
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 \begin{table}[ht]
 Find $ P(Z \geq 1.64)$ and $ P(Z \geq 1.65)$}
@@ -296,17 +307,17 @@ Find $ P(Z \geq 1.64)$ and $ P(Z \geq 1.65)$}
 \end{table}
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 Using Murdoch Barnes tables 3}
 <p>
 *  $ P(Z \geq 1.64) = 0.505$
-*  $ P(Z \geq 1.65) = 0.495$ \bigskip
+*  $ P(Z \geq 1.65) = 0.495$ <p>
 *  $ P(Z \geq 1.645)$ is approximately the average value of $ P(Z \geq 1.64)$ and $ P(Z \geq 1.65)$.
 *  $ P(Z \geq 1.645)$ = (0.0495 + 0.0505)/2 = 0.0500. ( i.e. $5\%$ )
 <p>
 }
-%------------------------------------------------------------------%
+-----------------------------------------------------
 
 Exact Probability}
 \large
@@ -324,7 +335,7 @@ or $P(X > 5)$. *  The complement of $P(X \geq k)$ can be written as $P(X \leq k)
 }
 
 
-%------------------------------------------------------------------%
+-----------------------------------------------------
 
 Complement and Symmetry Rules}
 
@@ -338,7 +349,7 @@ Similarly
 \[P(Z \leq 1.28) = 1 - P(Z \geq 1.28)  = 1-0.1003 = 0.8997\]
 }
 
-%------------------------------------------------------------------%
+-----------------------------------------------------
 
 Complement and Symmetry Rules}
 <p>
@@ -354,7 +365,7 @@ If we have a negative value of k, we can use the symmetry rule.
 by extension, we can say
 \[P(Z \geq -k) = P(Z \leq k) \]
 }
-%------------------------------------------------------------------%
+-----------------------------------------------------
 
 Z Scores: Example 1 }
 Find $P(Z \geq -1.28)$\\
@@ -367,7 +378,7 @@ Find $P(Z \geq -1.28)$\\
 \[P(Z \geq -1.28) = 1 - 0.1003 = 0.8997 \]
 <p>
 }
-%------------------------------------------------------------------%
+-----------------------------------------------------
 
 Z Scores: Example 2 }
 Find the probability of a ``z" random variable being between -1.8 and 1.96?
@@ -391,8 +402,8 @@ $P(-1.8 \leq Z \leq 1.96) = 0.9391$
 
 
 
-%--------------------------------------------------------------
-\begin{frame}
+-----------------------------------------------------
+
 Application : Example }
 The mean time spent waiting by customers before their queries are dealt with at an information centre is 10 minutes.\\ \smallskip
 The waiting time is normally distributed with a standard deviation of 3 minutes.
@@ -404,14 +415,14 @@ Justify your answer.
 
 *  [iii)] What percentage of customers will wait between 7 and 13 minutes before their query is dealt with?
 <p>
-\end{frame}
-%---------------------------------------------%
-\begin{frame}
-Solutions}
+<p>
+--------------------------------
+
+#### Solutions
 
 Let x be the normal random variable describing waiting times\\
 $P(X \geq 15) =?$ \\
-\bigskip
+<p>
      First , we find the z-value that corresponds to x = 15  (remember $\mu=10$ and $\sigma=3$  )\\
 \[ z_o = { x_o - \mu \over \sigma }  = { 15 - 10 \over 3 } = 1.666 \]
 <p>
@@ -421,11 +432,11 @@ $P(X \geq 15) =?$ \\
 *  We can evaluate $P(Z \geq 1.67)$  as 0.0475.
 *  Necessarily $P(X \geq 15) = 0.0475$.
 <p>
-\end{frame}
+<p>
 
-%---------------------------------------------%
-\begin{frame}
-Solutions}
+--------------------------------
+
+#### Solutions
 <p>
 *  "$90\%$ of customers will be dealt with in at most 12 minutes."
 *  To answer this question, we need to know  $P(X\leq 12)$
@@ -433,11 +444,11 @@ Solutions}
 <p>
 \[ z_o = { x_o - \mu \over \sigma }  = { 12 - 10 \over 3 } = 0.666 \]
 
-\end{frame}
+<p>
 
-%---------------------------------------------%
-\begin{frame}
-Solutions}
+--------------------------------
+
+#### Solutions
 <p>
 *  We will use $z_o =0.67$ (although 0.66 would be fine too) 
 *  Therefore we can say $P(X \geq 12 ) = P(Z \geq 0.67)  = 0.2514$
@@ -445,10 +456,10 @@ Solutions}
 *  $74.86\%$ of customers will be dealt with in at most 12 minutes.
 *  The statement that $90\%$ will be dealt with in at most 12 minutes is false.
 <p>
-\end{frame}
-%---------------------------------------------%
-\begin{frame}
-Solutions}
+<p>
+--------------------------------
+
+#### Solutions
 What percentage will wait between 7 and 13 minutes ?\\
 
 \[P(7 \leq X \leq 13)   = ?\]
@@ -458,32 +469,32 @@ What percentage will wait between 7 and 13 minutes ?\\
 	*  Compute the probability of being too low, and the probability of being too high for the interval.*  The probability of being inside the interval is the complement of the combination of these events.
 <p>
 
-\end{frame}
-%---------------------------------------------%
-\begin{frame}
-Solutions}
+<p>
+--------------------------------
+
+#### Solutions
 \textbf{Too high:}\\
 $P(X \geq 13) = ?$
 \[ z_o  = {13 - 10  \over 3} = 1\]
 \smallskip
-From tables, $P(Z \geq 1) = 0.1587$. Therefore $P(X \geq 13) = 0.1587$\\ \bigskip
+From tables, $P(Z \geq 1) = 0.1587$. Therefore $P(X \geq 13) = 0.1587$\\ <p>
 \textbf{Too low:}\\
 $P(X \leq 7) = ?$
 \[ z_o  = {7 - 10  \over 3} = -1\]
-By symmetry, and using tables, $P(X \leq 7) = P(Z \leq -1)= 0.1587$\\ \bigskip
-\end{frame}
-%---------------------------------------------%
-\begin{frame}
-Solutions}
+By symmetry, and using tables, $P(X \leq 7) = P(Z \leq -1)= 0.1587$\\ <p>
+<p>
+--------------------------------
+
+#### Solutions
 
 \[P(7 \leq X \leq 13)  = 1 - [ P(X \leq 7)  + P(X \geq 13) ] \]
 
 \[P(7 \leq X \leq 13)  =  1 - [0.1587+0.1587] = 0.6826\]
 
-\end{frame}
+<p>
 
-%-----------------------------------------------------%
-\begin{frame}
+----------------------------------------
+
 Normal Distribution : Solving problems}
 Recap:
 <p>
@@ -493,9 +504,9 @@ Recap:
 *  The standard normal random variable is $Z\sim \mbox{N} ( 0 , 1^2)$.\smallskip
 *  The standard normal distribution is well described in Murdoch Barnes Table 3, which tabulates $P(Z \geq z_o)$ for a range of $Z$ values.
 <p>
-\end{frame}
-%-----------------------------------------------------%
-\begin{frame}
+<p>
+----------------------------------------
+
 Normal Distribution : Solving problems}
 <p>
 *  For the given value $x_o$ from the variable $X$, we compute the corresponding z-score $z_o$.
@@ -504,9 +515,9 @@ Normal Distribution : Solving problems}
 \[  P(X \geq x_o )= P(Z \geq z_o ) \]
 *  Alternatively $ P(X \leq x_o )= P(Z \leq z_o ) $
 <p>
-\end{frame}
-%-----------------------------------------------------%
-\begin{frame}
+<p>
+----------------------------------------
+
 Normal Distribution : Solving problems}
 <p>
 *  \textbf{Complement Rule}: \[ P(Z \leq k) = 1-P(Z \geq k) \] for some value $k$
@@ -514,9 +525,9 @@ Normal Distribution : Solving problems}
 *  \textbf{Symmetry Rule}: \[ P(Z \leq -k) = P(Z \geq k) \] for some value $k$
 *  Alternatively $ P(Z \geq -k) = P(Z \leq k) $
 <p>
-\end{frame}
-%-----------------------------------------------------%
-\begin{frame}
+<p>
+----------------------------------------
+
 Normal Distribution : Solving problems}
 <p>
 
@@ -525,19 +536,19 @@ where $L$ and $U$ are the lower and upper bounds of an interval.
 *  Probability of having a value too low for the interval : $P(Z \leq L)$
 *  Probability of having a value too high for the interval : $P(Z \geq U)$
 <p>
-\end{frame}
-%-----------------------------------------------------%
+<p>
+----------------------------------------
 
 
 %
 %Using Murdoch Barnes Tables 3}
 %
-%Find $ P(Z \geq 1.64)$ and $ P(Z \geq 1.65)$.\\\bigskip Which row and column?
+%Find $ P(Z \geq 1.64)$ and $ P(Z \geq 1.65)$.\\<p> Which row and column?
 %<p>
 %*  1.64 = \color{blue}{1.6}+\color{orange}{0.04} \color{black}\hspace{2cm}$ P(Z \geq 1.64) =0.0505$
 %*  1.65 = \color{blue}{1.6}+\color{green}{0.05}  \color{black} \hspace{2cm}$ P(Z \geq 1.65) =0.0495$
 %<p>
-%\bigskip
+%<p>
 %\small
 %\begin{table}[ht]
 %%\caption{Standard Normal Distribution } % title of Table
@@ -558,10 +569,10 @@ where $L$ and $U$ are the lower and upper bounds of an interval.
 %\end{table}
 %}
 
-%--------------------------------------------------------%
+-------------------------------------------
 
-%------------------------------------------------------------%
-\begin{frame}
+-----------------------------------------------
+
 
 Normal Distribution: Simulation Study}
 <p>
@@ -574,7 +585,7 @@ A histogram was drawn to depict the distribution of outcomes of this experiment.
 
 
 <p>
-\end{frame}
+<p>
 
 
 
@@ -599,7 +610,7 @@ Recall some observations made about the results of the simulation study, made in
 *  Results such as these are unusual, but they are not impossible.
 <p>
 }
-%---------------------------------------------------------------%
+--------------------------------------------------
 
 Normal Distribution: Simulation Study}
 <p>
@@ -610,7 +621,7 @@ Normal Distribution: Simulation Study}
 <p>
 }
 
-%---------------------------------------------------------------%
+--------------------------------------------------
 
 Normal Distribution: Simulation Study}
 
@@ -619,7 +630,7 @@ Normal Distribution: Simulation Study}
 \end{center}
 }
 
-%-------------------------------------------------------------%
+------------------------------------------------
 
 Normal Distribution: Simulation Study}
 <p>
@@ -642,7 +653,7 @@ Normal Distribution: Simulation Study}
 \end{center}
 
 }
-%-------------------------------------------------------------%
+------------------------------------------------
 
 Working Backwards}
 <p>
@@ -658,7 +669,7 @@ Working Backwards}
 <p>
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 
 Find $z_A$ such that $ P(Z \geq z_a) = 0.10$}
@@ -688,7 +699,7 @@ Find $z_A$ such that $ P(Z \geq z_a) = 0.10$}
 %\label{table:nonlin} % is used to refer this table in the text
 \end{table}
 }
-%-------------------------------------------------------------%
+------------------------------------------------
 
 Working Backwards}
 <p>
@@ -703,9 +714,9 @@ $ A = 371.76 $
 *  (Remark: for sums of die-throws, round it to nearest value)
 <p>
 }
-%-----------------------------------------------------%
-\end{document}
-%-------------------------------------------------------------%
+----------------------------------------
+
+------------------------------------------------
 
 Working Backwards: Another Example}
 <p>
@@ -719,7 +730,7 @@ Working Backwards: Another Example}
 *  Based on last example $-z_B = 1.28$. Therefore $z_B = -1.28$
 <p>
 }
-%-------------------------------------------------------------%
+------------------------------------------------
 
 Working Backwards}
 <p>
@@ -733,7 +744,7 @@ $ x_o = 350 - 21.76 = 328.24 $
 *  $P(X \leq 328.24) \approx 0.10$
 <p>
 }
-%-----------------------------------------------------%
+----------------------------------------
 
 \section{Exam Question}
 
@@ -748,7 +759,7 @@ A model of an on-line computer system gives a mean times to retrieve a record fr
 <p>
 
 }
-%---------------------------------------------%
+--------------------------------
 
 
 Normal Distribution}
@@ -758,12 +769,12 @@ Normal Distribution}
 \end{center}
 
 }
-%-----------------------------------------------------%
+----------------------------------------
 
 
 
 MA4413 Autumn 2008 paper (part 1)}
-What proportion of retrieval times will be greater than 75 milliseconds?\\ \bigskip
+What proportion of retrieval times will be greater than 75 milliseconds?\\ <p>
 
 <p>
 *  Let X be the retrieval times, with $X \sim \mbox{N}(200,58^2)$.\\
@@ -805,7 +816,7 @@ Normal Distribution}
 \end{center}
 
 }
-%---------------------------------------------%
+--------------------------------
 
 MA4413 Autumn 2008 paper (part 2)}
 <p>
@@ -820,8 +831,8 @@ MA4413 Autumn 2008 paper (part 2)}
 <p>
 }
 
-\end{document}
-%---------------------------------------------%
+
+--------------------------------
 
 MA4413 Autumn 2008 paper (part 2)}
 <p>
@@ -834,7 +845,7 @@ MA4413 Autumn 2008 paper (part 2)}
 \[P( X \geq 250) = P( Z \geq 0.86) = 0.1949 \]
 <p>
 }
-%---------------------------------------------%
+--------------------------------
 
 MA4413 Autumn 2008 paper (part 2)}
 <p>
@@ -848,7 +859,7 @@ MA4413 Autumn 2008 paper (part 2)}
 
 <p>
 }
-%---------------------------------------------%
+--------------------------------
 
 MA4413 Autumn 2008 paper (part 3)}
 <p>
@@ -870,7 +881,7 @@ Normal Distribution}
 \end{center}
 
 }
-%---------------------------------------------%
+--------------------------------
 
 MA4413 Autumn 2008 paper (part 3)}
 <p>
@@ -882,7 +893,7 @@ MA4413 Autumn 2008 paper (part 3)}
 
 <p>
 }
-%---------------------------------------------%
+--------------------------------
 
 MA4413 Autumn 2008 paper (part 3)}
 <p>
@@ -895,7 +906,7 @@ MA4413 Autumn 2008 paper (part 3)}
 \[ 125.76 =  A \]
 <p>
 }
-%---------------------------------------------%
+--------------------------------
 
 MA4413 Autumn 2008 paper (part 3)}
 <p>
@@ -903,7 +914,7 @@ MA4413 Autumn 2008 paper (part 3)}
 *  $P(X \leq 125.76) = 0.10$ [Answer].
 <p>
 }
-%---------------------------------------------%
+--------------------------------
 
 
 Introduction to the Normal Distribution}
@@ -917,7 +928,7 @@ A histogram was drawn to depict the distribution of outcomes of this experiment.
 *  Recall that we agreed that ``bell-shaped" was a good description of the histogram.
 
 <p>
-\end{frame}
+<p>
 
 
 
@@ -928,7 +939,7 @@ Normal Distribution}
 \end{center}
 
 }
-%----------------------------------------------------------------------%
+---------------------------------------------------------
 
 
 Normal Distribution}
@@ -943,7 +954,7 @@ Normal Distribution}
     *  The mean ($\mu$) and standard deviation ($\sigma$) are vital for calculating probabilities.
 <p>
 }
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 The Normal Distribution}
 The \textbf{\emph{probability density function}} of the normal distribution is given as
@@ -954,7 +965,7 @@ Integrating this formula would allow us to compute probabilities.
 
 However, it is not required to use this formula.
 }
-%------------------------------------------------------------------%
+-----------------------------------------------------
 
 Normal Distribution}
 
@@ -963,7 +974,7 @@ Normal Distribution}
 \end{center}
 
 }
-%------------------------------------------------------------------%
+-----------------------------------------------------
 
 Characteristics of the Normal probability distribution}
 <p>
@@ -974,7 +985,7 @@ The normal probability curve is bell-shaped and symmetric, with the shape of the
 * [4] As with all density curves, the total area under the curve for the normal probability distribution is 1.
 <p>
 }
-%------------------------------------------------------------------%
+-----------------------------------------------------
 
 ### Characteristics of the Normal probability distribution}
 \textbf{Remark:} It is useful to know the following statements as rules of thumb, but we will do all relevant calculations from first principles. However, in an exam situation, these rules of thumb may be invoked, and it is \textbf{NOT} required to show your workings.
@@ -987,7 +998,7 @@ The normal probability curve is bell-shaped and symmetric, with the shape of the
 <p>
 
 }
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 The Standard Normal Distribution}
 
@@ -1000,15 +1011,15 @@ The Standard Normal Distribution}
 *  Rather than computing probabilities from first principles, which is very difficult, probabilities from distributions other than the Z distribution (e.g. X $\sim$N($\mu=100, \sigma =15$)) can be computed using the Z distribution, a much easier approach. (We shall demonstrate how to do this shortly.)
 <p>
 }
-%------------------------------------------------%
+-----------------------------------
 
 Standardization formula}
 All normally distributed random variables have corresponding $Z$ values, called \textbf{\emph{Z-scores}}.\\
-\bigskip
+<p>
 For normally distributed random variables, the z-score can be found using the \textbf{\emph{standardization formula}};
 \[z_o = { x_o - \mu \over \sigma}\]
 where $x_o$ is a score from the underlying normal (``X") distribution, $\mu$ is the mean of the original normal distribution, and $\sigma$ is the standard deviation of original normal distribution.\\
-\bigskip
+<p>
 Therefore $z_o$ is the z-score that corresponds to $x_o$.
 
 <p>
@@ -1017,7 +1028,7 @@ Therefore $z_o$ is the z-score that corresponds to $x_o$.
 <p>
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 The Standardized Value}
 \Large
@@ -1030,7 +1041,7 @@ z_{100} = {x_0 - \mu \over \sigma} = {100 - 80 \over 8} = {20 \over 8} = 2.5
 *  Therefore the Z score is : $z_{100} = 2.5$
 <p>
 }
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 Z-scores}
 <p>
@@ -1046,14 +1057,14 @@ Suppose the scores of a test are normally distributed with a mean of 50 and a st
 <p>
 
 }
-%------------------------------------------------------------------------%
-%\end{document}
+-----------------------------------------------------------
+%
 % The standardization formula
 % used to find Z values
 
 %
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 The Standard Normal (Z) Distribution Tables}
 <p>
@@ -1064,7 +1075,7 @@ The Standard Normal (Z) Distribution Tables}
 <p>
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 An Important Identity}
 If two values $z_o$ and $x_o$ are related in the following way, for some values $\mu$ and $\sigma$,
@@ -1083,7 +1094,7 @@ This is fundamental to solving problems involving normal distributions.
 
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 Using Murdoch Barnes Tables 3}
 <p>
@@ -1093,7 +1104,7 @@ Using Murdoch Barnes Tables 3}
 <p>
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 Using Murdoch Barnes Tables 3}
 <p>
@@ -1104,7 +1115,7 @@ Using Murdoch Barnes Tables 3}
 <p>
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 \begin{table}[ht]
 Find $ P(Z \geq 1.28)$}
@@ -1128,7 +1139,7 @@ Find $ P(Z \geq 1.28)$}
 \end{table}
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 Using Murdoch Barnes tables 3}
 <p>
@@ -1139,7 +1150,7 @@ Using Murdoch Barnes tables 3}
 <p>
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 \begin{table}[ht]
 Find $ P(Z \geq 0.60)$}
@@ -1163,7 +1174,7 @@ Find $ P(Z \geq 0.60)$}
 \end{table}
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 \begin{table}[ht]
 Find $ P(Z \geq 1.64)$ and $ P(Z \geq 1.65)$}
@@ -1186,20 +1197,20 @@ Find $ P(Z \geq 1.64)$ and $ P(Z \geq 1.65)$}
 \end{table}
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 Using Murdoch Barnes tables 3}
 <p>
 *  $ P(Z \geq 1.64) = 0.505$
-*  $ P(Z \geq 1.65) = 0.495$ \bigskip
+*  $ P(Z \geq 1.65) = 0.495$ <p>
 *  $ P(Z \geq 1.645)$ is approximately the average value of $ P(Z \geq 1.64)$ and $ P(Z \geq 1.65)$.
 *  $ P(Z \geq 1.645)$ = (0.0495 + 0.0505)/2 = 0.0500. ( i.e. $5\%$ )
 <p>
-}
-%------------------------------------------------------------------%
 
-Exact Probability}
-\large
+-----------------------------------------------------
+
+### Exact Probability
+
 \alert{Remarks:} This is for continuous distributions only.
 <p>
 *  The probability that a continuous random variable will take an exact value is infinitely small.
@@ -1211,12 +1222,12 @@ For example, we would write expressions $P(X \leq 2)$ or $P(X \geq 5)$.
 Because the probability of an exact value is almost zero, these two expression are equivalent to $P(X < 2)$
 or $P(X > 5)$. *  The complement of $P(X \geq k)$ can be written as $P(X \leq k)$.
 <p>
-}
 
 
-%------------------------------------------------------------------%
 
-Complement and Symmetry Rules}
+-----------------------------------------------------
+
+### Complement and Symmetry Rules
 
 Any normal distribution problem can be solved with some combination of the following rules.
 <p> *  \textbf{Complement rule} *  Common to all continuous random variables
@@ -1228,7 +1239,7 @@ Similarly
 \[P(Z \leq 1.28) = 1 - P(Z \geq 1.28)  = 1-0.1003 = 0.8997\]
 }
 
-%------------------------------------------------------------------%
+-----------------------------------------------------
 
 Complement and Symmetry Rules}
 <p>
@@ -1244,9 +1255,10 @@ If we have a negative value of k, we can use the symmetry rule.
 by extension, we can say
 \[P(Z \geq -k) = P(Z \leq k) \]
 }
-%------------------------------------------------------------------%
+-----------------------------------------------------
 
-Z Scores: Example 1 }
+### Z Scores: Example 1 }
+
 Find $P(Z \geq -1.28)$\\
 \textbf{Solution}\\
 <p>
@@ -1256,10 +1268,10 @@ Find $P(Z \geq -1.28)$\\
 \[P(Z \geq -1.28) = 1 - P(Z \geq 1.28) \]
 \[P(Z \geq -1.28) = 1 - 0.1003 = 0.8997 \]
 <p>
-}
-%------------------------------------------------------------------%
 
-Z Scores: Example 2 }
+-----------------------------------------------------
+
+### Z Scores: Example 2 
 Find the probability of a Z random variable being between -1.8 and 1.96?
 i.e. Compute $P(-1.8 \leq Z \leq 1.96)$\\
 Solution
@@ -1281,9 +1293,9 @@ Therefore the probability of being \textbf{inside} the interval is 1- 0.0609 = 0
 
 
 
-%--------------------------------------------------------------
-\begin{frame}
-Application : Example }
+-----------------------------------------------------
+
+### Application : Example 
 The mean time spent waiting by customers before their queries are dealt with at an information centre is 10 minutes.
 
 The waiting time is normally distributed with a standard deviation of 3 minutes.
@@ -1295,14 +1307,14 @@ Justify your answer.
 
 *  [iii)] What percentage of customers will wait between 7 and 13 minutes before their query is dealt with?
 <p>
-\end{frame}
-%---------------------------------------------%
-\begin{frame}
-Solutions}
+
+--------------------------------
+
+#### Solutions
 
 Let x be the normal random variable describing waiting times\\
 $P(X \geq 15) =?$ \\
-\bigskip
+<p>
      First , we find the z-value that corresponds to x = 15  (remember $\mu=10$ and $\sigma=3$  )\\
 \[ z_o = { x_o - \mu \over \sigma }  = { 15 - 10 \over 3 } = 1.666 \]
 <p>
@@ -1312,11 +1324,11 @@ $P(X \geq 15) =?$ \\
 *  We can evaluate $P(Z \geq 1.67)$  as 0.0475.
 *  Necessarily $P(X \geq 15) = 0.0475$.
 <p>
-\end{frame}
+<p>
 
-%---------------------------------------------%
-\begin{frame}
-Solutions}
+--------------------------------
+
+#### Solutions
 <p>
 *  "$90\%$ of customers will be dealt with in at most 12 minutes."
 *  To answer this question, we need to know  $P(X\leq 12)$
@@ -1324,11 +1336,11 @@ Solutions}
 <p>
 \[ z_o = { x_o - \mu \over \sigma }  = { 12 - 10 \over 3 } = 0.666 \]
 
-\end{frame}
+<p>
 
-%---------------------------------------------%
-\begin{frame}
-Solutions}
+--------------------------------
+
+#### Solutions
 <p>
 *  We will use $z_o =0.67$ (although 0.66 would be fine too) 
 *  Therefore we can say $P(X \geq 12 ) = P(Z \geq 0.67)  = 0.2514$
@@ -1336,42 +1348,43 @@ Solutions}
 *  $74.86\%$ of customers will be dealt with in at most 12 minutes.
 *  The statement that $90\%$ will be dealt with in at most 12 minutes is false.
 <p>
-\end{frame}
-%---------------------------------------------%
-\begin{frame}
-Solutions}
+<p>
+--------------------------------
+
+#### Solutions
 What percentage will wait between 7 and 13 minutes ?\\
 
 $P(7 \leq X \leq 13)   = ?$
 
 \textbf{Solution:}\\
 Compute the probability of being too low, and the probability of being too high for the interval.\\The probability of being inside the interval is the complement of the combination of these events.
-\end{frame}
-%---------------------------------------------%
-\begin{frame}
-Solutions}
+<p>
+--------------------------------
+
+#### Solutions
+
 \textbf{Too high:}\\
 $P(X \geq 13) = ?$
 \[ z_o  = {13 - 10  \over 3} = 1\]
 
-From tables, $P(Z \geq 1) = 0.1587$. Therefore $P(X \geq 13) = 0.1587$\\ \bigskip
+From tables, $P(Z \geq 1) = 0.1587$. Therefore $P(X \geq 13) = 0.1587$\\ <p>
 \textbf{Too low:}\\
 $P(X \leq 7) = ?$
 \[ z_o  = {7 - 10  \over 3} = -1\]
-By symmetry, and using tables, $P(X \leq 7) = P(Z \leq -1)= 0.1587$\\ \bigskip
-\end{frame}
-%---------------------------------------------%
-\begin{frame}
-Solutions}
+By symmetry, and using tables, $P(X \leq 7) = P(Z \leq -1)= 0.1587$\\ <p>
+<p>
+--------------------------------
+
+#### Solutions
 
 \[P(7 \leq X \leq 13)  = 1 - [ P(X \leq 7)  + P(X \geq 13) ] \]
 
 \[P(7 \leq X \leq 13)  =  1 - [0.1587+0.1587] = 0.6826\]
 
-\end{frame}
+<p>
 
-%-----------------------------------------------------%
-\begin{frame}
+----------------------------------------
+
 Normal Distribution : Solving problems}
 Recap:
 <p>
@@ -1381,9 +1394,9 @@ Recap:
 *  The standard normal random variable is $Z\sim \mbox{N} ( 0 , 1^2)$.
 *  The standard normal distribution is well described in Murdoch Barnes Table 3, which tabulates $P(Z \geq z_o)$ for a range of $Z$ values.
 <p>
-\end{frame}
-%-----------------------------------------------------%
-\begin{frame}
+
+----------------------------------------
+
 Normal Distribution : Solving problems}
 <p>
 *  For the given value $x_o$ from the variable $X$, we compute the corresponding z-score $z_o$.
@@ -1392,20 +1405,22 @@ Normal Distribution : Solving problems}
 \[  P(X \geq x_o )= P(Z \geq z_o ) \]
 *  Alternatively $ P(X \leq x_o )= P(Z \leq z_o ) $
 <p>
-\end{frame}
-%-----------------------------------------------------%
-\begin{frame}
-Normal Distribution : Solving problems}
+<p>
+
+----------------------------------------
+
+### Normal Distribution : Solving problems
+
 <p>
 *  \textbf{Complement Rule}: \[ P(Z \leq k) = 1-P(Z \geq k) \] for some value $k$
 *  Alternatively $ P(Z \geq k) = 1-P(Z \leq k) $
 *  \textbf{Symmetry Rule}: \[ P(Z \leq -k) = P(Z \geq k) \] for some value $k$
 *  Alternatively $ P(Z \geq -k) = P(Z \leq k) $
 <p>
-\end{frame}
-%-----------------------------------------------------%
-\begin{frame}
-Normal Distribution : Solving problems}
+
+----------------------------------------
+
+### Normal Distribution : Solving problems
 <p>
 
 *  \textbf{Intervals}: \[ P(L \leq Z \leq U) = 1- [ P(Z \leq L) + P(Z \geq U)] \]
@@ -1413,19 +1428,19 @@ where $L$ and $U$ are the lower and upper bounds of an interval.
 *  Probability of having a value too low for the interval : $P(Z \leq L)$
 *  Probability of having a value too high for the interval : $P(Z \geq U)$
 <p>
-\end{frame}
-%-----------------------------------------------------%
+<p>
+----------------------------------------
 
 
 %
 %Using Murdoch Barnes Tables 3}
 %
-%Find $ P(Z \geq 1.64)$ and $ P(Z \geq 1.65)$.\\\bigskip Which row and column?
+%Find $ P(Z \geq 1.64)$ and $ P(Z \geq 1.65)$.\\<p> Which row and column?
 %<p>
 %*  1.64 = \color{blue}{1.6}+\color{orange}{0.04} \color{black}\hspace{2cm}$ P(Z \geq 1.64) =0.0505$
 %*  1.65 = \color{blue}{1.6}+\color{green}{0.05}  \color{black} \hspace{2cm}$ P(Z \geq 1.65) =0.0495$
 %<p>
-%\bigskip
+%<p>
 %\small
 %\begin{table}[ht]
 %%\caption{Standard Normal Distribution } % title of Table
@@ -1446,12 +1461,10 @@ where $L$ and $U$ are the lower and upper bounds of an interval.
 %\end{table}
 %}
 
-%--------------------------------------------------------%
+-------------------------------------------
 
-%------------------------------------------------------------%
-\begin{frame}
 
-Normal Distribution: Simulation Study}
+### Normal Distribution: Simulation Study
 <p>
 * 
 Recall the experiment whereby a die was rolled 100 times, and the sum of the 100 values was recorded.
@@ -1462,7 +1475,7 @@ A histogram was drawn to depict the distribution of outcomes of this experiment.
 
 
 <p>
-\end{frame}
+<p>
 
 
 
@@ -1486,8 +1499,8 @@ Recall some observations made about the results of the simulation study, made in
 *  175 values are greater than or equal to 400, whereas 198 values are less than or equal to 300.
 *  Results such as these are unusual, but they are not impossible.
 <p>
-}
-%---------------------------------------------------------------%
+
+--------------------------------------------------
 
 Normal Distribution: Simulation Study}
 <p>
@@ -1498,18 +1511,19 @@ Normal Distribution: Simulation Study}
 <p>
 }
 
-%---------------------------------------------------------------%
+--------------------------------------------------
 
 Normal Distribution: Simulation Study}
 
 \begin{center}
 \includegraphics[scale=0.40]{images/5BNormalA}
 \end{center}
-}
 
-%-------------------------------------------------------------%
 
-Normal Distribution: Simulation Study}
+------------------------------------------------
+
+### Normal Distribution: Simulation Study
+
 <p>
 *  X is the normal random variable that approximates the sum of values from 100 throws of a die.
 *  Find $P(X \leq 383)$
@@ -1529,11 +1543,10 @@ Normal Distribution: Simulation Study}
 \includegraphics[scale=0.40]{images/5BNormalB}
 \end{center}
 
-}
-%-------------------------------------------------------------%
 
-Working Backwards}
-<p>
+------------------------------------------------
+
+### Working Backwards
 
 *  Suppose we wish to find a value (lets call it A) from the normal distribution, such that a certain proportion of values is greater than A (e.g. 10\%)
 *  Find A such that $P(X \geq A) = 0.10$. (with $\mu  = 350$ and $\sigma = 17$)
@@ -1544,9 +1557,9 @@ Working Backwards}
 
 *  From the tables, we can approximate a value for $z_A$, by finding the closest probability value, and determining the corresponding Z-score.
 <p>
-}
 
-%------------------------------------------------------------------------%
+
+-----------------------------------------------------------
 
 
 Find $z_A$ such that $ P(Z \geq z_a) = 0.10$}
@@ -1576,7 +1589,7 @@ Find $z_A$ such that $ P(Z \geq z_a) = 0.10$}
 %\label{table:nonlin} % is used to refer this table in the text
 \end{table}
 }
-%-------------------------------------------------------------%
+------------------------------------------------
 
 Working Backwards}
 <p>
@@ -1591,9 +1604,9 @@ $ A = 371.76 $
 *  (Remark: for sums of die-throws, round it to nearest value)
 <p>
 }
-%-----------------------------------------------------%
+----------------------------------------
 
-%-------------------------------------------------------------%
+------------------------------------------------
 
 Working Backwards: Another Example}
 <p>
@@ -1607,7 +1620,7 @@ Working Backwards: Another Example}
 *  Based on last example $-z_B = 1.28$. Therefore $z_B = -1.28$
 <p>
 }
-%-------------------------------------------------------------%
+------------------------------------------------
 
 Working Backwards}
 <p>
@@ -1621,7 +1634,7 @@ $ x_o = 350 - 21.76 = 328.24 $
 *  $P(X \leq 328.24) \approx 0.10$
 <p>
 }
-%-----------------------------------------------------%
+----------------------------------------
 
 
 
@@ -1636,7 +1649,7 @@ A model of an on-line computer system gives a mean times to retrieve a record fr
 <p>
 
 }
-%---------------------------------------------%
+--------------------------------
 
 
 Normal Distribution}
@@ -1646,12 +1659,12 @@ Normal Distribution}
 \end{center}
 
 }
-%-----------------------------------------------------%
+----------------------------------------
 
 
 
 MA4413 Autumn 2008 paper (part 1)}
-What proportion of retrieval times will be greater than 75 milliseconds?\\ \bigskip
+What proportion of retrieval times will be greater than 75 milliseconds?\\ <p>
 
 <p>
 *  Let X be the retrieval times, with $X \sim \mbox{N}(200,58^2)$.\\
@@ -1692,7 +1705,7 @@ Normal Distribution}
 \end{center}
 
 }
-%---------------------------------------------%
+--------------------------------
 
 MA4413 Autumn 2008 paper (part 2)}
 <p>
@@ -1706,7 +1719,7 @@ MA4413 Autumn 2008 paper (part 2)}
 \[ z_{250} =  {250 - 200 \over 58}  = 0.86 \]
 <p>
 }
-%---------------------------------------------%
+--------------------------------
 
 MA4413 Autumn 2008 paper (part 2)}
 <p>
@@ -1719,7 +1732,7 @@ MA4413 Autumn 2008 paper (part 2)}
 \[P( X \geq 250) = P( Z \geq 0.86) = 0.1949 \]
 <p>
 }
-%---------------------------------------------%
+--------------------------------
 
 MA4413 Autumn 2008 paper (part 2)}
 <p>
@@ -1733,7 +1746,7 @@ MA4413 Autumn 2008 paper (part 2)}
 
 <p>
 }
-%---------------------------------------------%
+--------------------------------
 
 MA4413 Autumn 2008 paper (part 3)}
 <p>
@@ -1755,7 +1768,7 @@ Normal Distribution}
 \end{center}
 
 }
-%---------------------------------------------%
+--------------------------------
 
 MA4413 Autumn 2008 paper (part 3)}
 <p>
@@ -1767,7 +1780,7 @@ MA4413 Autumn 2008 paper (part 3)}
 
 <p>
 }
-%---------------------------------------------%
+--------------------------------
 
 MA4413 Autumn 2008 paper (part 3)}
 <p>
@@ -1780,7 +1793,7 @@ MA4413 Autumn 2008 paper (part 3)}
 \[ 125.76 =  A \]
 <p>
 }
-%---------------------------------------------%
+--------------------------------
 
 MA4413 Autumn 2008 paper (part 3)}
 <p>
@@ -1788,9 +1801,9 @@ MA4413 Autumn 2008 paper (part 3)}
 *  $P(X \leq 125.76) = 0.10$ [Answer].
 <p>
 }
-%---------------------------------------------%
+--------------------------------
 
-\begin{frame}
+
 Introduction to the Normal Distribution}
 <p>
 * 
@@ -1802,7 +1815,7 @@ A histogram was drawn to depict the distribution of outcomes of this experiment.
 *  Recall that we agreed that ``bell-shaped" was a good description of the histogram.
 
 <p>
-\end{frame}
+<p>
 
 
 
@@ -1839,7 +1852,7 @@ Normal Distribution}
     *  The mean and standard deviation are vital for calculating probabilities.
 <p>
 }
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 The Normal Distribution}
 The \textbf{\emph{probability density function}} of the normal distribution is given as
@@ -1857,7 +1870,7 @@ Normal Distribution}
 \end{center}
 
 }
-%------------------------------------------------------------------%
+-----------------------------------------------------
 
  Characteristics of the Normal probability distribution}
 <p>
@@ -1868,7 +1881,7 @@ The normal probability curve is bell-shaped and symmetric, with the shape of the
 * [4] The total area under the curve for the normal probability distribution is 1.
 <p>
 }
-%------------------------------------------------------------------%
+-----------------------------------------------------
 
  Characteristics of the Normal probability distribution}
 <p>
@@ -1879,7 +1892,7 @@ The normal probability curve is bell-shaped and symmetric, with the shape of the
 \textbf{Remark:} It is useful to know this numbers, but we will do all calculations from first principles.
 }
 
-%------------------------------------------------%
+-----------------------------------
 
 Normal Distribution}
 The standard normal distribution is a normal distribution with a mean of 0 and a standard deviation of 1. 
@@ -1895,7 +1908,7 @@ So, a Z score of 2 means the original score was 2 standard deviations above the 
  
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 The Standard Normal Distribution}
 
@@ -1907,15 +1920,15 @@ The Standard Normal Distribution}
 *  Rather than computing probabilities from first principles, which is very difficult, probabilities from distributions other than the Z distribution (e.g. X $\sim$($\mu=100, \sigma =15$)) can be computed using the Z distribution, a much easier approach. (We shall demonstrate how shortly.)
 <p>
 }
-%------------------------------------------------%
+-----------------------------------
 
 Standardization formula}
 All normally distributed random variables have corresponding $Z$ values, called Z-scores.\\
-\bigskip
+<p>
 For normally distributed random variables, the z-score can be found using the \textbf{\emph{standardization formula}};
 \[z_o = { x_o - \mu \over \sigma}\]
 where $x_o$ is a score from the original normal (``X") distribution, $\mu$ is the mean of the original normal distribution, and $\sigma$ is the standard deviation of original normal distribution.\\
-\bigskip
+<p>
 Therefore $z_o$ is the z-score that corresponds to $x_o$.
 
 <p>
@@ -1924,7 +1937,7 @@ Therefore $z_o$ is the z-score that corresponds to $x_o$.
 <p>
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 The Standardized Value}
 \Large
@@ -1938,8 +1951,8 @@ z_{100} = {x_0 - \mu \over \sigma} = {100 - 80 \over 8} = {20 \over 8} = 2.5
 <p>
 }
 
-%------------------------------------------------------------------------%
-%\end{document}
+-----------------------------------------------------------
+%
 % The standardization formula
 % used to find Z values
 
@@ -1955,7 +1968,7 @@ Z_o = { X_o  - \mu \over \sigma}
 }
 % Note: Terms with subscripts mean particular values, and are not variable names.
 
-%------------------------------------------------------------%
+-----------------------------------------------
 
 
 
@@ -1978,7 +1991,7 @@ Z_o = { X_o  - \mu \over \sigma}
 
 <p>
 }
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 The Standard Normal Distribution}
 \Large
@@ -2009,7 +2022,7 @@ The Standard Normal (Z) Distribution}
 <p>
 }
 
-%------------------------------------------------------------------%
+-----------------------------------------------------
 
 Solving using the Z distribution}
 When we have a normal distribution with any mean $\mu$ and any standard deviation $\sigma$ , we answer probability questions about the distribution by first converting all values to corresponding values of the standard normal ("z") distribution.
@@ -2022,7 +2035,7 @@ It can be thought of as a measure of how many standard deviations that a value "
 
 
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 The Standard Normal Distribution}
 \Large
@@ -2039,7 +2052,7 @@ The Standard Normal Distribution}
 
 
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 The Standardized Value}
 \Large
@@ -2058,7 +2071,7 @@ The Standardized Value}
 Z_{0} = {X_0 - \mu \over \sigma}
 \]
 }
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 Z scores}
 A Z-score always reflects the number of standard deviations above or below the mean a particular score is.
@@ -2070,14 +2083,14 @@ Converting the test scores to z scores, an X value of 68 would yield:
 
 So, a Z score of 2 means the original score was 2 standard deviations above the mean.
 }
-%------------------------------------------------------------------------%
-%\end{document}
+-----------------------------------------------------------
+%
 % The standardization formula
 % used to find Z values
 
 %
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 The Standard Normal (Z) Distribution Tables}
 <p>
@@ -2088,7 +2101,7 @@ The Standard Normal (Z) Distribution Tables}
 <p>
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 An Important Identity}
 If two values $z_o$ and $x_o$ are related in the following way, for some values $\mu$ and $\sigma$,
@@ -2107,7 +2120,7 @@ This is fundamental to solving problems involving normal distributions.
 
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 Using Murdoch Barnes tables 3}
 <p>
@@ -2117,7 +2130,7 @@ Using Murdoch Barnes tables 3}
 <p>
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 Using Murdoch Barnes tables 3}
 <p>
@@ -2128,7 +2141,7 @@ Using Murdoch Barnes tables 3}
 <p>
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 \begin{table}[ht]
 Find $ P(Z \geq 1.28)$}
@@ -2152,7 +2165,7 @@ Find $ P(Z \geq 1.28)$}
 \end{table}
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 Using Murdoch Barnes tables 3}
 <p>
@@ -2163,7 +2176,7 @@ Using Murdoch Barnes tables 3}
 <p>
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 \begin{table}[ht]
 Find $ P(Z \geq 0.60)$}
@@ -2187,7 +2200,7 @@ Find $ P(Z \geq 0.60)$}
 \end{table}
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 \begin{table}[ht]
 Find $ P(Z \geq 1.64)$ and $ P(Z \geq 1.65)$}
@@ -2210,17 +2223,17 @@ Find $ P(Z \geq 1.64)$ and $ P(Z \geq 1.65)$}
 \end{table}
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 Using Murdoch Barnes tables 3}
 <p>
 *  $ P(Z \geq 1.64) = 0.505$
-*  $ P(Z \geq 1.65) = 0.495$ \bigskip
+*  $ P(Z \geq 1.65) = 0.495$ <p>
 *  $ P(Z \geq 1.645)$ is approximately the average value of $ P(Z \geq 1.64)$ and $ P(Z \geq 1.65)$.
 *  $ P(Z \geq 1.645)$ = (0.0495 + 0.0505)/2 = 0.0500. ( i.e. $5\%$ )
 <p>
 }
-%------------------------------------------------------------------%
+-----------------------------------------------------
 
 Exact Probability}
 \large
@@ -2238,7 +2251,7 @@ or $P(X > 5)$. *  The complement of $P(X \geq k)$ can be written as $P(X \leq k)
 }
 
 
-%------------------------------------------------------------------%
+-----------------------------------------------------
 
 Complement and Symmetry Rules}
 
@@ -2252,7 +2265,7 @@ Similarly
 \[P(Z \leq 1.28) = 1 - P(Z \geq 1.28)  = 1-0.1003 = 0.8997\]
 }
 
-%------------------------------------------------------------------%
+-----------------------------------------------------
 
 Complement and Symmetry Rules}
 <p>
@@ -2268,7 +2281,7 @@ If we have a negative value of k, we can use the symmetry rule.
 by extension, we can say
 \[P(Z \geq -k) = P(Z \leq k) \]
 }
-%------------------------------------------------------------------%
+-----------------------------------------------------
 
 Example}
 Find $P(Z \geq -1.28)$
@@ -2281,7 +2294,7 @@ Find $P(Z \geq -1.28)$
 \[P(Z \geq -1.28) = 1 - 0.1003 = 0.8997 \]
 <p>
 }
-%------------------------------------------------------------------%
+-----------------------------------------------------
 
 Find the probability of a ``z" random variable being between -1.8 and 1.96?
 i.e. Compute $P(-1.8 \leq Z \leq 1.96)$\\
@@ -2304,8 +2317,8 @@ $P(-1.8 \leq Z \leq 1.96) = 0.9391$
 
 
 
-%--------------------------------------------------------------
-\begin{frame}
+-----------------------------------------------------
+
 The mean time spent waiting by customers before their queries are dealt with at an information centre is 10 minutes.
 
 The waiting time is normally distributed with a standard deviation of 3 minutes.
@@ -2317,14 +2330,15 @@ Justify your answer.
 
 *  [iii)] What percentage of customers will wait between 7 and 13 minutes before their query is dealt with?
 <p>
-\end{frame}
-%---------------------------------------------%
-\begin{frame}
-Solutions}
+<p>
+
+--------------------------------
+
+#### Solutions
 
 Let x be the normal random variable describing waiting times\\
 $P(X \geq 15) =?$ \\
-\bigskip
+<p>
      First , we find the z-value that corresponds to x = 15  (remember $\mu=10$ and $\sigma=3$  )\\
 \[ z_o = { x_o - \mu \over \sigma }  = { 15 - 10 \over 3 } = 1.666 \]
 <p>
@@ -2334,11 +2348,11 @@ $P(X \geq 15) =?$ \\
 *  We can evaluate $P(Z \geq 1.67)$  as 0.0475.
 *  Necessarily $P(X \geq 15) = 0.0475$.
 <p>
-\end{frame}
-\end{document}
-%---------------------------------------------%
-\begin{frame}
-Solutions}
+<p>
+
+--------------------------------
+
+#### Solutions
 <p>
 *  "$90\%$ of customers will be dealt with in at most 12 minutes."
 *  To answer this question, we need to know  $P(X\leq 12)$
@@ -2346,11 +2360,11 @@ Solutions}
 <p>
 \[ z_o = { x_o - \mu \over sigma }  = { 12 - 10 \over 2 } = 0.666 \]
 
-\end{frame}
+<p>
 
-%---------------------------------------------%
-\begin{frame}
-Solutions}
+--------------------------------
+
+#### Solutions
 <p>
 *  We will use $z_o =0.67$
 *  Therefore we can say $P(X \geq 12 ) = P(Z \geq 0.67)  = 0.2514$
@@ -2358,42 +2372,42 @@ Solutions}
 *  $74.86\%$ of customers will be dealt with in at most 12 minutes.
 *  The statement that $90\%$ will be dealt with in at most 12 minutes is false.
 <p>
-\end{frame}
-%---------------------------------------------%
-\begin{frame}
+<p>
+--------------------------------
+
 What percentage will wait between 7 and 13 minutes ?\\
 
 $P(7 \leq X \leq 13)   = ?$
 
 \textbf{Solution:}\\
 Compute the probability of being too low, and the probability of being too high for the interval.\\The probability of being inside the interval is the complement of the combination of these events.
-\end{frame}
-%---------------------------------------------%
-\begin{frame}
-Solutions}
+<p>
+--------------------------------
+
+#### Solutions
 \textbf{Too high:}\\
 $P(X \geq 13) = ?$
 \[ z_o  = {13 - 10  \over 3} = 1\]
 
-From tables, $P(Z \geq 1) = 0.1587$. Therefore $P(X \geq 13) = 0.1587$\\ \bigskip
+From tables, $P(Z \geq 1) = 0.1587$. Therefore $P(X \geq 13) = 0.1587$\\ <p>
 \textbf{Too low:}\\
 $P(X \leq 7) = ?$
 \[ z_o  = {7 - 10  \over 3} = -1\]
-By symmetry, and using tables, $P(X \leq 7) = P(Z \leq -1)= 0.1587$\\ \bigskip
-\end{frame}
-%---------------------------------------------%
-\begin{frame}
-Solutions}
+By symmetry, and using tables, $P(X \leq 7) = P(Z \leq -1)= 0.1587$\\ <p>
+<p>
+--------------------------------
+
+#### Solutions
 
 \[P(7 \leq X \leq 13)  = 1 - [ P(X \leq 7)  + P(X \geq 13) ] \]
 
 \[P(7 \leq X \leq 13)  =  1 - [0.1587+0.1587] = 0.6826\]
 
-\end{frame}
-%---------------------------------------------%
+<p>
+--------------------------------
 
 
-\begin{frame}
+
 
 <p>
 *  Continuous Random Variables
@@ -2405,20 +2419,20 @@ Solutions}
 *  Important Formulae
 <p>
 
-\end{frame}
+<p>
 
 
-%------------------------------------------------------------%
+-----------------------------------------------
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 Using the Murdoch Barnes Tables}
 \Large
 
 <p>
 *  Knowing the Z value is very useful, because it is easy to compute $P(Z \geq Z_0)$ for some value $Z_0$ using statistical tables.
-\bigskip
-*  $P(X \geq X_0) = P(Z \geq Z_0)$\bigskip
+<p>
+*  $P(X \geq X_0) = P(Z \geq Z_0)$<p>
 *  From our previous example we can say the following
 \[ P(X \geq 100) = P(Z \geq 2.5)\]
 <p>
@@ -2430,7 +2444,7 @@ Using the Murdoch Barnes Tables}
 
 
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 \begin{table}[ht]
 Find $ P(Z \geq 0.60)$}
@@ -2454,7 +2468,7 @@ Find $ P(Z \geq 0.60)$}
 \end{table}
 }
 
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 \begin{table}[ht]
 Find $ P(Z \geq 1.28)$}
@@ -2477,7 +2491,7 @@ Find $ P(Z \geq 1.28)$}
 %\label{table:nonlin} % is used to refer this table in the text
 \end{table}
 }
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 \begin{table}[ht]
 Find $ P(Z \geq 1.65)$ and $ P(Z \geq 1.65)$}
@@ -2499,7 +2513,7 @@ Find $ P(Z \geq 1.65)$ and $ P(Z \geq 1.65)$}
 %\label{table:nonlin} % is used to refer this table in the text
 \end{table}
 }
-%------------------------------------------------------------------------%
+-----------------------------------------------------------
 
 \begin{table}[ht]
 Estimate $ P(Z \geq 1.645)$}
@@ -2527,12 +2541,12 @@ Estimate $ P(Z \geq 1.645)$}
 
 Using Murdoch Barnes Tables 3}
 
-Find $ P(Z \geq 1.64)$ and $ P(Z \geq 1.65)$.\\\bigskip Which row and column?
+Find $ P(Z \geq 1.64)$ and $ P(Z \geq 1.65)$.\\<p> Which row and column?
 <p>
 *  1.64 = \color{blue}{1.6}+\color{orange}{0.04} \color{black}\hspace{2cm}$ P(Z \geq 1.64) =0.0505$
 *  1.65 = \color{blue}{1.6}+\color{green}{0.05}  \color{black} \hspace{2cm}$ P(Z \geq 1.65) =0.0495$
 <p>
-\bigskip
+<p>
 \small
 \begin{table}[ht]
 %\caption{Standard Normal Distribution } % title of Table
@@ -2553,11 +2567,9 @@ Find $ P(Z \geq 1.64)$ and $ P(Z \geq 1.65)$.\\\bigskip Which row and column?
 \end{table}
 }
 
-%--------------------------------------------------------%
+-------------------------------------------
 
-%--------------------------------------------------------------
-
-
+-----------------------------------------------------
 
 
 
@@ -2566,5 +2578,7 @@ Find $ P(Z \geq 1.64)$ and $ P(Z \geq 1.65)$.\\\bigskip Which row and column?
 
 
 
-\end{document}
-%----------------------------------------------------------------------------------------------------%
+
+
+
+---------------------------------------------------------------------------------------

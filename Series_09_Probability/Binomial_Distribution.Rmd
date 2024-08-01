@@ -1,9 +1,36 @@
+---
+title: "The Binomial Distribution"
+author: "DragonflyStats"
+date: "Last updated: `r format(Sys.time(), '%B %d, %Y')`"
+output:
+  rmdformats::readthedown:
+    toc_depth: 3
+    use_bookdown: TRUE
+    code_folding: hide
+    fig_caption: TRUE
 
-Binomial Distribution {data-navmenu="Discrete Distributions"}
-=====================================
+  html_document:
+    fig_caption: yes
+    theme: spacelab #sandstone #spacelab #flatly
+    highlight: pygments
+    number_sections: TRUE
+    toc: TRUE
+    toc_depth: 3
+    toc_float:
+      smooth_scroll: FALSE
 
-Column {.tabset}
--------------------------------------------------
+  pdf_document: default
+---
+
+
+```{r import_libraries, echo=FALSE, message=FALSE}
+library(conflicted)
+library(tidyverse)
+```
+
+## The Binomial Distribution 
+
+
 ### Binomial Distribution
 
 
