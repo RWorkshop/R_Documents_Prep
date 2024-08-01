@@ -1,0 +1,360 @@
+---
+title: "Discrete Probability Distributions"
+author: "Kevin O'Brien"
+date: "2024-07-30"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+
+
+%---------------------------------------------------------------------------%
+\frame{
+\frametitle{Characteristics of a Poisson Experiment}
+A Poisson experiment is a statistical experiment that has the following properties:
+\begin{itemize}
+*  The experiment results in outcomes that can be classified as successes or failures.
+*  The average number of successes (m) that occurs in a specified region is known.
+*  The probability that a success will occur is proportional to the size of the \textbf{\emph{region}}.
+*  The probability that a success will occur in an extremely small region is virtually zero.
+*  The \texttt{pois} family of functions are used to compute probabilities and quantiles.
+\end{itemize}
+Note that the specified region could take many forms. For instance, it could be a length, an area, a volume, a period of time, etc.
+}
+
+
+%---------------------------------------------------------------------------%
+\frame{
+\frametitle{The Poisson Probability Distribution}
+\begin{itemize}
+*  A Poisson random variable is the number of successes that result from a Poisson experiment.
+*  The probability distribution of a Poisson random variable is called a Poisson distribution.
+*  This distribution describes the number of occurrences in a unit period (or space)
+*  The expected number of occurrences is $m$.
+*  \text{R} refers to the mean number of occurrences as \texttt{lambda} rather than \texttt{m}. 
+\end{itemize}
+}
+
+%---------------------------------------------------------------------------%
+\frame{
+\frametitle{Poisson Formulae}
+The probability that there will be $k$ occurrences in a unit time period is denoted $P(X=k)$, and is computed as below. Remark: This is known as the probability density function. The corresponding \texttt{R} command is \texttt{dpois()}.
+\Large
+\[ P(X = k)=\frac{m^k e^{-m}}{k!} \]
+
+
+}
+%---------------------------------------------------------------------------%
+\frame{
+	\frametitle{The Poisson Probability Distribution}
+	\begin{itemize}
+		*  The number of occurrences in a unit period (or space)
+		*  The expected number of occurrences is $m$
+		*  Given the mean number of successes ($m$) that occur in a specified region, we can compute the Poisson probability based on the following formula.
+	\end{itemize}
+}
+
+%---------------------------------------------------------------------------%
+\frame{
+\frametitle{Poisson Formulae}
+Given that there is on average 2 occurrences per hour, what is the probability of no occurrences in the next hour? \\ i.e. Compute $P(X=0)$ given that $m=2$
+\Large
+\[ P(X = 0)=\frac{2^0 e^{-2}}{0!} \]
+\normalsize
+\begin{itemize}
+*  $2^0$ = 1
+*  $0!$ = 1
+\end{itemize}
+The equation reduces to
+\[ P(X = 0)=e^{-2} = 0.1353\]
+}
+%---------------------------------------------------------------------------%
+\frame{
+\frametitle{Poisson Formulae}
+What is the probability of one occurrences in the next hour? \\ i.e. Compute $P(X=1)$ given that $m=2$
+\Large
+\[ P(X = 1)=\frac{2^1 e^{-2}}{1!} \]
+\normalsize
+\begin{itemize}
+*  $2^1$ = 2
+*  $1!$ = 1
+\end{itemize}
+The equation reduces to
+\[ P(X = 1) = 2 \times e^{-2} = 0.2706\]
+}
+%---------------------------------------------------------------%
+\frame{
+\frametitle{Poisson Distribution (Example)}
+\begin{itemize}
+
+*  Suppose that electricity power failures occur according to a Poisson distribution
+with an average of 2 outages every twenty weeks. *  Calculate the probability that there will
+not be more than one power outage during a particular week.
+\end{itemize}
+
+\textbf{Solution:}
+
+\begin{itemize}
+*  The average number of failures per week is: $m = 2/20 = 0.10$
+
+*  ``Not more than one  power outage" means we need to compute and add the probabilities for ``0 outages" plus ``1 outage".
+\end{itemize}
+
+}
+
+%---------------------------------------------------------------%
+\frame{
+\frametitle{Poisson Distribution (Example)}
+
+Recall: \[P(X = k) = e^{-m}\frac{m^k}{k!}\]
+
+
+\begin{itemize}
+
+*  $P(X = 0)$
+
+\[P(X = 0) = e^{-0.10}\frac{0.10^0}{0!} = e^{-0.10} = 0.9048\]
+
+
+*  $P(X = 1)$
+
+\[P(X = 1) = e^{-0.10}\frac{0.10^1}{1!} = e^{-0.10}\times 0.1 = 0.0905\]
+
+*  $P(X \leq 1)$
+
+\[P(X \leq 1) = P(X = 0) + P(X = 1) = 0.9048 + 0.0905 = 0.995\]
+
+\end{itemize}
+}
+
+\frame{
+\frametitle{Implementation using \texttt{R}}
+
+\begin{itemize}
+*  Probability Density Function $P(X = k)$
+\begin{itemize}
+*  For a given poisson mean $m$, which in \texttt{R} is specified as \texttt{lambda} 
+*  \texttt{dpois(k,lambda = ...)} 
+\end{itemize}
+*  Cumulative Density Function $P(X \leq k)$
+\begin{itemize}
+*  \texttt{ppois(k,lambda = ...)}
+\end{itemize}
+\end{itemize}
+
+}
+
+
+[fragile]
+\frametitle{Implementation using \texttt{R}}
+From before: $P(X = 0)$ given than the mean number of occurrences is 2.
+
+\begin{verbatim}
+> dpois(0,lambda=2)
+[1] 0.1353353
+> dpois(1,lambda=2)
+[1] 0.2706706
+> dpois(2,lambda=2)
+[1] 0.2706706
+\end{verbatim}
+
+\end{frame}
+
+
+[fragile]
+\frametitle{Implementation using \texttt{R}}
+Compute the cumulative distribution functions for the values $k=\{0,1,2\}$, given that the mean number of occurrences is 2
+
+\begin{verbatim}
+> ppois(0,lambda=2)
+[1] 0.1353353
+> ppois(1,lambda=2)
+[1] 0.4060058
+> ppois(2,lambda=2)
+[1] 0.6766764
+\end{verbatim}
+
+----------------------------------------------------
+
+
+
+\section{Poisson Approximation of the Binomial}
+
+\begin{itemize}
+*  The Poisson distribution can sometimes be used to approximate the
+binomial distribution
+*  When the number of observations n is large, and the success probability
+p is small, the $Bin(n,p)$ distribution approaches the Poisson distribution
+with the parameter given by $m = np$.
+*  This is useful since the computations involved in calculating binomial
+probabilities are greatly reduced in complexity.
+*  As a rule of thumb, n should be greater than 50 with p very small, such
+that np should be less than 5.
+*  We set = np (other notation m = np)  and use the Poisson tables.
+*  If the value of p is very high, the definition of what constitutes a
+``success" or ``failure" can be switched.
+\end{itemize}
+
+%---------------------------------------------------------------------%
+
+\subsection{Poisson Approximation: Example}
+
+\begin{itemize}
+*  Suppose we sample 1000 items from a production line that is producing, on
+average, $0.1\%$ defective components.
+*  Using the binomial distribution, the probability of exactly 3 defective items in
+our sample is
+\[P(X = 3) = ^{1000}C_{3} \times 0.001^{3} \times 0.999^{997}\]
+
+
+
+
+*  Lets compute each of the component terms individually.
+
+\begin{itemize}
+* [$\ast$] $^{1000}C_{3}$
+\[^{1000}C_{3} = \frac{1000 \times 999 \times 998}{3 \times 2 \times 1} = 166,167,000\]
+* [$\ast$] $0.001^3$
+\[0.001^3 = 0.000000001\]
+* [$\ast$] $0.999^{997}$
+\[0.999^{997} = 0.36880\]
+\end{itemize}
+
+
+*  Multiply these three values to compute the binomial probability
+$P(X = 3) = 0.06128$
+
+\end{itemize}
+
+\subsection{Using the Poisson Approximation (Same Example As previous)}
+\begin{itemize}
+*  Lets use the Poisson distribution to approximate a solution.
+*  First check that $n \geq 50$ and $np < 5$ (Yes to both).
+*  We choose as our parameter value $m = np = 1000 \times 0.001 = 1$
+\end{itemize}
+\[P(X = 3) = \frac{e^{-1} \times 1^3}{3!} = \frac{e^{-1}}{6} = \frac{0.36787}{6} = 0.06131 \]
+Compare this answer with the Binomial probability
+P(X = 3) = 0.06128.
+Very good approximation, with much less computation effort.
+
+
+
+
+%============================================================================================%
+
+
+\section{Poisson Approximation}
+The Poisson Approximation of the binomial ditribution
+
+Example
+
+\[P(X \geq 2) = 1 - (0.134+0.27) = 0.596\]
+
+\[P(X=1) = 200 0.01 0.99 199\]
+
+\[P(X=1) = 0.270\]
+
+
+Poisson Approximaitions
+
+
+\[X \sim \mbox{Binomial}(200, 0.01) \]
+
+
+P(X= k)=e-kk!
+
+
+
+
+\[P(X \geq 2) = 1- (0.135+0.27) = 0.595\]
+
+%http://www.stats.gla.ac.uk/steps/glossary/hypothesis_testing.html
+
+
+<p>
+
+----------------------------------------------------------------------
+
+### The Poisson Distribution: Specification
+{
+\begin{itemize}
+*  The \textbf{Poisson mean} $\lambda$ (pronounced `lambda') is the expected number of occurrences per unit space / unit period.
+*  (Remark:  Some texts will use the notation $m$ rather than $\lambda$)
+\end{itemize}
+
+
+
+Probability Density Function
+
+\[P(X=k) = \frac{e^{m!}}{k!}\]
+}
+
+
+
+
+%========================================================%
+Question 6 : Poisson approximation of the Binomial Distribution
+
+
+
+binomial parameters 
+number of trialsn =100
+probability of success  p = 0.01
+
+from binomial tables (MB1)
+
+complement P ( X $\geq 2) = 0.2642$
+
+therefore answer is P ( $X \leq 1) = 0.7358$
+
+
+
+
+
+
+\subsection{Poisson }
+\begin{itemize}
+*  M=15
+(1/2 hour or 30 minutes)
+
+*  5 minute period 
+m=2.5 
+
+*  X : No of arrivals
+
+*  P(X=0) when M = 2.5
+
+\[P(X=0) = 1 - P(X \geq 1) (Complement)\]
+\[= 1 - 0.9179\]
+\[= 0.0821\]
+
+
+\end{itemize}
+
+
+
+
+%========================================================%
+Question 6 : Poisson approximation of the Binomial Distribution
+
+\begin{itemize}
+*  binomial parameters 
+*  number of trialsn =100
+*  probability of success  p = 0.01
+
+from binomial tables (MB1)
+
+*  complement P ( X $\geq 2) = 0.2642$
+
+*  therefore answer is P ( $X \leq 1) = 0.7358$
+\end{itemize}
+
+
+\end{document}

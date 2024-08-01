@@ -1,0 +1,61 @@
+---
+title: "Continuous Probability Distributions"
+author: "Kevin O'Brien"
+date: "2024-07-30"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(digits=3)
+```
+
+```{r knit_opts, include = FALSE}
+knitr::opts_chunk$set(tidy  = FALSE
+                     ,cache = FALSE
+                     ,message = FALSE
+                     ,warning = FALSE
+                     ,fig.height =  8
+                     ,fig.width  = 11)
+
+library(conflicted)
+library(tidyverse)
+library(scales)
+library(cowplot)
+library(survival)
+library(survminer)
+library(muhaz)
+library(broom)
+
+
+conflict_prefer('select',   'dplyr')
+conflict_prefer('filter',   'dplyr')
+
+
+options(width = 80L
+       ,warn  = 1
+        )
+
+theme_set(theme_cowplot())
+
+
+set.seed(42)
+
+#source('data_setup.R')
+```
+
+
+### Probability Distributions 
+
+chapter{Probability Distributions}
+<p>
+### {Generating a set of random numbers}
+
+begin{myindentpar}{1cm}
+ <code>
+rnorm(10)
+</code>
+end{myindentpar}
+
+

@@ -1,0 +1,24 @@
+---
+title: "StatsResource"
+output: 
+  flexdashboard::flex_dashboard:
+    theme: united
+    css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+
+```{r child = 'main/introduction.Rmd'}
+```
+
+
+```{r child = 'randomvariables/MomentGeneratingFunctions.Rmd'}
+```
+
+
+```{r child = 'probability/CumulantGeneratingFunction.Rmd'}
+```

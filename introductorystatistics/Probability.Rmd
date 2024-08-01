@@ -1,0 +1,114 @@
+Probability {data-navmenu="Introductory Probability"}
+====================================================================
+
+Column {.tabset}
+-------------------------------------------------
+
+### Probability
+
+<h5> Probability </h5>
+
+* Probability theory is the mathematical study of randomness. A
+probability model of a random experiment is defined by assigning
+probabilities to all the different outcomes.
+* Probability is a numerical measure of the likelihood that an event will
+occur. Thus, probabilities can be used as measures of degree of
+uncertainty associated with outcomes of an experiment.
+Probability values are always assigned on a scale from 0 to 1.
+* A probability of 0 means that the event is impossible, while
+a probability near 0 means that it is highly unlikely to occur.
+* Similarly an event with probability 1 is certain to occur, whereas an
+event with a probability near to 1 is very likely to occur.
+
+<p>
+### Conditional Probability
+
+<h3>Conditional Probability</h3>
+
+The conditional probability of an event is the probability that an event A occurs given that another event B has already occurred. This type of probability is calculated by restricting the sample space that we’re working with to only the set B.
+
+The formula for conditional probability can be rewritten using some basic algebra. Instead of the formula:
+
+\[P(A | B) = \frac{P(A \cap B) }{P( B )}  \]
+
+<p>
+
+----------------------------------------------------------------------------
+
+#### Multiplication Rule
+The multiplication rule is a result used to determine the probability that two events, $A$ and $B$, both occur.
+The multiplication rule follows from the definition of conditional probability.\\ \bigskip
+
+The result is often written as follows, using set notation:
+\[ P(A|B)\times P(B) = P(B|A)\times P(A) \qquad \left( = P(A \cap B) \right) \]
+
+
+#### Bayes Theorem
+
+Bayes' Theorem is a result that allows new information to be used to update the conditional probability of an event.
+
+Recall the definition of conditional probability:
+\[ P(A|B) = \frac{P(A \cap B)}{P(B)} \]
+
+
+
+
+Using the multiplication rule, gives Bayes' Theorem in its simplest form:
+
+\[ P(A|B) = \frac{P(B|A)\times P(A)}{P(B)} \]
+
+
+The general form of Bayes' theorem is
+\[ P(A|B) =
+\frac{P(A \mbox{ and }B)}{P(B)} \]
+
+Equivalently Bayes' Theorem can be expressed as
+\begin{equation*}
+P(B|A)=\frac{P\left(A|B\right) \times P(B) }{P\left( A\right) }.
+\end{equation*}
+
+
+#### Conditional Probability 
+
+Conditional Probability  
+
+* <a href="https://youtu.be/wUdQxLWuqWo/">	Conditional Probability - Worked Example	</a>	
+* <a href="https://youtu.be/qZ53wmnPvr4/">	Conditional Probability -Disease Detection Worked Example	</a>	
+* <a href="https://youtu.be/bYhL91gDqEM/">	Conditional Probability Worked Example	</a>	
+* <a href="https://youtu.be/0DTm_7fF2pE/">	Conditional Probability Worked Exampe (Newpaper Competition Part A)	</a>	
+* <a href="https://youtu.be/O7oQPhFt07w/">	Conditional Probability Worked Example - Newspaper Competition (Part B)	</a>	
+
+
+
+
+### Probability Videos
+
+* <a href = "https://youtu.be/jH0YFR15w3c/">Probability Question - Ace of Diamonds</a>
+
+
+
+* <a href="https://youtu.be/dNkw6VU3ZzU/">	Probability - Independent Events (Packs of Cards Example)	</a>	
+* <a href="https://youtu.be/3meIYXJBA2o/">	Probability - Worked Example (Actuarial Job Offer Example)	</a>	
+* <a href="https://youtu.be/jH0YFR15w3c/">	Probability Question  - Ace of Diamonds	</a>	
+* <a href="https://youtu.be/fIiH_u0ASFU/">	Probability Trees	</a>	
+
+
+### Probability Trees
+
+<h5> Probability Trees </h5>
+
+
+*  A probability tree diagram shows all the possible events.
+*  The first event is represented by a dot.
+*  From the dot, branches are drawn to represent all possible outcomes of the event.
+*  The probability of each outcome is written on its branch.
+*  How do you calculate the overall probabilities?
+ *  You multiply probabilities along the branches
+ *  You add probabilities down columns
+
+<h5> Questions </h5>
+* <a href = "https://youtu.be/fIiH_u0ASFU/">Probability Trees</a>
+
+
+
+

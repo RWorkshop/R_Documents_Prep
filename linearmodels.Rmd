@@ -1,0 +1,42 @@
+---
+title: "StatsResource"
+output: 
+  flexdashboard::flex_dashboard:
+    theme: united
+    css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+```{r child = 'main/introduction.Rmd'}
+```
+Linear Models {data-navmenu="Modelling Data"}
+==================================
+
+Column {.tabset}
+-----------------------------
+
+
+### Multiple regression
+
+
+* Variable Selection Procedures: Use of Forwards and Backwards elimination in multiple regression.
+	* Use of F tests.
+	* The Akaike Information Criterion
+	* Polynomial regression. (<em>Simple cases only.</em>)
+	* Use of indicator variables to model factors or qualitative variables (<em>Simple cases only.</em>)
+
+
+
+```{r child = 'regression/ModelSelection.Rmd'}
+```
+
+```{r child = 'regression/ResidualAnalysis.Rmd'}
+```
+```{r child = 'linearmodels/multicollinearity.Rmd'}
+```
+
+

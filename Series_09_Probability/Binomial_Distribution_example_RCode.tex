@@ -1,44 +1,638 @@
 
+
+\title[MA4413]{Statistics for Computing \\ {\normalsize MA4413 Lecture 4A}}
+\author[Kevin O'Brien]{Kevin O'Brien \\ {\scriptsize Kevin.obrien@ul.ie}}
+\date{Autumn Semester 2011}
+\institute[Maths \& Stats]{Dept. of Mathematics \& Statistics, \\ University \textit{of} Limerick}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+
+
+\titlepage
+
+
+
+\frametitle{The Binomial Probability Distribution}
+<p>
+* The number of independent trials is denoted $n$.
+* The probability of a `success' is $p$
+* The expected number of `successes' from $n$ trials is $E(X) = np$
+\end{itemize}
+}
 %---------------------------------------------------------------------------%
-\frame{
-\frametitle{Binomial Probability Distribution: Example 2}
-The vice-president of a computer firm has reviewed the records of the firm’s personnel and has found that 70\% of the employees read a well known industry magazine ``The IT Journal". \\ \bigskip
-If the vice-president was to choose 10 employees at random, what is the probability that the number of these employees who do not read the ``IT Journal" is the following?
-\normalsize
-\begin{itemize}
-\item [1] At least five.
-\item [2] Between four and eight, inclusive.
-\item [3] No more than seven.
-% \item [4] What are the mean and variance of this distribution?
+
+\frametitle{Characteristics of a Poisson Experiment}
+A Poisson experiment is a statistical experiment that has the following properties:
+<p>
+* The experiment results in outcomes that can be classified as successes or failures.
+* The average number of successes (m) that occurs in a specified region is known.
+* The probability that a success will occur is proportional to the size of the region.
+* The probability that a success will occur in an extremely small region is virtually zero.
+\end{itemize}
+Note that the specified region could take many forms. For instance, it could be a length, an area, a volume, a period of time, etc.
+}
+
+%---------------------------------------------------------------------------%
+
+\frametitle{Poisson Distribution}
+
+
+}
+
+%---------------------------------------------------------------------------%
+
+\frametitle{The Poisson Probability Distribution}
+<p>
+* A Poisson random variable is the number of successes that result from a Poisson experiment.
+* The probability distribution of a Poisson random variable is called a Poisson distribution.
+* This distribution describes the number of occurrences in a unit period (or space)
+* The expected number of occurrences is $m$
 \end{itemize}
 }
 
 %---------------------------------------------------------------------------%
-\begin{frame}[fragile]
+
+\frametitle{Poisson Formulae}
+The probability that there will be $k$ occurences in a unit time period is denoted $P(X=k)$, and is computed as follows.
+\Large
+\[ P(X = k)=\frac{m^k e^{-m}}{k!} \]
+
+}
+%---------------------------------------------------------------------------%
+
+\frametitle{Poisson Formulae}
+Given that there is on average 2 occurrences per hour, what is the probability of no occurrences in the next hour? \\ i.e. Compute $P(X=0)$ given that $m=2$
+\Large
+\[ P(X = 0)=\frac{2^0 e^{-2}}{0!} \]
+\normalsize
+<p>
+* $2^0$ = 1
+* $0!$ = 1
+\end{itemize}
+The equation reduces to
+\[ P(X = 0)=e^{-2} = 0.1353\]
+}
+%---------------------------------------------------------------------------%
+
+\frametitle{Poisson Formulae}
+What is the probability of one occurences in the next hour? \\ i.e. Compute $P(X=1)$ given that $m=2$
+\Large
+\[ P(X = 1)=\frac{2^1 e^{-2}}{1!} \]
+\normalsize
+<p>
+* $2^1$ = 2
+* $1!$ = 1
+\end{itemize}
+The equation reduces to
+\[ P(X = 1) = 2 \times e^{-2} = 0.2706\]
+}
+%---------------------------------------------------------------------------%
+
+\frametitle{Continuous Random Variables}
+
+<p>
+* Probability Density Function
+* Cumulative Density Function
+\end{itemize}
+
+
+If X is a continuous random variable then we can say that the probability of obtaining a \textbf{precise} value $x$ is infinitely small, i.e. close to zero.
+
+\[P(X=x) \approx 0 \]
+
+Consequently, for continuous random variables (only),  $P(X \leq x)$ and $P(X < x)$ can be used interchangeably.
+
+\[P(X \leq x) \approx P(X < x) \]
+
+
+}
+
+%---------------------------------------------------------------------------%
+
+\frametitle{Continuous Uniform Distribution}
+A random variable X is called a continuous uniform random variable over the interval $(a,b)$ if it's probability density function is given by
+
+\[ f_{X}(x)  =  { 1 \over b-a}   \hspace{2cm}  \mbox{ when } a \leq x \leq b\]
+
+The corresponding cumulative density function is
+
+\[ F_x(x) = { x-a \over b-a}   \hspace{2cm}  \mbox{ when } a \leq x \leq b\]
+
+}
+
+%-----------------------------------------------------------------------------%
+
+
+
+The mean of the continuous uniform distribution is
+
+\[ E(X) = {a+b \over 2}\]
+
+\[ V(X) = {(b-a)^2\over12}\]
+}
+
+%-----------------------------------------------------------------------------%
+
+
+\frametitle{The Memoryless property}
+The most interesting property of the exponential distribution is the \textbf{\emph{memoryless}} property. By this , we mean that if  the lifetime of a component is exponentially distributed, then an item which has been in use for some time is a good as a brand new item with regards to the likelihood of failure.
+
+The exponential distribution is the only distribution that has this property.
+}
+
+%--------------------------------------------------------%
+
+
+\frametitle{Random Variables}
+A pair of dice is thrown. Let X denote the minimum of the two numbers which occur.
+Find the distributions and expected value of X.
+}
+%-------------------------------------------------------------%
+
+\frametitle{Random Variables}
+A fair coin is tossed four times.
+Let X denote the longest string of heads.
+Find the distribution and expectation of X.}
+%-------------------------------------------------------------%
+\frametitle{Random Variables}
+A fair coin is tossed until a head or five tails occurs.
+Find the expected number E of tosses of the coin.}
+%-------------------------------------------------------------%
+\frametitle{Random Variables}A coin is weighted so that P(H) = 0.75 and P(T ) = 0.25
+
+The coin is tossed three times. Let X denote the number of
+heads that appear.
+<p>
+* (a) Find the distribution f of X.
+* (b) Find the expectation E(X).
+\end{itemize}
+}
+
+%-------------------------------------------------------------%
+
+<p>
+* Now consider an experiment with only two outcomes. Independent repeated trials of such an experiment are
+called Bernoulli trials, named after the Swiss mathematician Jacob Bernoulli (1654–1705). * The term \textbf{\emph{independent
+trials}} means that the outcome of any trial does not depend on the previous outcomes (such as tossing a coin).
+* We will call one of the outcomes the ``success" and the other outcome the ``failure".
+\end{itemize}
+}
+
+%-------------------------------------------------------------%
+
+<p>
+ \item
+Let $p$ denote the probability of success in a Bernoulli trial, and so $q = 1 - p$ is the probability of failure.
+A binomial experiment consists of a fixed number of Bernoulli trials. * A binomial experiment with $n$ trials and
+probability $p$ of success will be denoted by
+\[B(n, p)\]
+\end{itemize}
+}
+%-------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+
+\frametitle{Probability Mass Function}
+<p> * a probability mass function (pmf) is a function that gives the probability that a discrete random variable is exactly equal to some value. * The probability mass function is often the primary means of defining a discrete probability distribution \end{itemize}
+}
+%------------------------------------------------------------------%
+
+Thirty-eight students took the test. The X-axis shows various intervals of scores (the interval labeled 35 includes any score from 32.5 to 37.5). The Y-axis shows the number of students scoring in the interval or below the interval.
+
+\textbf{\emph{cumulative frequency distribution}}A  can show either the actual frequencies at or below each interval (as shown here) or the percentage of the scores at or below each interval. The plot can be a histogram as shown here or a polygon.
+}
+
+
+
+
+\end{document}
+
+
+
+%---------------------------------------------------------------------------------------------------------------%
+%----R Code ----
+%---------------------------------------------------------------------------------------------------------------%
+n=60000
+Y=numeric(n)
+for ( i in 1:n){
+
+X=floor(runif(100,1,7))
+Y[i]=sum(X)
+}
+
+Y
+hist(Y,breaks=seq(300,400,by=10),main=c("Totals of 100 Die Throws"),cex.lab=1.4,font.lab=2,xlab=c("Total Score"))
+
+hist(Y,breaks=seq(300,400,by=20),main=c("Totals of 100 Die Throws"),cex.lab=1.4,font.lab=2,xlab=c("Total Score"))
+
+
+
+Z=seq(1:n)
+Y/Z
+
+plot(Y/Z,type="l",col="red",main=c("Die Rolls: Running Average"),font.lab=2,ylab="Average Value", xlab=
+" Number of Throws")
+abline(h=3.5,col="green")
+
+
+#####################################################
+
+plot(Z,Z.y,pch=16,col="red",ylim=c(2.5,5.5),main=c("Variance"),font.lab=2,ylab=" ", xlab="X: Green  Y: Blue  Z: Red" )
+
+points(Y,Y.y,pch=16,col="blue" )
+points(X,X.y,pch=16,col="green" )
+points(c(1000,1000,1000),c(3,4,5),pch=18,cex=1.2)
+lines(c(1000,1000),c(2.75,5.25),lty=3)
+
+
+
+n=100000
+Y=numeric(n)
+for ( i in 1:n){
+
+X=floor(runif(100,1,7))
+Y[i]=sum(X)
+}
+
+Y
+hist(Y,breaks=seq(270,430,by=2),main=c("Totals of 100 Die Throws (n= 100,000)"),cex.lab=1.4,font.lab=2,xlab=c("Total Score")) 
+
+
+
+\titlepage
+
+
+
+\frametitle{The Binomial Probability Distribution}
+A Quick Review of the Binomial Distribution
+<p>
+* The number of independent trials is denoted $n$.
+* The outcome of interest is known as a ``Success".
+* The other outcome is known as a ``failure".  
+* Often the applications of these names is counter-intuitive, i.e. defective components being the ``success".
+* The probability of a `success' is $p$ 
+* The expected number of `successes' from $n$ trials is $E(X) = np$
+* The \texttt{binom} family of commands in \texttt{R} are what we use to compute necessary values.
+\end{itemize}
+}
+
+\end{document}
+
+
+
+%---------------------------------------------------------------------------------------------------------------%
+%----R Code ----
+%---------------------------------------------------------------------------------------------------------------%
+n=60000
+Y=numeric(n)
+for ( i in 1:n){
+
+X=floor(runif(100,1,7))
+Y[i]=sum(X)
+}
+
+Y
+hist(Y,breaks=seq(300,400,by=10),main=c("Totals of 100 Die Throws"),cex.lab=1.4,font.lab=2,xlab=c("Total Score"))
+
+hist(Y,breaks=seq(300,400,by=20),main=c("Totals of 100 Die Throws"),cex.lab=1.4,font.lab=2,xlab=c("Total Score"))
+
+
+
+Z=seq(1:n)
+Y/Z
+
+plot(Y/Z,type="l",col="red",main=c("Die Rolls: Running Average"),font.lab=2,ylab="Average Value", xlab=
+" Number of Throws")
+abline(h=3.5,col="green")
+
+
+#####################################################
+
+plot(Z,Z.y,pch=16,col="red",ylim=c(2.5,5.5),main=c("Variance"),font.lab=2,ylab=" ", xlab="X: Green  Y: Blue  Z: Red" )
+
+points(Y,Y.y,pch=16,col="blue" )
+points(X,X.y,pch=16,col="green" )
+points(c(1000,1000,1000),c(3,4,5),pch=18,cex=1.2)
+lines(c(1000,1000),c(2.75,5.25),lty=3)
+
+
+
+n=100000
+Y=numeric(n)
+for ( i in 1:n){
+
+X=floor(runif(100,1,7))
+Y[i]=sum(X)
+}
+
+Y
+hist(Y,breaks=seq(270,430,by=2),main=c("Totals of 100 Die Throws (n= 100,000)"),cex.lab=1.4,font.lab=2,xlab=c("Total Score")) 
+
+
+<p>
+* Binomial Coefficients / The Choose Operator
+* Definition: The Probability Mass Functions (pmf)
+* Binomial Distribution : Example
+\end{itemize}
+}
+
+\frametitle{Binomial Coefficients}
+
+In the last class, we came across binomial coefficients. Informally, binomial coefficients are the number of ways $k$ items can be selected from a group of $n$ items. 
+The binomial coefficient indexed by n and k is usually written as $^nC_k$ or
+\[ {n \choose k}\].
+$C$ is colloqially known as the ``choose operator".
+
+\[ {n \choose k} = \frac{n!}{k! \times (n-k)!} \]
+
+(We call the operator the choose operator. We will use both notations interchangeably.)
+ 
+
+}
+
+\frametitle{Binomial Coefficients}
+
+<p>
+* $n!$ and $k!$ are the coefficients of $n$ and $k$ respectively.
+* $n! = n \times (n-1) \times (n-2) \times \ldots \times 2 \times 1$
+* For example $5! = 5\times4\times3\times2\times1 = 120$
+* $n! = n \times (n-1)!$
+* Importantly $0! = 1$ not 0.
+\end{itemize}
+\[ {6 \choose 2} = \frac{6!}{2! \times (6-2)!} = \frac{6!}{2! \times 4!}  \]\[\mbox{   } = \frac{6 \times 5 \times 4!}{2! \times 4!} 
+ = 30/2 =15 \]
+More examples of Binomial coefficients on blackboard.
+}
+%---------------------------------------------------------------------------%
+
+\frametitle{Probability Mass Function}
+(Formally defining something mentioned previously)
+<p> * a probability mass function (pmf) is a \textbf{\emph{function}}
+that gives the probability that a discrete random variable is exactly equal to some
+value.
+\[P(X=k)\]
+* The probability mass function is often the primary means of defining a discrete
+probability distribution
+* It is conventional to present the probability mass function in the form of a table.
+* The p.m.f of a value $k$ is often denoted $f(k)$.
+\end{itemize}
+}
+%--------------------------------------------------------------------------------------%
+
+\frametitle{ Binomial Example 1 }
+(Revision from Last Class)\\
+Suppose a die is tossed 5 times. What is the probability of getting exactly 2 fours?
+
+\textbf{Solution:} This is a binomial experiment in which the number of trials is equal to 5, the number of successes is equal to 2, and the probability of success on a single trial is 1/6 or about 0.167. 
+\\
+\bigskip
+Therefore, the binomial probability is:
+
+\[P(X=2) = ^5C_2 \times (1/6)^2 \times (5/6)^3 = 0.161\]
+}
+
+%--------------------------------------------------------------------------------------%
+
+\frametitle{ Binomial Example 2 }
+Suppose there is a container that contains 6 items.  The probability that any one of these items is defective is 0.3. Suppose all six items are inspected. 
+<p>
+* What is the probability of 3 defective components?
+* What is the probability of 4 defective components?
+\end{itemize}
+
+\[ P(3\text{ defects}) = f(3) = P(X = 3) = {6\choose 3}0.3^3 (1-0.3)^{6-3} = 0.1852 \]
+\[ P(4\text{ defects}) = f(4) = P(X = 4) = {6\choose 4}0.3^4 (1-0.3)^{6-4} = 0.0595 \]
+}
+
+%--------------------------------------------------------------------------------------%
+
+\frametitle{Probability Tables}
+In the \textbf{Sulis} workspace there are two important tables used for this part of the course.
+
+
+This class will feature a demonstration on how to read those tables.
+<p>
+* The Cumulative Binomial Tables (Murdoch Barnes Tables 1)
+* The Cumulative Poisson Tables (Murdoch Barnes Tables 2)
+\end{itemize}
+
+Please get a copy of each as soon as possible.
+
+}
+
+%---------------------------------------------------------------------------%
+
+\frametitle{Probability Tables}
+<p>
+* For some value $r$ the tables record the probability of $P(X \geq r)$.
+* The Student is required to locate the appropriate column based on the parameter values for the distribution in question.
+* A copy of the Murdoch Barnes Tables will be furnished to the student in the End of Year Exam. The Tables are not required for the first mid-term exam.
+* Knowledge of the sample space, partitioning of the sample points, and the complement rule are advised.
+\end{itemize}
+}
+%---------------------------------------------------------------------------%
+
+
+
+\frametitle{Binomial Distribution : Using Tables}
+It is estimated by a particular bank that 25\% of credit card customers pay only the minimum amount due on their monthly credit card bill and do not pay the total amount due. 50 credit card customers are randomly selected.
+\begin{enumerate}
+* (3 marks)	What is the probability that 9 or more of the selected customers pay only the minimum amount due?
+* (3 marks) What is the probability that less than 6 of the selected customers pay only the minimum amount due?
+* (3 marks)	What is the probability that more than 5 but less than 10 of the selected customers pay only the minimum amount due?
+\end{enumerate}
+
+}
+
+
+\frametitle{Binomial Distribution : Using Tables}
+Demonstration on Blackboard re: how to use tables in class.
+\begin{enumerate}
+* $P(X \geq 9) = 0.9084$
+* $P(X < 6) = 1- P(X \geq 6) =1 - 0.9930 = 0.0070$
+* $P(6 \leq X \leq 9) = P(X \geq 6) - P(X \geq 10) = 0.9930 - 0.8363 = 0.1567$
+\end{enumerate}
+
+}
+
+
+%------------------------------------------------------------------%
+
+\frametitle{Binomial Distribution: Expected Value and Variance}
+
+
+If the random variable X has a binomial distribution with parameters n
+and p, we write
+\[ X \sim B(n,p) \]
+
+Expectation and Variance
+If $X \sim B(n,p)$, then:
+
+<p>
+* Expected Value of X : $E(X) = np$
+* Variance of X : $Var(X) = np(1-p)$
+\end{itemize}
+
+Suppose n=3 and p=0.5 
+Then $E(X) = 1.5$ and $V(X) = 0.75$.
+
+Remark: Referring to the expected value and variance may be used to validate
+the assumption of a binomial distribution.
+
+}
+%---------------------------------------------------------------------------%
+
+\frametitle{The Geometric Distribution}
+<p>
+* The Geometric distribution is related to the Binomial distribution in that
+both are based on independent trials in which the probability of success
+is constant and equal to p.
+* However, a Geometric random variable is the number of trials until the
+first failure, whereas a Binomial random variable is the number of
+successes in n trials.
+* The Geometric distributions is often used in IT security applications.
+\end{itemize}
+}
+%---------------------------------------------------------------------------%
+
+\frametitle{The Geometric Distribution}
+
+Suppose that a random experiment has two possible outcomes, success
+with probability p and failure with probability 1-p .
+
+
+The experiment is repeated until a success happens. The number of
+trials before the success is a random variable X computed as follows
+
+\[P(X = k) = (1-p)^{(k-1)}\times p \]
+
+
+(i.e. The probability that first success is on the k-th trial)
+}
+
+
+%---------------------------------------------------------------------------%
+
+\frametitle{The Geometric Distribution: Notation}
+
+If X has a geometric distribution with parameter p, we write
+\[X \sim Geo(p) \]
+Expectation and Variance
+If $X \sim Geo(p)$, then:
+
+<p>
+* Expected Value of X : E(X) = 1/p
+* Variance of X : Var(X) = $(1-p)/p^2$.
+\end{itemize}
+}
+
+
+
+
+%---------------------------------------------------------------------%
+
+\frametitle{The Cumulative Distribution Function}
+<p>
+* The Cumulative Distribution Function, denoted $F(x)$, is a common way that the probabilities
+of a random variable (both discrete and continuous) can be summarized.
+* The Cumulative Distribution Function, which also can be
+described by a formula or summarized in a table, is defined as:
+\[F(x) = P(X \leq x) \]
+* The notation for a cumulative distribution function, F(x), entails using a capital
+"F".  (The notation for a probability mass or density function, f(x), i.e. using a lowercase "f". The notation is not interchangeable.
+\end{itemize}
+
+
+%---------------------------------------------------------------------%
+
+\frametitle{Useful Results}
+(Demonstration on the blackboard re: partitioning of the sample space, using examples on next slide)
+<p>
+* $P(X \leq 1) = P(X=0) + P(X=1)$
+* $P(X \leq r) = P(X=0)+ P(X=1) + \ldots P(X= r)$
+* $P(X \leq 0) = P(X=0)$
+* $P(X = r) = P(X \geq r ) - P(X \geq r + 1)$
+* \textbf{Complement Rule}: $P(X \leq r-1) = P(X < r) = 1 - P(X \geq r)$
+* \textbf{Interval Rule}:$ P(a \leq X \leq  b)= P(X \geq a) - P(X \geq b + 1).$
+\end{itemize}
+For the binomial distribution, if the probability of success is greater than 0.5, instead of
+considering the number of successes, to use the table we consider
+the number of failures.
+
+%---------------------------------------------------------------------%
+
+
+%---------------------------------------------------------------------%
+
+\frametitle{Binomial Example 1}
+Suppose a signal of 100 bits is transmitted and the probability of
+sending a bit correctly is 0.9. What is the probability of
+\begin{enumerate}
+* at least 10 errors
+* exactly 7 errors
+* Between 5 and 15 errors (inclusively).
+\end{enumerate}
+
+%---------------------------------------------------------------------%
+
+\frametitle{Binomial Example 1}
+<p>
+* Since the probability of success is 0.9. We consider the distribution
+of the number of failures (errors).
+* We reverse the definition of `success' and `failure'. Success is now defined as an error.
+* The probability that a bit is sent incorrectly is 0.1.
+* Let X be the total number of errors. $X \sim B(100, 0.1)$.
+* Answer : $P(X \geq 10) = 0.5487$.
+* $P(X = 7)=P(X \geq 7) - P(X \geq 8) =0.8828 - 0.7939 = 0.0889$.
+* $P(5 \leq X  \leq 15) = P(X \geq 5) - P(X \geq 16) =0.9763 - 0.0399 = 0.9364$
+\end{itemize}
+
+
+
+\end{document}
+
+%---------------------------------------------------------------------------%
+
+\frametitle{Binomial Probability Distribution: Example 2}
+The vice-president of a computer firm has reviewed the records of the firm’s personnel and has found that 70\% of the employees read a well known industry magazine ``The IT Journal". \\ \bigskip
+If the vice-president was to choose 10 employees at random, what is the probability that the number of these employees who do not read the ``IT Journal" is the following?
+\normalsize
+<p>
+* [1] At least five.
+* [2] Between four and eight, inclusive.
+* [3] No more than seven.
+% * [4] What are the mean and variance of this distribution?
+\end{itemize}
+}
+
+%---------------------------------------------------------------------------%
+[fragile]
 \frametitle{Binomial Probability Distribution: Example 2}
 
 
-\begin{itemize}
+<p>
 \item
 Firstly, identify the probability distribution to be used?
-    \begin{itemize}
+    <p>
     \item
     Answer: the binomial distribution
     \end{itemize}
-\item We are given the number of trials ( `` choose 10 employees")
+* We are given the number of trials ( `` choose 10 employees")
 
-\item We are given a definition of a ``success", which is finding an employee that did NOT reads the journal.
+* We are given a definition of a ``success", which is finding an employee that did NOT reads the journal.
 
-\item We are given the probability of such a success : 30\%  or 0.30
+* We are given the probability of such a success : 30\%  or 0.30
 
-\item So our binomial parameters are n= 10 and p = 0.30
+* So our binomial parameters are n= 10 and p = 0.30
 
-\item Let's use the following \texttt{R} code to solve.
+* Let's use the following \texttt{R} code to solve.
 
 \end{itemize}
-\end{frame}
+
 %---------------------------------------------------------------------------%
-\begin{frame}[fragile]
+[fragile]
 \frametitle{Binomial Probability Distribution: Example 2}
 
 \begin{verbatim}
@@ -55,9 +649,9 @@ Firstly, identify the probability distribution to be used?
  [6] 0.95265101 0.98940792 0.99840961 0.99985631 0.99999410
 [11] 1.00000000
 \end{verbatim}
-\end{frame}
+
 %---------------------------------------------------------------------------%
-\begin{frame}[fragile]
+[fragile]
 \frametitle{Binomial Probability Distribution: Example 2}
 Question 1: Probability of at least five $P(X \geq 5)$.
 
@@ -69,10 +663,10 @@ Question 1: Probability of at least five $P(X \geq 5)$.
  [6] 0.95265101 0.98940792 0.99840961 0.99985631 0.99999410
 [11] 1.00000000
 \end{verbatim}
-\end{frame}
+
 
 %---------------------------------------------------------------------------%
-\begin{frame}[fragile]
+[fragile]
 \frametitle{Binomial Probability Distribution: Example 2}
 Question 2: Probability of between 4 and 8 inclusive $P(4 \leq X \leq 8)$.
 
@@ -83,16 +677,16 @@ Question 2: Probability of between 4 and 8 inclusive $P(4 \leq X \leq 8)$.
  [6] 0.95265101 0.98940792 0.99840961 0.99985631 0.99999410
 [11] 1.00000000
 \end{verbatim}
-\begin{itemize}
-\item $P(X \leq 8)$ is $99.98\%$, but this includes the probability of $X = \{0,1,2,3\}$
-\item We can simply subtract $P(X \leq 3)$ from $P(X \leq 8)$ to get the desired value.
-\item $(P 4 \leq X \geq 8)$ = $99.98\%$ - $64.96\%$ = $35.02\%$
+<p>
+* $P(X \leq 8)$ is $99.98\%$, but this includes the probability of $X = \{0,1,2,3\}$
+* We can simply subtract $P(X \leq 3)$ from $P(X \leq 8)$ to get the desired value.
+* $(P 4 \leq X \geq 8)$ = $99.98\%$ - $64.96\%$ = $35.02\%$
 \end{itemize}
-\end{frame}
+
 
 
 %---------------------------------------------------------------------------%
-\begin{frame}[fragile]
+[fragile]
 \frametitle{Binomial Probability Distribution: Example 2}
 Question 3: Probability of no more than 7 $P(X \leq 7)$.
 \begin{verbatim}
@@ -102,5 +696,5 @@ Question 3: Probability of no more than 7 $P(X \leq 7)$.
 [11] 1.00000000
 \end{verbatim}
 \[ P(X \leq 7) = 99.84\% \]
-\end{frame}
+
 %---------------------------------------------------------------------------%

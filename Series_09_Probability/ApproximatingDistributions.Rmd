@@ -1,0 +1,62 @@
+
+Approximating Distribution {data-navmenu="Advanced Topics"}
+===========================================================
+
+Column {.tabset}
+-----------------------------------
+
+
+### Poisson Approximation 
+
+<h5> Poisson Approximation Of The Binomial Distribution</h5>
+
+* <a href = "https://youtu.be/XnRT3cLoZ08/"> Poisson Approximation Of The Binomial Distribution </a>
+
+<h5>Poisson Approximation of the Binomial</h5>
+
+*  The Poisson distribution can sometimes be used to approximate the binomial distribution
+*  When the number of observations n is large, and the success probability p is small, the $\mbox{Bin}(n,p)$ distribution approaches the Poisson distribution 
+with the parameter given by $m = np$.
+*  This is useful since the computations involved in calculating binomial probabilities are greatly reduced.
+*  As a rule of thumb, n should be greater than 50 with p very small, such that $np$ should be less than 5.
+*  If the value of $p$ is very high, the definition of what constitutes a ``success" or ``failure" can be switched.
+
+
+
+
+
+### Normal Approximations of the Binomial Distribution
+
+<h5> Worked Example 1</h5>
+In a certain large population 45% of people have blood group A. 
+A random sample of 300 individuals is chosen from this population.
+<p>
+Calculate an approximate value for the probability that more than 115 of the sample
+have blood group A.
+<p>
+<a href="https://youtu.be/olxga5ArlSs"><strong>Solution</strong></a>
+
+### Normal Approximation of Discrete Distributions
+
+* <a href = "https://youtu.be/Zs9ZuOj_xK0/"> Normal Approximation of Poisson Distribution</a>
+* <a href = "https://youtu.be/sFGd4LSGQ0U/"> Poisson Distribution - Normal Approximation</a>
+* <a href = "https://youtu.be/-LNQylZnjW4/"> Normal Approximation of the Binomial Distribution</a>
+* <a href = "https://www.youtube.com/watch?v=093X1SWd1cg">Normal Approximation of Poisson Distribution</a>
+
+
+
+* <a href="https://youtu.be/E3PyT0SMmEs/">	Normal Approximation of Binomial Distribution	</a>	
+* <a href="https://youtu.be/Zs9ZuOj_xK0/">	Normal Approximation of Poisson Distribution	</a>	
+* <a href="https://youtu.be/-LNQylZnjW4/">	Normal Approximation of the Binomial Distribution	</a>	
+* <a href="https://youtu.be/F_xpB6DOFoI/">	Normal Approximation of the Binomial Distribution - Worked Example	</a>	
+* <a href="https://youtu.be/2Fhw7W44frY/">	Binomial Distribution - Normal Approximation of a Binomial Random Variable	</a>	
+* <a href="https://youtu.be/sFGd4LSGQ0U/">	Poisson Distribution - Normal Approximation	</a>	
+
+
+
+
+### Normal Approximation of Continuous Distributions
+
+* <a href = "https://youtu.be/dh8gpsM7HpM/"> Gamma Random Variables - Normal Approximation</a>
+
+

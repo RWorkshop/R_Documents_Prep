@@ -1,0 +1,25 @@
+---
+title: "StatsResource"
+output: 
+  flexdashboard::flex_dashboard:
+    theme: united
+    css: style.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+
+```{r child = 'main/introduction.Rmd'}
+```
+
+
+
+```{r child = 'dataanalysis/descriptivestatistics.Rmd'}
+```
+
+```{r child = 'dataanalysis/exploratorydataanalysis.Rmd'}
+```
+
