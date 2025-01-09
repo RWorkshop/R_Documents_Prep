@@ -1,0 +1,47 @@
+
+# The R Programming Language
+
+The R Programming Language is a statistical and data analysis tool. R is a free software environment for statistical computing and graphics.
+
+## Inputting Data
+
+Concatenation.
+
+## Using Help
+
+```R
+?mean
+```
+
+
+# Starting R the First Time
+
+When running R from the computer lab, your M drive will be the working directory where your work will be saved by default. You can easily change to another directory at any time by selecting Change Dir... from the File menu. You can save your work at any time by selecting Save Workspace from the File menu. You will usually save the workspace in the working directory. When you quit R, you will be prompted to save your workspace.
+
+
+## Creating Data with R
+
+### Data Import
+
+It is necessary to import outside data into R before you start analyzing it. Here we will look at some relevant issues.
+
+#### Microsoft XLS File
+
+Very often, the sample data is in MS Excel™ format and needs to be imported into R prior to use. For this, we can use the `read.xls()` function from the **gdata** package. The command reads from an Excel spreadsheet and returns a data frame. The following shows how to load an Excel spreadsheet named "mydata.xls". As the package is not in the core R library, it has to be installed and loaded into the R workspace. (This spreadsheet is saved in the working directory).
+
+```R
+library(gdata)                   # load the gdata package
+help(read.xls)                   # documentation
+mydata = read.xls("mydata.xls")  # read from first sheet
+```
+
+
+# Topics Included in This Tutorial
+
+1. Starting R the first time
+2. Some things to keep in mind
+3. Beginning an analysis
+4. Visualizing your data
+```
+
+I hope this helps! Let me know if you need any more adjustments.

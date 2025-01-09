@@ -1,0 +1,68 @@
+
+
+## Probability Distributions
+
+### The Discrete Uniform Distribution
+
+- Parameters: `min`, `max`.
+- The default values are `0` and `1`.
+
+### Variance and Covariance
+
+```R
+var(Mat1[,1])   # Determine the variance of the first column 
+var(Mat1[,2])   # Determine the variance of the second column
+var(Mat1[3,])   # Determine the variance of the third row
+cov(Mat1[,1], Mat1[,2])  # Covariance of the first two columns
+var(Mat1)  # Variance-covariance matrix of all columns
+VCmat = var(Mat1)  # Save as matrix “VCmat”
+cor(Mat1)  # Correlation matrix of all columns
+cov2cor(VCmat)  # Convert a VC matrix to a correlation matrix
+```
+
+---
+
+## Descriptive Statistics and Basic Graphical Methods
+
+### Measures of Centrality and Dispersion
+
+```R
+# Anscombe’s Quartet
+X1 = c(
+Y1 =
+```
+
+---
+
+## Logical and Relational Operators
+
+- `||`  logical "Or"  (i.e. union)
+- `&&`  logical "And" (i.e. intersection)
+
+---
+
+## Data Manipulation
+
+### Types of Vectors
+
+- Logical
+- Numeric
+- Character
+- Others: Complex and Colour
+
+### Creating a Vector
+
+```R
+scan()
+X = c()
+data.entry()
+```
+
+### Data Manipulation Functions
+
+- `sort()`
+- `rev()`
+- `rep()`
+- `length()`
+- `order()`
+

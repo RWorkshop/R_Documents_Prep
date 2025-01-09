@@ -1,0 +1,69 @@
+\documentclass[a4paper,12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{eurosym}
+\usepackage{vmargin}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{fancyhdr}
+%\usepackage{listings}
+\usepackage{framed}
+\usepackage{graphicx}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.00.0.2570}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{LastRevised=Wednesday, February 23, 2011 13:24:34}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{Language=American English}
+
+\pagestyle{fancy}
+\setmarginsrb{20mm}{0mm}{20mm}{25mm}{12mm}{11mm}{0mm}{11mm}
+\lhead{Dublin \texttt{R}} \rhead{Week 1}
+\chead{Computing For Data Analysis }
+%\input{tcilatex}
+
+
+% http://www.norusis.com/pdf/SPC_v13.pdf
+\begin{document}
+
+% 1 - names - ready
+% 2 - head - ready
+% 3 - dim() -ready
+% 4 - tail -ready
+% 5 - Square Brackets -ready
+% 6 - Missing Values - summary?
+% 7 - summary (missing value remove) 
+% 8 - subset + relational and logical operators
+% 9 - str() - ready
+%10 - subset according to category
+ 
+\section{Reading in a CSV file}
+% Section 1
+To read in a csv file, it is convenient to save it to your \textit{\textbf{working directory}}, the default file directory that \texttt{R} uses. Once it is in the working directory, you can use the \texttt{read.csv()} command to load it into the \texttt{R} environment.
+\begin{framed}
+\begin{verbatim}
+getwd()
+#[1] "C:/Users/Computer5/Documents"
+
+HW0 <- read.csv("hw0_data.csv",header = TRUE)
+\end{verbatim}
+\end{framed}
+You can change the working directory using the \texttt{setwd()} to the one you require.
+\begin{framed}
+\begin{verbatim}
+getwd()
+#[1] "C:/Users/Computer5/Documents"
+
+setwd("C:/Users/Computer5/Documents/R")
+
+#  > getwd()
+#  [1] "C:/Users/Computer5/Documents/R"
+\end{verbatim}
+\end{framed}
+
+
+
+

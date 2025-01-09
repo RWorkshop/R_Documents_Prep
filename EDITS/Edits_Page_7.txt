@@ -1,0 +1,114 @@
+### Assessments
+
+---
+
+#### Some More Vector Functions
+
+* `cumsum()`: Computes the cumulative sums for a vector
+* `cumprod()`: Computes the cumulative products for a vector
+* `diff()`: Computes lagged differences (default difference is 1)
+
+```R
+> s <- c(1,1,3,4,7,11)
+> cumsum(s)
+[1] 1 2 5 9 16 27
+
+> diff(s) # 1-1, 3-1, 4-3, 7-4, 11-7
+[1] 0 2 1 3 4
+
+> diff(s, lag = 2) # 3-1, 4-1, 7-3, 11-4
+[1] 2 3 4 7
+```
+
+---
+
+#### The `scan` Function
+
+* We can use the function `scan()` when typing in data.
+* It stops adding data when you enter a blank row.
+* For more information, type `?scan`, but the basic usage is simple.
+
+```R
+> y = scan()
+1: 4 5 6 7 8 9
+7:
+Read 6 items
+> y
+[1] 4 5 6 7 8 9
+```
+
+---
+
+#### Datasets Included with R
+
+* R contains many datasets that are built-in to the software. These datasets are stored as data frames. To see the list of datasets, type:
+
+```R
+> data()
+```
+
+* Additionally, we will be using datasets embedded in the `MASS` package. To access those datasets, simply type:
+
+```R
+> library(MASS)
+> data()
+```
+
+* To open the dataset called `trees`, simply type:
+
+```R
+> data(trees)
+```
+
+* After doing so, the data frame `trees` is now in your workspace. To learn more about this (or any other included dataset), type `help(trees)`.
+
+---
+
+#### Categorical Data
+
+* There is a distinction between types of data in statistics and R recognizes some of these differences. Initially, data can be of three basic types: categorical, discrete numeric, and continuous numeric. Methods for viewing and summarizing the data depend on the type, and so we need to be aware of how each is handled and what we can do with it.
+
+* Categorical data may be recorded using character vectors. For example, a survey asks people if they smoke or not. The results may be recorded as follows:
+
+```R
+>x = c("Yes", "No", "No", "Yes", "Yes", "No", "No", "Yes")
+```
+
+* To summarize this data, we can use the `table()` command:
+
+```R
+> table(x)
+x
+ No Yes
+  4   4
+```
+
+* The `table` command simply adds up the frequency of each unique value of the data.
+
+---
+
+#### Data Frames: Introduction
+
+* A data frame can be thought of as a data matrix or data set
+* It is a generalization of a matrix
+* It is a data structure of vectors and/or factors of the same length
+* The frame has a unique set of row names
+* Data in the same position across columns come from the same subject
+* Most data sets are in the form of a data frame
+
+---
+
+#### Data Frames: Creating a Data Frame
+
+* Data frames can be constructed using component vectors. We can create data frames from variables using the `data.frame()` command:
+
+```R
+> mean_weight = c(71.5, 72.1, 73.7, 74.3, 75.2, 74.7)
+
+> Gender = c("M", "M", "F", "F", "M", "M")
+
+> d <- data.frame(mean_weight, Gender)
+```
+---
+
+Is there anything else you would like to add or modify?

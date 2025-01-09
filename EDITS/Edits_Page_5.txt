@@ -1,0 +1,56 @@
+
+
+1. Scanning in CSV files using the `read.csv` command.
+2. Writing out a CSV file to the working directory.
+3. Using the `sink` function. Summary of the iris data set.
+4. Scanning in character data. Constructing a data frame.
+5. Generating random numbers using `rnorm` and `runif` commands.
+6. Variance, covariance, correlation, and matrices using `cov2cor`.
+7. Nested loops with two dice. Difference AR(1) example.
+8. Handling missing values.
+9. Exercise: Spurious correlation in Big Data.
+
+---
+
+
+
+
+Using R's help commands
+As mentioned earlier, R has an inbuilt help facility. To get more information on any specific named function, for example “boxplot”, the command is: “?boxplot” or “help(boxplot)”
+
+>?boxplot		  # access help on boxplots
+>help(Im)        # access help on "Im"
+
+A description of the package – as well as some demonstration code – are provided.
+
+Try out the demonstration code.
+
+On most R installations help is available in HTML format by running help.start() which will launch a Web browser that allows the help pages to be browsed with hyperlinks. 
+ 
+
+>help.start()
+
+
+There is also an “apropos” function. This command returns a list of the names of all objects matching the argument. This is very useful for finding out what commands and functions are available.
+Suppose we want to find out a way of performing a correlation analysis. Use “cor” as the argument (short, but not too short).
+
+> apropos("cor")
+[1] ".__C__recordedplot" "cancor"             "cor"               
+[4] "cor.test"           "cov2cor"            "Harman23.cor"      
+[7] "Harman74.cor"       "recordGraphics"     "recordPlot"    
+
+
+## Getting Started
+
+- $R$ can be started by clicking the $R$ icon on the computer's desktop.
+
+
+
+---
+
+```latex
+\end{document}
+```
+```
+
+I hope this helps! Let me know if you need any more adjustments.

@@ -1,0 +1,66 @@
+
+
+\frametitle{Basic R editing – Script Editor and \texttt{edit()}}
+R has an inbuilt script editor. We will use it for this class, but there are plenty of top quality “Integrated Development Environments “ out there. (Read up about RStudio for  example.)
+
+To start a new script, or open an existing script simply go to “File” on the menu bar and click the appropriate options.
+A new dialogue box will appear. You can write and edit code using this editor.
+To pass the code for compiling – press the “run line or selection” option (The third icon on the menu).
+Another way to edit code is to use the \texttt{edit()} function – which operates directly from the command line.  To edit the code defining an object X, simply type edit(X).
+\end{frame}
+%------------------------------------------------------%
+
+\frametitle{Changing GUI options}
+We can change the GUI options using the “GUI preferences” option on the Edit menu. (Important when teaching R)
+A demonstration will be done in class. 
+%------------------------------------------------------%
+\end{frame}
+%------------------------------------------------------%
+
+\frametitle{Embedded Datasets}
+Several data sets – intended as learning tools – are automatically installed when \texttt{R} is installed. Many more are installed within packages to complement learning to use those packages.  One of these is the famous ``\textit{iris}" data set, which is used in many data mining exercises.
+\begin{itemize}
+\item To see what data sets are available – type \texttt{data()}.
+\item To load a data set, simply type in the name of the data set. 
+\item To specify that a specific data set is to be used for analysis, use the command \texttt{attach()}.
+
+\end{itemize}
+\end{frame}
+%------------------------------------------------------%
+
+Some data sets are very large. To just see the first few rows, we use the head() function.
+{
+\small
+\begin{framed}
+\begin{verbatim}
+> head(iris)
+  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
+6          5.4         3.9          1.7         0.4  setosa
+\end{verbatim}
+\end{framed}
+}
+\end{frame}
+
+
+
+The save function accepts multiple arguments to specify the objects you wish to save, or, alternatively, a character vector with the names of the objects can be passed to save through the \texttt{list=} argument. 
+
+Once the objects to be saved are specified, the only other required option is the \texttt{file=option}, specifying the destination of the saved R object. Although there is no requirement to do so, it is common to use a suffix of \texttt{.rda} or \texttt{.RData} for saved \texttt{R} workspace files.
+
+For example, to save the \texttt{R} objects x, y, and z to a file called \texttt{myData.rda} ,the following statements could be used:
+
+\begin{verbatim}
+> save(x,y,z,fil= ‘mydata.rda’)
+\end{verbatim}
+\end{frame}
+
+Whenever \texttt{R} encounters such a file in the working directory at the beginning of a session, it automatically loads it making all your saved objects available again. 
+So one method for saving your work is to always save your workspace image at the end of an R session. If you’d like to save your workspace image at some other time during your R session, you can use the \texttt{save.image()} function, which, when called with no arguments, will also save the current workspace to a file called .RData in the working directory.
+\end{frame}
+%---------------------------------------------------------------------------------------------%
+

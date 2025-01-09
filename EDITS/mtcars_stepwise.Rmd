@@ -1,0 +1,19 @@
+mtcars -  Stepwise Variable Selection Procedures
+========================================================
+Column {.tabset}
+----------------------
+### Backward Selection
+
+```{r}
+FitAll = lm(mpg ~ cyl + disp + hp + drat + wt + qsec + vs + am + gear + carb, data= mtcars)  
+step(FitAll, direction="backward")
+```
+
+### Forward Selection
+
+```{r}
+
+FitAll = lm(mpg ~ 1)  
+step(FitAll, direction="forward")
+```
+

@@ -1,0 +1,117 @@
+
+%=====================================================================================================================%
+\begin{frame}
+
+\frametitle{Introduction to R}
+
+R is the product of an active movement among statisticians for a powerful, programmable, portable, and open computing environment, applicable to the most complex and sophsticated problems, as well as“routine”analysis.
+ 
+There are no restrictions on access or use.
+
+
+Statisticians have implemented hundreds of specialised statistical procedures for a wide variety of applications as contributed packages, which are also freely-available and which integrate directly into R.
+
+ 
+R has data handling and storage facilities, a suite of operators for calculations on arrays in particular matrices. A large coherent integrated collection of intermediate tools for data analysis
+A large selection of demonstration datasets used in the illustration of many statistical methods.
+Graphical facilities for data analysis and display either directly.at the computes or on hardcopy.
+ 
+\end{frame}
+%=====================================================================================================================%
+\begin{frame}
+R is a flexible language that is object oriented and thus allows the manipulation of a complex data structures in a condensed and efficient manner.
+
+
+R's graphical abilities are also remarkable with possible interfacing with text processors such as Latex with the package sweave.
+
+R offers the addtional advantage of being a free and opensource system under the GNU general public licence.
+
+R is primarily a statistical language. R can be installed free of charge from www.r-project.org
+\end{frame}
+%=====================================================================================================================%
+\begin{frame}
+An online guide "An Introduction to R" can be access by typing help.start() at the command prompt to access this.
+
+R is a statistical Environment for statistical computing and graphics, which is available for windows, Unix and Mac OS platforms.
+
+R is maintained and distributed by an international team of statisticians and computers scientists.
+R is one of the major tools used in statistical research and in applications of statistics research.
+
+R is an open-source (GPL) statistical environment modeled after S and S-Plus. The S language was developed in the late 1980s at AT&T labs. The R project was started by Robert Gentleman and Ross Ihaka of the Statistics Department of the University of Auckland in 1995. It has quickly gained a widespread audience. 
+\end{frame}
+%=====================================================================================================================%
+\begin{frame}
+R is currently maintained by the R core-development team, a hard-working, international team of volunteer developers. 
+
+The R project web page ( http://www.r-project.org ) is the main site for information on R. At this site are directions for obtaining the software, accompanying packages and other sources of documentation.
+
+\end{frame}
+
+%=====================================================================================================================%
+\begin{frame}
+
+For example, to load the fda package:
+
+> library(fda)
+
+One important thing to note is that if you terminate your session and start a new session with the saved workspace, you must load  the packages again
+
+
+
+install.packages("evir")
+ 
+To get out of R, just type: q(). 
+
+\end{frame}
+
+\begin{frame}
+
+Section 10: Simulation
+Simulation Study : Random Walks
+Simulation Study: Distribution of pairwise maxima and minima
+Simulation Study : Gamblers Ruins
+Simulation Study: Probability of Gambler Ruin
+
+\end{frame}
+%=====================================================================================================================%
+\begin{frame}
+
+Section 1: Basic R commands and Functions
+Installing R on your computer
+R can be easily downloaded from the Comprehenive R Archive Network (CRAN) website.
+\end{frame}
+%=====================================================================================================================%
+\begin{frame}
+
+Editing your Data
+
+x=c(0 ,5)     	      # create a vector x
+data.entry(x)  	   # edit the values using spreadsheet interface.
+x  	                     # print to screen
+x=edit(x)	          # the 'edit' function to call the script editor
+x  	                     # print to screen
+
+\end{frame}
+
+%=====================================================================================================================%
+\begin{frame}
+Manipulating Characters
+> nchar("oscar")
+[1] 5
+
+Objects
+During an R session, objects are created and stored by name. The command "ls()" displays all currently-stored objects (workspace). Objects can be removed using the "rm()" function.
+
+\end{frame}
+%=====================================================================================================================%
+\begin{frame}
+
+ls()
+rm(x, a, temp, wt.males)
+rm(list=ls())								#removes all of the objects in the workspace.
+
+
+At the end of each R session, you are prompted to save your workspace. If you click Yes, all objects are written to the ".RData" file. 
+When R is re-started, it reloads the workspace from this file and the command history stored in ".Rhistory" is also reloaded.
+
+%==================================================================================================================%

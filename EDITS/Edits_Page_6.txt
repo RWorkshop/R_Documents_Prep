@@ -1,0 +1,54 @@
+
+## Correlation and Regression Tests
+
+### Correlation Coefficient
+
+Strength of a linear relationship between $X$ and $Y$.
+
+```R
+M = 1000
+CorrData = numeric(M)
+for (i in 1:M) {
+  CorrData[i] = cor(rnorm(10), rnorm(10))
+}
+```
+
+The null hypothesis is that the correlation coefficient is zero.
+
+The alternative hypothesis is that the correlation coefficient is greater than zero.
+
+### The Slope and Intercept Estimates
+
+These tests are given in the "Two Tailed" format. The one-tailed format compares a null hypothesis where the parameter of interest has a true value of less than or equal to one versus an alternative hypothesis stating that it has a value greater than zero.
+```
+
+### More Statistical Procedures
+
+---
+
+#### Graphical Procedures
+- Various methods to visualize data and statistical results.
+
+#### Inference Procedures (t-tests)
+- Methods to draw conclusions about population parameters based on sample data.
+
+#### Model Fitting (Linear Regression, etc.)
+- Techniques to model the relationship between variables.
+
+
+
+### Model Fitting
+
+#### Regression Models and Bivariate Data
+
+- **Simple Linear Regression**
+- **Multiple Linear Regression**
+- `lm()`: Used to fit linear models. It can be used to carry out regression, single stratum analysis of variance, and analysis of covariance.
+
+#### Goodness of Fit Statistics
+
+- **AIC()**: Akaike Information Criterion for model comparison.
+
+---
+
+If you have more questions or need further clarification on any of these topics, feel free to ask!

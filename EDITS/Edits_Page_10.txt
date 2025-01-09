@@ -1,0 +1,105 @@
+## Setting Up Project Directories
+
+It is helpful to organize your work in project directories.
+- Create a directory for your project.
+- Copy a workspace (a .Rdata file) to the directory.
+- You can then start R by clicking on the .Rdata file's icon.
+- All directory references in the R session will be relative to the project directory. For example, you can read a file `data.csv` in the directory with:
+
+---
+
+[Resource for Two-Tailed Test of Population Proportion](http://www.r-tutor.com/elementary-statistics/hypothesis-testing/two-tailed-test-population-proportion)
+
+---
+
+## Regression
+
+- [More on Regression](http://www.ats.ucla.edu/stat/R/dae/rreg.htm)
+
+---
+
+## Chi-Square Tests
+
+Hypothesis tests for count data that use the Pearson Chi-square statistic are available in R. These include the goodness-of-fit tests and those for contingency tables. Each of these is performed by using the `chisq.test()` function.
+
+The basic syntax for this function is (see `?chisq.test` for more information): 
+
+- [Resource on Probability Distributions](http://www.r-tutor.com/elementary-statistics/probability-distributions)
+
+---
+
+## Binomial Coefficients
+
+
+
+\[ n \choose k = \frac{n!}{k!(n-k)!} \]
+
+
+
+---
+
+## RSS Higher Certificate Module 4: Linear Model
+
+(Royal Statistical Society Professional Exams)
+### Advanced Data Modelling
+
+- Use Simple Linear Regression for calibration and reverse prediction.
+- Apply and evaluate regression diagnostics with emphasis on leverage and influence points.
+- Explain the Matrix formulation of the linear model.
+- Understand multiple regression, partial correlation, and polynomial regression.
+- Apply Analysis of Variance: multiple comparisons, two-way ANOVA, interactions.
+- Understand analysis of covariance.
+- Overview of Generalized Linear Models including nonlinear regression, logistic regression, and log-linear models.
+
+### Simple Linear Regression
+
+- Calibration, reverse prediction, regression through the origin, analysis of residuals, regression diagnostics, leverage and influence.
+
+### Matrix Formulation of the Linear Model
+
+- Multiple regression, partial correlation, polynomial regression.
+
+### Regression
+
+- Simple linear regression. Least squares estimation.
+- Multiple linear regression – concepts, interpretation of computer output, inference for regression coefficients using estimates and estimated standard errors from computer output.
+- Analysis of variance for regression models.
+- Calculation and interpretation of the multiple correlation coefficient (coefficient of determination).
+- Simple cases of transforming to linearity.
+
+### Correlation
+
+- Product-moment correlation (Pearson).
+- Rank correlation – Spearman’s coefficient.
+- Calculation and interpretation.
+
+### Design of Experiments
+
+- Reasons for experimentation, causality.
+- Principles of replication and randomisation, completely randomised design.
+
+### Analysis of Variance
+
+- One-way analysis of variance.
+- Inference for means and for differences in means.
+- One-way ANOVA, multiple comparisons.
+- Two-way ANOVA with interactions.
+- Analysis of covariance.
+
+### Generalized Linear Models
+
+- Introduction to Generalized Linear Models including nonlinear regression, logistic regression, and log-linear models.
+
+---
+
+## Central Limit Theorem
+
+Hypothesis testing and confidence interval construction are based on the Central Limit Theorem (CLT).
+
+- CLT - see Introductory Data Analysis notes by Dr. Ailish Hannigan.
+- Can check the CLT using a small simulation example.
+
+We will take 10000 samples of size 5 from data with a uniform distribution and record the means. When we plot a histogram of the means, it should have a normal distribution.
+
+```R
+means <- numeric(10000)

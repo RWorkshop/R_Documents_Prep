@@ -1,0 +1,85 @@
+Here is your tidied-up, reorganized, and formatted table of contents in markdown:
+
+```markdown
+# Table of Contents
+
+## Part 1a: Exploratory Data Analysis and Basic Probability
+
+- Measures and Graphical Techniques (i.e. Boxplots)
+- Statistical Fallacies
+
+
+## R and EVT
+
+- Overview of Proposal
+- Simple R Programming
+  - Vectors
+    - Integer
+    - Character
+    - Logical
+    - Numeric
+- Packages
+- Inference Procedures
+- Regression Models and Bivariate Data
+- Tinn-R
+- Packages
+  - Using and Installing Packages
+  - Installing Additional Packages
+
+## Overview of Proposal
+
+- How to Access R
+- Using Modules
+- Setting Up Projects
+- Statistics
+  - Designing a Statistical Analysis
+  - Practical Element Focusing on Carrying Out Basic Statistics and Extreme Value Analysis on an Annual Maximum Series
+
+## Basic R Functions
+
+- `head()`
+- `rbind()`
+- `cbind()`
+
+## Commenting #######
+
+## Basic R Editor
+
+- New Script
+- Updating Script
+- Running Script
+
+## Probability Distributions
+
+- Continuous: Normal / Student's 't' / Chi-square Distribution
+- Discrete: Binomial / Poisson / Geometric Distribution
+
+## Logical Functions and Coercion
+
+- `as.vector`
+- `is.na`
+  - `NA` is a logical constant of length 1 which contains a missing value indicator.
+  - Missing value/not available.
+
+## Regression Models and Bivariate Data
+
+- Simple Linear Regression
+- Multiple Linear Regression
+- `lm()`
+  - Used to fit linear models. Can be used to carry out regression, single stratum analysis of variance, and analysis of covariance.
+
+## Control Loops
+
+- `do`
+- `if`
+
+## Writing Functions
+
+## Goodness of Fit Statistics
+
+- AIC
+
+---
+
+I hope this helps! Let me know if you need any more adjustments.
+```

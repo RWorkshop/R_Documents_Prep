@@ -1,0 +1,205 @@
+\documentclass{article}
+\usepackage{natbib}
+\usepackage{vmargin}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{subfigure}
+%\usepackage{amscd}
+\usepackage{verbatim}   % useful for program listings
+\usepackage{color}      % use if color is used in text
+\usepackage{hyperref}   % use for hypertext links, including those to external documents and URLs
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{amsthm, amsmath}
+%\usepackage[dvips]{graphicx}
+\bibliographystyle{chicago}
+\renewcommand{\baselinestretch}{1.1}
+
+
+\begin{document}
+
+
+\section*{Exercise 22}
+
+1. The following are measurements (in mm) of a critical
+dimension on a sample of engine crankshafts:
+
+  \begin{array}{|cccc|}
+
+    224.120 & 224.017 & 223.976 & 223.961 \\
+    224.089 & 223.982 & 223.980 & 223.989  \\
+    223.960 & 223.902  & 223.987 & 224.001  \\
+
+  \end{array}
+
+
+(a) Calculate the mean and standard deviation for these data.\\
+(b) The process mean is supposed to be $\mu$ = 224mm. Is this the
+case? Give reasons for your answer.\\
+(c) Construct a 99\% confidence interval for these data and
+interpret.\\
+(d) Check that the normality assumption is valid using 2 suitable
+plots.
+
+\end{document}
+\newpage
+
+\textbf{Assignment 5}\\
+15\% of overall mark\\
+Thursday 22nd April 3pm\\
+Short questions on confidence intervals, test statistics, p-values ,etc\\
+Pen and paper exam\\
+45 minutes long\\
+Open book\\\\
+
+\textbf{Assignment 6}\\
+20\% of overall mark\\
+Project Work\\
+Each student will be give some data sets.\\
+The objective of the assignment is to utilize course material for these data sets\\
+Submission by PDF document\\
+Deadline: Thursday 29th April 6pm
+\newpage
+%--------------------------------------------------------------%
+\begin{itemize}
+\item Exercise: Multiple plots in a single graphic window.
+\item Exercise: Adding Legends to plots.
+
+\item Exercise: Linear Regression models.
+\item Exercise: Correlation test.
+\item Exercise: Shapiro Wilk test.
+\item Exercise: Paired $t-$ test.
+\end{itemize}
+
+%--------------------------------------------------------------%
+
+Forthcoming material
+\begin{itemize}
+\item plots (Continuing from before easter)
+\begin{itemize}
+  \item Par() command to set graphical parameters.
+  \item Box plots
+\end{itemize}
+\item Linear Regression (lm()).
+\item Confidence intervals
+\item Hypothesis testing(p-values)
+\item Inference on Linear regression
+\item Special tests (Shapiro - Wilk test, correlation test)
+\item outliers
+\item Analysis of variance (ANOVA)
+\end{itemize}
+\newpage
+
+
+
+%--------------------------------------------------------------%
+\begin{itemize}
+\item Week 10  One class - Thursday 8th April
+\item Week 11  Two classes on Monday 12th April
+\begin{itemize}
+\item deadline for Assignment 4a Monday 8pm
+\item email kevin.obrien@ul.ie
+\end{itemize}
+\item Week 11  One class on Thursday 15th April
+\item Week 12  Two classes on Monday 19th April
+\item Week 12  One class on Thursday 22nd April
+\item Week 13  Assignment 5 on Monday 26th April
+\begin{itemize}
+\item Short questions
+\item material from Week 11 onwards ( last 7 classes)
+\item open book exam
+\item worth 15%
+\end{itemize}
+\item Week 13  one class on Monday 26th April
+\item Week 13  one class on Thursday 28th April
+\item Week 14  deadline for Assignment 6
+\end{itemize}
+%--------------------------------------------------------------%
+
+\newpage
+\
+
+
+
+
+1) Create a data frame for the data ( see `Car.R')
+\begin{verbatim}
+> Car<-data.frame(Make,Model,Cylinder,Weight,Mileage,Type)
+\end{verbatim}
+
+2) Find the `names' and the dimensions of the Car data frame.
+\begin{verbatim}
+> names(Car)
+[1] "Make" "Model" "Cylinder" "Weight" "Mileage" "Type"
+> dim(Car)
+[1] 10  6
+\end{verbatim}
+
+3) Find the mean and standard deviation of the weight of the cars.
+\begin{verbatim}
+> mean(Car$Weight)
+[1] 2858
+> sd(Car$Weight)
+[1] 543.7943
+\end{verbatim}
+
+4) Subset the data so that only cars above 2500 kgs are considered. (Call the subset 'cars2500')
+\begin{verbatim}
+cars2500 = Car[Car$Weight>2500,]
+\end{verbatim}
+
+5) Make a subset of the small cars (call the subset `smallcar').
+\begin{verbatim}
+> smallcar=Car[Car$Type=="Small",]
+> smallcar
+        Make  Model Cylinder Weight Mileage  Type
+3       Ford Escort       V4   2345      33 Small
+4      Eagle Summit       V4   2560      33 Small
+5 Volkswagen  Jetta       V4   2330      26 Small
+>
+\end{verbatim}
+
+6) What is the correlation coefficient between weight and mileage?
+
+\begin{verbatim}
+> cor(Car$Weight,Car$Mileage)
+[1] -0.8759577
+\end{verbatim}
+
+7) Make a plot of weights against mileage (include a title).
+
+\begin{verbatim}
+>plot(Car$Weight, Car$Mileage, main="Weight vs. Mileage")
+\end{verbatim}
+
+Alternatively
+\begin{verbatim}
+>attach(Car)
+>plot(Weight, Mileage, main="Weight vs. Mileage")
+\end{verbatim}
+
+\newpage
+
+
+\newpage
+
+\begin{verbatim}
+# Car.R
+> Make<-c("Honda","Chevrolet","Ford","Eagle","Volkswagen",
++"Buick","Mitsbusihi", "Dodge","Chrysler","Acura")
+>
+> Model<-c("Civic","Beretta","Escort","Summit","Jetta",
++"Le Sabre","Galant", "Grand Caravan","New Yorker","Legend")
+>
+> rep("V6",3)               # repeat three times
+[1] "V6" "V6" "V6"
+> Cylinder<-c(rep("V4",5),"V6","V4",rep("V6",3))
+> Cylinder
+[1] "V4" "V4" "V4" "V4" "V4" "V6" "V4" "V6" "V6" "V6"
+> Weight<-c(2170,2655,2345,2560,2330,3325,2745,3735,3450,3265)
+> Mileage<-c(33,26,33,33,26,23,25,18,22,20)
+> Type<-c("Sporty","Compact",rep("Small",3),"Large",
++"Compact","Van",rep("Medium",2))
+\end{verbatim}
+
+\end{document}

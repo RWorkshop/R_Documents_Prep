@@ -1,0 +1,4 @@
+#### General Rules
+- Prompt for commands in the command window: `>`
+- Continuation prompt when the command is incomplete: `+`
+- Multiple commands may appear on one line if separated by `;`.

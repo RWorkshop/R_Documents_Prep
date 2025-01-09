@@ -1,0 +1,320 @@
+
+\documentclass{article}
+\usepackage{natbib}
+\usepackage{vmargin}
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{subfigure}
+%\usepackage{amscd}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{amsthm, amsmath}
+%\usepackage[dvips]{graphicx}
+\bibliographystyle{chicago}
+\renewcommand{\baselinestretch}{1.0}
+
+\begin{document}
+
+\section*{Exercise 25: Confidence intervals}
+Seven meas urements of the pH of a buffer solution gave the following results:
+5.12 5.20 5.15 5.17 5.16 5.19 5.15. Calculate (i) the 95\% and (ii) the 99\% confidence limits for the true pH
+utilizing R.
+
+\begin{verbatim}
+> x<-c(5.12, 5.20, 5.15, 5.17, 5.16, 5.19, 5.15)
+> n=length(x)
+>
+> alpha5=0.05
+> alpha1=0.01
+>
+> LB95=mean(x)+qt(alpha5/2,n-1)*sd(x)/sqrt(n)
+> UB95=mean(x)+qt(1-alpha5/2,n-1)*sd(x)/sqrt(n)
+>
+> LB95
+[1] 5.137975
+> UB95
+[1] 5.187739
+
+\end{verbatim}
+
+Thus the 95\% confidence interval for this problem is approximately [5:14; 5:19], while
+using the same code only taking $\alpha$ =0.01 will give us [5:13; 5:20].
+
+\newpage
+\section*{Exercise 26: Correlation test}
+
+Assessment of tuna quality: We compare the Hunter L measure of
+lightness to the averages of consumer panel scores (recoded as
+integer values from 1 to 6 and averaged over 80 such values) in
+ 9 lots of canned tuna.
+(Hollander \& Wolfe (1973), p. 187f.)
+
+\begin{verbatim}
+x <- c(44.4, 45.9, 41.9, 53.3, 44.7, 44.1, 50.7, 45.2, 60.1)
+y <- c( 2.6,  3.1,  2.5,  5.0,  3.6,  4.0,  5.2,  2.8,  3.8)
+\end{verbatim}
+
+\begin{itemize}
+
+\item Test the hypothesis that the correlation coefficient is not zero.
+\item Test the hypothesis that the correlation coefficient is positive.
+\item What is the test statistics in both cases?
+\item What is the p-value in both cases?
+\item Interpret the p-values.
+\end{itemize}
+
+
+The alternative hypothesis of interest is there is a correlation between the
+Hunter L value and the panel score.
+
+\begin{verbatim}
+> cor.test(x, y , alternative = "two.sided")
+
+        Pearson's product-moment correlation
+
+data:  x and y
+t = 1.8411, df = 7, p-value = 0.1082
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.1497426  0.8955795
+sample estimates:
+      cor
+0.5711816
+
+\end{verbatim}
+
+
+The alternative hypothesis of interest is that the
+Hunter L value is positively associated with the panel score.
+\begin{verbatim}
+> cor.test(x, y, alternative = "greater")
+
+        Pearson's product-moment correlation
+
+data:  x and y
+t = 1.8411, df = 7, p-value = 0.05409
+alternative hypothesis: true correlation is greater than 0
+95 percent confidence interval:
+ -0.02223023  1.00000000
+sample estimates:
+      cor
+0.5711816
+\end{verbatim}
+
+\begin{verbatim}
+> ct2 <- cor.test(x, y, alternative = "greater")
+> names(ct2)
+[1] "statistic"   "parameter"   "p.value"   "estimate"  "null.value"  "alternative" "method"      "data.name"
+[9] "conf.int"
+>
+> ct2$p.value
+[1] 0.05408653
+>
+> ct2$statistic
+       t
+1.841083
+\end{verbatim}
+
+\section*{Exercise 27: Kolmogorov-Smirnov test}
+
+\begin{verbatim}
+x <- rnorm(50)
+y <- runif(30)
+# Do x and y come from the same distribution?
+ks.test(x, y)
+
+        Two-sample Kolmogorov-Smirnov test
+
+data:  x and y
+D = 0.46, p-value = 0.0004387
+alternative hypothesis: two-sided
+\end{verbatim}
+
+
+\section*{Exercise 28: Shapiro-Wilk test}
+
+\begin{verbatim}
+> x<-rnorm(100, mean = 5, sd = 3)
+> y<-runif(100, min = 2, max = 4)
+> shapiro.test(x)
+
+        Shapiro-Wilk normality test
+data:  x
+W = 0.9851, p-value = 0.3249
+>
+> shapiro.test(y)
+        Shapiro-Wilk normality test
+data:  y
+W = 0.9585, p-value = 0.003151
+
+\end{verbatim}
+\newpage
+
+
+\section*{Exercise 29}
+
+Add up all the numbers for 1 to 50
+\begin{itemize}
+\item  Using the sum() command.
+\item  using a for loop.
+\end{itemize}
+\newpage
+
+
+
+
+
+
+
+
+%---------------------------------------------------------------------------------------------%
+\newpage
+
+
+
+\begin{itemize}
+\item Exercise 14: question on trigonometric functions omitted.
+\item Exercise 17: inverse cosine function is acos()
+\begin{verbatim}
+> cos(pi)
+[1] -1
+> acos(-1)
+[1] 3.141593
+>
+\end{verbatim}
+\item Exercise 18: use the standard normal distribution to generate random numbers, unless told otherwise.
+
+\begin{verbatim}
+> rnorm(4)
+[1] -1.68732684 -0.62743621  0.01831663  0.70524346
+\end{verbatim}
+\item Exercise 18: We have not covered the material for parts 5, 10 and 11 yet.
+\end{itemize}
+
+\section*{Exercise 20}
+
+Construct a vector of the 0.9, 0.95, 0.975 and 0.99 quantiles of the $t-$ distribution (degrees of freedom = 16).
+For hep with the $t-$ distribution use the command '?qt'.
+
+\begin{verbatim}
+> perc =c(0.9, 0.95, 0.975, 0.99)
+> perc
+[1] 0.900 0.950 0.975 0.990
+> qt(perc, 16)
+[1] 1.336757 1.745884 2.119905 2.583487
+\end{verbatim}
+
+What is the 0.975 quantile for the $t-$ distribution when the degrees of freedom is 40?
+(N.B. This exercise is relevant to forthcoming topics, such as confidence intervals.)
+
+\begin{verbatim}
+
+> qt(0.975, 40)
+[1] 1.336757 1.745884 2.119905 2.583487
+\end{verbatim}
+\section*{Exercise 21}
+
+\begin{table}[ht]
+\begin{center}
+\begin{tabular}{rlllrrl}
+  \hline
+ & Make & Model & Cylinder & Weight & Mileage & Type \\
+  \hline
+1 & Honda & Civic & V4 & 2170.00 & 33.00 & Sporty \\
+  2 & Chevrolet & Beretta & V4 & 2655.00 & 26.00 & Compact \\
+  3 & Ford & Escort & V4 & 2345.00 & 33.00 & Small \\
+  4 & Eagle & Summit & V4 & 2560.00 & 33.00 & Small \\
+  5 & Volkswagen & Jetta & V4 & 2330.00 & 26.00 & Small \\
+  6 & Buick & Le Sabre & V6 & 3325.00 & 23.00 & Large \\
+  7 & Mitsbusihi & Galant & V4 & 2745.00 & 25.00 & Compact \\
+  8 & Dodge & Grand Caravan & V6 & 3735.00 & 18.00 & Van \\
+  9 & Chrysler & New Yorker & V6 & 3450.00 & 22.00 & Medium \\
+  10 & Acura & Legend & V6 & 3265.00 & 20.00 & Medium \\
+   \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+
+1) Create a data frame for the data ( see `Car.R')
+\begin{verbatim}
+> Car<-data.frame(Make,Model,Cylinder,Weight,Mileage,Type)
+\end{verbatim}
+
+2) Find the `names' and the dimensions of the Car data frame.
+\begin{verbatim}
+> names(Car)
+[1] "Make" "Model" "Cylinder" "Weight" "Mileage" "Type"
+> dim(Car)
+[1] 10  6
+\end{verbatim}
+
+3) Find the mean and standard deviation of the weight of the cars.
+\begin{verbatim}
+> mean(Car$Weight)
+[1] 2858
+> sd(Car$Weight)
+[1] 543.7943
+\end{verbatim}
+
+4) Subset the data so that only cars above 2500 kgs are considered. (Call the subset 'cars2500')
+\begin{verbatim}
+cars2500 = Car[Car$Weight>2500,]
+\end{verbatim}
+
+5) Make a subset of the small cars (call the subset `smallcar').
+\begin{verbatim}
+> smallcar=Car[Car$Type=="Small",]
+> smallcar
+        Make  Model Cylinder Weight Mileage  Type
+3       Ford Escort       V4   2345      33 Small
+4      Eagle Summit       V4   2560      33 Small
+5 Volkswagen  Jetta       V4   2330      26 Small
+>
+\end{verbatim}
+
+6) What is the correlation coefficient between weight and mileage?
+
+\begin{verbatim}
+> cor(Car$Weight,Car$Mileage)
+[1] -0.8759577
+\end{verbatim}
+
+7) Make a plot of weights against mileage (include a title).
+
+\begin{verbatim}
+>plot(Car$Weight, Car$Mileage, main="Weight vs. Mileage")
+\end{verbatim}
+
+Alternatively
+\begin{verbatim}
+>attach(Car)
+>plot(Weight, Mileage, main="Weight vs. Mileage")
+\end{verbatim}
+
+\newpage
+
+
+\newpage
+
+\begin{verbatim}
+# Car.R
+> Make<-c("Honda","Chevrolet","Ford","Eagle","Volkswagen",
++"Buick","Mitsbusihi", "Dodge","Chrysler","Acura")
+>
+> Model<-c("Civic","Beretta","Escort","Summit","Jetta",
++"Le Sabre","Galant", "Grand Caravan","New Yorker","Legend")
+>
+> rep("V6",3)               # repeat three times
+[1] "V6" "V6" "V6"
+> Cylinder<-c(rep("V4",5),"V6","V4",rep("V6",3))
+> Cylinder
+[1] "V4" "V4" "V4" "V4" "V4" "V6" "V4" "V6" "V6" "V6"
+> Weight<-c(2170,2655,2345,2560,2330,3325,2745,3735,3450,3265)
+> Mileage<-c(33,26,33,33,26,23,25,18,22,20)
+> Type<-c("Sporty","Compact",rep("Small",3),"Large",
++"Compact","Van",rep("Medium",2))
+\end{verbatim}
+
+\end{document}

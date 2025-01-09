@@ -1,0 +1,14 @@
+Here is your tidied-up, reorganized, and formatted text in markdown:
+
+```markdown
+# Creating a Vector
+
+---
+
+# Creating a Vector
+
+## `c()` - Generic Function to Combine Arguments
+
+- The default is forming a vector
+
+---
