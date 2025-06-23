@@ -1,0 +1,66 @@
+### ✅ Checking the Current Directory
+
+```r
+getwd()
+```
+Use this to confirm that `ss06hid.csv` is in your working directory.
+
+---
+
+### 📥 Load and Inspect the Data
+
+```r
+idahoData <- read.csv("ss06hid.csv", header = TRUE)
+dim(idahoData)               # Dimensions of dataset
+head(idahoData)[, 1:10]      # Preview first 10 columns
+summary(idahoData[, 1:10])   # Summary of those columns
+```
+
+Check if it’s Idaho-specific using the `ST` (state) variable:
+
+```r
+table(idahoData$ST)
+```
+
+If the table shows more than one code, it’s not just Idaho.
+
+---
+
+### 🏠 Value Distributions by Type
+
+```r
+table(idahoData$TYPE)
+table(idahoData$TYPE, idahoData$VAL)
+```
+
+You can identify how many housing units are worth over $1,000,000 by inspecting high `VAL` codes, often with a codebook (e.g., `VAL==24`).
+
+---
+
+### 🛏️ Bedrooms vs. Rooms
+
+Cross-tabulate bedrooms (`BDS`) with total rooms (`RMS`):
+
+```r
+table(idahoData$RMS, idahoData$BDS, dnn = list("RMS", "BDS"))
+```
+
+---
+
+### 🔍 Specific Conditions
+
+```r
+# 3 bedrooms, 4 rooms
+sum(!is.na(idahoData$BDS) & idahoData$BDS == 3 &
+    !is.na(idahoData$RMS) & idahoData$RMS == 4)
+
+# 2 bedrooms, 5 rooms
+sum(!is.na(idahoData$BDS) & idahoData$BDS == 2 &
+    !is.na(idahoData$RMS) & idahoData$RMS == 5)
+
+# 2 bedrooms, 7 rooms
+sum(!is.na(idahoData$BDS) & idahoData$BDS == 2 &
+    !is.na(idahoData$RMS) & idahoData$RMS == 7)
+```
+
+(I noticed in your original code, you repeated `!is.na(idahoData$BDS)` instead of checking for `RMS` the second time.)
