@@ -1,3 +1,226 @@
+---
+title: "Introduction to the R Programming Language"
+output: html_document
+---
+
+# The R Programming Language
+
+R is a free software environment for statistical computing and graphics. It is widely used for:
+
+- Data analysis
+- Statistical modeling
+- Simulation and visualization
+- Scientific computing
+
+---
+
+# Vector Types in R
+
+R operates on named data structures. The most basic is the **vector**, which is an ordered collection of values.
+
+There are several types of vectors:
+
+- Numeric vectors  
+- Character vectors  
+- Logical vectors  
+- (Others include complex vectors and color vectors)
+
+### Creating Vectors
+
+```r
+# Numeric vector
+NumVec <- c(10.4, 5.6, 3.1, 6.4)
+
+# Character vector
+CharVec <- c("blue", "green", "yellow")
+
+# Logical vector
+LogVec <- c(TRUE, FALSE)
+
+# Using assign()
+assign("z", c(1, 2, 3))
+```
+
+---
+
+# Set Theory Operations
+
+```r
+a <- c(1, 2, 3, 4)
+b <- c(3, 4, 5, 6)
+
+union(a, b)
+intersect(a, b)
+setdiff(a, b)
+```
+
+---
+
+# Controlling Precision and Integerization
+
+```r
+pi
+round(pi, 3)
+round(pi, 2)
+floor(pi)
+ceiling(pi)
+as.integer(pi)
+```
+
+---
+
+# Important Introductory Functions
+
+```r
+head(mtcars)   # First few rows
+tail(iris)     # Last few rows
+```
+
+---
+
+# Writing Functions in R
+
+### General Syntax
+
+```r
+function_name <- function(arg1, arg2 = default, ...) {
+  # Commands
+  result <- ...
+  return(result)
+}
+```
+
+### Example 1: Square Function
+
+```r
+sf1 <- function(x) {
+  x^2
+}
+
+sf1(3)              # returns 9
+x.sq <- sf1(3)      # store result
+```
+
+### Example 2: Pythagorean Distance
+
+```r
+sf2 <- function(a1, a2, a3) {
+  x <- sqrt(a1^2 + a2^2 + a3^2)
+  return(x)
+}
+
+res <- sf2(2, 3, 4)
+res
+```
+
+### Example 3: Power Function with Defaults
+
+```r
+mypower <- function(x, pow = 2) {
+  x^pow
+}
+
+mypower(4)            # returns 16
+mypower(4, 3)         # returns 64
+mypower(pow = 5, x = 2)  # returns 32
+```
+
+---
+
+# Statistical Tests and ANOVA Interpretation
+
+R provides tools for linear regression and ANOVA output.
+
+### Test for the Slope
+
+Given:
+```r
+beta_hat <- 2.4
+se_beta <- 0.3
+t_stat <- beta_hat / se_beta
+t_stat
+```
+
+### Residual Checking
+
+Use diagnostic plots to validate model assumptions:
+
+```r
+model <- lm(mpg ~ wt, data = mtcars)
+par(mfrow = c(2, 2))
+plot(model)
+```
+
+---
+
+# Confidence Intervals Example
+
+```r
+xbar <- 83
+sigma <- 12
+n <- 5
+sem <- sigma / sqrt(n)
+
+lower <- xbar + sem * qnorm(0.025)
+upper <- xbar + sem * qnorm(0.975)
+
+c(lower, upper)
+```
+
+---
+
+# Chi-Square Test
+
+```r
+table_data <- matrix(c(12, 5, 7, 16), nrow = 2)
+chisq.test(table_data)
+```
+
+---
+
+# Creating and Importing Data
+
+### From Excel
+
+```r
+library(gdata)
+mydata <- read.xls("mydata.xls")
+```
+
+### From CSV
+
+```r
+mycsv <- read.csv("data.csv")
+write.csv(mycsv, "output.csv")
+```
+
+---
+
+# Data Entry with `scan()`
+
+```r
+nums <- scan()   # input: 1 2 3 4 ENTER
+```
+
+---
+
+# Classes of Data Objects
+
+```r
+class(NumVec)
+class(CharVec)
+class(mtcars)
+```
+
+---
+
+Let me know if you’d like this saved as an .Rmd file, or if you'd like to split it up into multiple lessons or chapters!
+```
+
+---
+
+
+
 
 \newpage
 \chapter{Programming}
