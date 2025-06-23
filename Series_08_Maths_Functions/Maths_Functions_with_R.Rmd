@@ -1,0 +1,166 @@
+---
+title: "Useful Operations in R for Numerical Programming"
+output: html_document
+---
+
+# 1. Sampling
+
+The `sample()` function allows you to draw random elements from a vector.
+
+```r
+sample(1:10, 5)        # Draw 5 unique samples from 1 to 10
+sample(letters, 3)     # Randomly sample 3 letters
+```
+
+---
+
+# 2. Set Theory Operations
+
+R supports basic set operations:
+
+```r
+x <- c(1, 2, 3, 4)
+y <- c(3, 4, 5, 6)
+
+union(x, y)       # elements in either x or y
+intersect(x, y)   # elements in both x and y
+setdiff(x, y)     # elements in x but not in y
+setequal(x, y)    # TRUE if both sets are the same
+```
+
+---
+
+# 3. Controlling Precision and Integerization
+
+Use rounding functions for controlling precision:
+
+```r
+pi                 # 3.141593
+round(pi, 3)       # 3.142
+round(pi, 2)       # 3.14
+floor(pi)          # 3
+ceiling(pi)        # 4
+as.integer(pi)     # 3
+```
+
+---
+
+# 4. Randomly Generated Numbers
+
+To generate numbers from a **Uniform Distribution** \( U(a, b) \):
+
+```r
+runif(5, min = 0, max = 10)  # 5 random numbers between 0 and 10
+```
+
+Create an empty data frame:
+
+```r
+framename <- data.frame()
+```
+
+---
+
+# 5. Basic Mathematical Functions
+
+## Exponentials, Powers, and Logarithms
+
+```r
+x <- 2
+y <- 3
+
+x^y         # Power
+exp(x)      # e^x
+log(x)      # Natural log
+log10(x)    # Base 10 log
+sqrt(x)     # Square root
+```
+
+---
+
+# 6. Vectors
+
+```r
+x <- c(1, 3, 2, 10, 5)
+y <- 1:5
+
+x
+y
+y + 2            # Add 2 to each element
+2 * y            # Multiply each element by 2
+y^2              # Square each element
+2^y              # 2 raised to the power of each element
+y                # Original y remains unchanged
+y <- y * 2       # Reassign y
+y
+```
+
+## Other vector tools
+
+```r
+seq(1, 10, by = 2)    # sequence from 1 to 10 in steps of 2
+rep(3, times = 4)     # repeat 3 four times
+```
+
+---
+
+# 7. Matrices
+
+A **matrix** is a two-dimensional numeric array.
+
+## Creating Matrices
+
+```r
+A <- matrix(1:6, nrow = 2)
+B <- matrix(7:12, nrow = 2)
+
+cbind(A, B)      # Combine as columns
+rbind(A, B)      # Combine as rows
+```
+
+## Matrix Multiplication and Inversion
+
+```r
+A <- matrix(c(2, 1, 1, 3), nrow = 2)
+B <- matrix(c(1, 0, 0, 1), nrow = 2)
+
+A %*% B          # Matrix multiplication
+solve(A)         # Inverse of A
+```
+
+---
+
+# 8. Complex Numbers
+
+```r
+x <- -1
+sqrt(x)          # Returns NaN
+
+y <- -1 + 0i      # Define as complex
+sqrt(y)          # Returns complex result
+str(y)           # Confirms complex type
+```
+
+---
+
+# 9. Trigonometric Functions
+
+```r
+pi               # Constant π
+
+sin(pi / 2)      # 1
+cos(pi)          # -1
+tan(pi / 4)      # 1
+
+sin(3.5 * pi)    # -1
+cos(3.5 * pi)    # 0
+```
+
+R also includes:
+
+- `abs()`, `sign()`, `sqrt()`, `floor()`, `ceiling()`, `round()`, `trunc()`
+- `exp()`, `log()`, `expm1()`, `log1p()`
+- `acos()`, `asin()`, `atan()`, `cosh()`, `sinh()`, `tanh()`
+- `lgamma()`, `gamma()`, `digamma()`, `trigamma()`
+- `cumsum()`, `cumprod()`, `cummax()`, `cummin()`
+
