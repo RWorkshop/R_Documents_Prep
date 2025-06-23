@@ -1,0 +1,117 @@
+---
+title: "Statistics Exercises in R"
+output: html_document
+---
+
+## Exercise 25: Confidence Intervals for pH
+
+Seven measurements of the pH of a buffer solution:
+
+```r
+x <- c(5.12, 5.20, 5.15, 5.17, 5.16, 5.19, 5.15)
+n <- length(x)
+alpha5 <- 0.05
+alpha1 <- 0.01
+
+# 95% Confidence Interval
+LB95 <- mean(x) + qt(alpha5 / 2, n - 1) * sd(x) / sqrt(n)
+UB95 <- mean(x) + qt(1 - alpha5 / 2, n - 1) * sd(x) / sqrt(n)
+
+# 99% Confidence Interval
+LB99 <- mean(x) + qt(alpha1 / 2, n - 1) * sd(x) / sqrt(n)
+UB99 <- mean(x) + qt(1 - alpha1 / 2, n - 1) * sd(x) / sqrt(n)
+
+c("95% CI" = LB95, UB95)
+c("99% CI" = LB99, UB99)
+```
+
+---
+
+## Exercise 26: Correlation Test for Tuna Quality
+
+We compare Hunter L (lightness) and panel score:
+
+```r
+x <- c(44.4, 45.9, 41.9, 53.3, 44.7, 44.1, 50.7, 45.2, 60.1)
+y <- c(2.6, 3.1, 2.5, 5.0, 3.6, 4.0, 5.2, 2.8, 3.8)
+
+# Two-sided test
+cor.test(x, y, alternative = "two.sided")
+
+# One-sided (greater) test
+ct2 <- cor.test(x, y, alternative = "greater")
+ct2$statistic
+ct2$p.value
+```
+
+---
+
+## Exercise 27: Kolmogorov–Smirnov Test
+
+Are two samples from the same distribution?
+
+```r
+x <- rnorm(50)
+y <- runif(30)
+ks.test(x, y)
+```
+
+---
+
+## Exercise 28: Shapiro–Wilk Normality Test
+
+```r
+x <- rnorm(100, mean = 5, sd = 3)
+y <- runif(100, min = 2, max = 4)
+
+shapiro.test(x)
+shapiro.test(y)
+```
+
+---
+
+## Exercise 29: Sum 1 to 50
+
+Using built-in function:
+
+```r
+sum(1:50)
+```
+
+Using a `for` loop:
+
+```r
+total <- 0
+for (i in 1:50) {
+  total <- total + i
+}
+total
+```
+
+---
+
+## Additional Highlights
+
+### t-distribution Quantiles
+
+```r
+perc <- c(0.9, 0.95, 0.975, 0.99)
+qt(perc, df = 16)
+
+qt(0.975, df = 40)  # Specific quantile for df = 40
+```
+
+### Trigonometric Check
+
+```r
+cos(pi)
+acos(-1)  # Should return pi
+```
+
+### Random Normal Sampling
+
+```r
+rnorm(4)
+```
+
+---
