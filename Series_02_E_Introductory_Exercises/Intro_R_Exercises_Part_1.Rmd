@@ -1,0 +1,137 @@
+---
+title: "Exercise 22 and Car Data Analysis"
+output: html_document
+---
+
+## Exercise 22: Crankshaft Measurements
+
+### 1. Input the Data
+
+```r
+measurements <- c(
+  224.120, 224.017, 223.976, 223.961,
+  224.089, 223.982, 223.980, 223.989,
+  223.960, 223.902, 223.987, 224.001
+)
+```
+
+### (a) Mean and Standard Deviation
+
+```r
+mean_val <- mean(measurements)
+sd_val <- sd(measurements)
+
+mean_val
+sd_val
+```
+
+### (b) Is the Process Mean 224mm?
+
+We compare the sample mean to the assumed population mean of 224mm.
+
+```r
+mean_val - 224  # Difference from the process mean
+```
+
+If the difference is small and within expected variability, the process is approximately on target.
+
+### (c) 99% Confidence Interval
+
+```r
+n <- length(measurements)
+se <- sd_val / sqrt(n)
+error <- qt(0.995, df = n - 1) * se
+
+lower <- mean_val - error
+upper <- mean_val + error
+c(lower, upper)
+```
+
+Interpretation: We are 99% confident that the true process mean lies within this interval.
+
+### (d) Check Normality
+
+```r
+qqnorm(measurements)
+qqline(measurements)
+
+hist(measurements, main = "Histogram of Measurements", breaks = 6, col = "lightblue")
+
+shapiro.test(measurements)
+```
+
+---
+
+## Car Data Analysis
+
+### 1. Enter the Data
+
+```r
+Make <- c("Honda", "Chevrolet", "Ford", "Eagle", "Volkswagen",
+          "Buick", "Mitsbusihi", "Dodge", "Chrysler", "Acura")
+
+Model <- c("Civic", "Beretta", "Escort", "Summit", "Jetta",
+           "Le Sabre", "Galant", "Grand Caravan", "New Yorker", "Legend")
+
+Cylinder <- c(rep("V4", 5), "V6", "V4", rep("V6", 3))
+Weight <- c(2170, 2655, 2345, 2560, 2330, 3325, 2745, 3735, 3450, 3265)
+Mileage <- c(33, 26, 33, 33, 26, 23, 25, 18, 22, 20)
+Type <- c("Sporty", "Compact", rep("Small", 3), "Large",
+          "Compact", "Van", rep("Medium", 2))
+
+Car <- data.frame(Make, Model, Cylinder, Weight, Mileage, Type)
+```
+
+### 2. Names and Dimensions
+
+```r
+names(Car)
+dim(Car)
+```
+
+### 3. Mean and Standard Deviation of Weight
+
+```r
+mean(Car$Weight)
+sd(Car$Weight)
+```
+
+### 4. Cars with Weight > 2500kg
+
+```r
+cars2500 <- Car[Car$Weight > 2500, ]
+cars2500
+```
+
+### 5. Subset: Small Cars Only
+
+```r
+smallcar <- Car[Car$Type == "Small", ]
+smallcar
+```
+
+### 6. Correlation Between Weight and Mileage
+
+```r
+cor(Car$Weight, Car$Mileage)
+```
+
+### 7. Plot: Weight vs. Mileage
+
+```r
+plot(Car$Weight, Car$Mileage,
+     main = "Weight vs. Mileage",
+     xlab = "Weight", ylab = "Mileage",
+     pch = 19, col = "darkgreen")
+```
+
+---
+
+## Further Exercises
+
+- Multiple plots: `par(mfrow = c(1, 2))`
+- Legends: `legend()`
+- Regression: `lm(Mileage ~ Weight, data = Car)`
+- Tests: `cor.test()`, `shapiro.test()`, `t.test()`, `aov()`
+
+---
