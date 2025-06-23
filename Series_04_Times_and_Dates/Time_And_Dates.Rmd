@@ -1,59 +1,151 @@
 ---
-title: "Working with Text, Time and Dates"
-output: 
-  flexdashboard::flex_dashboard:
-    theme: united
-    css: style.css
+title: "Working with Dates and Times in R"
+output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+# System Time and Date
 
+Get the current system date and time:
+
+```r
+Sys.time()
+Sys.Date()
 ```
 
-Introduction
-==================================
-Column {.tabset}
---------------------
+Increase precision of time:
 
-### Introduction 
-
-
-<h4>
-Working with Text, Time and Dates
-</h4>
-
-
-<h6>
-
-
-<ul>
- <li> <strong><a href="charactermanipulation.html">Character Manipulation</a></strong>
- <li> <strong><a href="timesanddates.html">Times and Dates</a></strong>
-</ul>
-
-</h5>
-
-
-
-
-```{r child = "Segments/DatesandTimeswithR.Rmd"}
+```r
+op <- options(digits.secs = 6)
+Sys.time()
+options(op)  # revert
 ```
 
+Format the date using a locale-aware string:
 
-
-
-```{r child= "Segments/lubridate.Rmd"}
+```r
+format(Sys.time(), "%a %b %d %X %Y")
 ```
 
+You can assign times and compute differences:
 
+```r
+Time1 <- Sys.time()
+Sys.sleep(60)  # wait for 60 seconds
+Time2 <- Sys.time()
 
+Time2 - Time1
+# Time difference of 1 mins
+```
 
+---
 
+# Month Names
 
+```r
+month.name[3]
+# [1] "March"
+```
 
+---
 
-    
+# Working with Date/Time Classes
 
-  </body>
-</html>
+## POSIX Classes
+
+- `POSIXct`: stores date-time as seconds since epoch
+- `POSIXlt`: stores as a list with components (year, month, etc.)
+
+```r
+mydate <- as.POSIXlt("2005-04-19 07:01:00")
+names(mydate)  # shows components
+```
+
+## Date Class
+
+Use for date-only values without concern for time zones.
+
+```r
+as.Date("2008-05-18")
+```
+
+## chron Class
+
+```r
+library(chron)
+dtimes <- c("2002-06-09 12:45:40")
+dtparts <- t(as.data.frame(strsplit(dtimes, " ")))
+rownames(dtparts) <- NULL
+chron_obj <- chron(dates = dtparts[,1], times = dtparts[,2],
+                   format = c(dates = "y-m-d", times = "h:m:s"))
+chron_obj
+```
+
+---
+
+# Parsing Dates
+
+```r
+d1 <- as.Date("2008-05-18")
+class(d1)  # "Date"
+
+d2 <- strptime("2008-01-01 14:30", "%Y-%m-%d %H:%M")
+class(d2)  # "POSIXlt" "POSIXt"
+
+d3 <- as.POSIXct("2008-01-01 14:30", tz = "GMT")
+class(d3)  # "POSIXct" "POSIXt"
+
+# parse multiple values
+strptime(c("2008-01-01 14:30", "2008-02-02 0:30"), "%Y-%m-%d %H:%M")
+```
+
+---
+
+# Using Dates in Data Frames
+
+Avoid `POSIXlt` in data frames (it's a list). Use `POSIXct` instead:
+
+```r
+data <- data.frame(time_string = c("12:00:00", "16:30:00"))
+data$time <- as.POSIXct(strptime(data$time_string, "%H:%M:%S"))
+```
+
+---
+
+# Formatting Dates
+
+```r
+format(d1, "%a %Y/%m/%d")
+format(d2, "%A %Y/%m/%d")
+```
+
+---
+
+# Time Intervals
+
+```r
+b1 <- ISOdate(1977, 7, 13)
+b2 <- ISOdate(2003, 8, 14)
+
+b2 - b1
+# Time difference of 9528 days
+
+difftime(b2, b1, units = "weeks")
+```
+
+---
+
+# Time Sequences
+
+```r
+# Daily sequence
+seq(as.Date("1976-07-04"), by = "days", length = 10)
+
+# Biweekly sequence
+seq(as.Date("2000-06-01"), to = as.Date("2000-08-01"), by = "2 weeks")
+
+# Every 15 minutes
+seq.POSIXt(from = as.POSIXct("2009-03-23 00:00:00", tz = "GMT"),
+           by = "15 mins", length.out = 4)
+```
+
+---
