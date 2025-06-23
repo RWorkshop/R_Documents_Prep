@@ -1,0 +1,119 @@
+---
+title: "Working with Dates and Times in R"
+output: html_document
+---
+
+# 1. Introduction
+
+In this tutorial, we’ll explore how R handles **dates**, **times**, and **logical states**. We'll use built-in functions like `Sys.Date()` and `Sys.time()` along with formatting options to display time with precision. We’ll also touch on how to measure computation time and briefly introduce the `lubridate` package.
+
+---
+
+# 2. Date and Time Basics
+
+## 2.1 Current System Date and Time
+
+You can get the current **system date** and **date-time** using these commands:
+
+```r
+Sys.Date()
+Sys.time()
+```
+
+### Displaying Higher Precision
+
+To increase the precision of seconds displayed by `Sys.time()`, set the option `digits.secs`:
+
+```r
+op <- options(digits.secs = 6)
+Sys.time()
+options(op) # Reset to previous setting
+```
+
+---
+
+## 2.2 Formatting Dates
+
+You can format date-time output to match your local preferences or requirements:
+
+```r
+format(Sys.time(), "%a %b %d %X %Y")
+```
+
+This returns output like: `"Mon Jun 23 21:58:17 2025"` (format may vary based on locale).
+
+---
+
+# 3. Time Calculations
+
+Both `Sys.Date()` and `Sys.time()` return values that support arithmetic operations:
+
+```r
+start_time <- Sys.time()
+Sys.sleep(2)  # pause for 2 seconds
+end_time <- Sys.time()
+
+duration <- end_time - start_time
+duration  # Returns a 'difftime' object
+```
+
+This is useful for tracking how long certain computations or processes take.
+
+---
+
+# 4. System Time Visualization
+
+If you’re including visuals in your report, insert plots or diagrams like so:
+
+```{r echo=FALSE, out.width='100%'}
+knitr::include_graphics("images/Systime.png")
+```
+
+---
+
+# 5. Logical States in R
+
+Logical values are essential in programming conditions:
+
+- Use `TRUE` and `FALSE` (all caps).
+- Shortcuts `T` and `F` are allowed, but it's safer to use the full forms.
+
+```r
+is_sunny <- TRUE
+is_windy <- F  # Works, but not recommended
+```
+
+Logical values can be used in comparisons or arithmetic:
+
+```r
+as.numeric(c(TRUE, FALSE, TRUE))
+# [1] 1 0 1
+```
+
+---
+
+# 6. Preview of `lubridate`
+
+For more powerful and flexible date-time manipulation, check out the **lubridate** package:
+
+```r
+library(lubridate)
+
+ymd("2025-06-23")      # parse a string to a Date
+now()                  # current date-time
+today()                # current date only
+```
+
+`lubridate` makes date parsing, extraction (like year, month), and arithmetic simpler.
+
+---
+
+# Summary
+
+- Use `Sys.Date()` and `Sys.time()` to get the current date and time.
+- Format time with `format()` for better readability.
+- Perform arithmetic to calculate durations.
+- Use logical values (`TRUE`, `FALSE`) consistently.
+- For advanced date/time work, consider `lubridate`.
+
+---
