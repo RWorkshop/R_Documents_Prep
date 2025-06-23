@@ -1,63 +1,132 @@
-<h2>Section 4: Dates</h2>
-As.Date Function (4.1)
-The as.Date function allows a variety of input formats through the format=argument. The default format is a four-digit year, followed by a month, then a day, separated by either dashes or slashes.
+---
+title: "Working with Dates in R"
+output: html_document
+---
 
-table(mons)
+# Section 4: Dates in R
 
-<h3>The Chron Package (4.2)</h3>
+## 4.1 The `as.Date()` Function
 
-The chron function converts dates and times to chron objects. The dates and times are provided to the chron function as separate values, so some preprocessing may be necessary to prepare input date/times for the chron function.
+The `as.Date()` function converts character strings into date objects. By default, R expects dates in the format `"YYYY-MM-DD"`.
 
-The chron package converts dates and times to chron objects.
-<pre><code>
+```r
+as.Date("2025-06-23")
+as.Date("06/23/2025", format = "%m/%d/%Y")
+```
+
+You can customize the `format` argument to match various input patterns.
+
+---
+
+## 4.2 The `chron` Package
+
+The `chron` package lets you handle dates and times using **chron objects**. Dates and times are supplied separately, often requiring a bit of preprocessing:
+
+```r
 library(chron)
-dtimes=c(“2002-06-09 12:45:40”)
-dtparts=t(as.data.frame(strsplit(dtimes,’ ‘)))
-rownames(dtparts=NULL
-</code></pre>
 
-Chron values are stored internally as the fractional number of days from January 1 1970. The as.numeric function can be used to access interal values
-Posix Classes (4.3)
-Portable Operating System Interface, primarily for Unix Systems, but available on other systemsas well.
-Working with Dates (4.4)
+dtimes <- c("2002-06-09 12:45:40")
 
-<pre><code>
-mydate=as.POSIXlt(‘2005-4-19 7:01:00’)
-names(mydate)
-</code></pre>
+dtparts <- t(as.data.frame(strsplit(dtimes, " ")))
+rownames(dtparts) <- NULL
 
-<h3>Time Intervals (4.5)</h3>
-The difference between two time or date values are known as difftime objects.
-Time Sequences (4.6)
- 
+chron_obj <- chron(dates = dtparts[, 1], times = dtparts[, 2],
+                   format = c(dates = "y-m-d", times = "h:m:s"))
 
+chron_obj
+as.numeric(chron_obj)  # days since Jan 1, 1970
+```
 
+---
 
-That system time the system date internal functions about the computer are primarily intended for the safe operation of the operating system. And I'm not initiated.
+## 4.3 POSIX Classes: `POSIXct` and `POSIXlt`
 
-For and user use.
+R supports **POSIX** date-time classes for fine-grained manipulation.
 
-Classy.
+```r
+mydate <- as.POSIXlt("2005-04-19 07:01:00")
+names(mydate)  # View the components (year, month, etc.)
+```
 
-Class of the system time and system data objects are posit.
+---
 
-They can be converted to two.
+## 4.4 Working with Dates
 
-And daytime objects that are typically intended for end-user use.
+Useful built-in functions:
 
-Converted to a daesh objects, simply specify the object. As date. For example. Stop daesh system dude.
+```r
+Sys.Date()         # Current system date
+Sys.time()         # Current system time
+format(Sys.time(), "%B %d, %Y %H:%M:%S")
+```
 
-Dave time objects are an extension of data objects.
+---
 
-Subtract.
+## 4.5 Time Intervals
 
-Sound check.
+You can compute time differences using `difftime()`:
 
-8:22 PM
-And this ancient sites will use the meteor function, too.
+```r
+start <- as.POSIXct("2025-06-20 09:00")
+end <- as.POSIXct("2025-06-23 17:30")
 
-The term, the star sign of group of people based on their date of birth, there are two columns the name and the date of birth. Our objectives will be to assign the appropriate Star something to each person.
+difftime(end, start, units = "hours")
+```
 
-Function with the mute a function with the special operator case underscore when
+---
 
-As astrology is not a commonly used application, for our programming. There is no bespoke functions for this exercise. We will have to create our own 
+## 4.6 Creating Date Sequences
+
+Generate sequences of dates or times:
+
+```r
+seq(from = as.Date("2025-01-01"), to = as.Date("2025-01-10"), by = "1 day")
+
+seq.POSIXt(from = as.POSIXct("2025-06-23 08:00"),
+           by = "hour", length.out = 5)
+```
+
+---
+
+## 4.7 Bonus Project: Assigning Zodiac Signs by Birth Date
+
+Imagine you have a dataset of names and dates of birth. Let’s assign a zodiac sign to each person:
+
+```r
+library(dplyr)
+library(lubridate)
+
+birthdays <- data.frame(
+  name = c("Alice", "Bob", "Charlie"),
+  dob = as.Date(c("1990-03-21", "1985-07-14", "2000-12-01"))
+)
+
+get_zodiac <- function(date) {
+  m <- month(date)
+  d <- day(date)
+  
+  case_when(
+    (m == 3 & d >= 21) | (m == 4 & d <= 19) ~ "Aries",
+    (m == 4 & d >= 20) | (m == 5 & d <= 20) ~ "Taurus",
+    (m == 5 & d >= 21) | (m == 6 & d <= 20) ~ "Gemini",
+    (m == 6 & d >= 21) | (m == 7 & d <= 22) ~ "Cancer",
+    (m == 7 & d >= 23) | (m == 8 & d <= 22) ~ "Leo",
+    (m == 8 & d >= 23) | (m == 9 & d <= 22) ~ "Virgo",
+    (m == 9 & d >= 23) | (m == 10 & d <= 22) ~ "Libra",
+    (m == 10 & d >= 23) | (m == 11 & d <= 21) ~ "Scorpio",
+    (m == 11 & d >= 22) | (m == 12 & d <= 21) ~ "Sagittarius",
+    (m == 12 & d >= 22) | (m == 1 & d <= 19) ~ "Capricorn",
+    (m == 1 & d >= 20) | (m == 2 & d <= 18) ~ "Aquarius",
+    (m == 2 & d >= 19) | (m == 3 & d <= 20) ~ "Pisces",
+    TRUE ~ NA_character_
+  )
+}
+
+birthdays <- birthdays %>%
+  mutate(zodiac = get_zodiac(dob))
+
+birthdays
+```
+
+---
+
