@@ -1,0 +1,79 @@
+---
+title: "Lists and the Apply Family in R"
+output: html_document
+---
+
+## Lists
+
+A **list** in R is a flexible data structure that can contain elements of different types: vectors, matrices, strings, booleans, and even other lists.
+
+```r
+# Example list
+x <- list(
+  a = 1:10,
+  beta = exp(-3:3),
+  logic = c(TRUE, FALSE, TRUE, FALSE)
+)
+```
+
+Each element in the list is referred to as a **component**.
+
+---
+
+## The Apply Family
+
+The `apply()` family of functions provides vectorized alternatives to loops, making R code cleaner and faster.
+
+### 1. `apply()`
+
+Used primarily with matrices and higher-dimensional arrays. Syntax:
+
+```r
+apply(X, MARGIN, FUN)
+```
+
+- `X`: the matrix
+- `MARGIN`: 1 = rows, 2 = columns
+- `FUN`: the function to apply
+
+---
+
+### 2. `lapply()`
+
+Applies a function to each element of a **list** and returns a list.
+
+```r
+lapply(x, mean)
+```
+
+**Output:**
+
+```r
+$a
+[1] 5.5
+
+$beta
+[1] 4.535125
+
+$logic
+[1] 0.5
+```
+
+---
+
+### 3. `sapply()`
+
+A user-friendly version of `lapply()` that tries to simplify the output (e.g., into a vector or matrix if possible).
+
+```r
+sapply(x, mean)
+```
+
+**Output:**
+
+```r
+       a     beta    logic
+5.500000 4.535125 0.500000
+```
+
+---
