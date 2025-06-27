@@ -1,0 +1,12 @@
+
+
+Other Mathematical Functions
+ 
+Complex numbers
+x = -1 ;  sqrt(x)  ;  str(x) ;               # variable is defined as numeric, not complex.
+y = -1 +0i ;  sqrt(y)  ;  str(y) ;                  #variable is defined as complex .
+
+Trigonometric  Functions
+pi                                                        #returns the value of pi to six decimal places
+sin(3.5*pi)                                          # correct answer is -1
+cos(3.5*pi)                         	             # correct answer is zero

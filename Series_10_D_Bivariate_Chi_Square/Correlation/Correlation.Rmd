@@ -1,0 +1,31 @@
+Evaluate Correlation
+=========================
+In prediction analyses, it is also useful to evaluate if any of the variables are correlated. Why should we care about this?
+
+If we are using a linear regression to model our data then we might run into a problem called multicollinearity which can lead us to misinterpret what is really predictive of our outcome variable. This phenomenon occurs when the predictor variables actually predict one another.
+
+Another reason we should look out for correlation is that we don’t want to include redundant variables. 
+
+This can add unnecessary noise to our algorithm causing a reduction in prediction accuracy and it can cause our algorithm to be unnecessarily slower. 
+Finally, it can also make it difficult to interpret what variables are actually predictive.
+
+Intuitively, we can expect some of our variables to be correlated.
+
+The corrplot package is another option to look at correlation among possible predictors, and particularly useful if we have many predictors.
+
+First, we calculate the Pearson correlation coefficients between all features pairwise using the cor() function of the stats package (which is loaded automatically). 
+Then we use the corrplot::corrplot() function. First we need to select only the numeric variables using dplyr.
+
+```{r}
+# install.packages("corrplot")
+library(corrplot)
+## corrplot 0.84 loaded
+PM_cor <- cor(pm %>% dplyr::select_if(is.numeric))
+corrplot::corrplot(PM_cor, tl.cex = 0.5)
+```
+
+We can see that the development variables (imp) variables are correlated with each other as we might expect. We also see that the road density variables seem to be correlated with each other, and the emission variables seem to be correlated with each other.
+
+Also notice that none of the predictors are highly correlated with our outcome variable (value).
+
+Now that we have a sense of what our data are, we can get started with building a machine learning model to predict air pollution.

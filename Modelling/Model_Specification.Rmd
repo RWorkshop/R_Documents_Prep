@@ -1,0 +1,74 @@
+Specifying the Model
+============================
+The first step is to define what type of model we would like to use. For our case, we are going to start our analysis with a linear regression but we will demonstrate how we can try different models.
+
+See here for modeling options in parsnip.
+
+```{r}
+PM_model <- parsnip::linear_reg() # PM was used in the name for particulate matter
+PM_model
+## Linear Regression Model Specification (regression)
+```
+
+OK. So far, all we have defined is that we want to use a linear regression…Let’s tell parsnip more about what we want.
+
+We would like to use the ordinary least squares method to fit our linear regression. 
+
+### Setting the Engine
+
+So we will tell parsnip that we want to use the ***lm*** package to implement our linear regression (there are 
+many options actually such as rstan glmnet, keras, and sparklyr). 
+See here for a description of the differences and using these different engines with parsnip.
+
+We will do so by using the <tt>set_engine()</tt> function of the parsnip package.
+
+```{r}
+lm_PM_model <- 
+  PM_model  %>%
+  parsnip::set_engine("lm")
+
+lm_PM_model
+````
+
+Here, we aim to predict the air pollution. You can do this with the <tt>set_mode()</tt> function of the parsnip package, by using either set_mode("classification") or set_mode("regression").
+```{r}
+lm_PM_model <- 
+  PM_model  %>%
+  parsnip::set_engine("lm") %>%
+  set_mode("regression")
+
+lm_PM_model
+```
+
+---------------------
+
+### Buidling a Workflow
+
+Now we will use the workflows package to keep track of both our preprocessing steps and our model specification. 
+It also allows us to implement fancier optimizations in an automated way.
+
+If you recall novel_rec is the recipe we previously created with the ***recipes*** package and lm_PM_model was created when we specified our model with the parsnip package. Here, we combine everything together into a workflow.
+
+```{r}
+PM_wflow <-workflows::workflow() %>%
+           workflows::add_recipe(novel_rec) %>%
+           workflows::add_model(lm_PM_model)
+PM_wflow
+```
+
+Ah, nice. Notice how it tells us about both our preprocessing steps and our model specifications.
+
+Next, we “prepare the recipe” (or estimate the parameters) and fit the model to our training data all at once. 
+Printing the output, we can see the coefficients of the model.
+
+```{r}
+PM_wflow_fit <- parsnip::fit(PM_wflow, data = train_pm)
+## Warning in cor(x, use = use, method = method): the standard deviation is zero
+## Warning: The correlation matrix has missing values. 274 columns were excluded
+## from the filter.
+PM_wflow_fit
+```
+
+
+
+

@@ -1,0 +1,33 @@
+## Basic Maths Operations
+The most commonly used mathematical operators are all supported by R. \\Here are a few
+ examples:
+ 
+ \begin{semiverbatim}
+ 5 + 3 * 5 # Note the order of operations.
+ log (10) # Natural logarithm with base e=2.718282
+ log(8,2) # Log to the base 2
+ 4^2 # 4 raised to the second power
+ 7/2 # Division
+ factorial(4) #Factorial of Four
+ sqrt (25) # Square root
+ abs (3-7) # Absolute value of 3-7
+ pi # The mysterious number \\\
+ exp(2) # exponential function
+ \end{semiverbatim}
+ 
+ %==============================================================================================%
+ 
+ 
+ \texttt{R} can be used for many mathematical operations, including
+ 
+ 
+*  Set Theory
+*  Trigonometry
+*  Complex Numbers
+*  Binomial Coefficients
+
+ Set Theory is always useful to know. We will not go into any of the others in great detail today.
+ 
+ %==============================================================================================%
+ 
+ 

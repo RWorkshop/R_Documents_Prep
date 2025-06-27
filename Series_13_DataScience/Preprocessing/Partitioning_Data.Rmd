@@ -1,0 +1,18 @@
+Splitting the Data
+=======================
+
+```{r}
+library(tidymodels)
+```
+
+We can see the number of monitors in our training, testing, and original data by typing in the name of our split object. 
+The result will look like this: <training data sample number, testing data sample number, original sample number>
+
+Importantly the initial_split() function only determines what rows of our pm data frame should be assigned for training or testing, it does not actually split the data.
+
+To extract the testing and training data we can use the training() and testing() functions also of the rsample package.
+
+```{r}
+train_pm <-rsample::training(pm_split)
+test_pm <-rsample::testing(pm_split)
+```

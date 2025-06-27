@@ -1,2 +1,4 @@
-# TimeSeriesData
-Time Series Data
+R Workshops 2017
+==========================
+
+## Introduction to R

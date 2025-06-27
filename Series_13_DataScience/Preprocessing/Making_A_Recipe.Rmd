@@ -1,0 +1,133 @@
+Making a Recipe
+Now with our data, we will start by making a recipe for our training data. If you recall, the continuous outcome variable is value (the average annual gravimetric monitor PM2.5 concentration in ug/m3). Our features (or predictor variables) are all the other variables except the monitor ID, which is an id variable.
+
+The reason not to include the id variable is because this variable includes the county number and a number designating which particular monitor the values came from (of the monitors there are in that county). Since this number is arbitrary and the county information is also given in the data, and the fact that each monitor only has one value in the value variable, nothing is gained by including this variable and it may instead introduce noise. However, it is useful to keep this data to take a look at what is happening later. We will show you what to do in this case in just a bit.
+
+In the simplest case, we might use all predictors like this:
+
+12345678910111213
+#install.packages(tidymodels)
+library(tidymodels)
+simple_rec <- train_pm %>%
+  recipes::recipe(value ~ .)
+
+simple_rec
+## Data Recipe
+## 
+## Inputs:
+## 
+
+Now, let’s get back to the id variable. Instead of including it as a predictor variable, we could also use the update_role() function of the recipes package.
+
+12345678910111213
+simple_rec <- train_pm %>%
+  recipes::recipe(value ~ .) %>%
+  recipes::update_role(id, new_role = "id variable")
+
+simple_rec
+## Data Recipe
+## 
+## Inputs:
+## 
+##         role #variables
+
+This link and this link show the many options for recipe step functions.
+
+There are several ways to select what variables to apply steps to:
+
+Using tidyselect methods: contains(), matches(), starts_with(), ends_with(), everything(), num_range()
+
+Using the type: all_nominal(), all_numeric() , has_type()
+
+Using the role: all_predictors(), all_outcomes(), has_role()
+
+Using the name - use the actual name of the variable/variables of interest
+
+Let’s try adding some steps to our recipe.
+
+We want to dummy encode our categorical variables so that they are numeric as we plan to use a linear regression for our model.
+
+We will use the one-hot encoding means that we do not simply encode our categorical variables numerically, as our numeric assignments can be interpreted by algorithms as having a particular rank or order. Instead, binary variables made of 1s and 0s are used to arbitrarily assign a numeric value that has no apparent order.
+
+1234567891011121314
+simple_rec %>%
+  step_dummy(state, county, city, zcta, one_hot = TRUE)
+## Data Recipe
+## 
+## Inputs:
+## 
+##         role #variables
+##  id variable          1
+##      outcome          1
+##    predictor         48
+
+Our fips variable includes a numeric code for state and county - and therefore is essentially a proxy for county. Since we already have county, we will just use it and keep the fips ID as another ID variable.
+
+We can remove the fips variable from the predictors using update_role() to make sure that the role is no longer "predictor".
+
+We can make the role anything we want actually, so we will keep it something identifiable.
+
+123456789101112
+simple_rec %>%
+  update_role("fips", new_role = "county id")
+## Data Recipe
+## 
+## Inputs:
+## 
+##         role #variables
+##    county id          1
+##  id variable          1
+##      outcome          1
+
+We also want to remove variables that appear to be redundant and are highly correlated with others, as we know from our exploratory data analysis that many of our variables are correlated with one another. We can do this using the step_corr() function.
+
+We don’t want to remove some of our variables, like the CMAQ and aod variables, we can specify this using the - sign before the names of these variables like so:
+
+1234567891011121314
+simple_rec %>%
+  step_corr(all_predictors(), - CMAQ, - aod)
+## Data Recipe
+## 
+## Inputs:
+## 
+##         role #variables
+##  id variable          1
+##      outcome          1
+##    predictor         48
+
+It is also a good idea to remove variables with near-zero variance, which can be done with the step_nzv() function.
+
+Variables have low variance if all the values are very similar, the values are very sparse, or if they are highly imbalanced. Again we don’t want to remove our CMAQ and aod variables.
+
+123456789101112131415
+simple_rec %>%
+  step_nzv(all_predictors(), - CMAQ, - aod)
+## Data Recipe
+## 
+## Inputs:
+## 
+##         role #variables
+##  id variable          1
+##      outcome          1
+##    predictor         48
+
+Let’s put all this together now.
+
+Remember: it is important to add the steps to the recipe in an order that makes sense just like with a cooking recipe.
+
+First, we are going to create numeric values for our categorical variables, then we will look at correlation and near-zero variance. Again, we do not want to remove the CMAQ and aod variables, so we can make sure they are kept in the model by excluding them from those steps. If we specifically wanted to remove a predictor we could use step_rm().
+
+123456789101112131415161718192021222324
+simple_rec <- train_pm %>%
+  recipes::recipe(value ~ .) %>%
+  recipes::update_role(id, new_role = "id variable") %>%
+  update_role("fips", new_role = "county id") %>%
+  step_dummy(state, county, city, zcta, one_hot = TRUE) %>%
+  step_corr(all_predictors(), - CMAQ, - aod)%>%
+  step_nzv(all_predictors(), - CMAQ, - aod)
+  
+simple_rec
+## Data Recipe
+
+Nice! Now let’s check our preprocessing.
+
