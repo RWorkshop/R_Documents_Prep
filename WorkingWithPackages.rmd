@@ -6,3 +6,19 @@ if("raster" %in% (.packages())){
 if("MASS" %in% (.packages())){
   detach("package:MASS", unload=TRUE) 
 }
+
+
+### Here's what each part does:
+
+- **`.packages()`** lists the names of all packages currently attached (i.e., loaded via `library()` or `require()`).
+- **`"raster" %in% (.packages())`** checks if the `raster` package is among them.
+- If `TRUE`, then **`detach("package:raster", unload=TRUE)`** unloads and detaches the `raster` package from the session.
+
+The same logic is repeated for the **`MASS`** package.
+
+### Why do this?
+
+This kind of check-and-detach is useful if:
+- You're trying to prevent **namespace conflicts**—especially if different packages define functions with the same name.
+- You're cleaning up your workspace before running new models or packages that might clash with existing ones.
+- You're scripting a reproducible environment where specific packages shouldn't be active at a given point.
