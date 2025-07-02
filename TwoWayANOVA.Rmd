@@ -1,22 +1,97 @@
+## Tutorial: Analyzing Fabric Durability with ANOVA in R
 
-FabricWear=c(527, 561, 456, 377, 475, 466, 296, 325, 
-621, 664, 426, 476, 561, 540, 301, 235, 
-724, 743, 460, 426, 626, 682, 322, 304) 
+### Problem Overview
 
-Filler = structure(c(1L, 1L, 2L, 2L, 1L, 1L, 2L, 2L, 1L, 1L, 2L, 2L, 1L, 
-1L, 2L, 2L, 1L, 1L, 2L, 2L, 1L, 1L, 2L, 2L), .Label = c("F1", 
-"F2"), class = "factor")
+This experiment is designed to investigate how three manufacturing parameters affect the **durability (wear resistance)** of a textile fabric:
 
-Proportion = structure(c(1L, 1L, 1L, 1L, 1L, 1L, 1L, 1L, 2L, 2L, 2L, 2L, 2L, 
-2L, 2L, 2L, 3L, 3L, 3L, 3L, 3L, 3L, 3L, 3L), .Label = c("Q1", 
-"Q2", "Q3"), class = "factor")
+- **Filler Type (Filler)**: A material added to enhance durability.
+- **Proportion Level (Proportion)**: How much filler is used.
+- **Surface Treatment (Surface)**: Whether the fabric has undergone surface treatment or not.
 
-Surface= structure(c(1L, 1L, 1L, 1L, 2L, 2L, 2L, 2L, 1L, 1L, 1L, 1L, 2L, 
-2L, 2L, 2L, 1L, 1L, 1L, 1L, 2L, 2L, 2L, 2L), .Label = c("T0", 
-"T1"), class = "factor")
+The goal is to determine which of these factors, alone or in combination, significantly impacts how much wear the fabric experiences. This can inform cost-effective production strategies without compromising durability.
 
-Experiment=data.frame(FabricWear,Filler,Proportion,Surface)
+---
 
-Model1= aov(FabricWear ~ Filler*Proportion*Treatment)
+### 1. Preparing the Dataset
 
-Model2 = aov(FabricWear ~ Filler*Proportion*Treatment - Filler:Proportion:Treatment)
+You start by defining the **response variable**:
+
+```r
+FabricWear = c(527, 561, 456, 377, 475, 466, 296, 325, 
+               621, 664, 426, 476, 561, 540, 301, 235, 
+               724, 743, 460, 426, 626, 682, 322, 304)
+```
+
+This represents observed wear values for each fabric sample under different conditions.
+
+Next, you define three **categorical factors** representing experimental conditions:
+
+```r
+Filler = factor(c(1, 1, 2, 2, 1, 1, 2, 2, 1, 1, 2, 2, 
+                  1, 1, 2, 2, 1, 1, 2, 2, 1, 1, 2, 2), 
+                labels = c("F1", "F2"))
+
+Proportion = factor(rep(c(1, 2, 3), each = 8), 
+                    labels = c("Q1", "Q2", "Q3"))
+
+Surface = factor(rep(c(1, 2), each = 4, times = 3), 
+                 labels = c("T0", "T1"))
+```
+
+Now, combine them into one data frame:
+
+```r
+Experiment = data.frame(FabricWear, Filler, Proportion, Surface)
+```
+
+This structure allows analysis of how each factor and their interactions affect FabricWear.
+
+---
+
+### 2. Fitting ANOVA Models
+
+You apply ANOVA to analyze the variance in wear due to the three factors.
+
+#### Model 1: Full Interaction
+
+```r
+Model1 = aov(FabricWear ~ Filler * Proportion * Surface)
+```
+
+This model includes:
+- All **main effects**: impact of each factor individually.
+- All **two-way interactions**: combined impact of any two factors.
+- The **three-way interaction**: joint impact of all three factors.
+
+#### Model 2: Reduced Model (No Three-Way Interaction)
+
+```r
+Model2 = aov(FabricWear ~ Filler * Proportion * Surface - Filler:Proportion:Surface)
+```
+
+This model excludes the three-way interaction, testing whether simpler models still explain the data effectively.
+
+---
+
+### 3. Model Evaluation and Comparison
+
+To interpret the models:
+
+```r
+summary(Model1)
+summary(Model2)
+anova(Model1, Model2)  # Optional model comparison
+```
+
+- If the three-way interaction is **not significant**, Model2 might be preferable due to its simpler structure.
+- Significant main or two-way effects reveal which factors influence fabric durability.
+
+---
+
+### Additional Notes
+
+- It’s good practice to validate model assumptions: normality of residuals and homogeneity of variance.
+- For visualization and deeper insights, consider using plots such as `interaction.plot`, `boxplot`, or `ggplot2`.
+- If needed, you can refine the analysis using `car::Anova()` for Type II or III sums of squares.
+
+---
