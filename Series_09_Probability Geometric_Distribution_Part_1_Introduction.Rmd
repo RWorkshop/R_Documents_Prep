@@ -1,0 +1,75 @@
+Certainly! Here's your LaTeX Beamer presentation content reformatted as clean, structured Markdown:
+
+---
+
+# Geometric Distribution
+
+## Introduction
+
+- Geometric distributions model certain discrete random variables.
+- Typically, a Geometric random variable represents the number of trials required to obtain the first **success**.
+- Examples:
+  - Number of tosses of a coin until the first "tail" is obtained.
+  - Number of components tested until the first defective item is found.
+
+---
+
+## Geometric vs. Binomial
+
+- A **Geometric** random variable is the number of trials until the first **success**.
+- A **Binomial** random variable is the number of **successes** in \( n \) trials.
+
+---
+
+## Probability Distribution
+
+A discrete random variable \( X \) is said to follow a Geometric distribution with parameter \( p \), written:
+
+\[
+X \sim \text{Geo}(p)
+\]
+
+The probability mass function (PMF) is:
+
+\[
+P(X = x) = (1 - p)^{x - 1} p, \quad x = 1, 2, 3, \ldots
+\]
+
+Where:
+- \( p \) is the probability of success, with \( 0 < p < 1 \)
+
+---
+
+## Conditions for Geometric Trials
+
+The trials must satisfy the following:
+
+1. The total number of trials is potentially infinite.
+2. Each trial has exactly two outcomes: success and failure.
+3. The outcomes of all trials are statistically independent.
+4. The probability of success is the same for each trial.
+
+---
+
+## Expected Value and Variance
+
+For a geometric distribution:
+
+\[
+\mathrm{E}(X) = \frac{1}{p}
+\]
+\[
+\mathrm{Var}(X) = \frac{1 - p}{p^2}
+\]
+
+---
+
+## Relation to Binomial Distribution
+
+- Both the Geometric and Binomial distributions are based on independent trials with constant success probability \( p \).
+- **Geometric**: Number of trials until the first success.
+- **Binomial**: Number of successes in a fixed number of trials.
+
+---
+
+Let me know if you'd like this turned into a printable handout or if you'd like to add visual examples!
