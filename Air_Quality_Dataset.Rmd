@@ -1,0 +1,47 @@
+# Exercise: The Air Quality Data Set
+
+A data frame with 154 observations on 6 variables:
+
+| Variable   | Type     | Description                        |
+|------------|----------|------------------------------------|
+| `Ozone`    | numeric  | Ozone (ppb)                        |
+| `Solar.R`  | numeric  | Solar Radiation (lang)             |
+| `Wind`     | numeric  | Wind speed (mph)                   |
+| `Temp`     | numeric  | Temperature (°F)                   |
+| `Month`    | numeric  | Month (1–12)                       |
+| `Day`      | numeric  | Day of the month (1–31)            |
+
+---
+
+## Sample R Commands
+
+```r
+tail(airquality)
+help(airquality)
+```
+
+---
+
+## Exercises
+
+1. For each variable, how many missing values are there?
+2. How many complete cases are there?
+3. What is the variance of each of the continuous variables?
+4. How many complete cases are there (i.e., rows with no missing values)?
+5. If you exclude the `Wind` variable, how many complete cases remain?
+
+---
+
+## Complete Cases in R
+
+For a data frame with \( n \) rows, the function `complete.cases()` returns a logical vector of length \( n \), indicating which rows have no missing values.
+
+You can convert logical vectors (`TRUE`, `FALSE`) into numeric values (`1`, `0`) using `as.numeric()`:
+
+```r
+X <- c(TRUE, TRUE, FALSE, FALSE, TRUE)
+as.numeric(X)
+# [1] 1 1 0 0 1
+```
+
+---
