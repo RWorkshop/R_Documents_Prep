@@ -1,0 +1,78 @@
+## Outliers
+
+Another reason data may deviate from a normal distribution is the presence of **outliers**. These are extreme values that differ significantly from other observations.
+
+- **Boxplots** are a useful visual tool for detecting potential outliers.
+- We will explore formal tests for outliers, such as **Grubbs' test**, in the next session.
+
+---
+
+## Single Sample Inference Procedures
+
+When analyzing a single sample of data, we often want to answer the following questions:
+
+- What is the **mean value**?  
+  (e.g., the average of 100 rolls of a die)
+
+- Is the mean significantly different from a hypothesized value?  
+  (i.e., **hypothesis testing**: is the observed mean reasonably close to the expected value?)
+
+- What is the **uncertainty** associated with our estimate of the mean?  
+  (i.e., constructing a **confidence interval**)
+
+These methods are collectively referred to as **inference procedures**.
+
+---
+
+## Normality of Residuals in Linear Models
+
+A fundamental assumption of linear models is that the **residuals** are normally distributed with a mean of zero.
+
+- You can investigate this assumption using the `resid()` function in R.
+- A visual inspection (e.g., Q-Q plot) and formal tests can help assess normality.
+
+---
+
+## Testing for Normality
+
+### 1. Shapiro-Wilk Test
+
+This is the test we will use in this module:
+
+```r
+shapiro.test(x)
+```
+
+- **Null hypothesis**: The data are normally distributed.
+- If the **p-value** is small (typically < 0.05), we reject the null hypothesis.
+
+### 2. Anderson-Darling Test
+
+- A more powerful test for normality, which we will use in future modules.
+- Requires loading the `nortest` package in R.
+
+---
+
+## Model Summary and Coefficients
+
+The `summary()` function in R provides a comprehensive overview of a fitted model, including:
+
+- Coefficient estimates
+- Standard errors
+- p-values for each predictor variable
+
+Since the summary output is a **list**, you can access its components using the dollar sign (`$`):
+
+```r
+names(summary(fit1))  # View component names
+coef(fit1)            # Extract intercept and slope estimates
+```
+
+---
+
+## Adjusted R-squared and Model Simplicity
+
+- The **adjusted R-squared** accounts for the number of predictors in the model, penalizing unnecessary complexity.
+- According to the **law of parsimony**, the simplest model that adequately explains the data is preferred.
+
+---
