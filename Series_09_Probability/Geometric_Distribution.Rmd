@@ -1,0 +1,546 @@
+
+Certainly! Here's the same content with the emojis removed for a cleaner, more formal presentation:
+
+---
+
+# Geometric Distribution
+
+## Definition and Context
+
+- Geometric distributions model certain discrete random variables.
+- A Geometric random variable typically represents the number of trials required to obtain the first failure.
+  - Example: Number of coin tosses until the first "tail" appears.
+  - Example: Number of components tested until the first defective item is found.
+
+## Probability Distribution
+
+A discrete random variable \( X \) is said to follow a Geometric distribution with parameter \( p \), written as:
+
+\[
+X \sim \text{Ge}(p)
+\]
+
+The probability distribution is:
+
+\[
+P(X = x) = p^{x-1}(1 - p), \quad \text{for } x = 1, 2, 3, \ldots
+\]
+
+Where:
+- \( p \) is the probability of success, with \( 0 < p < 1 \)
+
+## Conditions for Geometric Trials
+
+The trials must satisfy the following:
+1. The total number of trials is potentially infinite.
+2. Each trial has only two outcomes: success or failure.
+3. Trials are statistically independent.
+4. The probability of success remains constant across trials.
+
+## Expected Value and Variance
+
+- Expected value:  
+  \[
+  E(X) = \frac{1}{1 - p}
+  \]
+- Variance:  
+  \[
+  V(X) = \frac{p}{(1 - p)^2}
+  \]
+
+## Relation to Binomial Distribution
+
+- Both distributions are based on independent trials with constant success probability \( p \).
+- Key difference:
+  - **Geometric**: Number of trials until the first failure.
+  - **Binomial**: Number of successes in a fixed number of trials.
+
+---
+
+# The Geometric Distribution (Alternate Form)
+
+## Bernoulli Trials
+
+- The geometric distribution is used for Bernoulli trials, where outcomes are classified as either success or failure.
+
+## Two Variants
+
+There are two common interpretations of the geometric distribution:
+
+1. **Number of trials until the first success**  
+   - Support: \( \{1, 2, 3, \ldots\} \)
+   - Probability:
+     \[
+     P(X = k) = (1 - p)^{k - 1} p, \quad \text{for } k = 1, 2, 3, \ldots
+     \]
+
+2. **Number of failures before the first success**  
+   - Support: \( \{0, 1, 2, 3, \ldots\} \)
+   - Probability:
+     \[
+     P(Y = k) = (1 - p)^k p, \quad \text{for } k = 0, 1, 2, 3, \ldots
+     \]
+
+> These two forms should not be confused. The first is sometimes called the **shifted geometric distribution**.
+
+## Geometric Sequence
+
+- In both cases, the sequence of probabilities forms a geometric sequence.
+
+## Example
+
+- Suppose a die is rolled repeatedly until a "1" appears.
+- The number of rolls follows a geometric distribution with:
+  - \( p = \frac{1}{6} \)
+  - Support: \( \{1, 2, 3, \ldots\} \)
+
+---
+Here's your extended content formatted in clean, structured Markdown with appropriate headings and math formatting:
+
+---
+
+# Geometric Distribution (Continued)
+
+## Expected Value and Variance
+
+For a geometrically distributed random variable \( X \) (representing the number of trials until the first success):
+
+\[
+\mathrm{E}(X) = \frac{1}{p}, \qquad \mathrm{Var}(X) = \frac{1 - p}{p^2}
+\]
+
+For a geometrically distributed random variable \( Y \) (representing the number of failures before the first success):
+
+\[
+\mathrm{E}(Y) = \frac{1 - p}{p}, \qquad \mathrm{Var}(Y) = \frac{1 - p}{p^2}
+\]
+
+## Bernoulli Trials
+
+- Consider an experiment with only two outcomes: success and failure.
+- Independent repeated trials of such an experiment are called **Bernoulli trials**, named after Jacob Bernoulli (1654–1705).
+- **Independent trials** mean that the outcome of any trial does not depend on previous outcomes (e.g., tossing a coin).
+- One outcome is designated as “success,” the other as “failure.”
+
+## Real-Life Analogy: Asking for a Dance
+
+- Suppose you're at a party asking girls to dance.
+- Let \( X \) be the number of girls you ask until one agrees.
+  - If the first girl accepts: \( X = 1 \)
+  - If the first declines and the second accepts: \( X = 2 \)
+  - And so on.
+
+### Probability Breakdown
+
+- Probability of failing on the first try: \( (1 - p) \)
+- Probability of failing on the first two tries: \( (1 - p)^2 \)
+- Probability of failing on the first \( n - 1 \) tries: \( (1 - p)^{n - 1} \)
+- Probability of succeeding on the \( n \)th try: \( p \)
+
+Thus, the probability mass function is:
+
+\[
+P(X = n) = (1 - p)^{n - 1} p
+\]
+
+This is the **geometric distribution**.
+
+### Geometric Sequence Insight
+
+- A sequence where each term is a constant multiple of the previous is called a **geometric sequence**.
+- In this case:
+  \[
+  \frac{P(X = n + 1)}{P(X = n)} = 1 - p
+  \]
+
+## Tail Probability
+
+- What is the probability that it takes more than \( n \) tries to succeed?
+- This is the same as failing \( n \) times in a row:
+
+\[
+P(X > n) = (1 - p)^n
+\]
+
+## Deriving the Expected Value
+
+To find \( \mathrm{E}(X) \), consider the infinite sum:
+
+\[
+S = \sum_{n=1}^{\infty} n p (1 - p)^{n - 1} = p + 2p(1 - p) + 3p(1 - p)^2 + \ldots
+\]
+
+Multiply both sides by \( (1 - p) \):
+
+\[
+(1 - p)S = p(1 - p) + 2p(1 - p)^2 + 3p(1 - p)^3 + \ldots
+\]
+
+Subtracting the second equation from the first gives a telescoping series that can be solved to yield:
+
+\[
+S = \frac{1}{p}
+\]
+
+Hence:
+
+\[
+\mathrm{E}(X) = \frac{1}{p}
+\]
+
+---
+Here's your full content, cleaned up and formatted in Markdown with clear structure, headings, and math expressions. I've also corrected some inconsistencies and clarified the notation where needed:
+
+---
+
+# Geometric Distribution
+
+## Overview
+
+- Geometric distributions model certain discrete random variables.
+- Typically, a Geometric random variable represents the number of trials required to obtain the first **success**.
+- Examples:
+  - Number of coin tosses until the first "tail" appears.
+  - Number of components tested until the first defective item is found.
+
+## Key Concept
+
+- A Geometric random variable counts the number of trials until the first **success**.
+- In contrast, a Binomial random variable counts the number of **successes** in a fixed number of trials.
+
+---
+
+## Probability Mass Function (PMF)
+
+A discrete random variable \( X \) is said to follow a Geometric distribution with parameter \( p \), written:
+
+\[
+X \sim \text{Geo}(p)
+\]
+
+There are two common forms of the geometric distribution:
+
+### 1. Number of Trials Until First Success (Support: \( x = 1, 2, 3, \ldots \))
+
+\[
+P(X = x) = (1 - p)^{x - 1} p
+\]
+
+### 2. Number of Failures Before First Success (Support: \( x = 0, 1, 2, \ldots \))
+
+\[
+P(Y = x) = (1 - p)^x p
+\]
+
+> Be sure to specify which version you're using, as both are referred to as "geometric distribution" in different contexts.
+
+---
+
+## Expected Value and Variance
+
+### For \( X \sim \text{Geo}(p) \) (trials until first success):
+
+\[
+\mathrm{E}(X) = \frac{1}{p}, \qquad \mathrm{Var}(X) = \frac{1 - p}{p^2}
+\]
+
+### For \( Y \sim \text{Geo}(p) \) (failures before first success):
+
+\[
+\mathrm{E}(Y) = \frac{1 - p}{p}, \qquad \mathrm{Var}(Y) = \frac{1 - p}{p^2}
+\]
+
+---
+
+## Deriving the Mean
+
+We want to compute:
+
+\[
+S = \sum_{n=1}^{\infty} n p (1 - p)^{n - 1}
+\]
+
+Multiply both sides by \( (1 - p) \):
+
+\[
+(1 - p)S = \sum_{n=1}^{\infty} n p (1 - p)^n
+\]
+
+Subtracting:
+
+\[
+S - (1 - p)S = pS = \sum_{n=1}^{\infty} p (1 - p)^{n - 1} = 1
+\]
+
+So:
+
+\[
+S = \frac{1}{p}
+\]
+
+> Therefore, the mean of the geometric distribution is \( \frac{1}{p} \).  
+> For example, if the probability of success is \( p = 0.2 \), then on average it will take \( \frac{1}{0.2} = 5 \) trials to succeed.
+
+---
+
+## Tail Probability
+
+What is the probability that it takes more than \( n \) trials to succeed?
+
+\[
+P(X > n) = (1 - p)^n
+\]
+
+This is the probability of failing \( n \) times in a row.
+
+---
+
+## Real-Life Analogy: Asking for a Dance
+
+- Suppose you're at a party asking people to dance.
+- Let \( X \) be the number of people you ask until one agrees.
+- If the first accepts: \( X = 1 \)
+- If the first declines and the second accepts: \( X = 2 \)
+- And so on.
+
+The probability of success on the \( n \)th try is:
+
+\[
+P(X = n) = (1 - p)^{n - 1} p
+\]
+
+This forms a geometric sequence, where:
+
+\[
+\frac{P(X = n + 1)}{P(X = n)} = 1 - p
+\]
+
+---
+
+## Example Calculation
+
+What is the probability that \( X \leq 4 \) when \( p = 0.2 \)?
+
+We compute:
+
+\[
+P(X \leq 4) = \sum_{k=1}^{4} (1 - 0.2)^{k - 1} \cdot 0.2
+\]
+
+Or, using the cumulative formula:
+
+\[
+P(X \leq 4) = 1 - (1 - p)^4 = 1 - (0.8)^4 = 1 - 0.4096 = 0.5904
+\]
+
+---
+Here's your content consolidated, cleaned up, and formatted in Markdown with consistent structure and no repetition. I've organized it into logical sections for clarity:
+
+---
+
+# Geometric Distribution
+
+## Definition
+
+A discrete random variable \( X \) is said to follow a Geometric distribution with parameter \( p \), written:
+
+\[
+X \sim \text{Ge}(p)
+\]
+
+It models the number of trials until the first **success** (or **failure**, depending on the convention used).
+
+There are two common interpretations:
+
+- **Trials until first success** (support: \( x = 1, 2, 3, \ldots \))  
+  \[
+  P(X = x) = (1 - p)^{x - 1} p
+  \]
+
+- **Failures before first success** (support: \( x = 0, 1, 2, \ldots \))  
+  \[
+  P(Y = x) = (1 - p)^x p
+  \]
+
+## Conditions for Geometric Trials
+
+The trials must satisfy the following:
+
+1. The total number of trials is potentially infinite.
+2. Each trial has exactly two outcomes: success or failure.
+3. The outcomes of all trials are statistically independent.
+4. The probability of success is constant across trials.
+
+## Properties
+
+### Expected Value and Variance
+
+For the version where \( X \) is the number of trials until the first success:
+
+\[
+\mathrm{E}(X) = \frac{1}{p}, \qquad \mathrm{Var}(X) = \frac{1 - p}{p^2}
+\]
+
+For the version where \( Y \) is the number of failures before the first success:
+
+\[
+\mathrm{E}(Y) = \frac{1 - p}{p}, \qquad \mathrm{Var}(Y) = \frac{1 - p}{p^2}
+\]
+
+> Note: Some sources use the alternate form:
+\[
+\mathrm{E}(X) = \frac{1}{1 - p}, \qquad \mathrm{Var}(X) = \frac{p}{(1 - p)^2}
+\]
+This corresponds to modeling the number of trials until the first **failure**.
+
+### Tail Probability
+
+The probability that it takes more than \( n \) trials to succeed:
+
+\[
+P(X > n) = (1 - p)^n
+\]
+
+## Relationship to Binomial Distribution
+
+- Both distributions are based on independent Bernoulli trials with constant success probability \( p \).
+- **Geometric**: Number of trials until the first success.
+- **Binomial**: Number of successes in a fixed number of trials.
+
+## Example
+
+Suppose the probability of success on each trial is \( p = 0.2 \). Then:
+
+- The expected number of trials until the first success is:
+  \[
+  \mathrm{E}(X) = \frac{1}{0.2} = 5
+  \]
+
+- The probability that success occurs on the 4th trial:
+  \[
+  P(X = 4) = (1 - 0.2)^{3} \cdot 0.2 = (0.8)^3 \cdot 0.2 = 0.1024
+  \]
+
+- The probability that it takes more than 4 trials:
+  \[
+  P(X > 4) = (1 - 0.2)^4 = 0.4096
+  \]
+
+---
+Here's your content fully cleaned up and formatted in Markdown with consistent structure, headings, and mathematical notation. I've organized it into three main sections: Geometric, Hypergeometric, and Binomial Distributions.
+
+---
+
+# Geometric Distribution
+
+## Probability Mass Function
+
+\[
+P(X = n) = (1 - p)^{n - 1} p
+\]
+
+\[
+P(X > n) = (1 - p)^n
+\]
+
+## Properties
+
+- Expected value:  
+  \[
+  \mathrm{E}[X] = \frac{1}{p}
+  \]
+
+- Variance:  
+  \[
+  \mathrm{Var}(X) = \frac{1 - p}{p^2}
+  \]
+
+---
+
+# Hypergeometric Distribution
+
+## Definition
+
+The hypergeometric distribution applies when sampling is done **without replacement** from a finite population. It models the probability of obtaining a certain number of successes in a fixed number of draws from a population containing a known number of successes and failures.
+
+### Conditions
+
+- Each draw results in one of two mutually exclusive outcomes (e.g., success/failure).
+- The probability of success changes with each draw because the population size decreases.
+
+## Probability Mass Function
+
+\[
+P(X = k) = \frac{\binom{K}{k} \binom{N - K}{n - k}}{\binom{N}{n}}
+\]
+
+Where:
+- \( N \): population size  
+- \( K \): number of success states in the population  
+- \( n \): number of draws  
+- \( k \): number of observed successes  
+- \( \binom{a}{b} \): binomial coefficient
+
+## Key Notes
+
+- The Bernoulli process does **not** apply here due to changing probabilities.
+- The hypergeometric distribution is appropriate when sampling without replacement from a finite population.
+
+## Alternative Formulation
+
+When selecting from two groups:
+
+\[
+P = \frac{\binom{n_1}{k_1} \binom{n_2}{k_2}}{\binom{n_T}{k_T}}
+\]
+
+Where:
+- \( k_T = k_1 + k_2 \)
+- \( n_T = n_1 + n_2 \)
+
+### Example
+
+- Select a group of 8 people from a population of 18.
+- Of the 18 people, 10 are male and 8 are female.
+- What is the probability that the selected group contains exactly 5 females?
+
+---
+
+# Binomial Distribution
+
+## Overview
+
+The binomial distribution models the number of successes in a fixed number of independent Bernoulli trials, each with the same probability of success.
+
+## Sample Mean
+
+- The sample mean (denoted \( \bar{x} \)) is the average of a data set.
+
+### Example
+
+Given a data set of five values, the sample mean is:
+
+\[
+\bar{x} = 44
+\]
+
+## Variance
+
+To calculate variance:
+
+- Measure the difference between each observation \( x \) and the mean \( \bar{x} \).
+- Square the differences to eliminate negatives.
+- The variance is the average of these squared differences.
+
+### Formula
+
+\[
+\sigma^2 = \frac{1}{n} \sum (x_i - \bar{x})^2
+\]
+
+- \( \sigma^2 \): population variance  
+- \( \sigma \): population standard deviation (square root of variance)
+
+> If calculating by hand, an easier formula may be used depending on the context.
+
+---
