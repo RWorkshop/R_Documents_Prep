@@ -1,0 +1,98 @@
+# Data Manipulation with `dplyr` and the RuffeSLRH92 Dataset
+
+This tutorial demonstrates how to use the `dplyr` package to manipulate and filter data from the `RuffeSLRH92` dataset, which is part of the `FSAdata` package. We'll also use the `plotrix` package for visualization.
+
+---
+
+## Load Required Packages
+
+Before starting, load the necessary packages:
+
+```r
+library(dplyr)
+library(FSAdata)
+library(plotrix)
+```
+
+---
+
+## Load and Explore the Dataset
+
+Load the `RuffeSLRH92` dataset and examine its structure:
+
+```r
+data(RuffeSLRH92)
+str(RuffeSLRH92)
+```
+
+---
+
+## Selecting Columns with `select()`
+
+The `select()` function is used to choose specific columns from a data frame.
+
+### Example: Remove Unnecessary Columns
+
+Remove the `fish.id`, `species`, `day`, and `year` columns to simplify the dataset:
+
+```r
+RuffeSLRH92 <- select(RuffeSLRH92, -fish.id, -species, -day, -year)
+head(RuffeSLRH92)
+```
+
+### Example: Keep Only `length` and `weight`
+
+Create a new data frame with just the `length` and `weight` columns:
+
+```r
+ruffeLW <- select(RuffeSLRH92, length, weight)
+head(ruffeLW)
+```
+
+### Example: Select Columns Containing a Specific Letter
+
+Use `contains()` to select all columns with names that include the letter "l":
+
+```r
+ruffeL <- select(RuffeSLRH92, contains("l"))
+str(ruffeL)
+```
+
+---
+
+## Filtering Rows with `filter()`
+
+The `filter()` function is used to extract rows that meet specific conditions.
+
+### Example: Filter for Males
+
+Select only rows where `sex` is `"male"`:
+
+```r
+male <- filter(RuffeSLRH92, sex == "male")
+xtabs(~sex, data = male)
+```
+
+### Dropping Unused Factor Levels
+
+Use `droplevels()` to remove unused factor levels:
+
+```r
+male <- droplevels(male)
+xtabs(~sex, data = male)
+# Output:
+# sex
+# male 
+#  201
+```
+
+### Example: Filter for Males Who Are Ripe
+
+Apply multiple conditions to filter rows:
+
+```r
+maleripe <- filter(RuffeSLRH92, sex == "male", maturity == "ripe")
+xtabs(~sex + maturity, data = maleripe)
+```
+
+---
