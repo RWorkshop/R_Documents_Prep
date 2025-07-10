@@ -1,0 +1,76 @@
+# Working with Dates and Times in R
+
+Handling dates and times is essential for time series analysis, logging, and data wrangling. R provides both base functions and powerful packages like `lubridate` and `hms` to simplify this process.
+
+---
+
+## Base R Date-Time Functions
+
+### `Sys.Date()`
+
+Returns the current system date.
+
+```r
+Sys.Date()
+# [1] "2023-09-16"
+```
+
+### `Sys.time()`
+
+Returns the current system date and time.
+
+```r
+Sys.time()
+# [1] "2023-09-16 09:08:57 BST"
+```
+
+### Checking Object Classes
+
+```r
+class(Sys.Date())
+# [1] "Date"
+
+class(Sys.time())
+# [1] "POSIXct" "POSIXt"
+```
+
+### Converting Strings to Dates
+
+```r
+as.Date("2021-10-10")
+# [1] "2021-10-10"
+```
+
+---
+
+## Using the `lubridate` Package
+
+The `lubridate` package simplifies parsing and manipulating date-time objects.
+
+### `ymd()` — Parse Year-Month-Day Format
+
+```r
+library(lubridate)
+
+ymd("2021-10-10")
+# [1] "2021-10-10"
+```
+
+Other useful functions include:
+- `mdy()` for Month-Day-Year
+- `dmy()` for Day-Month-Year
+
+---
+
+## Using the `hms` Package
+
+The `hms` package is useful for handling time-of-day values (hours, minutes, seconds).
+
+```r
+library(hms)
+
+as_hms("12:34:56")
+# 12:34:56
+```
+
+---
