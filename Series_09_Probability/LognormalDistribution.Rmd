@@ -1,60 +1,89 @@
-Lognormal Distribution {data-navmenu="Continuous Distributions"}
-=====================================
+Here's your content reformatted in clean, structured Markdown with consistent headings, math formatting, and improved readability:
 
-Column {.tabset}
--------------------------------------------------
+---
 
+# Lognormal Distribution
 
-### The Lognormal Distribution
+## Overview
 
-A lognormal distribution is a continuous probability distribution of a random variable whose logarithm is normally distributed. Thus, if the random variable X is log-normally distributed, then $Y = ln(X)$ has a normal distribution. 
-<p>
-Equivalently, if Y has a normal distribution, then the exponential function of Y, $X = \exp(Y)$, has a log-normal distribution. 
+A **lognormal distribution** is a continuous probability distribution of a random variable whose logarithm is normally distributed.
 
-<p>
------------------------------------------------
-<h4>Probability Density Function</h4>
-\[ f(x) = {\displaystyle {\frac {1}{x\sigma {\sqrt {2\pi }}}}\ \exp \left(-{\frac {\left(\ln x-\mu \right)^{2}}{2\sigma ^{2}}}\right)} \mbox{ for } x>0\]
+- If a random variable \( X \) is lognormally distributed, then:
+  \[
+  Y = \ln(X) \sim \mathcal{N}(\mu, \sigma^2)
+  \]
+- Conversely, if \( Y \sim \mathcal{N}(\mu, \sigma^2) \), then:
+  \[
+  X = \exp(Y)
+  \]
+  follows a lognormal distribution.
 
-<p>
------------------------------------------------
-<h4>Mean</h4>
-$$ { E(X) = \exp \left(\mu +{\frac {\sigma ^{2}}{2}}\right)} $$
-<h5>Variance:</h5>	$$ { \operatorname{Var}(X) = \left[\exp(\sigma ^{2})-1\right]\exp(2\mu +\sigma ^{2})} $$
+---
 
-<h5>Skewness:</h5>	$$ { \operatorname{Skewness}(X) = (\exp(\sigma ^{2})+2){\sqrt {\exp(\sigma ^{2})-1}}} $$
+## Probability Density Function (PDF)
 
+For \( x > 0 \), the PDF of a lognormal distribution is:
 
-### Worked Examples
+\[
+f(x) = \frac{1}{x \sigma \sqrt{2\pi}} \exp\left( -\frac{(\ln x - \mu)^2}{2\sigma^2} \right)
+\]
 
-<h3>Worked Example 1</h3>
+---
 
-In a certain chemical plant, the concentration of pollutants (X-in parts per million) has
-lognormal distribution with parameter $ \mu =3.2$ and $ \sigma =1$
+## Moments
 
-<h5>Exercises</h5>
+- **Mean**:
+  \[
+  \mathrm{E}(X) = \exp\left( \mu + \frac{\sigma^2}{2} \right)
+  \]
 
-a. Write the pdf of $ X$
-b. Compute the mean and variance of $ X$
-c. Compute the probability that the concentration exceeds 8 parts per million
+- **Variance**:
+  \[
+  \mathrm{Var}(X) = \left[ \exp(\sigma^2) - 1 \right] \exp(2\mu + \sigma^2)
+  \]
 
-<h5>Solution</h5>
+- **Skewness**:
+  \[
+  \mathrm{Skewness}(X) = \left( \exp(\sigma^2) + 2 \right) \sqrt{ \exp(\sigma^2) - 1 }
+  \]
 
-* <a href="https://youtu.be/OAuLfxP6uuM/">	Lognormal Distribution - Worked Example	</a>	
+---
 
----------------------------------------------
+## Worked Examples
 
-<h3>Worked Example 2</h3>
+### Example 1
 
-The random variable $ Y = \log X$ has $ N (10, 4)$ distribution. Find
+In a chemical plant, the concentration of pollutants \( X \) (in parts per million) follows a lognormal distribution with parameters:
 
+- \( \mu = 3.2 \)
+- \( \sigma = 1 \)
 
+#### Exercises
 
-a. The pdf of $ X$
-b. Mean and variance of $ X$
-c. P($ X \leq 1000$)
+a. Write the PDF of \( X \)  
+b. Compute the mean and variance of \( X \)  
+c. Compute the probability that the concentration exceeds 8 ppm
 
-<h5>Solution</h5>
+#### Solution
 
-* <a href="https://youtu.be/fCpnksxKPEY/">	Lognormal Distribution - Worked Example	</a>	
+📺 [Watch the solution on YouTube](https://youtu.be/OAuLfxP6uuM/)
 
+---
+
+### Example 2
+
+Let \( Y = \log X \) follow a normal distribution:
+
+- \( Y \sim \mathcal{N}(10, 4) \)
+
+#### Tasks
+
+a. Find the PDF of \( X \)  
+b. Compute the mean and variance of \( X \)  
+c. Find \( P(X \leq 1000) \)
+
+#### Solution
+
+📺 [Watch the solution on YouTube](https://youtu.be/fCpnksxKPEY/)
+
+---
