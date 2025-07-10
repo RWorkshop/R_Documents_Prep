@@ -20,7 +20,64 @@ library(agop)
 ```
 
 ---
+To determine the **average amount paid by the insurer** given a loss has occurred and the loss follows a Pareto Type II distribution with a deductible, we need to compute the **expected payment above the deductible**.
 
+---
+
+## 📘 Problem Setup
+
+- Losses \( X \sim \text{Pareto Type II}(\alpha = 3.5, \theta = 5000) \)
+- Deductible: \( d = 500 \)
+- We want:  
+  \[
+  \mathbb{E}[\text{Payment} \mid X > d] = \mathbb{E}[X - d \mid X > d]
+  \]
+
+This is the **mean excess loss** over the deductible, also known as the **conditional mean residual life**.
+
+---
+
+## 🧮 Step-by-Step Solution
+
+For a Pareto Type II distribution, the conditional expectation is:
+
+\[
+\mathbb{E}[X - d \mid X > d] = \frac{\theta + d}{\alpha - 1} - d
+\]
+
+### Plug in the values:
+
+- \( \alpha = 3.5 \)
+- \( \theta = 5000 \)
+- \( d = 500 \)
+
+\[
+\mathbb{E}[X - 500 \mid X > 500] = \frac{5000 + 500}{3.5 - 1} - 500 = \frac{5500}{2.5} - 500 = 2200 - 500 = 1700
+\]
+
+---
+
+## ✅ Final Answer
+
+**The average amount paid by the insurer is \$1,700.**
+
+---
+
+## 🔍 Optional: R Code (for verification)
+
+While the `agop` package is useful for actuarial functions, this specific calculation can be done directly:
+
+```r
+alpha <- 3.5
+theta <- 5000
+d <- 500
+
+expected_payment <- ((theta + d) / (alpha - 1)) - d
+expected_payment
+# [1] 1700
+```
+
+Let me know if you'd like to visualize the distribution or explore how the deductible affects the expected payment!
 
 %%- https://actuarialmodelingpractice.wordpress.com/2017/10/29/practice-problem-set-4-pareto-distribution/
 
