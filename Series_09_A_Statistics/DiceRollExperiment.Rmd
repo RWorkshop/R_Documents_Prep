@@ -1,31 +1,60 @@
-### Central Limit Theorem
+---
 
-Hypothesis testing and confidence interval construction are based on the ***Central Limit Theorem***.
+### Central Limit Theorem (CLT)
 
-We will simulate the outcome of one roll of a fair die. (both of the following pieces of code can be used to roll a die).
-<pre><code>
-Dice1=floor(runif(50,min=1,max=7))  
+The **Central Limit Theorem (CLT)** is a foundational concept in statistics. It states that, given a sufficiently large sample size, the sampling distribution of the sample mean will approximate a normal distribution—regardless of the original distribution of the data.
 
-Dice2=sample(1:6,1,replace=T)
-</code></pre>
-A simple demonstration of the central limit theorem is given by the problem of rolling a large number of dice repeatedly. 
-The distribution of the sum (or average) of the rolled numbers will be well approximated by a normal distribution, the parameters of which can be determined empirically.
-<pre><code>
-N=100    #number of loops
-myDiceSums=numeric(N)  #array “myDiceSums” store the sample means
-for( i in 1:N)
-     { 
-     Dice=floor(runif(50,min=1,max=7));
-     myDiceSums[i]=mean(Dice)  
-} 
-myDiceSums    #print myDiceSums dataset to screen
-</code></pre>
+This principle underpins many statistical methods, including:
+- Hypothesis testing
+- Confidence interval construction
 
-Lets look at the distribution of the means. Are they normally distributed?
+---
 
-<pre><code>
-mean(myDiceSums)  #compute the mean. 
-qqnorm(myDiceSums)#draws a QQ plot
-qqline(myDiceSums)#adds trend line to QQplot.
-shapiro.test(myDiceSums)  #Shapiro Wilk test. 
-</code></pre>
+### Simulating Dice Rolls in R
+
+Let’s explore the CLT using a simple simulation: rolling a fair six-sided die.
+
+You can simulate a single die roll using either of the following R commands:
+
+```r
+Dice1 <- floor(runif(50, min = 1, max = 7))  # Uniform random integers from 1 to 6
+Dice2 <- sample(1:6, 1, replace = TRUE)      # Random sample from 1 to 6
+```
+
+---
+
+### Demonstrating the CLT with Dice Averages
+
+To demonstrate the CLT, we’ll simulate rolling 50 dice, compute the average, and repeat this process 100 times. The resulting distribution of sample means should approximate a normal distribution.
+
+```r
+N <- 100  # Number of simulations
+myDiceSums <- numeric(N)  # Store sample means
+
+for (i in 1:N) {
+  Dice <- floor(runif(50, min = 1, max = 7))  # Simulate 50 dice rolls
+  myDiceSums[i] <- mean(Dice)                # Store the mean
+}
+
+myDiceSums  # View the sample means
+```
+
+---
+
+### Analyzing the Distribution of Sample Means
+
+Let’s assess whether the sample means are normally distributed:
+
+```r
+mean(myDiceSums)         # Compute the overall mean
+qqnorm(myDiceSums)       # Generate a Q-Q plot
+qqline(myDiceSums)       # Add a reference line to the Q-Q plot
+shapiro.test(myDiceSums) # Perform the Shapiro-Wilk normality test
+```
+
+- The **Q-Q plot** visually compares the distribution of sample means to a normal distribution.
+- The **Shapiro-Wilk test** provides a formal test for normality.
+
+If the points in the Q-Q plot fall roughly along the line and the Shapiro-Wilk test returns a high p-value (typically > 0.05), we have evidence that the sample means are approximately normally distributed—just as the CLT predicts.
+
+---
