@@ -1,0 +1,57 @@
+
+# Working with Text in R
+
+Text manipulation is a common task in data cleaning and reporting. R provides both base functions and packages like `stringr` and `glue`.
+
+---
+
+## Base R String Functions
+
+### `paste0()`
+
+Concatenates strings without spaces.
+
+```r
+paste0("Hello", "World")
+# [1] "HelloWorld"
+```
+
+### `substr()`
+
+Extracts or replaces substrings.
+
+```r
+Old_Text <- "Example"
+New_Text <- substr(Old_Text, 1, 2)
+New_Text
+# [1] "Ex"
+```
+
+---
+
+## Using the `stringr` Package
+
+The `stringr` package (part of the tidyverse) provides consistent and easy-to-use string functions.
+
+```r
+library(stringr)
+
+str_length("Hello")
+# [1] 5
+```
+
+---
+
+## Using the `glue` Package
+
+The `glue` package allows for elegant string interpolation.
+
+```r
+library(glue)
+
+name <- "Alice"
+glue("Hello, {name}!")
+# Hello, Alice!
+```
+
+---
