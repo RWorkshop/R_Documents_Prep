@@ -1,0 +1,19 @@
+
+# Computing with `R`
+
+## The `all` and `any` Commands
+
+
+## Understanding `any` and `all` in R
+
+### `any`
+
+- Checks if **at least one** value in a logical vector is `TRUE`.
+- Returns `TRUE` if **any** element is `TRUE`.
+
+### `all`
+
+- Checks if **all** values in a logical vector are `TRUE`.
+- Returns `TRUE` only if **every** element is `TRUE`.
+
+---
